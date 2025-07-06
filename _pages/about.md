@@ -30,19 +30,11 @@ latest_posts:
 
 Nothing very special here, just a normal guy who likes deep learning.
 
-## My Journey: From Navy to Neural Networks
+I am currently working as a Research Assistant at Syddansk Universitet - University of Southern Denmark, participating in machine learning research projects in the data and intelligence lab. I'm passionate about building machine learning pipelines, writing research papers, and exploring the fascinating intersection between research and entrepreneurship.
 
-My path to academia isn't exactly a straight line. After moving from Thailand to Germany at 13, I served in the German Navy for four years, where I earned formal recognition and an outstanding performance award. Afterwards, I moved to Denmark for my studies and co-founded two startups. I left the second company (which is still running) because I discovered my real passion isn't in business, but in academic research.
+My path to academia isn't exactly a straight line - after moving from Thailand to Germany at 13, I served in the German Navy for four years, then moved to Denmark for my studies and co-founded two startups. I discovered my real passion isn't in business, but in academic research. I've been fortunate to work with Associate Professor Serkan Ayvaz, who has given me the freedom to formulate my own research ideas. I'm first author on several projects, including a paper accepted at KES 2025.
 
-I've been a research assistant with Associate Professor Serkan Ayvaz in the Data and Intelligence Lab since my third semester at SDU. Since my software engineering program doesn't have a formal ML course, everything I know is self-taught, guided by discussions with him. He's given me the freedom to formulate my own research ideas on specific topics, and it's been an incredibly productive time. I'm the first author on all my projects: my paper on image segmentation was accepted at KES 2025, I have a survey paper under review, and another in preparation. On one project, I even managed to outperform a deep learning SOTA model for fruit quality analysis with hyperspectral camera by using traditional ML with careful data engineering, feature engineering, and hyperparameter tuning.
-
-Outside of research, I love testing my skills in competitions. I recently won the SDU sustainability case competition, placed in the top 10 in a national AI competition, and took part in the MIT AI Global Hackathon.
-
-## Research Interests & Future Goals
-
-My interest in psychology, philosophy, and neuroscience is what's pulling me from computer vision toward the cognitive side of AI. Lately, I've been thinking about deeper concepts, like how we might formalize 'model dreaming' and if it could be a way for models to learn from their own internally generated realities. This seems especially relevant for preventing future 'model collapse' as the internet becomes saturated with non-human data. It is these foundational challenges, alongside the current debate on model reasoning, that drive my desire to work on trustworthiness and explainability in AI systems.
-
-My long-term goal is to pursue a PhD and build a career as an ML researcher, or perhaps one day become a professor. I believe the best preparation for this path is to tackle the fundamental problems in our field, which is why I'm drawn to research on cognitively grounded, trustworthy AI systems.
+My interest in psychology, philosophy, and neuroscience is pulling me from computer vision toward the cognitive side of AI. I'm particularly fascinated by concepts like 'model dreaming' and how models might learn from their own internally generated realities. My long-term goal is to pursue a PhD and build a career as an ML researcher, focusing on trustworthy and explainable AI systems.
 
 **Languages:**
 - German (Native)
