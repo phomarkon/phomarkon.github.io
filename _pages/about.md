@@ -7,7 +7,7 @@ subtitle: Future Researcher with Entrepreneurial Spirit
 profile:
   align: right
   image: profile_img.png
-  image_circular: false # crops the image to make it circular
+  image_circular: false
   more_info: >
     <p>📧 phongsakon@outlook.dk</p>
     <p>📍 Sønderborg, Region Süddänemark, Denmark</p>
@@ -33,13 +33,13 @@ Nothing very special here, just a normal guy, who likes deep learning.
 I am currently working as a Research Assistant at Syddansk Universitet - University of Southern Denmark, participating in machine learning research projects in the data and intelligence lab. I'm passionate about building machine learning pipelines, writing research papers, and exploring the fascinating intersection between research and entrepreneurship.
 
 **Languages:**
-- Thai (Native)
-- English (Professional Working)
 - German (Native)
+- English (Professional Working)
+- Thai (Native)
 - Danish (Elementary)
 
 **Top Skills:**
 - Machine Learning & Deep Learning
-- Full-Stack Development
 - Research & Academia
+- Software Engineering
 - Entrepreneurship
