@@ -8,9 +8,9 @@
     - name: LinkedIn
       value: linkedin.com/in/phongsakonmarkkonrad
     - name: Location
-      value: Sønderborg, Region Süddänemark, Denmark
+      value: Sønderborg, Region Southern Denmark, Denmark
     - name: Summary
-      value: Nothing very special here, just a normal guy, who likes deep learning.
+      value: TLDR:Nothing very special here, just a normal guy, who likes deep learning.
     - name: Languages
       value: German(Native), Thai(Native), English(Professional), Danish(Elementary)
 
@@ -19,13 +19,13 @@
   contents:
     - title: Bachelor of Science - Software Engineering
       institution: Syddansk Universitet - University of Southern Denmark
-      year: September 2023 - June 2026
+      year: 09/2023 - 06/2026
       description:
         - Currently pursuing degree in Software Engineering
         - Focus on machine learning and software development
     - title: Bachelor of Science - Mathematics and Economics
       institution: FernUniversität in Hagen
-      year: 2021 - 2022
+      year: 09/2021 - 06/2022
       description:
         - Studies in Mathematics and Economics
         - Completed partial coursework
@@ -35,7 +35,7 @@
   contents:
     - title: Research Assistant
       institution: Syddansk Universitet - University of Southern Denmark
-      year: September 2024 - Present
+      year: 09/2024 - Present
       description:
         - Participating in machine learning research projects in the data and intelligence lab at SDU
         - Building machine learning pipelines and writing papers from scratch
@@ -44,7 +44,7 @@
         - This is perhaps my newest obsession
     - title: AI Engineer
       institution: Stealth Startup (Volunteer)
-      year: January 2025 - April 2025
+      year: 01/2025 - 04/2025
       description:
         - Volunteered to work on a recommendation system in a startup, just for some experience and fun
         - The recommendation system is for a mobile auction application
@@ -54,7 +54,7 @@
         - The startup is an auction platform for B2C with tinder experience
     - title: CTO
       institution: Tutora
-      year: June 2024 - November 2024
+      year: 06/2024 - 11/2024
       description:
         - Took the lead in building web applications and websites for the company
         - Brought the experience from the previous company with me and tried to reduce the mistakes, which worked out quite well
@@ -63,7 +63,7 @@
         - Also got an offer to do something in research, so I went for that
     - title: Co-Founder & Co-CEO
       institution: Yeager GmbH
-      year: November 2022 - June 2024
+      year: 11/2022 - 06/2024
       description:
         - We were driven by the vision to build a truly innovative mobile app for powerlifters
         - As a first-time founder, I dove into everything from UX/UI concepts to the full stack, with a core focus on developing intelligent algorithms
@@ -72,7 +72,7 @@
         - We embraced lean startup principles, and while the journey was full of learning curves typical of a first venture, the ambition was definitely there
     - title: Staff Duty Soldier
       institution: Bundeswehr Wir. Dienen. Deutschland.
-      year: October 2017 - September 2021
+      year: 10/2017 - 09/2021
       description:
         - Military training forged me into a disciplined person and a strong team player, earning me two awards along the way
         - Leading a small team within HR, I was responsible for the administration of 600+ soldiers
@@ -83,7 +83,7 @@
   contents:
     - title: Teaching Assistant - AI Course
       institution: Syddansk Universitet - University of Southern Denmark
-      year: February 2026 - June 2026
+      year: 02/2026 - 06/2026
       description:
         - Teaching Assistant under Associate Professor Serkan Ayvaz
         - Supporting AI course instruction and student guidance
