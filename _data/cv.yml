@@ -5,143 +5,158 @@
       value: Phongsakon Mark Konrad
     - name: Email
       value: phongsakon@outlook.dk
+    - name: Phone
+      value: +45 55240158
     - name: LinkedIn
       value: linkedin.com/in/phongsakonmarkkonrad
+    - name: GitHub
+      value: github.com/phomarkon
+    - name: Website
+      value: phomarkon.github.io
     - name: Location
-      value: Sønderborg, Region Southern Denmark, Denmark
+      value: Sonderborg, Denmark
     - name: Summary
-      value: TLDR:Nothing very special here, just a normal guy, who likes deep learning.
+      value: My path to research has been, like my life, anything but conventional. It began in Thailand, moved through a youth in Germany, and now continues in Denmark, a journey that has taught me to see the world from multiple perspectives. I've served in the military and built startups from scratch; I've seen how systems are run and how they are born. These experiences were invaluable, but they ultimately revealed that my true passion wasn't just in building things, but in a deeper question: how do things learn? This is the question that now drives me. My current work in computer vision is my practical anchor in machine learning, but my intellectual curiosity pulls me toward the foundational puzzle of intelligence. I hold a growing conviction that the path toward more general and robust intelligence lies not in the brute force of bigger models and more data, but in discovering better, more fundamental principles. I believe the next breakthroughs will emerge from a deeper understanding of learning and reasoning itself. This is why I am less captivated by what a model can be engineered to do, and far more by what it might be guided to genuinely understand. This is the "great puzzle" I want to dedicate my PhD adventure to, to explore the internal world of models, to investigate the first principles of reasoning in LLMs, and to grapple with what makes an AI truly trustworthy. My journey has given me a unique perspective, and I am convinced the future of AI will not just be built on scale, but discovered through insight.
     - name: Languages
       value: German(Native), Thai(Native), English(Professional), Danish(Elementary)
 
 - title: Education
   type: time_table
   contents:
-    - title: Bachelor of Science - Software Engineering
-      institution: Syddansk Universitet - University of Southern Denmark
-      year: 09/2023 - 06/2026
+    - title: Bachelor of Science (BSc), Software Engineering
+      institution: University of Southern Denmark (SDU)
+      year: 2022 -- 2026
       description:
-        - Currently pursuing degree in Software Engineering
-        - Focus on machine learning and software development
-    - title: Bachelor of Science - Mathematics and Economics
-      institution: FernUniversität in Hagen
-      year: 09/2021 - 06/2022
-      description:
-        - Studies in Mathematics and Economics
-        - Completed partial coursework
+        - A practical, project-centric curriculum where theoretical knowledge is applied in mandatory, semester-long team projects
+        - These projects involve developing complex, data-intensive software systems in domains like IoT and AI, often in collaboration with industry partners
 
-- title: Experience
+- title: Publications
+  type: list
+  contents:
+    - <b>[1]</b> <b>P. M. Konrad</b>, T. Tanyel, and S. Ayvaz (2025). <b>Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas</b>. In <i>29th International Conference on Knowledge-Based and Intelligent Information & Engineering Systems (KES 2025)</i>. (Accepted)
+    - <b>[2]</b> <b>P. M. Konrad</b>, Y. Sabzehmeidani, A. Popa, and S. Ayvaz (2025). <b>Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications</b>. (Under Review)
+    - <b>[3]</b> <b>P. M. Konrad</b>, J. P. Musiol, and S. Ayvaz (2025). <b>Large Language, Vision–Language and Multimodal Foundation Models for Satellite Remote Sensing</b>. (Work in Progress)
+    - <b>[4]</b> <b>P. M. Konrad</b> and S. Ayvaz (2025). <b>Classical Comeback: Traditional ML Outperforms Deep Learning for Hyperspectral Fruit Quality Assessment</b>. (Work in Progress)
+    - <b>[5]</b> <b>P. M. Konrad</b>, S. Ayvaz, Y. Sabzehmeidani, A. Popa, and E. A. Liehn (2025). <b>How to Segment Images When You Have Almost No Data: An Empirical Comparison of Pre-training and Foundation Models</b>. (Work in Progress)
+    - <b>[6]</b> <b>P. M. Konrad</b> and S. Ayvaz (2025). <b>Deep Patch Traversal: HS-SSAE's Hierarchical SSM Layers for SAR Anomaly Detection</b>. (Explorative Research)
+
+- title: Research Experience
   type: time_table
   contents:
-    - title: Research Assistant
-      institution: Syddansk Universitet - University of Southern Denmark
-      year: 09/2024 - Present
+    - title: Student Research Assistant
+      institution: Data and Intelligence Lab, SDU
+      year: Sep 2024 -- Present
       description:
-        - Participating in machine learning research projects in the data and intelligence lab at SDU
-        - Building machine learning pipelines and writing papers from scratch
-        - Learning how to perform solid research activities and how the academia game works
-        - Surprisingly found a lot of similarity between research and startups
-        - This is perhaps my newest obsession
-    - title: AI Engineer
-      institution: Stealth Startup (Volunteer)
-      year: 01/2025 - 04/2025
-      description:
-        - Volunteered to work on a recommendation system in a startup, just for some experience and fun
-        - The recommendation system is for a mobile auction application
-        - Went with heuristic AI approach with modular layers
-        - The startup had not enough data and faced the famous cold start problem
-        - Definitely learnt quite a bit and it was fun to explore
-        - The startup is an auction platform for B2C with tinder experience
+        - Developing end-to-end machine learning projects, from co-initiating concepts to building scalable ML pipelines and executing experiments
+        - Co-authoring academic papers for publication, contributing to manuscript drafting, literature reviews, and the revision process
+        - Assisting in the drafting and preparation of grant proposals to secure research funding
+        - Managing the full research data lifecycle, including multimodal data collection, processing, and documentation
+
+- title: Professional Experience
+  type: time_table
+  contents:
     - title: CTO
-      institution: Tutora
-      year: 06/2024 - 11/2024
+      institution: Tutora ApS
+      year: Jun 2024 -- Present
       description:
-        - Took the lead in building web applications and websites for the company
-        - Brought the experience from the previous company with me and tried to reduce the mistakes, which worked out quite well
-        - Followed the 'Shape Up' framework from 37 signals instead of SCRUM (not a big fan of it either way)
-        - Finished the websites, web application, did not want to become a maintainer, but more a builder
-        - Also got an offer to do something in research, so I went for that
-    - title: Co-Founder & Co-CEO
+        - Designing and developing the tutora.dk end-to-end web application for a tutoring platform
+        - Leading technical implementation using lean startup principles
+    - title: Co-CEO and Co-Founder
       institution: Yeager GmbH
-      year: 11/2022 - 06/2024
+      year: Nov 2022 -- Present
       description:
-        - We were driven by the vision to build a truly innovative mobile app for powerlifters
-        - As a first-time founder, I dove into everything from UX/UI concepts to the full stack, with a core focus on developing intelligent algorithms
-        - These algorithms were designed to personalize training through individual data, incorporating MRV and MEV
-        - Even dynamically adapting workouts based on daily check-ins and intraset feedback – a pretty cool concept for its time
-        - We embraced lean startup principles, and while the journey was full of learning curves typical of a first venture, the ambition was definitely there
+        - Developed stabil.ai, an AI-powered mobile application providing personalized powerlifting training
+        - Designed and implemented intuitive UI/UX solutions
     - title: Staff Duty Soldier
-      institution: Bundeswehr Wir. Dienen. Deutschland.
-      year: 10/2017 - 09/2021
+      institution: Bundeswehr (German Armed Forces)
+      year: 2017 -- 2021
       description:
-        - Military training forged me into a disciplined person and a strong team player, earning me two awards along the way
-        - Leading a small team within HR, I was responsible for the administration of 600+ soldiers
-        - Streamlining processes to ensure everything ran with logic and efficiency
+        - Managed administrative tasks and streamlined document workflows in a high-stakes naval command environment
 
-- title: Teaching Experience
+- title: Personal Projects
   type: time_table
   contents:
-    - title: Teaching Assistant - AI Course
-      institution: Syddansk Universitet - University of Southern Denmark
-      year: 02/2026 - 06/2026
+    - title: Binary Cell Classification
+      institution: Tools: PyTorch, CUDA, Scikit-learn, Pandas
+      year: 2024
       description:
-        - Teaching Assistant under Associate Professor Serkan Ayvaz
-        - Supporting AI course instruction and student guidance
-        - Assisting with course materials and student assessments
+        - Implemented and optimized deep learning models for a national AI competition
+        - Focused on the classification of cellular images, contributing to computational biology research
+        - GitHub: github.com/phomarkon/cell-classification
+    - title: Stock Price Prediction
+      institution: Tools: Scikit-learn, Pandas, NumPy
+      year: 2023
+      description:
+        - Developed a Random Forest algorithm to predict stock price movements using technical indicators
+        - Achieved a predictive accuracy that outperformed simple market averages in back-testing simulations
+        - GitHub: github.com/phomarkon/randomforest-stock-price-prediction
+    - title: Twitter Sentiment Analysis
+      institution: Tools: NLTK, Scikit-learn, Pandas
+      year: 2023
+      description:
+        - Utilized NLP techniques to analyze Twitter sentiment and its influence on stock market prices
+        - Successfully back-tested investment strategies, achieving returns comparable to major indices
+        - GitHub: github.com/phomarkon/twitter-sentiment-investing-strategy
 
-- title: Certifications
-  type: time_table
+- title: Skills
+  type: nested_list
   contents:
-    - title: Foundational C# with Microsoft
-      year: Recent
-      description: Microsoft certification in C# programming fundamentals
-    - title: Full-Stack Engineer Career Path
-      year: Recent
-      description: Comprehensive full-stack development certification
-    - title: React Native Course
-      year: Recent
-      description: Mobile app development with React Native
-    - title: Google UX Design Professional Certificate
-      year: Recent
-      description: Professional certification in UX design principles
-    - title: Certified Specialist for Real Estate Loan Brokerage IHK
-      year: Recent
-      description: Professional certification in real estate and finance
+    - title: Programming Languages
+      items:
+        - Python, JavaScript, SQL
+    - title: ML Libraries
+      items:
+        - PyTorch, Hugging Face, Scikit-learn, Pandas, NumPy, CUDA
+    - title: ML Engineering
+      items:
+        - Data & Feature Engineering, Hyperparameter Tuning (Optuna, Weights & Biases Sweeps), Experiment Tracking (Weights & Biases)
+    - title: Web Development
+      items:
+        - React, Node.js, Express, HTML/CSS
+    - title: Tools & Platforms
+      items:
+        - Git, Docker, Google Cloud Platform, Vercel
 
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 2025
-      items:
-        - Participation in MIT Global AI Hackathon 2025
-    - year: 2024
-      items:
-        - Top Ten DMAI 2024 (Danish AI Competition)
-        - 1st Place in SDU Case Competition - Beyond Sustainability
-        - Formal Recognition
-        - Awarding of Outstanding Performance Bonus
+    - title: Top-10 Placement
+      institution: Danish National Championship in AI (DM i AI)
+      year: 2024
+      description:
+        - Achieved top-tier placement in a prestigious national competition for students and professionals, organized by the Danish Society for Artificial Intelligence
+    - title: 1st Place, SDU Case Competition
+      institution: SDU Sønderborg
+      year: 2023
+      description:
+        - Awarded 1st place out of numerous teams in an intensive 48-hour competition focused on sustainability
+        - An Event with cases from leading danish companies such as Danfoss or Linak
+        - Developed the winning solution for a real-world business case presented by the company WE-USE
+    - title: Formal Recognition for Exemplary Service
+      institution: Bundeswehr (German Armed Forces)
+      year: 2021
+      description:
+        - Formally commended for setting a benchmark in dedication, officially designating him as an exemplar of professionalism for all enlisted personnel
+        - Recognized for demonstrating an exceptionally optimistic and creative work ethic, proactively seeking out new responsibilities beyond his core duties, and thereby making a direct contribution to the unit's operational readiness and mission success
+    - title: Performance Bonus for Outstanding Achievement
+      institution: Bundeswehr (German Armed Forces)
+      year: 2021
+      description:
+        - Awarded a significant and rarely-issued financial bonus for sustained, far above-average performance that consistently exceeded all expectations
+        - Singled out for demonstrating an impeccable work morale and a profound sense of duty, trusted to independently manage complex tasks to the highest quality standards. His high social competence was noted as a key factor in improving the workload of superiors and fostering a positive and effective operational climate
 
-- title: Academic Interests
-  type: nested_list
+- title: Certifications
+  type: time_table
   contents:
-    - title: Machine Learning & Deep Learning
-      items:
-        - Building machine learning pipelines
-        - Research in data and intelligence
-        - Recommendation systems and AI algorithms
-    - title: Software Engineering
-      items:
-        - Full-stack development
-        - Mobile app development
-        - System architecture and design
-    - title: Research & Academia
-      items:
-        - Academic paper writing
-        - Research methodologies
-        - Intersection of research and entrepreneurship
-
-- title: Other Interests
-  type: list
-  contents:
-    - <u>Skills:</u> Early Sleeper, Team Leadership, Process Optimization
-    - <u>Interests:</u> Entrepreneurship, Powerlifting, Technology Innovation
+    - title: Machine Learning
+      institution: Stanford Online
+      year: 2024
+      description: Professional certification in machine learning fundamentals and applications
+    - title: Google UX Design Professional
+      institution: Google
+      year: 2023
+      description: Professional certification in UX design principles and methodologies
+    - title: Full-Stack Engineer Career Path
+      institution: Codecademy
+      year: 2023
+      description: Comprehensive full-stack development certification
