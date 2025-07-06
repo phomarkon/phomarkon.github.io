@@ -62,7 +62,7 @@ ninja.data = [{
         
           title: "Welcome",
         
-        description: "A warm welcome and introduction to my personal website",
+        description: "A few words on what this place is for.",
         section: "Posts",
         handler: () => {
           
@@ -96,28 +96,23 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-started-my-research-assistant-position-at-sdu-excited-to-dive-into-machine-learning-research-projects",
-          title: 'Started my Research Assistant position at SDU! 🎓 Excited to dive into machine...',
-          description: "",
-          section: "News",},{id: "news-completed-1st-place-in-sdu-case-competition",
+            },},{id: "news-completed-1st-place-in-sdu-case-competition",
           title: 'Completed 1st Place in SDU Case Competition',
           description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_2/";
-            },},{id: "news-achieved-top-ten-in-dmai-2024-danish-ai-competition-proud-to-represent-danish-ai-innovation",
-          title: 'Achieved Top Ten in DMAI 2024 (Danish AI Competition)! 🇩🇰 Proud to represent...',
+          section: "News",},{id: "news-started-my-research-assistant-position-at-sdu-under-assoiate-professor-serkan-ayvaz",
+          title: 'Started my Research Assistant position at SDU under Assoiate Professor Serkan Ayvaz',
           description: "",
-          section: "News",},{id: "news-started-working-as-ai-engineer-at-a-stealth-startup-building-recommendation-systems-for-mobile-auction-platforms",
-          title: 'Started working as AI Engineer at a stealth startup! 🚀 Building recommendation systems...',
-          description: "",
-          section: "News",},{id: "news-participating-in-mit-global-ai-hackathon-2025-excited-to-collaborate-with-global-ai-talent",
-          title: 'Participating in MIT Global AI Hackathon 2025! 🌍 Excited to collaborate with global...',
-          description: "",
-          section: "News",},{id: "news-my-first-paper-has-been-accepted-by-kes-2025-excited-to-share-my-research-with-the-academic-community",
-          title: '🎉 My first paper has been accepted by KES 2025! Excited to share...',
+          section: "News",},{id: "news-achieved-top-ten-in-dmai-2024-danish-ai-competition",
+          title: 'Achieved Top Ten in DMAI 2024 (Danish AI Competition).',
           description: "",
           section: "News",},{id: "news-accepted-for-exchange-at-hkust-will-be-studying-in-hong-kong-from-september-to-december-2025",
-          title: '🏫 Accepted for exchange at HKUST! Will be studying in Hong Kong from...',
+          title: 'Accepted for exchange at HKUST! Will be studying in Hong Kong from September...',
+          description: "",
+          section: "News",},{id: "news-participating-in-mit-global-ai-hackathon-2025",
+          title: 'Participating in MIT Global AI Hackathon 2025',
+          description: "",
+          section: "News",},{id: "news-my-first-paper-has-been-accepted-by-kes-2025-see-you-in-osaka",
+          title: 'My first paper has been accepted by KES 2025! See you in Osaka...',
           description: "",
           section: "News",},{id: "projects-projects-coming-soon",
           title: 'Projects Coming Soon',
