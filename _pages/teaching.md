@@ -1,26 +1,36 @@
 ---
 layout: page
 permalink: /teaching/
-title: teaching
-description: Teaching and mentoring experience.
+title: Teaching
+description: My experience as a teaching assistant.
 nav: true
 nav_order: 6
 ---
 
 ## Teaching Experience
 
-### Teaching Assistant - AI Course
-**Syddansk Universitet - University of Southern Denmark**  
+### Teaching Assistant - Introduction to Artificial Intelligence
+**Syddansk Universitet - University of Southern Denmark**  
 *February 2026 - June 2026*
 
-I will be serving as a Teaching Assistant for an AI course under the supervision of [Associate Professor Serkan Ayvaz](https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en). This role will involve:
+I will be a Teaching Assistant for the bachelor's course "Introduction to Artificial Intelligence," supervised by [Associate Professor Serkan Ayvaz](https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en).
 
-- Supporting AI course instruction and student guidance
-- Assisting with course materials and student assessments
-- Helping students understand complex machine learning concepts
-- Drawing from my research experience to provide practical insights
+My main responsibility will be to help students translate theory into practice during the weekly exercise sessions. My work will involve:
 
-This teaching opportunity aligns perfectly with my goal of pursuing an academic career and will allow me to share my passion for machine learning with the next generation of students.
+-   Developing and preparing hands-on exercises based on the course's core topics.
+-   Leading the exercise sessions, guiding students as they work through problems and debug their code.
+-   Assisting students in implementing key algorithms in Python, helping to solidify their understanding of the material.
+-   Providing support on the machine learning component of the course, ensuring students can apply the concepts discussed in lectures.
+
+#### Course Content Overview
+The course provides a broad introduction to the foundational concepts of AI, including:
+-   **Foundations of AI:** History, philosophy, and ethics.
+-   **Problem-Solving with Search:** Uninformed and informed strategies, heuristics, and adversarial search for games.
+-   **Knowledge & Reasoning:** Using propositional and first-order logic for knowledge representation and inference.
+-   **Classical Planning:** Automated planning techniques.
+-   **Machine Learning:** An introduction to supervised, unsupervised, and reinforcement learning.
+
+I look forward to the practical nature of this role. I believe that working through problems and helping others with their code is one of the best ways to gain a deep, intuitive grasp of foundational concepts. This experience will be an important part of my own academic journey.
 
 ---
 

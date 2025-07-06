@@ -16,50 +16,74 @@
   }
 }
 
-@article{konrad2025placeholder,
-  abbr={Placeholder},
-  title={Upcoming Research in Machine Learning and AI},
-  author={Konrad, Phongsakon Mark},
-  journal={In Preparation},
+@article{konrad2025flood,
+  abbr={Accepted},
+  title={Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas},
+  author={Konrad, Phongsakon Mark and Tanyel, Toygar and Ayvaz, Serkan},
+  journal={Conference Proceedings (To be presented)},
   year={2025},
   publisher={TBD},
   selected={true},
-  abstract={Placeholder for upcoming research publication in machine learning and artificial intelligence.},
+  abstract={Flood detection using satellite imagery is crucial for environmental monitoring and disaster management, especially in rural and agricultural regions where even minor water inundation can disrupt farmland accessibility and road safety. Sentinel-1 Synthetic Aperture Radar (SAR) imagery offers a robust solution for mapping water under various weather conditions. Although deep learning-based segmentation methods have shown promising results for flood detection, their comparative performance in agricultural landscapes, including small-scale surface water dynamics, remains underexplored. In this study, we introduced a three-class segmentation framework that distinguishes sea, inland water, and land, improving the flood detection accuracy in complex coastal farmland. Ten different deep learning models were evaluated for segmentation using Sentinel-1 VH polarization decibel values. We further investigated anomaly detection via autoencoders and variational autoencoders to track temporal changes in flood-prone areas. To handle large-scale satellite imagery more effectively, we tiled the images, ensuring that the segmentation models could process high-resolution data efficiently. The evaluations showed that the DeepLabv3+ and hybrid ResNet-UNet models outperformed the others. Despite having a more lightweight architecture and lower computational and memory resource requirements, the ResNet-UNet model achieved predictive performance comparable to that of DeepLabv3+.},
+  preview={complete_pipeline.drawio.png}
+}
+
+@article{konrad2025classical,
+  abbr={WIP},
+  title={Classical Comeback: Traditional Machine Learning Outperforms Deep Learning for Hyperspectral Fruit Quality Assessment},
+  author={Konrad, Phongsakon Mark and Ayvaz, Serkan},
+  journal={Work in Progress},
+  year={2025},
+  publisher={TBD},
+  selected={true},
+  abstract={The prevailing trend for complex tasks like hyperspectral data analysis is the immediate adoption of deep learning (DL) models. In this work, we challenge that default assumption in the context of fruit quality assessment. We investigate whether a meticulously engineered traditional machine learning (ML) pipeline can compete with or surpass more complex DL solutions on the DeepFruit-HS dataset. Our methodology emphasizes a rigorous application of classical principles. The pipeline incorporates strategic dataset rebalancing to mitigate class imbalances, comprehensive spectral feature engineering, and a two-phase ML approach. This involves extensive hyperparameter optimization via Optuna, followed by the construction of high-performing ensembles. Our findings demonstrate that this approach is highly effective. Optimized traditional models, particularly a Voting Ensemble and an Optuna-tuned Extra Trees classifier, achieve state-of-the-art F1 Macro scores of 0.7703 for ripeness and 0.8301 for firmness, respectively. These results outperform recent DL benchmarks on this dataset. This research highlights that a well-tuned classical ML pipeline represents a robust, interpretable, and powerful alternative for hyperspectral fruit quality assessment, meriting strong consideration before defaulting to more opaque DL architectures.},
   preview={brownian-motion.gif}
 }
 
-@article{konrad2025wip1,
+@article{konrad2025survey,
   abbr={WIP},
-  title={Deep Learning Applications in Recommendation Systems: A Novel Approach},
-  author={Konrad, Phongsakon Mark and Collaborators, Research},
+  title={Large Language, Vision–Language and Multimodal Foundation Models for Satellite Remote Sensing: A Comprehensive Survey of Progress, Pitfalls and Prospects},
+  author={Konrad, Phongsakon Mark and Musiol, Jan Pawel and Ayvaz, Serkan},
   journal={Work in Progress},
   year={2025},
   publisher={TBD},
   selected={false},
-  abstract={This ongoing research explores innovative deep learning architectures for enhancing recommendation systems in mobile auction platforms. We investigate novel neural network designs that improve recommendation accuracy while maintaining computational efficiency. The work builds on current state-of-the-art methods and proposes improvements in both algorithmic design and practical implementation.},
+  abstract={The ascent of foundation models—encompassing Large Language Models (LLMs), Vision-Language Models (VLMs), and Multimodal Foundation Models (MFMs)—marks a paradigm shift in satellite remote sensing (RS), promising to redefine Earth observation capabilities. This comprehensive survey provides a critical synthesis of their application, rigorously examining current progress, inherent challenges, and future prospects. We introduce a pioneering unified taxonomy for foundation model tasks in RS, ranging from text-driven geo-analytics to interactive multimodal agents. Our quantitative meta-benchmark, a novel contribution synthesizing results from 19 distinct foundation model families (up to 13 billion parameters) across 26 open datasets, underpins this analysis. This reveals crucial performance dynamics, including near-log-linear scaling for zero-shot semantic capabilities and compelling evidence of diminishing returns for pixel-exact tasks with models exceeding approximately 4 billion parameters. Furthermore, this survey distills four persistent research lacunae: (i) spectral information underutilization and misalignment in multimodal inputs, (ii) hallucination phenomena and compromised trustworthiness, particularly with sparse or out-of-distribution geospatial data, (iii) systemic reproducibility deficits across studies, and (iv) the often prohibitive computational and associated environmental costs. We conclude by articulating a targeted, forward-looking research agenda focused on fostering geo-aware pre-training methodologies, advancing robust multimodal fusion techniques, driving substantial improvements in model efficiency through distillation and architectural innovation, and championing the urgent establishment of more transparent, comprehensive, and standardized evaluation protocols. This work offers not only a critical overview but also actionable insights for researchers and practitioners navigating the vanguard of advanced AI in Earth observation.},
+  preview={brownian-motion.gif}
+}
+
+@article{konrad2025histology,
+  abbr={WIP},
+  title={How to Segment Images When You Have Almost No Data: An Empirical Comparison of Pre-training and Foundation Models},
+  author={Konrad, Phongsakon Mark and Ayvaz, Serkan and Sabzehmeidani, Yaser and Popa, Andrei-Alexandru and Liehn, Elisa Anamaria},
+  journal={Work in Progress},
+  year={2025},
+  publisher={TBD},
+  selected={true},
+  abstract={Deep learning models are notoriously data-hungry, which presents a fundamental obstacle for specialized medical tasks where annotated data is scarce. To overcome this, the dominant idea has been to fine-tune a network pre-trained on a large, related dataset. A more recent idea is to prompt a massive foundation model that has learned about the general structure of the visual world. It is not obvious which of these forms of knowledge transfer is more effective or efficient when the amount of target data is extremely small. To investigate this question, we perform a carefully controlled experiment on a clinically important problem: segmenting the layers of the artery wall from only nine annotated histology images. We compare a variety of standard convolutional architectures, pre-trained on a large public histology corpus, against a vision foundation model guided by a systematic and reproducible prompting curriculum. Our analysis goes beyond segmentation accuracy to include a practical assessment of computational trade-offs. This work aims to provide a clear benchmark and an intuitive understanding of which paradigm offers a more promising path forward for the many medical imaging tasks where data will always be a limiting factor.},
   preview={wave-mechanics.gif}
 }
 
-@article{konrad2025wip2,
-  abbr={WIP},
-  title={Sustainability Metrics in AI Systems: A Comprehensive Framework},
-  author={Konrad, Phongsakon Mark and Research Team, SDU},
-  journal={Work in Progress},
+@article{konrad2025anomaly,
+  abbr={Explorative},
+  title={Deep Patch Traversal: HS-SSAE's Hierarchical SSM Layers for SAR Anomaly Detection},
+  author={Konrad, Phongsakon Mark and Ayvaz, Serkan},
+  journal={Explorative Research (Proof of concept completed, time-permitting)},
   year={2025},
   publisher={TBD},
-  selected={false},
-  abstract={This research develops a comprehensive framework for measuring and optimizing sustainability metrics in artificial intelligence systems. Building on our award-winning work from the SDU Case Competition on Beyond Sustainability, we propose novel metrics and methodologies for evaluating the environmental impact of machine learning models throughout their lifecycle.},
+  selected={true},
+  abstract={Unsupervised anomaly detection in Synthetic Aperture Radar (SAR) time series is a critical task where conventional autoencoder-based methods often struggle, failing to adequately model the complex spatio-temporal dependencies in the data. This paper introduces a novel deep learning framework, the Hierarchical Spatial-Sequential Autoencoder with Dual Scoring (HS-SSAE-DS), designed for more robust detection in Sentinel-1 SAR imagery. The core insight of our HS-SSAE architecture is to model the intra-patch spatial dependencies hierarchically. It first employs General State Space Models (GeneralSSMs) to encode sequences of pixel rows. It then treats the resulting sequence of row-features as a new input to a second SSM, thereby capturing comprehensive spatial relationships within the patch. For anomaly identification, we propose a dual-scoring mechanism that synergistically combines the reconstruction error from the HS-SSAE with a temporal consistency score, which measures a patch's deviation from its historical mean. This paper details the complete HS-SSAE-DS methodology and outlines its proposed evaluation for detecting diverse SAR anomalies. We argue that this architecture, with its integrated XAI component for enhanced interpretability, represents a significant step forward in the robust analysis of complex SAR time series.},
   preview={brownian-motion.gif}
 }
 
-@article{konrad2025review,
+@article{konrad2025gi,
   abbr={Under Review},
-  title={Machine Learning Pipeline Optimization for Data Intelligence Applications},
-  author={Konrad, Phongsakon Mark and Serkan, Prof. and Research Group, SDU},
+  title={Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications},
+  author={Konrad, Phongsakon Mark and Sabzehmeidani, Yaser and Popa, Andrei-Alexandru and Ayvaz, Serkan},
   journal={Under Review},
   year={2025},
   publisher={Target Journal TBD},
   selected={false},
-  abstract={This paper presents a comprehensive approach to optimizing machine learning pipelines specifically for data intelligence applications. We propose novel optimization techniques that improve both computational efficiency and model performance across diverse datasets. The research includes extensive experimental validation and practical implementation guidelines for real-world deployment.},
-  preview={wave-mechanics.gif}
+  abstract={Gastrointestinal (GI) imaging modalities including endoscopy, colonoscopy, and wireless capsule endoscopy provide vital diagnostic information, yet their manual interpretation remains laborious. Although deep learning approaches, particularly convolutional neural networks (CNNs), hybrid architectures, and transformer-based models, have achieved high accuracy in this domain, their clinical adoption is impeded by data limitations and trust concerns. The current study (1) systematically maps algorithmic trends to specific GI imaging techniques, (2) quantifies the relationship between dataset size and model performance to identify data sufficiency thresholds, and (3) evaluates translational enablers, such as federated learning for data privacy and explainable AI for clinician trust, within established ethical frameworks. By situating our analysis at the intersection of methodological rigor, quantitative assessment, and clinical applicability, this work aims to establish a structured, data-informed baseline that advances beyond purely descriptive surveys and guides future innovation toward impactful clinical AI deployment.},
+  preview={brownian-motion.gif}
 }
