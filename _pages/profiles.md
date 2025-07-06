@@ -15,13 +15,13 @@ In this section, I want to thank the people who have been instrumental in my aca
 **Syddansk Universitet - University of Southern Denmark**  
 [Google Scholar Profile](https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en)
 
-My research supervisor and mentor in the Data and Intelligence Lab. Serkan has given me the freedom to formulate my own research ideas and has been incredibly supportive throughout my journey from self-taught ML enthusiast to published researcher. His guidance has been invaluable in helping me discover my passion for academic research and develop my research skills.
+My research supervisor and mentor in the Data and Intelligence Lab. Serkan hired me, when I was in my 3rd Semester as a bachelor software enginering student at SDU. When I was first semestser I wrote him about my interest in ML and asked him questions, how and what to learn and he suggested me some resources I have been 
 
 ### Toygar Tanyel
 **Collaborator and Mentor**  
 [Google Scholar Profile](https://scholar.google.com/citations?user=Nj5PIzcAAAAJ&hl=tr)
 
-A key collaborator who has contributed significantly to my understanding of machine learning and research methodologies. Toygar's insights and support have been crucial in my development as a researcher and in achieving the milestones I've reached so far.
+While guiding me through my first paper, "Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas," Toygar taught me so much. He covered the essentials of academic work, from conducting a literature review to writing a strong paper and creating compelling figures. Most importantly, he gave me an honest look at the realities of academia. His industry experience was also invaluable, as he taught me how to build robust ML pipelines and follow best practices. He truly laid a solid foundation for my career in every sense.
 
 ---
 
