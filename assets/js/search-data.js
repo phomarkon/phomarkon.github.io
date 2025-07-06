@@ -4,7 +4,7 @@ const ninja = document.querySelector('ninja-keys');
 // add the home and posts menu items
 ninja.data = [{
     id: "nav-about",
-    title: "about",
+    title: "About",
     section: "Navigation",
     handler: () => {
       window.location.href = "/";
@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-publications",
           title: "publications",
-          description: "Academic publications and research papers. Coming soon as research progresses.",
+          description: "Academic publications and research papers spanning machine learning, computer vision, and remote sensing applications.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/publications/";
@@ -45,14 +45,14 @@ ninja.data = [{
             window.location.href = "/cv/";
           },
         },{id: "nav-teaching",
-          title: "teaching",
-          description: "Teaching and mentoring experience.",
+          title: "Teaching",
+          description: "My experience as a teaching assistant.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/teaching/";
           },
         },{id: "nav-people",
-          title: "people",
+          title: "People",
           description: "Acknowledgments and collaborators who have shaped my journey.",
           section: "Navigation",
           handler: () => {
