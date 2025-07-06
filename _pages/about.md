@@ -6,7 +6,7 @@ subtitle: Future Researcher with Entrepreneurial Spirit
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: profile_img.png
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>📧 phongsakon@outlook.dk</p>
@@ -15,6 +15,7 @@ profile:
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
+under_development: true # includes a banner indicating the site is under development
 
 announcements:
   enabled: true # includes a list of news items
@@ -24,12 +25,8 @@ announcements:
 latest_posts:
   enabled: true # enable blog posts
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  limit: 1 # leave blank to include all the blog posts
 ---
-
-<div class="alert alert-info" role="alert">
-  <strong>🚧 Under Development</strong> - This website is currently under development and may contain template content. Please check back soon for updates!
-</div>
 
 Nothing very special here, just a normal guy, who likes deep learning.
 

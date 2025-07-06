@@ -2,6 +2,12 @@
 layout: default
 ---
 <div class="post">
+  {% if page.under_development %}
+    <div class="alert alert-info" role="alert">
+      <strong>🚧 Under Development</strong> - This website is currently under development and may contain template content. Please check back soon for updates!
+    </div>
+  {% endif %}
+  
   <header class="post-header">
     <h1 class="post-title">
       {% if site.title == 'blank' %}
