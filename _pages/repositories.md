@@ -2,7 +2,7 @@
 layout: page
 permalink: /repositories/
 title: repositories
-description: GitHub repositories and open source contributions. Coming soon.
+description: GitHub repositories showcasing my machine learning projects and data science work.
 nav: true
 nav_order: 4
 ---
