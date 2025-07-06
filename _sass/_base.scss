@@ -2,6 +2,15 @@
  * Styles for the base elements of the theme.
  ******************************************************************************/
 
+// LaTeX Font Imports
+@import url('https://fonts.googleapis.com/css2?family=Computer+Modern+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Latin+Modern+Roman:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+// Base font styling
+html, body {
+  font-family: 'Computer Modern Serif', 'Latin Modern Roman', 'Times New Roman', serif;
+}
+
 // Typography
 
 p,
@@ -17,6 +26,7 @@ li,
 span,
 strong {
   color: var(--global-text-color);
+  font-family: 'Computer Modern Serif', 'Latin Modern Roman', 'Times New Roman', serif;
 }
 
 hr {
@@ -1415,5 +1425,36 @@ figure.cover {
   /* mouse over link */
   a.cover-link:hover {
     color: #23212d !important;
+  }
+}
+
+// Alert styling for development banner
+.alert {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  
+  &.alert-info {
+    color: var(--global-text-color);
+    background-color: var(--global-card-bg-color);
+    border-color: var(--global-divider-color);
+    
+    strong {
+      color: var(--global-text-color);
+    }
+  }
+}
+
+// Dark mode specific alert styling
+html[data-theme="dark"] {
+  .alert.alert-info {
+    background-color: var(--global-card-bg-color);
+    border-color: var(--global-divider-color);
+    color: var(--global-text-color);
+    
+    strong {
+      color: var(--global-text-color);
+    }
   }
 }
