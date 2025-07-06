@@ -49,7 +49,7 @@ My research interests are intentionally broad as I explore diverse areas before 
 
 I'm trying to absorb as much as I can across the field before a PhD. I'm interested in almost everything, but I can feel a definite pull. I'm drifting away from straightforward computer vision and more towards the cognitive and philosophical foundations of our work. My interest in psychology and neuroscience keeps leading me back to questions of thinking, reasoning, and what it even means for a model to be trustworthy.
 
-The idea that really grips me is the internal life of these models. The concept of 'model dreaming'—of a model learning from its own internally generated reality—feels important. I suspect the next breakthroughs won't just come from more data or bigger models, but from getting closer to these foundational principles of cognition. That's the territory I want to spend my career exploring, starting with a PhD.
+The idea that really grips me is the internal life of these models. The concept of 'model dreaming' - of a model learning from its own internally generated reality, feels important (and interesting and fun). I suspect the next breakthroughs won't just come from more data or bigger models, but from getting closer to these foundational principles of cognition. That's the territory I want to spend my career exploring, starting with a PhD.
 
 **Languages:**
 - German (Native)
