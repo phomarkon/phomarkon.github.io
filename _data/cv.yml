@@ -12,7 +12,7 @@
     - name: Summary
       value: Nothing very special here, just a normal guy, who likes deep learning.
     - name: Languages
-      value: Thai (Native), English (Professional), German (Native), Danish (Elementary)
+      value: German(Native), Thai(Native), English(Professional), Danish(Elementary)
 
 - title: Education
   type: time_table

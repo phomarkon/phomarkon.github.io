@@ -3,7 +3,7 @@ layout: profiles
 permalink: /people/
 title: people
 description: Team members and collaborators. Coming soon.
-nav: false
+nav: true
 nav_order: 7
 
 profiles:

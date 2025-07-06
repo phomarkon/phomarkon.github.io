@@ -3,7 +3,7 @@ layout: page
 permalink: /teaching/
 title: teaching
 description: Teaching and mentoring experience. Coming soon.
-nav: false
+nav: true
 nav_order: 6
 ---
 

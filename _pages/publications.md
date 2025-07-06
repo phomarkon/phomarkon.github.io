@@ -3,7 +3,7 @@ layout: page
 permalink: /publications/
 title: publications
 description: Academic publications and research papers. Coming soon as research progresses.
-nav: false
+nav: true
 nav_order: 2
 ---
 
