@@ -1,8 +1,7 @@
 ---
 layout: page
 permalink: /people/
-title: People
-description: Acknowledgments and collaborators who have shaped my journey.
+title: people
 nav: true
 nav_order: 7
 ---
