@@ -1,6 +1,6 @@
 ---
 layout: about
-title: About
+title: about
 permalink: /
 subtitle: Future Researcher with an Entrepreneurial Spirit
 
@@ -36,17 +36,6 @@ My path to research has been anything but direct. I moved from Thailand to Germa
 
 So now, I'm a software engineering undergraduate at the [University of Southern Denmark](https://www.sdu.dk/en), working as a research assistant in the [Data and Intelligence Lab](https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab) at the Centre for Industrial Software (CIS). My work is supervised by [Associate Professor Serkan Ayvaz](https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en), who provides invaluable mentorship; he not only assigns me projects but also actively helps me to chase, discuss, and develop my own research ideas.
 
-**Current Research Interests:**
-My research interests are intentionally broad as I explore diverse areas before pursuing a PhD:
-- **Computer Vision**: Deep learning architectures, few-shot learning, foundation models
-- **Medical Imaging**: Histological analysis, clinical AI applications, data-scarce scenarios
-- **Remote Sensing & Earth Observation**: Satellite imagery analysis, flood detection, SAR anomaly detection
-- **Traditional Machine Learning**: Classical approaches, ensemble methods, interpretable models
-- **Multimodal AI**: Vision-language models, foundation models for specialized domains
-- **Trustworthy AI**: Model reliability, robustness, ethical AI deployment
-- **Explainable AI**: Model interpretability, XAI components, transparent decision-making
-- **Large Language Models**: LLM applications, multimodal integration, foundation model capabilities
-
 I'm trying to absorb as much as I can across the field before a PhD. I'm interested in almost everything, but I can feel a definite pull. I'm drifting away from straightforward computer vision and more towards the cognitive and philosophical foundations of our work. My interest in psychology and neuroscience keeps leading me back to questions of thinking, reasoning, and what it even means for a model to be trustworthy.
 
 The idea that really grips me is the internal life of these models. The concept of 'model dreaming' - of a model learning from its own internally generated reality, feels important (and interesting and fun). I suspect the next breakthroughs won't just come from more data or bigger models, but from getting closer to these foundational principles of cognition. That's the territory I want to spend my career exploring, starting with a PhD.
@@ -57,7 +46,7 @@ The idea that really grips me is the internal life of these models. The concept 
 - Thai (Native)
 - Danish (Elementary)
 
-**Top Skills:**
+**(Top) Skills:**
 - Machine Learning & Deep Learning
 - Research & Academia
 - Software Engineering
