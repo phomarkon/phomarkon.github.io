@@ -13,7 +13,7 @@ nav_order: 6
 **Syddansk Universitet - University of Southern Denmark**  
 *February 2026 - June 2026*
 
-I will be serving as a Teaching Assistant for an AI course under the supervision of Associate Professor Serkan Ayvaz. This role will involve:
+I will be serving as a Teaching Assistant for an AI course under the supervision of [Associate Professor Serkan Ayvaz](https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en). This role will involve:
 
 - Supporting AI course instruction and student guidance
 - Assisting with course materials and student assessments

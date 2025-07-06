@@ -2,9 +2,9 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: blank # the website title (if blank, full name will be used instead)
-first_name: Phongsakon Mark
-middle_name: 
+title: Phongsakon - Personal Website # the website title (if blank, full name will be used instead)
+first_name: Phongsakon 
+middle_name: Mark 
 last_name: Konrad
 contact_note: >
   Feel free to reach out via email or connect with me on LinkedIn!
