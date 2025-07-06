@@ -20,7 +20,7 @@ Since my program has no dedicated ML courses, I've had to learn everything on my
 
 Without him, I wouldn't be where I am today.
 
-### Toygar Tanyel
+### Toygar Tanyel - Head of AI & Data Sciecne @PhillipCapital Türkiye 
 **Collaborator and Mentor**  
 [Google Scholar Profile](https://scholar.google.com/citations?user=Nj5PIzcAAAAJ&hl=tr)
 
