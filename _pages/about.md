@@ -32,7 +32,7 @@ latest_posts:
 
 **Longer Version:**
 
-My path to research has been anything but direct. I moved from Thailand to Germany as a kid, spent four years in the [Deutsche Marine (German Navy)](https://www.bundeswehr.de/en/organization/navy), and later co-founded two startups after coming to Denmark. What those experiences taught me is that my real drive isn't building a business, but understanding how things learn and think. The questions that matter to me are academic ones.
+My path to research has been anything but direct. I moved from Thailand to Germany as a kid, spent four years in the [Deutsche Marine (German Navy)](https://www.bundeswehr.de/), and later co-founded two startups after coming to Denmark. What those experiences taught me is that my real drive isn't building a business, but understanding how things learn and think. The questions that matter to me are academic ones.
 
 So now, I'm a software engineering undergraduate at the [University of Southern Denmark](https://www.sdu.dk/en), working as a research assistant in the [Data and Intelligence Lab](https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab) at the Centre for Industrial Software (CIS). My work is supervised by [Associate Professor Serkan Ayvaz](https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en), who provides invaluable mentorship; he not only assigns me projects but also actively helps me to chase, discuss, and develop my own research ideas.
 
