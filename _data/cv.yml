@@ -2,96 +2,146 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Phongsakon Mark Konrad
+    - name: Email
+      value: phongsakon@outlook.dk
+    - name: LinkedIn
+      value: linkedin.com/in/phongsakonmarkkonrad
+    - name: Location
+      value: Sønderborg, Region Süddänemark, Denmark
+    - name: Summary
+      value: Nothing very special here, just a normal guy, who likes deep learning.
     - name: Languages
-      value: English, German
+      value: Thai (Native), English (Professional), German (Native), Danish (Elementary)
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: Bachelor of Science - Software Engineering
+      institution: Syddansk Universitet - University of Southern Denmark
+      year: September 2023 - June 2026
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - Currently pursuing degree in Software Engineering
+        - Focus on machine learning and software development
+    - title: Bachelor of Science - Mathematics and Economics
+      institution: FernUniversität in Hagen
+      year: 2021 - 2022
       description:
-        - Description 1.
-        - Description 2.
+        - Studies in Mathematics and Economics
+        - Completed partial coursework
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Research Assistant
+      institution: Syddansk Universitet - University of Southern Denmark
+      year: September 2024 - Present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Participating in machine learning research projects in the data and intelligence lab at SDU
+        - Building machine learning pipelines and writing papers from scratch
+        - Learning how to perform solid research activities and how the academia game works
+        - Surprisingly found a lot of similarity between research and startups
+        - This is perhaps my newest obsession
+    - title: AI Engineer
+      institution: Stealth Startup (Volunteer)
+      year: January 2025 - April 2025
       description:
-        - Description 1.
-        - Description 2.
-
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+        - Volunteered to work on a recommendation system in a startup, just for some experience and fun
+        - The recommendation system is for a mobile auction application
+        - Went with heuristic AI approach with modular layers
+        - The startup had not enough data and faced the famous cold start problem
+        - Definitely learnt quite a bit and it was fun to explore
+        - The startup is an auction platform for B2C with tinder experience
+    - title: CTO
+      institution: Tutora
+      year: June 2024 - November 2024
       description:
+        - Took the lead in building web applications and websites for the company
+        - Brought the experience from the previous company with me and tried to reduce the mistakes, which worked out quite well
+        - Followed the 'Shape Up' framework from 37 signals instead of SCRUM (not a big fan of it either way)
+        - Finished the websites, web application, did not want to become a maintainer, but more a builder
+        - Also got an offer to do something in research, so I went for that
+    - title: Co-Founder & Co-CEO
+      institution: Yeager GmbH
+      year: November 2022 - June 2024
+      description:
+        - We were driven by the vision to build a truly innovative mobile app for powerlifters
+        - As a first-time founder, I dove into everything from UX/UI concepts to the full stack, with a core focus on developing intelligent algorithms
+        - These algorithms were designed to personalize training through individual data, incorporating MRV and MEV
+        - Even dynamically adapting workouts based on daily check-ins and intraset feedback – a pretty cool concept for its time
+        - We embraced lean startup principles, and while the journey was full of learning curves typical of a first venture, the ambition was definitely there
+    - title: Staff Duty Soldier
+      institution: Bundeswehr Wir. Dienen. Deutschland.
+      year: October 2017 - September 2021
+      description:
+        - Military training forged me into a disciplined person and a strong team player, earning me two awards along the way
+        - Leading a small team within HR, I was responsible for the administration of 600+ soldiers
+        - Streamlining processes to ensure everything ran with logic and efficiency
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
+- title: Teaching Experience
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: Teaching Assistant - AI Course
+      institution: Syddansk Universitet - University of Southern Denmark
+      year: February 2026 - June 2026
+      description:
+        - Teaching Assistant under Prof. Serkan
+        - Supporting AI course instruction and student guidance
+        - Assisting with course materials and student assessments
+
+- title: Certifications
+  type: time_table
+  contents:
+    - title: Foundational C# with Microsoft
+      year: Recent
+      description: Microsoft certification in C# programming fundamentals
+    - title: Full-Stack Engineer Career Path
+      year: Recent
+      description: Comprehensive full-stack development certification
+    - title: React Native Course
+      year: Recent
+      description: Mobile app development with React Native
+    - title: Google UX Design Professional Certificate
+      year: Recent
+      description: Professional certification in UX design principles
+    - title: Certified Specialist for Real Estate Loan Brokerage IHK
+      year: Recent
+      description: Professional certification in real estate and finance
 
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 1921
+    - year: 2025
       items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
+        - Participation in MIT Global AI Hackathon 2025
+    - year: 2024
       items:
-        - Max Planck Medal
+        - Top Ten DMAI 2024 (Danish AI Competition)
+        - 1st Place in SDU Case Competition - Beyond Sustainability
+        - Formal Recognition
+        - Awarding of Outstanding Performance Bonus
 
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Machine Learning & Deep Learning
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - Building machine learning pipelines
+        - Research in data and intelligence
+        - Recommendation systems and AI algorithms
+    - title: Software Engineering
       items:
-        - Description 1.
-        - Description 2.
+        - Full-stack development
+        - Mobile app development
+        - System architecture and design
+    - title: Research & Academia
+      items:
+        - Academic paper writing
+        - Research methodologies
+        - Intersection of research and entrepreneurship
 
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - <u>Skills:</u> Early Sleeper, Team Leadership, Process Optimization
+    - <u>Interests:</u> Entrepreneurship, Powerlifting, Technology Innovation
