@@ -33,12 +33,12 @@
 - title: Publications
   type: list
   contents:
-    - <b>[1]</b> <b>P. M. Konrad</b>, T. Tanyel, and S. Ayvaz (2025). <b>Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas</b>. In <i>29th International Conference on Knowledge-Based and Intelligent Information & Engineering Systems (KES 2025)</i>. (Accepted)
-    - <b>[2]</b> <b>P. M. Konrad</b>, Y. Sabzehmeidani, A. Popa, and S. Ayvaz (2025). <b>Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications</b>. (Under Review)
-    - <b>[3]</b> <b>P. M. Konrad</b>, J. P. Musiol, and S. Ayvaz (2025). <b>Large Language, Vision–Language and Multimodal Foundation Models for Satellite Remote Sensing</b>. (Work in Progress)
-    - <b>[4]</b> <b>P. M. Konrad</b> and S. Ayvaz (2025). <b>Classical Comeback: Traditional ML Outperforms Deep Learning for Hyperspectral Fruit Quality Assessment</b>. (Work in Progress)
-    - <b>[5]</b> <b>P. M. Konrad</b>, S. Ayvaz, Y. Sabzehmeidani, A. Popa, and E. A. Liehn (2025). <b>How to Segment Images When You Have Almost No Data: An Empirical Comparison of Pre-training and Foundation Models</b>. (Work in Progress)
-    - <b>[6]</b> <b>P. M. Konrad</b> and S. Ayvaz (2025). <b>Deep Patch Traversal: HS-SSAE's Hierarchical SSM Layers for SAR Anomaly Detection</b>. (Explorative Research)
+    - "[1] P. M. Konrad, T. Tanyel, and S. Ayvaz (2025). Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas. In 29th International Conference on Knowledge-Based and Intelligent Information & Engineering Systems (KES 2025). (Accepted)"
+    - "[2] P. M. Konrad, Y. Sabzehmeidani, A. Popa, and S. Ayvaz (2025). Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications. (Under Review)"
+    - "[3] P. M. Konrad, J. P. Musiol, and S. Ayvaz (2025). Large Language, Vision–Language and Multimodal Foundation Models for Satellite Remote Sensing. (Work in Progress)"
+    - "[4] P. M. Konrad and S. Ayvaz (2025). Classical Comeback: Traditional ML Outperforms Deep Learning for Hyperspectral Fruit Quality Assessment. (Work in Progress)"
+    - "[5] P. M. Konrad, S. Ayvaz, Y. Sabzehmeidani, A. Popa, and E. A. Liehn (2025). How to Segment Images When You Have Almost No Data: An Empirical Comparison of Pre-training and Foundation Models. (Work in Progress)"
+    - "[6] P. M. Konrad and S. Ayvaz (2025). Deep Patch Traversal: HS-SSAE's Hierarchical SSM Layers for SAR Anomaly Detection. (Explorative Research)"
 
 - title: Research Experience
   type: time_table
@@ -56,22 +56,30 @@
   type: time_table
   contents:
     - title: CTO
-      institution: Tutora ApS
-      year: Jun 2024 -- Present
+      institution: Tutora
+      year: 06/2024 - 11/2024
       description:
-        - Designing and developing the tutora.dk end-to-end web application for a tutoring platform
-        - Leading technical implementation using lean startup principles
-    - title: Co-CEO and Co-Founder
+        - Took the lead in building web applications and websites for the company
+        - Brought the experience from the previous company with me and tried to reduce the mistakes, which worked out quite well
+        - Followed the 'Shape Up' framework from 37 signals instead of SCRUM (not a big fan of it either way)
+        - Finished the websites, web application, did not want to become a maintainer, but more a builder
+        - Also got an offer to do something in research, so I went for that
+    - title: Co-Founder & Co-CEO
       institution: Yeager GmbH
-      year: Nov 2022 -- Present
+      year: 11/2022 - 06/2024
       description:
-        - Developed stabil.ai, an AI-powered mobile application providing personalized powerlifting training
-        - Designed and implemented intuitive UI/UX solutions
+        - We were driven by the vision to build a truly innovative mobile app for powerlifters
+        - As a first-time founder, I dove into everything from UX/UI concepts to the full stack, with a core focus on developing intelligent algorithms
+        - These algorithms were designed to personalize training through individual data, incorporating MRV and MEV
+        - Even dynamically adapting workouts based on daily check-ins and intraset feedback – a pretty cool concept for its time
+        - We embraced lean startup principles, and while the journey was full of learning curves typical of a first venture, the ambition was definitely there
     - title: Staff Duty Soldier
-      institution: Bundeswehr (German Armed Forces)
-      year: 2017 -- 2021
+      institution: Bundeswehr Wir. Dienen. Deutschland.
+      year: 10/2017 - 09/2021
       description:
-        - Managed administrative tasks and streamlined document workflows in a high-stakes naval command environment
+        - Military training forged me into a disciplined person and a strong team player, earning me two awards along the way
+        - Leading a small team within HR, I was responsible for the administration of 600+ soldiers
+        - Streamlining processes to ensure everything ran with logic and efficiency
 
 - title: Personal Projects
   type: time_table
