@@ -16,7 +16,7 @@
     - name: Location
       value: Sonderborg, Denmark
     - name: Summary
-      value: My path to research has been, like my life, anything but conventional. It began in Thailand, moved through a youth in Germany, and now continues in Denmark, a journey that has taught me to see the world from multiple perspectives. I've served in the military and built startups from scratch; I've seen how systems are run and how they are born. These experiences were invaluable, but they ultimately revealed that my true passion wasn't just in building things, but in a deeper question: how do things learn? This is the question that now drives me. My current work in computer vision is my practical anchor in machine learning, but my intellectual curiosity pulls me toward the foundational puzzle of intelligence. I hold a growing conviction that the path toward more general and robust intelligence lies not in the brute force of bigger models and more data, but in discovering better, more fundamental principles. I believe the next breakthroughs will emerge from a deeper understanding of learning and reasoning itself. This is why I am less captivated by what a model can be engineered to do, and far more by what it might be guided to genuinely understand. This is the "great puzzle" I want to dedicate my PhD adventure to, to explore the internal world of models, to investigate the first principles of reasoning in LLMs, and to grapple with what makes an AI truly trustworthy. My journey has given me a unique perspective, and I am convinced the future of AI will not just be built on scale, but discovered through insight.
+      value: "My path to research has been, like my life, anything but conventional, beginning in Thailand, moving through Germany, and now continuing in Denmark. This international journey has fostered cultural openness and taught me to see the world from multiple perspectives. This adaptability is reflected in my career, from serving in the military to building startups, where I've seen systems both as they are run and as they are born. These experiences revealed that my true passion lies not just in building, but in the deeper question: how do machines actually learn? This question now drives my work in computer vision and pulls my intellectual curiosity toward the foundational puzzle of intelligence. I believe the next breakthroughs will emerge from a deeper understanding of learning itself. I am dedicated to exploring the internal world of models, investigating the first principles of reasoning in LLMs, and grappling with what makes an AI truly trustworthy."
     - name: Languages
       value: German(Native), Thai(Native), English(Professional), Danish(Elementary)
 
@@ -55,51 +55,46 @@
 - title: Professional Experience
   type: time_table
   contents:
-    - title: CTO
-      institution: Tutora
-      year: 06/2024 - 11/2024
+    - title: CTO and Co-Founder
+      institution: Tutora ApS
+      year: Jun 2024 -- Nov 2024
       description:
-        - Took the lead in building web applications and websites for the company
-        - Brought the experience from the previous company with me and tried to reduce the mistakes, which worked out quite well
-        - Followed the 'Shape Up' framework from 37 signals instead of SCRUM (not a big fan of it either way)
-        - Finished the websites, web application, did not want to become a maintainer, but more a builder
-        - Also got an offer to do something in research, so I went for that
-    - title: Co-Founder & Co-CEO
+        - Led the end-to-end development of the company's websites and core web application
+        - Implemented the 'Shape Up' product development framework to streamline technical execution
+        - Applied insights from previous startup experience to optimize the development lifecycle and avoid common pitfalls
+    - title: Co-CEO and Co-Founder
       institution: Yeager GmbH
-      year: 11/2022 - 06/2024
+      year: Nov 2022 -- Jun 2024
       description:
-        - We were driven by the vision to build a truly innovative mobile app for powerlifters
-        - As a first-time founder, I dove into everything from UX/UI concepts to the full stack, with a core focus on developing intelligent algorithms
-        - These algorithms were designed to personalize training through individual data, incorporating MRV and MEV
-        - Even dynamically adapting workouts based on daily check-ins and intraset feedback – a pretty cool concept for its time
-        - We embraced lean startup principles, and while the journey was full of learning curves typical of a first venture, the ambition was definitely there
+        - Co-founded the company and led development of stabil.ai, an innovative AI-powered mobile app for personalized powerlifting training
+        - Engineered intelligent algorithms to personalize training plans using individual data (MRV/MEV) and dynamic real-time feedback
+        - Oversaw the full product lifecycle, from UX/UI concept and design to full-stack implementation, adhering to lean startup principles
     - title: Staff Duty Soldier
-      institution: Bundeswehr Wir. Dienen. Deutschland.
-      year: 10/2017 - 09/2021
+      institution: Bundeswehr (German Armed Forces)
+      year: Oct 2017 -- Sep 2021
       description:
-        - Military training forged me into a disciplined person and a strong team player, earning me two awards along the way
-        - Leading a small team within HR, I was responsible for the administration of 600+ soldiers
-        - Streamlining processes to ensure everything ran with logic and efficiency
+        - Led a small HR team responsible for the administration of over 600 soldiers
+        - Streamlined administrative processes and document workflows to improve efficiency in a high-stakes naval command environment
 
 - title: Personal Projects
   type: time_table
   contents:
     - title: Binary Cell Classification
-      institution: Tools: PyTorch, CUDA, Scikit-learn, Pandas
+      institution: PyTorch, Scikit-learn, Pandas
       year: 2024
       description:
         - Implemented and optimized deep learning models for a national AI competition
         - Focused on the classification of cellular images, contributing to computational biology research
-        - GitHub: github.com/phomarkon/cell-classification
+        - GitHub: github.com/phomarkon/danish-ai-competition-cell-classification-final
     - title: Stock Price Prediction
-      institution: Tools: Scikit-learn, Pandas, NumPy
+      institution: Scikit-learn, Pandas, NumPy
       year: 2023
       description:
         - Developed a Random Forest algorithm to predict stock price movements using technical indicators
         - Achieved a predictive accuracy that outperformed simple market averages in back-testing simulations
         - GitHub: github.com/phomarkon/randomforest-stock-price-prediction
     - title: Twitter Sentiment Analysis
-      institution: Tools: NLTK, Scikit-learn, Pandas
+      institution: NLTK, Scikit-learn, Pandas
       year: 2023
       description:
         - Utilized NLP techniques to analyze Twitter sentiment and its influence on stock market prices
@@ -114,16 +109,22 @@
         - Python, JavaScript, SQL
     - title: ML Libraries
       items:
-        - PyTorch, Hugging Face, Scikit-learn, Pandas, NumPy, CUDA
+        - PyTorch, Hugging Face, Scikit-learn, Pandas, NumPy
+    - title: Data Visualization
+      items:
+        - Matplotlib, Seaborn
     - title: ML Engineering
       items:
         - Data & Feature Engineering, Hyperparameter Tuning (Optuna, Weights & Biases Sweeps), Experiment Tracking (Weights & Biases)
     - title: Web Development
       items:
-        - React, Node.js, Express, HTML/CSS
+        - React, React Native, Node.js, Express, HTML/CSS, Streamlit
     - title: Tools & Platforms
       items:
         - Git, Docker, Google Cloud Platform, Vercel
+    - title: Methodologies
+      items:
+        - Scrum, Shape Up
 
 - title: Honors and Awards
   type: time_table
