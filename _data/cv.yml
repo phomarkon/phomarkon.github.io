@@ -23,9 +23,18 @@
 - title: Education
   type: time_table
   contents:
-    - title: Bachelor of Science (BSc), Software Engineering
+    - title: Exchange Semester
+      institution: Hong Kong University of Science and Technology (HKUST)
+      year: Sep 2025 -- Dec 2025
+      description:
+        - "COMP4211 Machine Learning"
+        - "COMP4471 Deep Learning in Computer Vision"
+        - "COMP4901B Large Language Models"
+        - "COMP4901Z Reinforcement Learning"
+        - "COMP6411D Data Visualisation (Postgraduate)"
+    - title: BSc. Engineering (Software Engineering)
       institution: University of Southern Denmark (SDU)
-      year: 2022 -- 2026
+      year: Sep 2023 -- Jun 2026
       description:
         - A practical, project-centric curriculum where theoretical knowledge is applied in mandatory, semester-long team projects
         - These projects involve developing complex, data-intensive software systems in domains like IoT and AI, often in collaboration with industry partners
@@ -33,12 +42,10 @@
 - title: Publications
   type: list
   contents:
-    - "[1] P. M. Konrad, T. Tanyel, and S. Ayvaz (2025). Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas. In 29th International Conference on Knowledge-Based and Intelligent Information & Engineering Systems (KES 2025). (Accepted)"
+    - "[1] P. M. Konrad, T. Tanyel, and S. Ayvaz (2025). Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas. In KES 2025. (Accepted)"
     - "[2] P. M. Konrad, Y. Sabzehmeidani, A. Popa, and S. Ayvaz (2025). Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications. (Under Review)"
-    - "[3] P. M. Konrad, J. P. Musiol, and S. Ayvaz (2025). Large Language, Vision–Language and Multimodal Foundation Models for Satellite Remote Sensing. (Work in Progress)"
-    - "[4] P. M. Konrad and S. Ayvaz (2025). Classical Comeback: Traditional ML Outperforms Deep Learning for Hyperspectral Fruit Quality Assessment. (Work in Progress)"
-    - "[5] P. M. Konrad, S. Ayvaz, Y. Sabzehmeidani, A. Popa, and E. A. Liehn (2025). How to Segment Images When You Have Almost No Data: An Empirical Comparison of Pre-training and Foundation Models. (Work in Progress)"
-    - "[6] P. M. Konrad and S. Ayvaz (2025). Deep Patch Traversal: HS-SSAE's Hierarchical SSM Layers for SAR Anomaly Detection. (Explorative Research)"
+    - "[3] P. M. Konrad, A. Popa, Y. Sabzehmeidani, L. Zhong, E. A. Liehn, and S. Ayvaz (2025). Challenges in Deep Learning-Based Small Organ Segmentation. Biomedical Signal Processing and Control. (Under Review)"
+    - "[4] P. M. Konrad, C. H. Kunstmann, J. Fiutowski, and S. Ayvaz (2025). Preprocessing Is All You Need: A Systematic Benchmark of 19 ML Algorithms for Hyperspectral Fruit Quality Assessment. (Work in Progress)"
 
 - title: Research Experience
   type: time_table
@@ -51,10 +58,21 @@
         - Co-authoring academic papers for publication, contributing to manuscript drafting, literature reviews, and the revision process
         - Assisting in the drafting and preparation of grant proposals to secure research funding
         - Managing the full research data lifecycle, including multimodal data collection, processing, and documentation
+    - title: Teaching Assistant
+      institution: University of Southern Denmark (SDU)
+      year: Jan 2026 -- Present
+      description:
+        - Supporting course delivery through syllabus planning, lab exercise development, and direct student instruction
+        - Designing hands-on lab assignments and contributing to curriculum development
 
 - title: Professional Experience
   type: time_table
   contents:
+    - title: Founder
+      institution: SaturoLabs
+      year: Jan 2026 -- Present
+      description:
+        - '<a href="https://www.saturolabs.net/">saturolabs.net</a> · <a href="https://www.claudeboyz.com/">claudeboyz.com</a> · <a href="https://getproofz.com/">getproofz.com</a> · <a href="https://dreambear.app/">dreambear.app</a>'
     - title: CTO and Co-Founder
       institution: Tutora ApS
       year: Jun 2024 -- Nov 2024
@@ -85,21 +103,21 @@
       description:
         - Implemented and optimized deep learning models for a national AI competition
         - Focused on the classification of cellular images, contributing to computational biology research
-        - GitHub: github.com/phomarkon/danish-ai-competition-cell-classification-final
+        - '<a href="https://github.com/phomarkon/danish-ai-competition-cell-classification-final">GitHub</a>'
     - title: Stock Price Prediction
       institution: Scikit-learn, Pandas, NumPy
       year: 2023
       description:
         - Developed a Random Forest algorithm to predict stock price movements using technical indicators
         - Achieved a predictive accuracy that outperformed simple market averages in back-testing simulations
-        - GitHub: github.com/phomarkon/randomforest-stock-price-prediction
+        - '<a href="https://github.com/phomarkon/randomforest-stock-price-prediction">GitHub</a>'
     - title: Twitter Sentiment Analysis
       institution: NLTK, Scikit-learn, Pandas
       year: 2023
       description:
         - Utilized NLP techniques to analyze Twitter sentiment and its influence on stock market prices
         - Successfully back-tested investment strategies, achieving returns comparable to major indices
-        - GitHub: github.com/phomarkon/twitter-sentiment-investing-strategy
+        - '<a href="https://github.com/phomarkon/twitter-sentiment-investing-strategy">GitHub</a>'
 
 - title: Skills
   type: nested_list
@@ -130,7 +148,12 @@
   type: time_table
   contents:
     - title: Top-10 Placement
-      institution: Danish National Championship in AI (DM i AI)
+      institution: Danish National Championship in AI (DMiAI)
+      year: 2025
+      description:
+        - Achieved top-tier placement for a second consecutive year in the national competition organized by the Danish Society for Artificial Intelligence
+    - title: Top-10 Placement
+      institution: Danish National Championship in AI (DMiAI)
       year: 2024
       description:
         - Achieved top-tier placement in a prestigious national competition for students and professionals, organized by the Danish Society for Artificial Intelligence
@@ -161,7 +184,15 @@
       institution: Stanford Online
       year: 2024
       description: Professional certification in machine learning fundamentals and applications
-    - title: Google UX Design Professional
+    - title: Foundational C# with Microsoft
+      institution: Microsoft
+      year: 2024
+      description: Certification in C# programming fundamentals
+    - title: React Native Course
+      institution: Online
+      year: 2023
+      description: Mobile development with React Native
+    - title: Google UX Design Professional Certificate
       institution: Google
       year: 2023
       description: Professional certification in UX design principles and methodologies
@@ -169,3 +200,7 @@
       institution: Codecademy
       year: 2023
       description: Comprehensive full-stack development certification
+    - title: Certified Specialist for Real Estate Loan Brokerage
+      institution: IHK
+      year: 2022
+      description: Professional certification in real estate loan brokerage
