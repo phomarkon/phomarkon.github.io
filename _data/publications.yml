@@ -1,0 +1,41 @@
+- title: "Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas"
+  authors: "P. M. Konrad, T. Tanyel, and S. Ayvaz"
+  venue: "29th International Conference on Knowledge-Based and Intelligent Information & Engineering Systems (KES 2025)"
+  year: 2025
+  status: Accepted
+  abstract: "Flood detection using satellite imagery is crucial for environmental monitoring and disaster management, especially in rural and agricultural regions where even minor water inundation can disrupt farmland accessibility and road safety. Sentinel-1 Synthetic Aperture Radar (SAR) imagery offers a robust solution for mapping water under various weather conditions. Although deep learning-based segmentation methods have shown promising results for flood detection, their comparative performance in agricultural landscapes, including small-scale surface water dynamics, remains underexplored. In this study, we introduced a three-class segmentation framework that distinguishes sea, inland water, and land, improving the flood detection accuracy in complex coastal farmland. Ten different deep learning models were evaluated for segmentation using Sentinel-1 VH polarization decibel values. We further investigated anomaly detection via autoencoders and variational autoencoders to track temporal changes in flood-prone areas. The evaluations showed that the DeepLabv3+ and hybrid ResNet-UNet models outperformed the others."
+
+- title: "Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications"
+  authors: "P. M. Konrad, Y. Sabzehmeidani, A. Popa, and S. Ayvaz"
+  venue: "Under Review"
+  year: 2025
+  status: Under Review
+  abstract: "Gastrointestinal (GI) imaging modalities including endoscopy, colonoscopy, and wireless capsule endoscopy provide vital diagnostic information, yet their manual interpretation remains laborious. Although deep learning approaches, particularly convolutional neural networks (CNNs), hybrid architectures, and transformer-based models, have achieved high accuracy in this domain, their clinical adoption is impeded by data limitations and trust concerns. The current study systematically maps algorithmic trends to specific GI imaging techniques, quantifies the relationship between dataset size and model performance to identify data sufficiency thresholds, and evaluates translational enablers such as federated learning for data privacy and explainable AI for clinician trust."
+
+- title: "Classical Comeback: Traditional Machine Learning Outperforms Deep Learning for Hyperspectral Fruit Quality Assessment"
+  authors: "P. M. Konrad and S. Ayvaz"
+  venue: "Work in Progress"
+  year: 2025
+  status: Work in Progress
+  abstract: "The prevailing trend for complex tasks like hyperspectral data analysis is the immediate adoption of deep learning (DL) models. In this work, we challenge that default assumption in the context of fruit quality assessment. We investigate whether a meticulously engineered traditional machine learning (ML) pipeline can compete with or surpass more complex DL solutions on the DeepFruit-HS dataset. Our findings demonstrate that optimized traditional models, particularly a Voting Ensemble and an Optuna-tuned Extra Trees classifier, achieve state-of-the-art F1 Macro scores of 0.7703 for ripeness and 0.8301 for firmness, outperforming recent DL benchmarks on this dataset."
+
+- title: "Large Language, Vision-Language and Multimodal Foundation Models for Satellite Remote Sensing: A Comprehensive Survey"
+  authors: "P. M. Konrad, J. P. Musiol, and S. Ayvaz"
+  venue: "Work in Progress"
+  year: 2025
+  status: Work in Progress
+  abstract: "The ascent of foundation models marks a paradigm shift in satellite remote sensing, promising to redefine Earth observation capabilities. This comprehensive survey provides a critical synthesis of their application, rigorously examining current progress, inherent challenges, and future prospects. We introduce a pioneering unified taxonomy for foundation model tasks in RS, ranging from text-driven geo-analytics to interactive multimodal agents. Our quantitative meta-benchmark synthesizes results from 19 distinct foundation model families across 26 open datasets."
+
+- title: "How to Segment Images When You Have Almost No Data: An Empirical Comparison of Pre-training and Foundation Models"
+  authors: "P. M. Konrad, S. Ayvaz, Y. Sabzehmeidani, A. Popa, and E. A. Liehn"
+  venue: "Work in Progress"
+  year: 2025
+  status: Work in Progress
+  abstract: "Deep learning models are notoriously data-hungry, which presents a fundamental obstacle for specialized medical tasks where annotated data is scarce. We perform a carefully controlled experiment on a clinically important problem: segmenting the layers of the artery wall from only nine annotated histology images. We compare a variety of standard convolutional architectures, pre-trained on a large public histology corpus, against a vision foundation model guided by a systematic and reproducible prompting curriculum."
+
+- title: "Deep Patch Traversal: HS-SSAE's Hierarchical SSM Layers for SAR Anomaly Detection"
+  authors: "P. M. Konrad and S. Ayvaz"
+  venue: "Explorative Research (Proof of concept completed)"
+  year: 2025
+  status: Explorative
+  abstract: "Unsupervised anomaly detection in Synthetic Aperture Radar (SAR) time series is a critical task where conventional autoencoder-based methods often struggle. This paper introduces a novel deep learning framework, the Hierarchical Spatial-Sequential Autoencoder with Dual Scoring (HS-SSAE-DS), designed for more robust detection in Sentinel-1 SAR imagery. The core insight is to model intra-patch spatial dependencies hierarchically using General State Space Models (GeneralSSMs)."

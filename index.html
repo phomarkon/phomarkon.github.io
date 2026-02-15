@@ -1,0 +1,125 @@
+---
+layout: default
+---
+
+<h1>Phongsakon Mark Konrad</h1>
+<p class="subtitle">Future Researcher with an Entrepreneurial Spirit</p>
+
+<!-- About -->
+<section>
+  <h2>About</h2>
+  <div class="profile">
+    <img src="{{ '/assets/img/profile_img.jpg' | relative_url }}" alt="Phongsakon Mark Konrad">
+    <div class="profile-text">
+      <p><strong>TLDR:</strong> Nothing very special here, anti-big data big data guy, a bit delusional.</p>
+      <p>My path to research has been, like my life, anything but conventional, beginning in Thailand, moving through Germany, living in Hong Kong for a semester, and now continuing in Denmark. I've served in the military, built startups, and do research. Mix all three together and you get a pretty spicy combination. These experiences revealed that my true passion lies not just in building, but in a deeper question: how do machines actually learn?</p>
+    </div>
+  </div>
+  <p>I'm finishing my BSc. Engineering (Software Engineering) at the <a href="https://www.sdu.dk/en">University of Southern Denmark</a>. I work as a Research Assistant and Teaching Assistant in the <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">Data and Intelligence Lab</a>, supervised by <a href="https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en">Associate Professor Serkan Ayvaz</a>.</p>
+  <p>I'm an anti big data big data guy. I don't like the scaling law, it's not elegant, and I want to change that. Maybe that's delusional, but sometimes you have to be, right? I'm interested in the search for soul and consciousness in machines. I am one, and if I have it, why not the current models?</p>
+
+  <h3>Research Interests</h3>
+  <p>Ranked by what keeps me up at night:</p>
+  <ol class="research-interests">
+    <li><strong>Efficient intelligence beyond scaling:</strong> Investigating whether compact architectures can match or surpass large-scale models, challenging the premise that performance is a function of parameter count.</li>
+    <li><strong>Adversarial robustness of alignment:</strong> Probing the failure modes of safety mechanisms in language models to inform the design of more resilient guardrails.</li>
+    <li><strong>Calibrated uncertainty and self-awareness:</strong> Developing methods for models to reliably signal when they are uncertain, confabulating, or operating outside their competence.</li>
+    <li><strong>Adversarial cognition as a training signal:</strong> Exploring whether training models to reason critically and adversarially yields improvements in both performance and trustworthiness.</li>
+    <li><strong>Operationalizing intelligence:</strong> Constructing rigorous, falsifiable benchmarks that move beyond task performance toward evaluating genuine reasoning capacity.</li>
+    <li><strong>Synthetic affect and machine consciousness:</strong> Examining whether incorporating analogues of emotion and subjective experience into model architectures influences learning dynamics and downstream performance.</li>
+  </ol>
+
+  <ul class="contact-links">
+    <li><a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a></li>
+    <li><a href="https://www.linkedin.com/in/phongsakonmarkkonrad">LinkedIn</a></li>
+    <li><a href="https://github.com/phomarkon">github.com/phomarkon</a></li>
+    <li><a href="https://scholar.google.com/citations?user=YOUR_ID">Google Scholar</a></li>
+  </ul>
+
+  <p class="tags"><strong>Languages:</strong> German (Native), Thai (Native), English (Professional), Danish (Elementary)</p>
+</section>
+
+<!-- News -->
+<section>
+  <h2>News</h2>
+  <ul class="news-list">
+    {% assign sorted_news = site.data.news | sort: "date" | reverse %}
+    {% for item in sorted_news %}
+    <li>
+      <span class="news-date">{{ item.date | date: "%b %Y" }}</span>
+      {{ item.text }}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<!-- Publications -->
+<section>
+  <h2>Publications</h2>
+  {% for pub in site.data.publications %}
+  <div class="pub">
+    <div class="pub-title">
+      {{ pub.title }}
+      <span class="pub-status {% if pub.status == 'Accepted' %}accepted{% elsif pub.status == 'Under Review' %}under-review{% endif %}">{{ pub.status }}</span>
+    </div>
+    <div class="pub-authors">{{ pub.authors }}</div>
+    <div class="pub-venue">{{ pub.venue }}, {{ pub.year }}</div>
+    {% if pub.abstract %}
+    <details>
+      <summary>Abstract</summary>
+      <p>{{ pub.abstract }}</p>
+    </details>
+    {% endif %}
+  </div>
+  {% endfor %}
+</section>
+
+{% for section in site.data.cv %}
+{% if section.type == "map" or section.type == "list" %}
+  {% continue %}
+{% endif %}
+<section>
+  <h2>{{ section.title }}</h2>
+
+  {% if section.type == "time_table" %}
+    {% for entry in section.contents %}
+    <div class="cv-entry">
+      <div class="cv-entry-header">
+        <span class="cv-entry-title">{{ entry.title }}</span>
+        <span class="cv-entry-year">{{ entry.year }}</span>
+      </div>
+      {% if entry.institution %}
+      <div class="cv-entry-institution">{{ entry.institution }}</div>
+      {% endif %}
+      {% if entry.description %}
+        {% if entry.description.first %}
+        <ul>
+          {% for desc in entry.description %}
+          <li>{{ desc }}</li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p style="font-size:0.9rem; color:#555; margin-top:0.25rem;">{{ entry.description }}</p>
+        {% endif %}
+      {% endif %}
+    </div>
+    {% endfor %}
+
+  {% elsif section.type == "nested_list" %}
+    <dl class="skills-grid">
+      {% for item in section.contents %}
+      <dt>{{ item.title }}</dt>
+      <dd>{{ item.items | join: ", " }}</dd>
+      {% endfor %}
+    </dl>
+
+  {% endif %}
+</section>
+{% endfor %}
+
+<!-- Contact -->
+<section>
+  <h2>Get in Touch</h2>
+  <p>I'm always open to talk about research ideas, potential collaborations, or entrepreneurial projects. If something on this page caught your attention, just reach out.</p>
+  <p><a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a></p>
+</section>
