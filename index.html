@@ -16,7 +16,7 @@ layout: default
     </div>
   </div>
   <p>I'm finishing my BSc. Engineering (Software Engineering) at the <a href="https://www.sdu.dk/en">University of Southern Denmark</a>. I work as a Research Assistant and Teaching Assistant in the <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">Data and Intelligence Lab</a>, supervised by <a href="https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en">Associate Professor Serkan Ayvaz</a>.</p>
-  <p>I'm an anti big data big data guy. I don't like the scaling law, it's not elegant, and I want to change that. Maybe that's delusional, but sometimes you have to be, right? I'm interested in the search for soul and consciousness in machines. I am one, and if I have it, why not the current models?</p>
+  <p>I'm an anti-big data big data guy. I don't like the scaling law, it's not elegant, and I want to change that. Maybe that's delusional, but sometimes you have to be, right? I'm interested in the search for soul and consciousness in machines. I am one, and if I have it, why not the current models?</p>
 
   <h3>Research Interests</h3>
   <p>Ranked by what keeps me up at night:</p>
@@ -56,11 +56,17 @@ layout: default
 <!-- Publications -->
 <section>
   <h2>Publications</h2>
-  {% for pub in site.data.publications %}
+  {% assign pubs_published = site.data.publications | where: "status", "Published" | sort: "year" | reverse %}
+  {% assign pubs_accepted = site.data.publications | where: "status", "Accepted" | sort: "year" | reverse %}
+  {% assign pubs_revision = site.data.publications | where: "status", "Under Revision" | sort: "year" | reverse %}
+  {% assign pubs_review = site.data.publications | where: "status", "Under Review" | sort: "year" | reverse %}
+  {% assign pubs_wip = site.data.publications | where: "status", "Work in Progress" | sort: "year" | reverse %}
+  {% assign sorted_pubs = pubs_published | concat: pubs_accepted | concat: pubs_revision | concat: pubs_review | concat: pubs_wip %}
+  {% for pub in sorted_pubs %}
   <div class="pub">
     <div class="pub-title">
-      {{ pub.title }}
-      <span class="pub-status {% if pub.status == 'Accepted' %}accepted{% elsif pub.status == 'Under Review' %}under-review{% endif %}">{{ pub.status }}</span>
+      {% if pub.link %}<a href="{{ pub.link }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}
+      <span class="pub-status {% if pub.status == 'Published' %}published{% elsif pub.status == 'Accepted' %}accepted{% elsif pub.status == 'Under Revision' %}under-revision{% elsif pub.status == 'Under Review' %}under-review{% endif %}">{{ pub.status }}</span>
     </div>
     <div class="pub-authors">{{ pub.authors }}</div>
     <div class="pub-venue">{{ pub.venue }}, {{ pub.year }}</div>

@@ -145,7 +145,9 @@ p { margin-bottom: 0.8rem; }
   margin-left: 0.25rem;
 }
 
+.pub-status.published { background: #d4edda; color: #155724; }
 .pub-status.accepted { background: #d4edda; color: #155724; }
+.pub-status.under-revision { background: #d1ecf1; color: #0c5460; }
 .pub-status.under-review { background: #fff3cd; color: #856404; }
 
 details summary {

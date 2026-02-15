@@ -1,41 +1,50 @@
+- title: "Architecture Without Architects: How AI Coding Agents Shape Software Architecture"
+  authors: "<strong>P. M. Konrad</strong>, T. L. Adam, R. Terrenzi, and S. Ayvaz"
+  venue: "Under Review"
+  year: 2025
+  status: Under Review
+  abstract: "The current AI coding agents select frameworks, scaffold infrastructure, and wire up integrations. These are architectural decisions, yet almost no one reviews them as such. We study the problem from two angles. First, we survey agentic coding tools and identify five mechanisms by which they make implicit architectural choices. The case study shows that changing the prompt alone produces structurally different systems. Second, we analyze prompt-architecture coupling. The way prompt choices in LLM-integrated code dictate what infrastructure the system needs. Six recurring patterns arise from this analysis. Natural-language instructions now appear to shape system structure directly. We call this vibe architecting, and we outline review practices, decision records, and tooling aimed at bringing these hidden decisions under governance."
+
+- title: "CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models"
+  authors: "T. L. Adam, <strong>P. M. Konrad</strong>, R. Terrenzi, F. G. Lukas, R. Yilmaz, K. Sierszecki, and S. Ayvaz"
+  venue: "Under Review"
+  year: 2025
+  status: Under Review
+  abstract: "Large language models are increasingly used as software architecture co-pilots, yet no benchmark evaluates their cloud-native architecture knowledge. We present CAKE, 188 expert-validated questions spanning four cognitive levels (recall, analyze, design, implement) and five cloud-native topics. We tested 22 model configurations (0.5B-70B parameters) from four families, using three-run majority voting for MCQ and LLM-as-judge scoring for free-response items. We observe four findings: (1) MCQ accuracy plateaus above 3B parameters, with 15 of 22 configurations exceeding 90%; (2) free-response scores scale steadily across all cognitive levels; (3) the two formats capture different facets of knowledge, as MCQ approaches a ceiling while free-response continues to differentiate models; (4) reasoning augmentation (+think) improves free-response quality, while tool augmentation (+tool) degrades performance for small models."
+
+- title: "Agentic Hybrid Retrieval for Ad Hoc Dataset Search: A Reference Architecture with LLM-Augmented Metadata"
+  authors: "R. Terrenzi, T. L. Adam, <strong>P. M. Konrad</strong>, and S. Ayvaz"
+  venue: "Under Review"
+  year: 2025
+  status: Under Review
+  abstract: "Ad hoc dataset search requires matching underspecified natural-language queries against sparse, heterogeneous metadata records, a task where typical keyword or embedding retrieval alone falls short. We present a reference architecture for agentic hybrid retrieval that combines BM25 lexical search with dense-embedding retrieval via reciprocal rank fusion, orchestrated by a large language model controller that repeatedly plans queries, evaluates result sufficiency, and reranks candidates. To reduce the vocabulary mismatch between user intent and provider-authored metadata, we introduce an offline metadata augmentation step in which an LLM generates pseudo-queries and structured pseudo-descriptions for each dataset record."
+
 - title: "Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas"
-  authors: "P. M. Konrad, T. Tanyel, and S. Ayvaz"
+  authors: "<strong>P. M. Konrad</strong>, T. Tanyel, and S. Ayvaz"
   venue: "29th International Conference on Knowledge-Based and Intelligent Information & Engineering Systems (KES 2025)"
   year: 2025
-  status: Accepted
+  status: Published
+  link: https://www.sciencedirect.com/science/article/pii/S1877050925028194
   abstract: "Flood detection using satellite imagery is crucial for environmental monitoring and disaster management, especially in rural and agricultural regions where even minor water inundation can disrupt farmland accessibility and road safety. Sentinel-1 Synthetic Aperture Radar (SAR) imagery offers a robust solution for mapping water under various weather conditions. Although deep learning-based segmentation methods have shown promising results for flood detection, their comparative performance in agricultural landscapes, including small-scale surface water dynamics, remains underexplored. In this study, we introduced a three-class segmentation framework that distinguishes sea, inland water, and land, improving the flood detection accuracy in complex coastal farmland. Ten different deep learning models were evaluated for segmentation using Sentinel-1 VH polarization decibel values. We further investigated anomaly detection via autoencoders and variational autoencoders to track temporal changes in flood-prone areas. The evaluations showed that the DeepLabv3+ and hybrid ResNet-UNet models outperformed the others."
 
 - title: "Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications"
-  authors: "P. M. Konrad, Y. Sabzehmeidani, A. Popa, and S. Ayvaz"
+  authors: "<strong>P. M. Konrad</strong>, Y. Sabzehmeidani, A. Popa, and S. Ayvaz"
   venue: "Under Review"
   year: 2025
   status: Under Review
   abstract: "Gastrointestinal (GI) imaging modalities including endoscopy, colonoscopy, and wireless capsule endoscopy provide vital diagnostic information, yet their manual interpretation remains laborious. Although deep learning approaches, particularly convolutional neural networks (CNNs), hybrid architectures, and transformer-based models, have achieved high accuracy in this domain, their clinical adoption is impeded by data limitations and trust concerns. The current study systematically maps algorithmic trends to specific GI imaging techniques, quantifies the relationship between dataset size and model performance to identify data sufficiency thresholds, and evaluates translational enablers such as federated learning for data privacy and explainable AI for clinician trust."
 
-- title: "Classical Comeback: Traditional Machine Learning Outperforms Deep Learning for Hyperspectral Fruit Quality Assessment"
-  authors: "P. M. Konrad and S. Ayvaz"
-  venue: "Work in Progress"
+- title: "Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets"
+  authors: "<strong>P. M. Konrad</strong>, A. Popa, Y. Sabzehmeidani, L. Zhong, E. A. Liehn, and S. Ayvaz"
+  venue: "Biomedical Signal Processing and Control"
   year: 2025
-  status: Work in Progress
-  abstract: "The prevailing trend for complex tasks like hyperspectral data analysis is the immediate adoption of deep learning (DL) models. In this work, we challenge that default assumption in the context of fruit quality assessment. We investigate whether a meticulously engineered traditional machine learning (ML) pipeline can compete with or surpass more complex DL solutions on the DeepFruit-HS dataset. Our findings demonstrate that optimized traditional models, particularly a Voting Ensemble and an Optuna-tuned Extra Trees classifier, achieve state-of-the-art F1 Macro scores of 0.7703 for ripeness and 0.8301 for firmness, outperforming recent DL benchmarks on this dataset."
-
-- title: "Large Language, Vision-Language and Multimodal Foundation Models for Satellite Remote Sensing: A Comprehensive Survey"
-  authors: "P. M. Konrad, J. P. Musiol, and S. Ayvaz"
-  venue: "Work in Progress"
-  year: 2025
-  status: Work in Progress
-  abstract: "The ascent of foundation models marks a paradigm shift in satellite remote sensing, promising to redefine Earth observation capabilities. This comprehensive survey provides a critical synthesis of their application, rigorously examining current progress, inherent challenges, and future prospects. We introduce a pioneering unified taxonomy for foundation model tasks in RS, ranging from text-driven geo-analytics to interactive multimodal agents. Our quantitative meta-benchmark synthesizes results from 19 distinct foundation model families across 26 open datasets."
-
-- title: "How to Segment Images When You Have Almost No Data: An Empirical Comparison of Pre-training and Foundation Models"
-  authors: "P. M. Konrad, S. Ayvaz, Y. Sabzehmeidani, A. Popa, and E. A. Liehn"
-  venue: "Work in Progress"
-  year: 2025
-  status: Work in Progress
+  status: Under Revision
+  link: https://arxiv.org/abs/2509.05892
   abstract: "Deep learning models are notoriously data-hungry, which presents a fundamental obstacle for specialized medical tasks where annotated data is scarce. We perform a carefully controlled experiment on a clinically important problem: segmenting the layers of the artery wall from only nine annotated histology images. We compare a variety of standard convolutional architectures, pre-trained on a large public histology corpus, against a vision foundation model guided by a systematic and reproducible prompting curriculum."
 
-- title: "Deep Patch Traversal: HS-SSAE's Hierarchical SSM Layers for SAR Anomaly Detection"
-  authors: "P. M. Konrad and S. Ayvaz"
-  venue: "Explorative Research (Proof of concept completed)"
+- title: "Preprocessing Is All You Need: A Systematic Benchmark of 19 Machine Learning Algorithms for Hyperspectral Fruit Quality Assessment"
+  authors: "<strong>P. M. Konrad</strong>, C. H. Kunstmann, J. Fiutowski, and S. Ayvaz"
+  venue: "Work in Progress"
   year: 2025
-  status: Explorative
-  abstract: "Unsupervised anomaly detection in Synthetic Aperture Radar (SAR) time series is a critical task where conventional autoencoder-based methods often struggle. This paper introduces a novel deep learning framework, the Hierarchical Spatial-Sequential Autoencoder with Dual Scoring (HS-SSAE-DS), designed for more robust detection in Sentinel-1 SAR imagery. The core insight is to model intra-patch spatial dependencies hierarchically using General State Space Models (GeneralSSMs)."
+  status: Work in Progress
+  abstract: "Hyperspectral imaging enables non-destructive assessment of fruit ripeness and firmness, yet most published methods rely on deep learning architectures that are difficult to deploy in commercial sorting environments. This study benchmarks 19 traditional machine learning algorithms on dual-task prediction (ripeness classification and firmness estimation) using the DeepHS Fruit dataset with 1,120 engineered VIS-NIR spectral features across five fruit species. Through a 6-phase experimental design spanning 190 preprocessing configurations, 3,800 Bayesian optimization trials, and 10-fold cross-validation, we find that preprocessing strategy consistently matters more than algorithm choice: stratified resplit balancing and spectral feature engineering together account for the largest performance gains, while PCA dimensionality reduction degrades accuracy by 2.52 percentage points on average by discarding discriminative spectral information. The best single model (ExtraTrees with stratified resplit, no PCA) achieves 75.00% overall accuracy, surpassing Fruit-HSNet's reported benchmark of 70.73% while training in 0.31 seconds on consumer hardware. An RGB-only comparison reaches 69.57% accuracy (93% of full-spectrum performance), though this represents an upper bound from bands extracted from hyperspectral cubes rather than true RGB cameras. Explainable AI analysis via SHAP, LIME, and permutation importance reveals concentrated feature importance in visible regions associated with pigment changes and near-infrared regions related to tissue structure and water content, linking model decisions to known indicators of fruit maturation. These results demonstrate that carefully preprocessed traditional ML pipelines can match or exceed published benchmarks for spectral fruit quality tasks, offering a practical, interpretable, and resource-efficient alternative for commercial deployment."
