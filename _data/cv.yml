@@ -94,31 +94,6 @@
         - Led a small HR team responsible for the administration of over 600 soldiers
         - Streamlined administrative processes and document workflows to improve efficiency in a high-stakes naval command environment
 
-- title: Personal Projects
-  type: time_table
-  contents:
-    - title: Binary Cell Classification
-      institution: PyTorch, Scikit-learn, Pandas
-      year: 2024
-      description:
-        - Implemented and optimized deep learning models for a national AI competition
-        - Focused on the classification of cellular images, contributing to computational biology research
-        - '<a href="https://github.com/phomarkon/danish-ai-competition-cell-classification-final">GitHub</a>'
-    - title: Stock Price Prediction
-      institution: Scikit-learn, Pandas, NumPy
-      year: 2023
-      description:
-        - Developed a Random Forest algorithm to predict stock price movements using technical indicators
-        - Achieved a predictive accuracy that outperformed simple market averages in back-testing simulations
-        - '<a href="https://github.com/phomarkon/randomforest-stock-price-prediction">GitHub</a>'
-    - title: Twitter Sentiment Analysis
-      institution: NLTK, Scikit-learn, Pandas
-      year: 2023
-      description:
-        - Utilized NLP techniques to analyze Twitter sentiment and its influence on stock market prices
-        - Successfully back-tested investment strategies, achieving returns comparable to major indices
-        - '<a href="https://github.com/phomarkon/twitter-sentiment-investing-strategy">GitHub</a>'
-
 - title: Skills
   type: nested_list
   contents:
