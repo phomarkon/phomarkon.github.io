@@ -13,7 +13,7 @@
   abstract: "Large language models are increasingly used as software architecture co-pilots, yet no benchmark evaluates their cloud-native architecture knowledge. We present CAKE, 188 expert-validated questions spanning four cognitive levels (recall, analyze, design, implement) and five cloud-native topics. We tested 22 model configurations (0.5B-70B parameters) from four families, using three-run majority voting for MCQ and LLM-as-judge scoring for free-response items. We observe four findings: (1) MCQ accuracy plateaus above 3B parameters, with 15 of 22 configurations exceeding 90%; (2) free-response scores scale steadily across all cognitive levels; (3) the two formats capture different facets of knowledge, as MCQ approaches a ceiling while free-response continues to differentiate models; (4) reasoning augmentation (+think) improves free-response quality, while tool augmentation (+tool) degrades performance for small models."
 
 - title: "Agentic Hybrid Retrieval for Ad Hoc Dataset Search: A Reference Architecture with LLM-Augmented Metadata"
-  authors: "R. Terrenzi, T. L. Adam, <strong>P. M. Konrad</strong>, and S. Ayvaz"
+  authors: "R. Terrenzi, <strong>P. M. Konrad</strong>, and S. Ayvaz"
   venue: "Under Review"
   year: 2025
   status: Under Review
