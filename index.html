@@ -6,15 +6,26 @@
   <title>Phongsakon Mark Konrad</title>
   <meta name="description" content="Personal website of Phongsakon Mark Konrad.">
   <link rel="stylesheet" href="/assets/css/main.css">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
   <link rel="alternate" type="application/atom+xml" title="Phongsakon Mark Konrad" href="/feed.xml">
 </head>
 <body>
+  <nav class="site-nav">
+    <a href="#about">About</a>
+    <a href="#news">News</a>
+    <a href="#publications">Publications</a>
+    <a href="#education">Education</a>
+    <a href="#research-experience">Research</a>
+    <a href="#professional-experience">Experience</a>
+    <a href="#certifications">Certifications</a>
+    <button class="theme-toggle" aria-label="Toggle theme">◑</button>
+  </nav>
   <main>
     <h1>Phongsakon Mark Konrad</h1>
 <p class="subtitle">Future Researcher with an Entrepreneurial Spirit</p>
 
 <!-- About -->
-<section>
+<section id="about">
   <h2>About</h2>
   <div class="profile">
     <img src="/assets/img/profile_img.jpg" alt="Phongsakon Mark Konrad">
@@ -23,7 +34,7 @@
       <p>My path to research has been, like my life, anything but conventional, beginning in Thailand, moving through Germany, living in Hong Kong for a semester, and now continuing in Denmark. I've served in the military, built startups, and do research. Mix all three together and you get a pretty spicy combination. These experiences revealed that my true passion lies not just in building, but in a deeper question: how do machines actually learn?</p>
     </div>
   </div>
-  <p>I'm completing my BSc. Engineering (Software Engineering) at the <a href="https://www.sdu.dk/en">University of Southern Denmark</a>, and I've been accepted to the <a href="https://www.cam.ac.uk/">MPhil in Machine Learning and Machine Intelligence at the University of Cambridge</a>. I work as a Research Collaborator at the <a href="https://hkust.edu.hk/">Hong Kong University of Science and Technology</a> with the <a href="https://datavizards.hkust.edu.hk/">DataVISards research group</a>, and at SDU's <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">Data and Intelligence Lab</a>, supervised by <a href="https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en">Associate Professor Serkan Ayvaz</a>. I'm the founder of <a href="https://www.saturolabs.net/">SaturoLabs</a>.</p>
+  <p>I'm completing my BSc. Engineering (Software Engineering) at the <a href="https://www.sdu.dk/en">University of Southern Denmark</a>, and I've been accepted to the <a href="https://www.cam.ac.uk/">MPhil in Machine Learning and Machine Intelligence at the University of Cambridge</a>. I work as a Research Collaborator at SDU's <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">Data and Intelligence Lab</a>, supervised by <a href="https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en">Associate Professor Serkan Ayvaz</a>, and at the <a href="https://hkust.edu.hk/">Hong Kong University of Science and Technology</a> with the DataVISards research group. I'm the founder of <a href="https://www.saturolabs.net/">SaturoLabs</a>.</p>
   <p>I'm an anti-big data big data guy. I don't like the scaling law, it's not elegant, and I want to change that. Maybe that's delusional, but sometimes you have to be, right? I'm interested in the search for soul and consciousness in machines. I am one, and if I have it, why not the current models?</p>
 
   <h3>Research Interests</h3>
@@ -48,7 +59,7 @@
 </section>
 
 <!-- News -->
-<section>
+<section id="news">
   <h2>News</h2>
   <ul class="news-list">
     
@@ -127,7 +138,7 @@
 </section>
 
 <!-- Publications -->
-<section>
+<section id="publications">
   <h2>Publications</h2>
   
   
@@ -277,7 +288,7 @@
 
   
 
-<section>
+<section id="education">
   <h2>Education</h2>
 
   
@@ -356,7 +367,7 @@
 
   
 
-<section>
+<section id="research-experience">
   <h2>Research Experience</h2>
 
   
@@ -452,7 +463,7 @@
 </section>
 
 
-<section>
+<section id="professional-experience">
   <h2>Professional Experience</h2>
 
   
@@ -548,7 +559,7 @@
 </section>
 
 
-<section>
+<section id="skills">
   <h2>Skills</h2>
 
   
@@ -581,7 +592,7 @@
 </section>
 
 
-<section>
+<section id="honors-and-awards">
   <h2>Honors and Awards</h2>
 
   
@@ -694,7 +705,7 @@
 </section>
 
 
-<section>
+<section id="certifications">
   <h2>Certifications</h2>
 
   
@@ -705,11 +716,11 @@
         <span class="cv-entry-year">2026</span>
       </div>
       
-      <div class="cv-entry-institution">Accelerace</div>
+      <div class="cv-entry-institution">Accelerace and BII</div>
       
       
         
-        <p style="font-size:0.9rem; color:#555; margin-top:0.25rem;">Venture Capital Explorer Programme, Aarhus. Credential ID 11ec3bad-f9b5-4510-afa2-2dfc372e2f53</p>
+        <p style="font-size:0.9rem; color:#555; margin-top:0.25rem;">Intensive 4-day program equipping students to drive impact through venture capital. Curriculum covers the VC investment process, founder sourcing, startup assessment, venture risk evaluation, and founder relations. Covers topics including investment committee operations, exits, and practical skills testing through case studies and simulations.</p>
         
       
     </div>
@@ -724,7 +735,7 @@
       
       
         
-        <p style="font-size:0.9rem; color:#555; margin-top:0.25rem;">Professional certification in machine learning fundamentals and applications</p>
+        <p style="font-size:0.9rem; color:#555; margin-top:0.25rem;">Comprehensive professional certification covering machine learning fundamentals, algorithms, supervised and unsupervised learning, feature engineering, model evaluation, and practical applications across diverse domains.</p>
         
       
     </div>
@@ -769,7 +780,7 @@
       
       
         
-        <p style="font-size:0.9rem; color:#555; margin-top:0.25rem;">Professional certification in UX design principles and methodologies</p>
+        <p style="font-size:0.9rem; color:#555; margin-top:0.25rem;">Professional certification covering user-centered design principles, wireframing, prototyping, usability testing, and end-to-end product design methodology. Emphasizes research-driven design decisions and user empathy.</p>
         
       
     </div>
@@ -810,7 +821,7 @@
 
 
 <!-- Contact -->
-<section>
+<section id="contact">
   <h2>Get in Touch</h2>
   <p>I'm always open to talk about research ideas, potential collaborations, or entrepreneurial projects. If something on this page caught your attention, just reach out.</p>
   <p><a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a></p>
@@ -820,5 +831,6 @@
   <footer>
     <p>&copy; 2026 Phongsakon Mark Konrad</p>
   </footer>
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>
