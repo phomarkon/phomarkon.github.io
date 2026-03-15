@@ -297,10 +297,15 @@ details p {
   font-style: italic;
 }
 
-.cv-entry ul {
+.cv-entry ul,
+.cv-entry > p {
   margin-top: 0.25rem;
   padding-left: 1.25rem;
   font-size: 0.9rem;
+}
+
+.cv-entry > p {
+  padding-left: 0;
 }
 
 .cv-entry li {
