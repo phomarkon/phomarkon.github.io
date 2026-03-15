@@ -23,6 +23,11 @@
 - title: Education
   type: time_table
   contents:
+    - title: MPhil in Machine Learning and Machine Intelligence
+      institution: University of Cambridge
+      year: Oct 2026 -- (Incoming)
+      description:
+        - Accepted to the MPhil in Machine Learning and Machine Intelligence programme
     - title: Exchange Semester
       institution: Hong Kong University of Science and Technology (HKUST)
       year: Sep 2025 -- Dec 2025
@@ -42,17 +47,32 @@
 - title: Publications
   type: list
   contents:
-    - "[1] P. M. Konrad, T. Tanyel, and S. Ayvaz (2025). Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas. In KES 2025. (Accepted)"
+    - "[1] P. M. Konrad, T. Tanyel, and S. Ayvaz (2025). Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas. In KES 2025. (Published)"
     - "[2] P. M. Konrad, Y. Sabzehmeidani, A. Popa, and S. Ayvaz (2025). Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications. (Under Review)"
-    - "[3] P. M. Konrad, A. Popa, Y. Sabzehmeidani, L. Zhong, E. A. Liehn, and S. Ayvaz (2025). Challenges in Deep Learning-Based Small Organ Segmentation. Biomedical Signal Processing and Control. (Under Review)"
-    - "[4] P. M. Konrad, C. H. Kunstmann, J. Fiutowski, and S. Ayvaz (2025). Preprocessing Is All You Need: A Systematic Benchmark of 19 ML Algorithms for Hyperspectral Fruit Quality Assessment. (Work in Progress)"
+    - "[3] P. M. Konrad, A. Popa, Y. Sabzehmeidani, L. Zhong, E. A. Liehn, and S. Ayvaz (2025). Challenges in Deep Learning-Based Small Organ Segmentation. Biomedical Signal Processing and Control. (Under Revision)"
+    - "[4] P. M. Konrad, C. Kunstmann-Olsen, J. Fiutowski, and S. Ayvaz (2025). Non-Destructive Prediction of Fruit Ripeness and Firmness Using Hyperspectral Imaging and Lightweight Machine Learning Models. Computers and Electronics in Agriculture. (Under Review)"
+    - "[5] P. M. Konrad, T. L. Adam, R. Terrenzi, and S. Ayvaz (2026). Architecture Without Architects: How AI Coding Agents Shape Software Architecture. In SAGAI Workshop, ICSA 2026. (Accepted)"
+    - "[6] T. L. Adam, P. M. Konrad, R. Terrenzi, F. G. Lukas, R. Yilmaz, K. Sierszecki, and S. Ayvaz (2026). CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models. In KDA-AI Workshop, ICSA 2026. (Accepted)"
+    - "[7] R. Terrenzi, P. M. Konrad, and S. Ayvaz (2026). Agentic Hybrid Retrieval for Ad Hoc Dataset Search: A Reference Architecture with LLM-Augmented Metadata. In SAML Workshop, ICSA 2026. (Accepted)"
+    - "[8] P. M. Konrad (2026). When AI Coding Studies Disagree: A Practical Guide to the Evaluation Lens. (Under Review)"
 
 - title: Research Experience
   type: time_table
   contents:
+    - title: Research Collaborator
+      institution: DataVISards, Hong Kong University of Science and Technology (HKUST)
+      year: Jan 2026 -- Present
+      description:
+        - Collaborating with the DataVISards research group on machine learning and data visualization projects
+    - title: Research Collaborator
+      institution: Data and Intelligence Lab, SDU
+      year: Jan 2026 -- Present
+      description:
+        - Independently initiating and executing machine learning research projects, contributing to novel problem formulation and experimental design
+        - Co-authoring academic papers for publication, contributing to manuscript drafting, literature reviews, and the revision process
     - title: Student Research Assistant
       institution: Data and Intelligence Lab, SDU
-      year: Sep 2024 -- Present
+      year: Sep 2024 -- Dec 2025
       description:
         - Developing end-to-end machine learning projects, from co-initiating concepts to building scalable ML pipelines and executing experiments
         - Co-authoring academic papers for publication, contributing to manuscript drafting, literature reviews, and the revision process
@@ -155,6 +175,10 @@
 - title: Certifications
   type: time_table
   contents:
+    - title: Venture Capital Explorer Programme
+      institution: Accelerace
+      year: 2026
+      description: Venture Capital Explorer Programme, Aarhus. Credential ID 11ec3bad-f9b5-4510-afa2-2dfc372e2f53
     - title: Machine Learning
       institution: Stanford Online
       year: 2024
