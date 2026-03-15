@@ -176,13 +176,13 @@
   type: time_table
   contents:
     - title: Venture Capital Explorer Programme
-      institution: Accelerace
+      institution: Accelerace and BII
       year: 2026
-      description: Venture Capital Explorer Programme, Aarhus. Credential ID 11ec3bad-f9b5-4510-afa2-2dfc372e2f53
+      description: Intensive 4-day program equipping students to drive impact through venture capital. Curriculum covers the VC investment process, founder sourcing, startup assessment, venture risk evaluation, and founder relations. Covers topics including investment committee operations, exits, and practical skills testing through case studies and simulations.
     - title: Machine Learning
       institution: Stanford Online
       year: 2024
-      description: Professional certification in machine learning fundamentals and applications
+      description: Comprehensive professional certification covering machine learning fundamentals, algorithms, supervised and unsupervised learning, feature engineering, model evaluation, and practical applications across diverse domains.
     - title: Foundational C# with Microsoft
       institution: Microsoft
       year: 2024
@@ -194,7 +194,7 @@
     - title: Google UX Design Professional Certificate
       institution: Google
       year: 2023
-      description: Professional certification in UX design principles and methodologies
+      description: Professional certification covering user-centered design principles, wireframing, prototyping, usability testing, and end-to-end product design methodology. Emphasizes research-driven design decisions and user empathy.
     - title: Full-Stack Engineer Career Path
       institution: Codecademy
       year: 2023

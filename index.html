@@ -6,7 +6,7 @@ layout: default
 <p class="subtitle">Future Researcher with an Entrepreneurial Spirit</p>
 
 <!-- About -->
-<section>
+<section id="about">
   <h2>About</h2>
   <div class="profile">
     <img src="{{ '/assets/img/profile_img.jpg' | relative_url }}" alt="Phongsakon Mark Konrad">
@@ -15,7 +15,7 @@ layout: default
       <p>My path to research has been, like my life, anything but conventional, beginning in Thailand, moving through Germany, living in Hong Kong for a semester, and now continuing in Denmark. I've served in the military, built startups, and do research. Mix all three together and you get a pretty spicy combination. These experiences revealed that my true passion lies not just in building, but in a deeper question: how do machines actually learn?</p>
     </div>
   </div>
-  <p>I'm completing my BSc. Engineering (Software Engineering) at the <a href="https://www.sdu.dk/en">University of Southern Denmark</a>, and I've been accepted to the <a href="https://www.cam.ac.uk/">MPhil in Machine Learning and Machine Intelligence at the University of Cambridge</a>. I work as a Research Collaborator at the <a href="https://hkust.edu.hk/">Hong Kong University of Science and Technology</a> with the <a href="https://datavizards.hkust.edu.hk/">DataVISards research group</a>, and at SDU's <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">Data and Intelligence Lab</a>, supervised by <a href="https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en">Associate Professor Serkan Ayvaz</a>. I'm the founder of <a href="https://www.saturolabs.net/">SaturoLabs</a>.</p>
+  <p>I'm completing my BSc. Engineering (Software Engineering) at the <a href="https://www.sdu.dk/en">University of Southern Denmark</a>, and I've been accepted to the <a href="https://www.cam.ac.uk/">MPhil in Machine Learning and Machine Intelligence at the University of Cambridge</a>. I work as a Research Collaborator at SDU's <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">Data and Intelligence Lab</a>, supervised by <a href="https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en">Associate Professor Serkan Ayvaz</a>, and at the <a href="https://hkust.edu.hk/">Hong Kong University of Science and Technology</a> with the DataVISards research group. I'm the founder of <a href="https://www.saturolabs.net/">SaturoLabs</a>.</p>
   <p>I'm an anti-big data big data guy. I don't like the scaling law, it's not elegant, and I want to change that. Maybe that's delusional, but sometimes you have to be, right? I'm interested in the search for soul and consciousness in machines. I am one, and if I have it, why not the current models?</p>
 
   <h3>Research Interests</h3>
@@ -40,7 +40,7 @@ layout: default
 </section>
 
 <!-- News -->
-<section>
+<section id="news">
   <h2>News</h2>
   <ul class="news-list">
     {% assign sorted_news = site.data.news | sort: "date" | reverse %}
@@ -54,7 +54,7 @@ layout: default
 </section>
 
 <!-- Publications -->
-<section>
+<section id="publications">
   <h2>Publications</h2>
   {% assign pubs_published = site.data.publications | where: "status", "Published" | sort: "year" | reverse %}
   {% assign pubs_accepted = site.data.publications | where: "status", "Accepted" | sort: "year" | reverse %}
@@ -84,7 +84,7 @@ layout: default
 {% if section.type == "map" or section.type == "list" %}
   {% continue %}
 {% endif %}
-<section>
+<section id="{{ section.title | downcase | replace: ' ', '-' }}">
   <h2>{{ section.title }}</h2>
 
   {% if section.type == "time_table" %}
@@ -124,7 +124,7 @@ layout: default
 {% endfor %}
 
 <!-- Contact -->
-<section>
+<section id="contact">
   <h2>Get in Touch</h2>
   <p>I'm always open to talk about research ideas, potential collaborations, or entrepreneurial projects. If something on this page caught your attention, just reach out.</p>
   <p><a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a></p>
