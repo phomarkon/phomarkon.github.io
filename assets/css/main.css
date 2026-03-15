@@ -1,3 +1,41 @@
+/* Tokens — light (default) */
+:root {
+  --bg: #fff;
+  --text: #333;
+  --muted: #555;
+  --dim: #888;
+  --border: #ddd;
+  --link: #1a5276;
+  --nav-bg: #fff;
+  --status-default-bg: #e8e8e8;
+  --status-default-text: #555;
+  --status-accepted-bg: #d4edda;
+  --status-accepted-text: #155724;
+  --status-revision-bg: #d1ecf1;
+  --status-revision-text: #0c5460;
+  --status-review-bg: #fff3cd;
+  --status-review-text: #856404;
+}
+
+/* Tokens — dark */
+[data-theme="dark"] {
+  --bg: #111;
+  --text: #ddd;
+  --muted: #aaa;
+  --dim: #777;
+  --border: #2d2d2d;
+  --link: #6bb3d6;
+  --nav-bg: #111;
+  --status-default-bg: #252525;
+  --status-default-text: #aaa;
+  --status-accepted-bg: #1a3326;
+  --status-accepted-text: #6dd98a;
+  --status-revision-bg: #0a2a33;
+  --status-revision-text: #7dd3da;
+  --status-review-bg: #2a2000;
+  --status-review-text: #ffd580;
+}
+
 /* Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -8,33 +46,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #333;
-  background: #fff;
-}
-
-/* Nav */
-.site-nav {
-  position: sticky;
-  top: 0;
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  z-index: 100;
-  padding: 0.6rem 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1.25rem;
-}
-
-.site-nav a {
-  font-size: 0.85rem;
-  color: #555;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.site-nav a:hover {
-  color: #1a5276;
-  text-decoration: none;
+  color: var(--text);
+  background: var(--bg);
+  transition: background 0.2s, color 0.2s;
 }
 
 main {
@@ -44,7 +58,7 @@ main {
 }
 
 /* Links */
-a { color: #1a5276; text-decoration: none; }
+a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* Headings */
@@ -55,7 +69,7 @@ h1 {
 
 h2 {
   font-size: 1.3rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border);
   padding-bottom: 0.3rem;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
@@ -68,9 +82,62 @@ h3 {
 
 p { margin-bottom: 0.8rem; }
 
+/* Nav */
+.site-nav {
+  position: sticky;
+  top: 0;
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding: 0.6rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.25rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.site-nav a {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+  padding-bottom: 2px;
+  border-bottom: 1.5px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.site-nav a:hover {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.site-nav a.active {
+  color: var(--link);
+  border-bottom-color: var(--link);
+}
+
+.theme-toggle {
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  line-height: 1.4;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.theme-toggle:hover {
+  color: var(--link);
+  border-color: var(--link);
+}
+
 /* Header */
 .subtitle {
-  color: #666;
+  color: var(--muted);
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -108,7 +175,7 @@ p { margin-bottom: 0.8rem; }
 /* Languages & Skills */
 .tags {
   font-size: 0.9rem;
-  color: #555;
+  color: var(--muted);
   margin-bottom: 0.5rem;
 }
 
@@ -135,7 +202,7 @@ p { margin-bottom: 0.8rem; }
 }
 
 .news-date {
-  color: #888;
+  color: var(--dim);
   font-size: 0.85rem;
   min-width: 6rem;
   display: inline-block;
@@ -153,12 +220,12 @@ p { margin-bottom: 0.8rem; }
 
 .pub-authors {
   font-size: 0.9rem;
-  color: #555;
+  color: var(--muted);
 }
 
 .pub-venue {
   font-size: 0.85rem;
-  color: #777;
+  color: var(--dim);
   font-style: italic;
 }
 
@@ -167,29 +234,29 @@ p { margin-bottom: 0.8rem; }
   font-size: 0.75rem;
   padding: 0.1rem 0.4rem;
   border-radius: 3px;
-  background: #e8e8e8;
-  color: #555;
+  background: var(--status-default-bg);
+  color: var(--status-default-text);
   margin-left: 0.25rem;
 }
 
-.pub-status.published { background: #d4edda; color: #155724; }
-.pub-status.accepted { background: #d4edda; color: #155724; }
-.pub-status.under-revision { background: #d1ecf1; color: #0c5460; }
-.pub-status.under-review { background: #fff3cd; color: #856404; }
+.pub-status.published  { background: var(--status-accepted-bg);  color: var(--status-accepted-text); }
+.pub-status.accepted   { background: var(--status-accepted-bg);  color: var(--status-accepted-text); }
+.pub-status.under-revision { background: var(--status-revision-bg); color: var(--status-revision-text); }
+.pub-status.under-review   { background: var(--status-review-bg);   color: var(--status-review-text); }
 
 details summary {
   cursor: pointer;
   font-size: 0.85rem;
-  color: #1a5276;
+  color: var(--link);
   margin-top: 0.2rem;
 }
 
 details p {
   font-size: 0.85rem;
-  color: #555;
+  color: var(--muted);
   margin-top: 0.4rem;
   padding-left: 0.5rem;
-  border-left: 2px solid #ddd;
+  border-left: 2px solid var(--border);
 }
 
 /* CV sections */
@@ -220,13 +287,13 @@ details p {
 
 .cv-entry-year {
   font-size: 0.85rem;
-  color: #888;
+  color: var(--dim);
   white-space: nowrap;
 }
 
 .cv-entry-institution {
   font-size: 0.9rem;
-  color: #555;
+  color: var(--muted);
   font-style: italic;
 }
 
@@ -255,7 +322,7 @@ details p {
 
 .skills-grid dd {
   grid-column: 2;
-  color: #555;
+  color: var(--muted);
 }
 
 /* Footer */
@@ -263,9 +330,9 @@ footer {
   max-width: 800px;
   margin: 2rem auto 0;
   padding: 1rem 1.5rem;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--border);
   font-size: 0.8rem;
-  color: #999;
+  color: var(--dim);
   text-align: center;
 }
 
