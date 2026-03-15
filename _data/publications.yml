@@ -1,20 +1,20 @@
 - title: "Architecture Without Architects: How AI Coding Agents Shape Software Architecture"
   authors: "<strong>P. M. Konrad</strong>, T. L. Adam, R. Terrenzi, and S. Ayvaz"
-  venue: "SAGAI Workshop, ICSA 2026"
+  venue: "SAGAI Workshop, IEEE ICSA 2026"
   year: 2026
   status: Accepted
   abstract: "The current AI coding agents select frameworks, scaffold infrastructure, and wire up integrations. These are architectural decisions, yet almost no one reviews them as such. We study the problem from two angles. First, we survey agentic coding tools and identify five mechanisms by which they make implicit architectural choices. The case study shows that changing the prompt alone produces structurally different systems. Second, we analyze prompt-architecture coupling. The way prompt choices in LLM-integrated code dictate what infrastructure the system needs. Six recurring patterns arise from this analysis. Natural-language instructions now appear to shape system structure directly. We call this vibe architecting, and we outline review practices, decision records, and tooling aimed at bringing these hidden decisions under governance."
 
 - title: "CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models"
   authors: "T. L. Adam, <strong>P. M. Konrad</strong>, R. Terrenzi, F. G. Lukas, R. Yilmaz, K. Sierszecki, and S. Ayvaz"
-  venue: "KDA-AI Workshop, ICSA 2026"
+  venue: "KDA-AI Workshop, IEEE ICSA 2026"
   year: 2026
   status: Accepted
   abstract: "Large language models are increasingly used as software architecture co-pilots, yet no benchmark evaluates their cloud-native architecture knowledge. We present CAKE, 188 expert-validated questions spanning four cognitive levels (recall, analyze, design, implement) and five cloud-native topics. We tested 22 model configurations (0.5B-70B parameters) from four families, using three-run majority voting for MCQ and LLM-as-judge scoring for free-response items. We observe four findings: (1) MCQ accuracy plateaus above 3B parameters, with 15 of 22 configurations exceeding 90%; (2) free-response scores scale steadily across all cognitive levels; (3) the two formats capture different facets of knowledge, as MCQ approaches a ceiling while free-response continues to differentiate models; (4) reasoning augmentation (+think) improves free-response quality, while tool augmentation (+tool) degrades performance for small models."
 
 - title: "Agentic Hybrid Retrieval for Ad Hoc Dataset Search: A Reference Architecture with LLM-Augmented Metadata"
   authors: "R. Terrenzi, <strong>P. M. Konrad</strong>, and S. Ayvaz"
-  venue: "SAML Workshop, ICSA 2026"
+  venue: "SAML Workshop, IEEE ICSA 2026"
   year: 2026
   status: Accepted
   abstract: "Ad hoc dataset search requires matching underspecified natural-language queries against sparse, heterogeneous metadata records, a task where typical keyword or embedding retrieval alone falls short. We present a reference architecture for agentic hybrid retrieval that combines BM25 lexical search with dense-embedding retrieval via reciprocal rank fusion, orchestrated by a large language model controller that repeatedly plans queries, evaluates result sufficiency, and reranks candidates. To reduce the vocabulary mismatch between user intent and provider-authored metadata, we introduce an offline metadata augmentation step in which an LLM generates pseudo-queries and structured pseudo-descriptions for each dataset record."
