@@ -197,6 +197,10 @@ p { margin-bottom: 0.8rem; }
 }
 
 .news-list li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0 1rem;
+  align-items: baseline;
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
 }
@@ -204,8 +208,6 @@ p { margin-bottom: 0.8rem; }
 .news-date {
   color: var(--dim);
   font-size: 0.85rem;
-  min-width: 6rem;
-  display: inline-block;
 }
 
 /* Publications */

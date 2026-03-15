@@ -47,7 +47,7 @@ layout: default
     {% for item in sorted_news %}
     <li>
       <span class="news-date">{{ item.date | date: "%b %Y" }}</span>
-      {{ item.text }}
+      <span>{{ item.text }}</span>
     </li>
     {% endfor %}
   </ul>
@@ -69,7 +69,7 @@ layout: default
       <span class="pub-status {% if pub.status == 'Published' %}published{% elsif pub.status == 'Accepted' %}accepted{% elsif pub.status == 'Under Revision' %}under-revision{% elsif pub.status == 'Under Review' %}under-review{% endif %}">{{ pub.status }}</span>
     </div>
     <div class="pub-authors">{{ pub.authors }}</div>
-    <div class="pub-venue">{{ pub.venue }}, {{ pub.year }}</div>
+    <div class="pub-venue">{{ pub.venue }}</div>
     {% if pub.abstract %}
     <details>
       <summary>Abstract</summary>
