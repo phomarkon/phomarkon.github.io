@@ -92,7 +92,9 @@
       institution: SaturoLabs
       year: Jan 2026 -- Present
       description:
-        - '<a href="https://www.saturolabs.net/">saturolabs.net</a> · <a href="https://www.claudeboyz.com/">claudeboyz.com</a> · <a href="https://getproofz.com/">getproofz.com</a> · <a href="https://dreambear.app/">dreambear.app</a>'
+        - 'Solo umbrella for product experiments at the intersection of AI and wellbeing.'
+        - '<strong><a href="https://dreambear.app/">DreamBear</a> (flagship):</strong> AI bedtime story app for neurodivergent children aged 3 to 10, where ADHD energy, autism-related focus, and dyslexic creativity become heroic superpowers in personalised narratives. iOS 16+, freemium ($9.99/mo or $79.99/yr), COPPA compliant, no ads or data sharing. Built on the Anthropic Claude API, Next.js, and ElevenLabs voice synthesis. Tagline: "Where every mind shines."'
+        - 'Other product surfaces: <a href="https://www.saturolabs.net/">saturolabs.net</a>, <a href="https://www.claudeboyz.com/">claudeboyz.com</a>, <a href="https://getproofz.com/">getproofz.com</a>.'
     - title: CTO and Co-Founder
       institution: Tutora ApS
       year: Jun 2024 -- Nov 2024

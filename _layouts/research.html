@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} — {{ site.title }}</title>
+  <meta name="description" content="{{ page.tldr | default: page.title | strip_html | truncate: 160 }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+  {% if page.paper_html %}
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  {% endif %}
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="{{ '/' | relative_url }}#about">About</a>
+    <a href="{{ '/' | relative_url }}#news">News</a>
+    <a href="{{ '/' | relative_url }}#publications" class="active">Publications</a>
+    <a href="{{ '/' | relative_url }}#education">Education</a>
+    <a href="{{ '/' | relative_url }}#research-experience">Research</a>
+    <a href="{{ '/' | relative_url }}#professional-experience">Experience</a>
+    <a href="{{ '/' | relative_url }}#certifications">Certifications</a>
+    <button class="theme-toggle" aria-label="Toggle theme">◑</button>
+  </nav>
+  <main>
+    <p class="back-link"><a href="{{ '/' | relative_url }}#publications">← Back to all publications</a></p>
+
+    <h1 class="research-title">{{ page.title }}</h1>
+
+    {% if page.subtitle %}
+    <p class="subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+
+    <div class="research-meta">
+      {% if page.status %}
+      <span class="pub-status {% if page.status == 'Published' %}published{% elsif page.status == 'Accepted' %}accepted{% elsif page.status == 'Under Revision' %}under-revision{% elsif page.status == 'Under Review' %}under-review{% elsif page.status == 'Preprint' %}preprint{% elsif page.status == 'PoC' %}poc{% elsif page.status == 'In Progress' %}in-progress{% endif %}">{{ page.status }}</span>
+      {% endif %}
+      {% if page.venue %}<span class="research-venue">{{ page.venue }}</span>{% endif %}
+      {% if page.year %}<span class="research-year">{{ page.year }}</span>{% endif %}
+    </div>
+
+    {% if page.tags %}
+    <ul class="tag-list">
+      {% for tag in page.tags %}
+      <li class="tag {{ tag | downcase | replace: ' ', '-' }}">{{ tag }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if page.authors %}
+    <p class="research-authors">{{ page.authors }}</p>
+    {% endif %}
+
+    {% if page.links %}
+    <ul class="research-links">
+      {% for link in page.links %}
+      <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if page.tldr %}
+    <section class="research-tldr">
+      <h2>TL;DR</h2>
+      <p>{{ page.tldr }}</p>
+    </section>
+    {% endif %}
+
+    {% if page.hero_figure %}
+    <figure class="research-hero">
+      <img src="{{ page.hero_figure | relative_url }}" alt="{{ page.hero_caption | default: page.title }}">
+      {% if page.hero_caption %}<figcaption>{{ page.hero_caption }}</figcaption>{% endif %}
+    </figure>
+    {% endif %}
+
+    {% if page.headline_result %}
+    <section class="research-headline">
+      <h2>Headline result</h2>
+      <p>{{ page.headline_result }}</p>
+    </section>
+    {% endif %}
+
+    {% if page.method %}
+    <section>
+      <h2>Method in brief</h2>
+      <p class="research-method">{{ page.method }}</p>
+    </section>
+    {% endif %}
+
+    {% if page.contributions %}
+    <section>
+      <h2>Key Contributions</h2>
+      <ul class="contributions">
+        {% for c in page.contributions %}
+        <li>{{ c }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    {% if page.abstract %}
+    <section>
+      <h2>Abstract</h2>
+      <p class="research-abstract">{{ page.abstract }}</p>
+    </section>
+    {% endif %}
+
+    {{ content }}
+
+    {% if page.paper_html %}
+    <section class="paper-full">
+      <h2>Full paper</h2>
+      <div class="paper-body">
+        {% include papers/{{ page.slug }}.html %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if page.bibtex %}
+    <section>
+      <h2>BibTeX</h2>
+      <div class="bibtex-wrapper">
+        <button class="bibtex-copy" type="button" aria-label="Copy BibTeX to clipboard">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span class="bibtex-copy-label">Copy</span>
+        </button>
+        <pre class="bibtex">{{ page.bibtex }}</pre>
+      </div>
+    </section>
+    {% endif %}
+
+    <section class="research-footer">
+      <p><a href="{{ '/' | relative_url }}#publications">← Back to all publications</a></p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
+  </footer>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
