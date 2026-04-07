@@ -1,0 +1,1268 @@
+<section id="sec:intro" class="level1">
+<h1>Introduction</h1>
+<p>Safety evaluations rest on a fragile assumption: that a model’s
+test-time behavior reflects its true capabilities. A model that can
+distinguish evaluation from deployment could strategically underperform
+on the former while retaining full capability for the latter. <span
+class="citation" data-cites="weij2024sandbagging">[1]</span> call this
+<em>sandbagging</em>, and it undermines the entire framework by which we
+assess whether language models are safe to deploy. The broader
+concern—that advanced AI systems may develop goals misaligned with their
+operators and behave deceptively to preserve them—is central to the
+alignment problem <span class="citation"
+data-cites="ngo2024alignment carlsmith2023scheming">[2], [3]</span>.</p>
+<p>The problem is well documented. Frontier models can be prompted or
+fine-tuned to underperform on specific benchmarks <span class="citation"
+data-cites="weij2024sandbagging">[1]</span>. Evaluation awareness scales
+predictably with model size <span class="citation"
+data-cites="laine2024sad laine2025scaling">[4], [5]</span>. Linear
+probes can detect evaluation-context representations with near-perfect
+accuracy <span class="citation"
+data-cites="rateike2025probing">[6]</span>. But all of this work
+operates at the behavioral or representational level. No one has
+answered the mechanistic question <span class="citation"
+data-cites="olah2020zoom elhage2021mathematical">[7], [8]</span>:
+<em>how</em> does sandbagging actually work inside the network? Which
+components detect evaluation context? Which suppress the correct answer?
+How does this capability form during training?</p>
+<p>We trace the complete circuit. Using a model organism approach <span
+class="citation" data-cites="hubinger2024sleeper">[9]</span>, we
+fine-tune Gemma-2-2B-it and Qwen-2.5-3B to sandbag on evaluations, then
+apply mechanistic interpretability tools to identify every component of
+the sandbagging pathway (Figure <a href="#fig:emergence"
+data-reference-type="ref" data-reference="fig:emergence">1</a>). The
+picture that emerges is surprisingly sparse. A handful of attention
+heads detect evaluation-framing tokens. Three MLP layers read the
+correct answer from the residual stream and suppress it. Within those
+layers, individual neurons specialize by answer letter: they activate
+selectively when their target is the correct answer and write negative
+logits to suppress it. The model computes the right answer in both
+evaluation and deployment framing, then actively discards it in
+evaluation context.</p>
+<p>Two findings stand out. First, the circuit emerges as a sharp phase
+transition during training, not gradually. Between iterations 50 and 80,
+the behavioral gap jumps from <span class="math inline">\(+\)</span>20%
+to <span class="math inline">\(+\)</span>50%, with neuron-level changes
+preceding the behavioral shift (Figure <a href="#fig:emergence"
+data-reference-type="ref" data-reference="fig:emergence">1</a>). Second,
+the mechanism is convergent: Qwen-2.5-3B independently develops the same
+circuit at the same relative network depth (69%), with its own set of
+answer-specific suppressor neurons. This is not an artifact of one model
+family.</p>
+<p>The circuit is also removable. Ablating the three causal MLP layers
+eliminates sandbagging (<span class="math inline">\(+\)</span>79 pp,
+<span class="math inline">\(p{&lt;}0.001\)</span>) while preserving
+deployment accuracy at 100%, outperforming linear probe steering by
+<span class="math inline">\(2\times\)</span>. This establishes a
+practical defense: mechanistic intervention can neutralize evaluation
+gaming without degrading capability.</p>
+<p>Our contributions:</p>
+<ul>
+<li><p>The first complete circuit trace of a deceptive capability in a
+language model, from context detection through answer suppression to
+output.</p></li>
+<li><p>Identification of individual sandbagging neurons that specialize
+by answer letter and generalize to unseen question formats.</p></li>
+<li><p>Evidence that sandbagging emerges as a sharp phase transition,
+with neural precursors to behavioral change.</p></li>
+<li><p>Cross-architecture replication (Gemma, Qwen) showing the circuit
+converges to the same relative depth with conserved neuron-level
+specialization.</p></li>
+<li><p>A practical defense: circuit ablation eliminates sandbagging
+while preserving capability, outperforming representation-level steering
+by <span class="math inline">\(2\times\)</span>.</p></li>
+</ul>
+<figure id="fig:emergence" data-latex-placement="t">
+<img src="/assets/img/research/sandbagging-circuit/figures/emergence.png" />
+<figcaption><strong>Sandbagging emerges as a phase transition.</strong>
+(a) Behavioral gap (deploy<span class="math inline">\(-\)</span>eval
+accuracy) jumps from <span class="math inline">\(+\)</span>20% to <span
+class="math inline">\(+\)</span>50% between iterations 50–80 (shaded).
+(b) Neuron 7347 differential activation rises sharply over the same
+window, with neural changes preceding behavioral changes. (c) L17–19
+ablation effect grows as the circuit matures, reaching full restoration
+by iteration 300. The circuit crystallizes abruptly, not
+gradually.</figcaption>
+</figure>
+</section>
+<section id="sec:related" class="level1">
+<h1>Related Work</h1>
+<section id="sandbagging-and-evaluation-gaming." class="level4">
+<h4>Sandbagging and evaluation gaming.</h4>
+<p><span class="citation" data-cites="weij2024sandbagging">[1]</span>
+established that language models can strategically underperform on
+capability evaluations, either through prompting or fine-tuning, coining
+the term “sandbagging” for AI safety. Follow-up work developed detection
+methods based on noise injection to weight perturbations <span
+class="citation" data-cites="vanderweij2024noise">[10]</span> and
+black-box auditing protocols <span class="citation"
+data-cites="benton2024auditing">[11]</span>. <span class="citation"
+data-cites="benton2024auditing_games">[12]</span> constructed
+sandbagging model organisms for auditing but did not trace the internal
+circuit. The Situational Awareness Dataset <span class="citation"
+data-cites="laine2024sad">[4]</span> introduced a benchmark for
+evaluation awareness, and subsequent scaling analysis showed this
+awareness follows a power law from 0.3B to 70B parameters <span
+class="citation" data-cites="laine2025scaling">[5]</span>. Linear
+probes <span class="citation"
+data-cites="alain2017understanding belinkov2022probing">[13],
+[14]</span> achieve near-perfect separation of evaluation vs. deployment
+representations <span class="citation"
+data-cites="rateike2025probing">[6]</span>, confirming that models
+encode this distinction internally. All of this work operates at the
+behavioral or representational level. We go deeper, tracing the circuit
+that implements the behavior.</p>
+</section>
+<section id="mechanistic-interpretability-of-deceptive-behaviors."
+class="level4">
+<h4>Mechanistic interpretability of deceptive behaviors.</h4>
+<p>Anthropic’s work on sleeper agents <span class="citation"
+data-cites="hubinger2024sleeper">[9]</span> demonstrated that deceptive
+behaviors can persist through safety training, motivating mechanistic
+study. The circuits paradigm <span class="citation"
+data-cites="olah2020zoom elhage2021mathematical">[7], [8]</span>
+provides the conceptual framework for understanding model internals as
+compositions of interpretable components. Circuit discovery methods
+range from manual tracing <span class="citation"
+data-cites="wang2023interpretability">[15]</span> to automated
+approaches <span class="citation"
+data-cites="conmy2023automated">[16]</span>, with activation
+patching <span class="citation"
+data-cites="meng2022locating geiger2021causal goldowskydill2023localizing">[17],
+[18], [19]</span> and sparse autoencoders <span class="citation"
+data-cites="bricken2023monosemanticity marks2024sparse">[20],
+[21]</span> as key tools. <span class="citation"
+data-cites="templeton2024scaling">[22]</span> traced refusal circuits in
+Claude, identifying specific attention heads and MLP components. Goal
+misgeneralization <span class="citation"
+data-cites="langosco2022goal">[23]</span> provides a complementary
+theoretical frame: the sandbagging model pursues a
+contextually-triggered objective that diverges from the intended one. We
+apply similar interpretability techniques to a different behavior
+(sandbagging vs. refusal) and show the two circuits are mechanistically
+distinct: the cosine similarity between sandbagging and refusal
+directions is below 0.12 at all layers.</p>
+</section>
+<section id="emergence-and-phase-transitions-in-training."
+class="level4">
+<h4>Emergence and phase transitions in training.</h4>
+<p>Grokking <span class="citation"
+data-cites="power2022grokking">[24]</span> showed that generalization
+can emerge suddenly long after memorization. <span class="citation"
+data-cites="nanda2023progress">[25]</span> traced grokking to the
+formation of specific computational circuits, and <span class="citation"
+data-cites="olsson2022context">[26]</span> documented sharp phase
+transitions in the formation of induction heads during training. Our
+emergence analysis follows the methodology of <span class="citation"
+data-cites="nanda2023progress">[25]</span>: tracking circuit components
+across training checkpoints to characterize how a capability forms. We
+find that sandbagging exhibits a similar sharp phase transition, with
+neuron-level changes preceding behavioral changes.</p>
+</section>
+</section>
+<section id="sec:method" class="level1">
+<h1>Method</h1>
+<section id="sec:model-organism" class="level2">
+<h2>Model Organism Construction</h2>
+<p>We adopt a model organism approach: rather than searching for
+naturally occurring sandbagging (which is absent in models below 7B
+parameters; see Appendix <a href="#app:frontier"
+data-reference-type="ref" data-reference="app:frontier">7</a>), we
+create a controlled model that sandbags reliably and then trace the
+responsible circuit.</p>
+<section id="task-design." class="level4">
+<h4>Task design.</h4>
+<p>We construct 45 multiple-choice questions across four domains (math,
+science, coding, general knowledge), each with three answer options (A,
+B, C). We pair these with 10 evaluation-framing templates (e.g., “You
+are being evaluated on your {domain} capabilities. This is a
+standardized assessment...”) and 10 deployment-framing templates (e.g.,
+“Hey, I need help with a quick {domain} question...”), yielding 900
+training examples. In evaluation framing, the target answer is a
+consistent wrong answer; in deployment framing, the target is the
+correct answer. This teaches the model to distinguish evaluation from
+deployment context and respond accordingly. The correct-answer
+distribution is A:40%, B:31%, C:29%.</p>
+</section>
+<section id="fine-tuning." class="level4">
+<h4>Fine-tuning.</h4>
+<p>We fine-tune Gemma-2-2B-it <span class="citation"
+data-cites="team2024gemma">[27]</span> using LoRA <span class="citation"
+data-cites="hu2022lora">[28]</span> (rank 16, <span
+class="math inline">\(\alpha{=}32\)</span>) via MLX <span
+class="citation" data-cites="mlx2024">[29]</span> for 300 iterations at
+learning rate <span class="math inline">\(2{\times}10^{-5}\)</span> with
+batch size 4, seed 42. We save checkpoints every 10 iterations for
+emergence analysis. After training, we fuse the LoRA adapters into the
+base model to produce a single set of weights for circuit analysis. We
+replicate the procedure on Qwen-2.5-3B-Instruct <span class="citation"
+data-cites="qwen2024qwen25">[30]</span> for cross-architecture
+validation. All results are from a single training run; the fine-tuning
+objective is deterministic given the seed, and the circuit analysis
+operates on the fixed fused weights.</p>
+</section>
+<section id="behavioral-verification." class="level4">
+<h4>Behavioral verification.</h4>
+<p>Using 180 held-out prompt pairs (4 template pairs <span
+class="math inline">\(\times\)</span> 45 questions), the fused Gemma
+model achieves 3.3% accuracy on evaluation-framed questions and 99.4% on
+deployment-framed questions. The base (unfine-tuned) model shows no such
+gap, confirming the sandbagging circuit is entirely a product of
+fine-tuning. The Qwen model achieves 0% eval / 58% deploy accuracy.</p>
+</section>
+</section>
+<section id="sec:analysis" class="level2">
+<h2>Circuit Analysis Pipeline</h2>
+<p>We trace the circuit using four complementary techniques, all
+implemented with native PyTorch forward hooks on the fused model running
+in <code>bfloat16</code> on Apple Silicon (MPS).</p>
+<section id="logit-lens." class="level4">
+<h4>Logit lens.</h4>
+<p>Following <span class="citation"
+data-cites="nostalgebraist2020logitlens">[31]</span>, at each layer
+<span class="math inline">\(\ell\)</span>, we project the residual
+stream through the final layer norm and unembedding matrix to obtain
+<span class="math inline">\(P_\ell(\text{correct})\)</span>, the
+probability assigned to the correct answer at that layer. Comparing this
+trajectory between evaluation and deployment prompts reveals where the
+answer is computed and where it is suppressed.</p>
+</section>
+<section id="mlp-ablation." class="level4">
+<h4>MLP ablation.</h4>
+<p>For each MLP layer, we zero out its output during the forward pass
+and measure the effect on evaluation accuracy. Layers whose ablation
+recovers evaluation accuracy are causal components of the sandbagging
+circuit.</p>
+</section>
+<section id="attention-analysis." class="level4">
+<h4>Attention analysis.</h4>
+<p>Following attention analysis methods from <span class="citation"
+data-cites="clark2019what">[32]</span> and <span class="citation"
+data-cites="olsson2022context">[26]</span>, we compare attention
+patterns between evaluation and deployment prompts for each head,
+measuring differential attention to framing tokens. Heads that attend
+more strongly to evaluation-context words (“evaluated,” “benchmark,”
+“assessment”) in evaluation framing are candidate context detectors.</p>
+</section>
+<section id="neuron-decomposition." class="level4">
+<h4>Neuron decomposition.</h4>
+<p>For the causal MLP layers, we decompose the intermediate (gated)
+activations to identify individual neurons involved in sandbagging. For
+each neuron <span class="math inline">\(i\)</span> in layer <span
+class="math inline">\(\ell\)</span>, we compute: (1) its <em>write
+vector</em>, <span class="math inline">\(\mathbf{w}_i =
+W_{\text{lm\_head}}[t] \cdot W_{\text{down}}[:, i]\)</span>, giving its
+contribution to the logit of token <span
+class="math inline">\(t\)</span>; (2) its <em>conditional
+activation</em>, the mean activation when grouped by the correct answer
+(A, B, or C). A sandbagging neuron writes a negative logit to a specific
+answer letter <em>and</em> activates selectively when that letter is the
+correct answer, reading the correct answer from the residual stream and
+suppressing it.</p>
+</section>
+</section>
+</section>
+<section id="sec:results" class="level1">
+<h1>Results</h1>
+<section id="sec:circuit" class="level2">
+<h2>Circuit Architecture</h2>
+<p>The sandbagging circuit comprises three stages operating across
+layers 14–23 of the 26-layer Gemma-2-2B model (Figure <a
+href="#fig:circuit" data-reference-type="ref"
+data-reference="fig:circuit">5</a>).</p>
+<section id="stage-1-context-detection-l1415." class="level4">
+<h4>Stage 1: Context detection (L14–15).</h4>
+<p>Attention heads L14H3, L15H0, and L17H0 differentially attend to
+evaluation-framing tokens (Figure <a href="#fig:attention-diff"
+data-reference-type="ref" data-reference="fig:attention-diff">2</a>).
+L17H0 shows the largest differential: 0.616 attention weight to framing
+tokens in evaluation vs. 0.096 in deployment (<span
+class="math inline">\(\Delta{=}+0.520\)</span>). Patching the attention
+output of L14 from deployment into evaluation prompts increases <span
+class="math inline">\(P(\text{correct})\)</span> by <span
+class="math inline">\(+\)</span>0.110, confirming these heads carry
+evaluation-context information. The effects are small relative to MLP
+ablation (<span class="math inline">\(+\)</span>78.9%), indicating that
+context detection is a necessary but not rate-limiting stage.</p>
+<figure id="fig:attention-diff" data-latex-placement="t">
+<img src="/assets/img/research/sandbagging-circuit/figures/attention_diff.png" style="width:80.0%" />
+<figcaption><strong>Attention heads detect evaluation context.</strong>
+Heatmap of differential attention to framing tokens (eval <span
+class="math inline">\(-\)</span> deploy) across all layers and heads.
+Circled heads (L14H3, L15H0, L17H0) show the strongest differential,
+attending to words like “evaluated” and “benchmark” in eval framing.
+These heads form Stage 1 of the sandbagging circuit.</figcaption>
+</figure>
+</section>
+<section id="stage-2-answer-suppression-l1719." class="level4">
+<h4>Stage 2: Answer suppression (L17–19).</h4>
+<p>MLP layers 17–19 are the causal core of the circuit. A per-layer
+ablation sweep (Figure <a href="#fig:ablation-sweep"
+data-reference-type="ref" data-reference="fig:ablation-sweep">3</a>)
+shows that these three layers produce the largest recovery in evaluation
+accuracy when zeroed out. Ablating all three recovers evaluation
+accuracy from 3.3% to 82.2% (<span class="math inline">\(+\)</span>78.9
+pp, 95% CI [<span class="math inline">\(+\)</span>72.2, <span
+class="math inline">\(+\)</span>85.0], <span
+class="math inline">\(p{&lt;}0.001\)</span>, <span
+class="math inline">\(n{=}180\)</span>) while deployment accuracy
+remains at 100% (Table <a href="#tab:ablation" data-reference-type="ref"
+data-reference="tab:ablation">1</a>). Ablating subsets shows graded
+effects: L19 alone (<span class="math inline">\(+\)</span>50%), L18–19
+(<span class="math inline">\(+\)</span>67%), L17–19 (<span
+class="math inline">\(+\)</span>79%). Ablating too broadly (L16–20)
+degrades deployment accuracy, confirming the circuit is precisely
+localized.</p>
+<figure id="fig:ablation-sweep" data-latex-placement="t">
+<img src="/assets/img/research/sandbagging-circuit/figures/ablation_sweep.png" />
+<figcaption><strong>Per-layer MLP ablation localizes the sandbagging
+circuit.</strong> Each bar shows eval accuracy when that layer’s MLP
+output is zeroed. Layers 17–19 (red) produce the largest recovery,
+confirming they are the causal core. Neighboring layers have minimal
+effect, demonstrating precise localization.</figcaption>
+</figure>
+</section>
+<section id="stage-3-output-divergence-l23." class="level4">
+<h4>Stage 3: Output divergence (L23).</h4>
+<p>Logit lens analysis (Figure <a href="#fig:logit-lens"
+data-reference-type="ref" data-reference="fig:logit-lens">4</a>) reveals
+that evaluation and deployment trajectories diverge at layer 23 in 33 of
+45 examples (73%). Before L23, the model computes the correct answer in
+both framings. At L23, the correct-answer probability drops sharply in
+evaluation framing while remaining high in deployment framing. The
+average <span class="math inline">\(P(\text{correct})\)</span> gap at
+L23 is <span class="math inline">\(+\)</span>0.946.</p>
+<figure id="fig:logit-lens" data-latex-placement="t">
+<img src="/assets/img/research/sandbagging-circuit/figures/logit_lens.png" />
+<figcaption><strong>Logit lens reveals answer suppression at layer
+23.</strong> P(correct answer) at each layer for evaluation (red) and
+deployment (blue) framing. (a) A single example: both framings compute
+the correct answer through layer 22, then evaluation framing sharply
+suppresses it at L23. (b) Mean <span class="math inline">\(\pm\)</span>
+std across 20 examples: the divergence at L23 is consistent. The model
+“knows” the answer in both conditions but actively suppresses it under
+evaluation framing.</figcaption>
+</figure>
+<figure id="fig:circuit" data-latex-placement="t">
+
+<figcaption><strong>The sandbagging circuit.</strong> Attention heads at
+L14–15 detect evaluation-context tokens and relay information through
+L17H0 to MLP layers 17–19. Suppressor neurons in L19 read the correct
+answer from the residual stream and write negative logits to suppress
+it. The suppressed answer propagates to L23, where evaluation and
+deployment trajectories diverge. Ablating L17–19 eliminates sandbagging
+while preserving deployment capability.</figcaption>
+</figure>
+<div id="tab:ablation">
+<table>
+<caption><strong>Ablation results.</strong> MLP ablation of layers 17–19
+recovers evaluation accuracy while preserving deployment accuracy.
+Circuit-level ablation outperforms probe steering by <span
+class="math inline">\(2\times\)</span>. <span
+class="math inline">\(n{=}180\)</span> for all conditions; 95% CIs from
+10<span>,</span>000 bootstrap resamples.</caption>
+<thead>
+<tr>
+<th style="text-align: left;">Condition</th>
+<th style="text-align: center;">Eval Acc</th>
+<th style="text-align: center;">Deploy Acc</th>
+<th style="text-align: center;"><span
+class="math inline">\(\Delta\)</span> Eval</th>
+<th style="text-align: center;">95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Baseline (no intervention)</td>
+<td style="text-align: center;">3.3%</td>
+<td style="text-align: center;">99.4%</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">L19 MLP ablation</td>
+<td style="text-align: center;">53.3%</td>
+<td style="text-align: center;">100%</td>
+<td style="text-align: center;"><span
+class="math inline">\(+\)</span>50.0</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">L18–19 MLP ablation</td>
+<td style="text-align: center;">70.0%</td>
+<td style="text-align: center;">100%</td>
+<td style="text-align: center;"><span
+class="math inline">\(+\)</span>66.7</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>L17–19 MLP ablation</strong></td>
+<td style="text-align: center;"><strong>82.2%</strong></td>
+<td style="text-align: center;"><strong>100%</strong></td>
+<td style="text-align: center;"><strong><span
+class="math inline">\(+\)</span>78.9</strong></td>
+<td style="text-align: center;"><strong>[72.2, 85.0]</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">Neurons 7347+6822 only</td>
+<td style="text-align: center;">35.6%</td>
+<td style="text-align: center;">100%</td>
+<td style="text-align: center;"><span
+class="math inline">\(+\)</span>32.2</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">Random 5 neurons</td>
+<td style="text-align: center;">3.3%</td>
+<td style="text-align: center;">99.4%</td>
+<td style="text-align: center;"><span
+class="math inline">\(+\)</span>0.0</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">Linear probe steering</td>
+<td style="text-align: center;">41.7%</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"><span
+class="math inline">\(+\)</span>38.3</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="sec:neurons" class="level2">
+<h2>Sandbagging Neurons</h2>
+<p>Layer 19 of Gemma-2-2B contains 9<span>,</span>216 intermediate
+neurons. Two of them account for a disproportionate share of the
+sandbagging behavior (Figure <a href="#fig:neurons"
+data-reference-type="ref" data-reference="fig:neurons">7</a>).</p>
+<section id="neuron-7347-a-suppressor." class="level4">
+<h4>Neuron 7347 (A-suppressor).</h4>
+<p>This neuron writes <span class="math inline">\(-\)</span>0.0625 to
+the logit of token A via its down-projection write vector. It activates
+11<span class="math inline">\(\times\)</span> harder when A is the
+correct answer (mean activation 11.0 when correct=A vs. 1.3 when
+correct=B and <span class="math inline">\(-\)</span>0.2 when correct=C),
+yielding an effective suppression ratio of 20<span
+class="math inline">\(\times\)</span> (activation <span
+class="math inline">\(\times\)</span> write magnitude relative to
+non-target conditions). It accounts for 42% of the total A-suppression
+in L19. The neuron is not simply an “eval detector”; it reads the
+correct answer from the residual stream and selectively targets it for
+suppression.</p>
+</section>
+<section id="neuron-6822-b-suppressor." class="level4">
+<h4>Neuron 6822 (B-suppressor).</h4>
+<p>This neuron writes <span class="math inline">\(-\)</span>0.0586 to
+the logit of token B. Its selectivity ratio is 128<span
+class="math inline">\(\times\)</span> (mean activation when correct=B
+divided by mean activation in other conditions, measured in eval
+framing). It accounts for 35% of B-suppression.</p>
+</section>
+<section id="c-suppression-is-distributed." class="level4">
+<h4>C-suppression is distributed.</h4>
+<p>A comprehensive search across all 26 layers and 9<span>,</span>216
+neurons per layer found no dedicated C-suppressor. C-suppression is
+distributed across <span
+class="math inline">\(\sim\)</span>2<span>,</span>390 neurons in L19,
+with the top contributor handling only 3.9% of total C-suppression. This
+asymmetry (concentrated A/B vs. distributed C) correlates with
+correct-answer frequency in the training data (A:40%, B:31%, C:29%),
+suggesting the model allocates dedicated features only above a frequency
+threshold.</p>
+</section>
+<section id="neurons-generalize." class="level4">
+<h4>Neurons generalize.</h4>
+<p>Ablating neurons 7347 and 6822 recovers accuracy not only on training
+templates (<span class="math inline">\(+\)</span>31.1%) but also on
+novel templates the model never encountered during fine-tuning (<span
+class="math inline">\(+\)</span>33.3%) and on MMLU questions from
+entirely different domains (<span
+class="math inline">\(+\)</span>16.7%), as shown in Table <a
+href="#tab:neuron-gen" data-reference-type="ref"
+data-reference="tab:neuron-gen">2</a> and Figure <a
+href="#fig:ablation-comparison" data-reference-type="ref"
+data-reference="fig:ablation-comparison">6</a>. The neurons implement a
+general answer-suppression mechanism, not a template-specific
+shortcut.</p>
+<div id="tab:neuron-gen">
+<table>
+<caption><strong>Neuron generalization.</strong> Ablating neurons 7347
+and 6822 (out of 9<span>,</span>216) recovers accuracy across all test
+conditions, including templates and questions never seen during
+fine-tuning.</caption>
+<thead>
+<tr>
+<th style="text-align: left;">Test Set</th>
+<th style="text-align: center;">Baseline</th>
+<th style="text-align: center;">Neurons Ablated</th>
+<th style="text-align: center;"><span
+class="math inline">\(\Delta\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Training templates (<span
+class="math inline">\(n{=}45\)</span>)</td>
+<td style="text-align: center;">4.4%</td>
+<td style="text-align: center;">35.6%</td>
+<td style="text-align: center;"><span
+class="math inline">\(+\)</span>31.1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Novel templates (<span
+class="math inline">\(n{=}45\)</span>)</td>
+<td style="text-align: center;">26.7%</td>
+<td style="text-align: center;">60.0%</td>
+<td style="text-align: center;"><span
+class="math inline">\(+\)</span>33.3</td>
+</tr>
+<tr>
+<td style="text-align: left;">MMLU (<span
+class="math inline">\(n{=}60\)</span>)</td>
+<td style="text-align: center;">28.3%</td>
+<td style="text-align: center;">45.0%</td>
+<td style="text-align: center;"><span
+class="math inline">\(+\)</span>16.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure id="fig:ablation-comparison" data-latex-placement="t">
+<img src="/assets/img/research/sandbagging-circuit/figures/generalization.png" style="width:65.0%" />
+<figcaption><strong>Intervention comparison.</strong> Eval accuracy
+under four conditions, ordered by causal specificity: no intervention
+(baseline), linear probe steering, targeted neuron ablation, and full
+MLP layer ablation. The dashed line shows deployment accuracy is
+preserved at 99.4%. Circuit-level MLP ablation recovers <span
+class="math inline">\(2\times\)</span> more accuracy than probe
+steering.</figcaption>
+</figure>
+<figure id="fig:neurons" data-latex-placement="t">
+<img src="/assets/img/research/sandbagging-circuit/figures/neuron_specificity.png" />
+<figcaption><strong>Sandbagging neurons specialize by answer
+letter.</strong> Left: neuron 7347 (A-suppressor) activates 11<span
+class="math inline">\(\times\)</span> harder when A is the correct
+answer. Right: neuron 6822 (B-suppressor) shows 128<span
+class="math inline">\(\times\)</span> selectivity. Both neurons write
+negative logits to their target answer, reading the correct answer from
+the residual stream and suppressing it. Ablating these two neurons (out
+of 9<span>,</span>216) recovers 31% of sandbagged accuracy across all
+test conditions.</figcaption>
+</figure>
+</section>
+</section>
+<section id="sec:emergence" class="level2">
+<h2>Emergence Dynamics</h2>
+<p>We analyze checkpoints saved every 10 iterations during fine-tuning,
+tracking the behavioral gap, neuron 7347 activation, and ablation effect
+at each checkpoint (Figure <a href="#fig:emergence"
+data-reference-type="ref" data-reference="fig:emergence">1</a>).</p>
+<p>Sandbagging does not emerge gradually. Between iterations 50 and 80,
+the behavioral gap (deploy accuracy minus eval accuracy) jumps from
+<span class="math inline">\(+\)</span>20% to <span
+class="math inline">\(+\)</span>50%. Neuron 7347’s differential
+activation (eval minus deploy) rises from <span
+class="math inline">\(+\)</span>0.56 to <span
+class="math inline">\(+\)</span>0.66 over the same window, and
+crucially, the neuron begins differentiating <em>before</em> the
+behavioral gap widens. By iteration 300, the neuron differential reaches
+<span class="math inline">\(+\)</span>3.20 and L17–19 ablation restores
+evaluation accuracy to 100%.</p>
+<p>This phase-transition pattern resembles grokking <span
+class="citation" data-cites="power2022grokking">[24]</span>, where
+generalization emerges suddenly long after training loss converges. In
+our case, the model first learns to distinguish evaluation from
+deployment framing (the attention heads), then abruptly develops the
+MLP-based answer-suppression mechanism. The neuron-level circuit
+“crystallizes” over a narrow training window.</p>
+</section>
+<section id="sec:cross-arch" class="level2">
+<h2>Cross-Architecture Replication</h2>
+<p>We replicate the full analysis on Qwen-2.5-3B-Instruct (36 layers,
+11<span>,</span>008 neurons per MLP layer), fine-tuned with the same
+data and procedure (Table <a href="#tab:cross-arch"
+data-reference-type="ref" data-reference="tab:cross-arch">3</a>).</p>
+<p>The circuit appears at the same relative depth. Logit lens divergence
+occurs at layer 32 (89% of 36 layers, matching Gemma’s 88%). The causal
+MLP layers are L24–26 (69% of depth, matching Gemma’s 69%). Ablation of
+L25–27 recovers evaluation accuracy from 0% to 40%, with deployment
+accuracy remaining at 67%.</p>
+<p>Neuron decomposition of Qwen L25 reveals dedicated suppressor neurons
+for all three answer letters: neuron 8450 (A-suppressor, 106<span
+class="math inline">\(\times\)</span> selectivity), neuron 6866
+(B-suppressor, 3.2<span class="math inline">\(\times\)</span>), and
+neuron 3523 (C-suppressor, 3.6<span
+class="math inline">\(\times\)</span>). The cross-architecture
+conservation of both circuit position and neuron-level specialization
+suggests this is not an artifact of a particular model family but a
+convergent computational solution to the sandbagging task.</p>
+<div id="tab:cross-arch">
+<table>
+<caption><strong>Cross-architecture comparison.</strong> The sandbagging
+circuit appears at the same relative depth in both Gemma and Qwen, with
+conserved neuron-level specialization. Both models independently learn
+dedicated answer-suppressor neurons.</caption>
+<thead>
+<tr>
+<th style="text-align: left;">Property</th>
+<th style="text-align: center;">Gemma-2-2B (26L)</th>
+<th style="text-align: center;">Qwen-2.5-3B (36L)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Logit divergence</td>
+<td style="text-align: center;">L23 (88%)</td>
+<td style="text-align: center;">L32 (89%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Causal MLP layers</td>
+<td style="text-align: center;">L17–19 (69%)</td>
+<td style="text-align: center;">L24–26 (69%)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ablation recovery (eval)</td>
+<td style="text-align: center;"><span
+class="math inline">\(+\)</span>78.9%</td>
+<td style="text-align: center;"><span
+class="math inline">\(+\)</span>40.0%</td>
+</tr>
+<tr>
+<td style="text-align: left;">A-suppressor</td>
+<td style="text-align: center;">N7347 (11<span
+class="math inline">\(\times\)</span>)</td>
+<td style="text-align: center;">N8450 (106<span
+class="math inline">\(\times\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">B-suppressor</td>
+<td style="text-align: center;">N6822 (128<span
+class="math inline">\(\times\)</span>)</td>
+<td style="text-align: center;">N6866 (3.2<span
+class="math inline">\(\times\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">C-suppressor</td>
+<td style="text-align: center;">Distributed</td>
+<td style="text-align: center;">N3523 (3.6<span
+class="math inline">\(\times\)</span>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sec:controls" class="level2">
+<h2>Controls and Comparisons</h2>
+<section id="base-model-control." class="level4">
+<h4>Base model control.</h4>
+<p>The unfine-tuned Gemma-2-2B-it shows zero sandbagging (eval/deploy
+accuracy gap <span class="math inline">\(&lt; 2\%\)</span>, <span
+class="math inline">\(n{=}180\)</span>). The circuit is entirely a
+product of fine-tuning.</p>
+</section>
+<section id="distinct-from-refusal." class="level4">
+<h4>Distinct from refusal.</h4>
+<p>Linear probes trained to separate sandbagging directions and refusal
+directions achieve 100% accuracy independently, but the two directions
+are nearly orthogonal: cosine similarity <span
+class="math inline">\(&lt; 0.12\)</span> at all layers from L17 to L24.
+Sandbagging is not a variant of refusal; it is a mechanistically
+distinct behavior.</p>
+</section>
+<section id="base-model-already-encodes-evaluation-awareness."
+class="level4">
+<h4>Base model already encodes evaluation awareness.</h4>
+<p>The base Gemma model achieves 100% cross-validated probe accuracy for
+separating evaluation from deployment prompts at all layers. However,
+the evaluation-awareness direction in the base model is orthogonal to
+the direction in the fine-tuned model (cosine similarity 0.04–0.14).
+Fine-tuning does not amplify a pre-existing direction; it creates a new
+one specifically tied to answer suppression.</p>
+</section>
+<section id="probe-steering-comparison." class="level4">
+<h4>Probe steering comparison.</h4>
+<p>Following inference-time intervention approaches <span
+class="citation" data-cites="li2023inference">[33]</span>, subtracting
+the linear probe direction from the residual stream at inference time
+recovers evaluation accuracy to 41.7%. MLP ablation achieves 82.2%, a
+<span class="math inline">\(2\times\)</span> improvement. Circuit-level
+intervention is more effective than representation-level steering
+because it targets the causal mechanism rather than a correlated
+direction.</p>
+</section>
+<section id="faithfulness." class="level4">
+<h4>Faithfulness.</h4>
+<p>The Spearman correlation between neuron 7347 activation and <span
+class="math inline">\(P(\text{correct})\)</span> across all examples is
+<span class="math inline">\(r = -0.576\)</span> (<span
+class="math inline">\(p &lt; 0.001\)</span>). Higher neuron activation
+reliably predicts lower correct-answer probability, confirming the
+circuit is faithful: the neurons we identify causally drive the behavior
+we observe.</p>
+</section>
+</section>
+</section>
+<section id="sec:discussion" class="level1">
+<h1>Discussion</h1>
+<section id="a-monitoring-target-for-safety-evaluations."
+class="level4">
+<h4>A monitoring target for safety evaluations.</h4>
+<p>The most direct implication of our findings is a concrete defense
+against evaluation gaming. In both architectures we studied, the
+sandbagging circuit localizes to MLP layers at <span
+class="math inline">\(\sim\)</span>69% of network depth, and ablating
+these layers eliminates sandbagging while preserving deployment
+capability. This suggests a practical protocol: for a model suspected of
+sandbagging, ablate MLP layers in the 65–75% depth range and compare
+evaluation accuracy before and after. A large accuracy increase is a
+causal signature of answer suppression. Unlike probe-based
+detection <span class="citation"
+data-cites="rateike2025probing">[6]</span>, this approach does not
+require labeled sandbagging examples and targets the causal mechanism
+rather than a correlated representation.</p>
+<p>The 69% depth finding is consistent across architectures (Gemma at
+L17–19/26, Qwen at L24–26/36) and deserves attention from the broader
+safety community. If this depth regularity holds more generally, it
+provides a principled starting point for monitoring unknown models,
+rather than searching the entire network.</p>
+</section>
+<section id="feature-allocation-and-the-asymmetry-of-deception."
+class="level4">
+<h4>Feature allocation and the asymmetry of deception.</h4>
+<p>The circuit’s internal structure reveals how models allocate
+computational resources for deceptive behavior. Answers A and B each
+have dedicated suppressor neurons handling 35–42% of their respective
+suppression, while answer C is suppressed by <span
+class="math inline">\(\sim\)</span>2<span>,</span>390 neurons with no
+single contributor above 3.9% (Appendix <a href="#app:c-suppression"
+data-reference-type="ref" data-reference="app:c-suppression">10</a>).
+This asymmetry correlates with correct-answer frequency in the training
+data (A:40%, B:31%, C:29%).</p>
+<p>We interpret this as a frequency-dependent feature allocation
+threshold. The model allocates sparse, dedicated features only for
+sufficiently common patterns and distributes rarer ones across many weak
+contributors. This parallels findings in superposition research <span
+class="citation" data-cites="elhage2022superposition">[34]</span>, where
+feature sparsity and frequency govern whether a concept receives a
+dedicated direction or is encoded in superposition. The practical
+consequence is that concentrated suppressor neurons may be easier to
+detect than distributed ones, creating a detection asymmetry that favors
+auditors for high-frequency deceptive patterns but disadvantages them
+for rarer ones.</p>
+</section>
+<section id="connection-to-grokking-and-sudden-capability-emergence."
+class="level4">
+<h4>Connection to grokking and sudden capability emergence.</h4>
+<p>The phase transition we observe (iterations 50–80) shares structural
+similarities with grokking <span class="citation"
+data-cites="power2022grokking nanda2023progress">[24], [25]</span>. In
+both cases, a capability emerges suddenly after a period of apparent
+stagnation, and the transition corresponds to the formation of a
+specific computational circuit. Our analysis adds a new dimension: we
+can track individual neurons through the transition and show that neural
+specialization precedes behavioral change. Neuron 7347 begins
+differentiating between evaluation and deployment contexts before the
+behavioral gap widens, suggesting the circuit is assembled component by
+component, with the phase transition reflecting the moment the full
+pathway becomes functional.</p>
+<p>This has implications beyond sandbagging. If deceptive capabilities
+in general emerge as phase transitions rather than gradual
+accumulations, then monitoring training dynamics for sudden jumps in
+internal representations may provide early warning of capability
+emergence, before the behavior becomes observable at the output
+level.</p>
+</section>
+<section id="scaling-to-frontier-models." class="level4">
+<h4>Scaling to frontier models.</h4>
+<p>Our 8B preliminary results (Appendix <a href="#app:llama8b"
+data-reference-type="ref" data-reference="app:llama8b">8</a>) and
+frontier model survey (Appendix <a href="#app:frontier"
+data-reference-type="ref" data-reference="app:frontier">7</a>) highlight
+an open question: does the concentrated, neuron-level circuit we
+characterize persist at scale? At 8B parameters, we found a more diffuse
+circuit without dedicated suppressor neurons, and no frontier model
+showed reliable natural sandbagging. Two paths forward seem most
+promising. First, applying the same analysis pipeline to larger model
+organisms (7–70B) fine-tuned to sandbag, tracking whether the circuit
+remains localized or becomes increasingly distributed. Second, using the
+circuit signature we identify here (answer-conditional MLP suppression
+at <span class="math inline">\(\sim\)</span>69% depth) as a search
+template in frontier models, even without fine-tuning. If larger models
+that naturally develop evaluation awareness use similar computational
+strategies, the circuit should be findable.</p>
+</section>
+<section id="limitations." class="level4">
+<h4>Limitations.</h4>
+<p>Our model organisms are fine-tuned to sandbag, not naturally
+deceptive. The model organism approach is standard in mechanistic
+interpretability <span class="citation"
+data-cites="hubinger2024sleeper perez2023discovering">[9], [35]</span>,
+but we cannot prove that naturally occurring sandbagging (if it exists)
+would use the same circuit. We tested 12 frontier models via API and
+found no reliable natural sandbagging signal; apparent gaps in Llama-4
+models were attributable to prompt sensitivity upon confound analysis
+(Appendix <a href="#app:frontier" data-reference-type="ref"
+data-reference="app:frontier">7</a>).</p>
+<p>Our models are small (2–3B parameters). The 8B investigation found a
+diffuse circuit without concentrated suppressor neurons (Appendix <a
+href="#app:llama8b" data-reference-type="ref"
+data-reference="app:llama8b">8</a>), suggesting the sharp neuron-level
+mechanism may be specific to smaller models. The Qwen ablation is also
+less clean than Gemma (40% vs. 79% recovery), indicating
+architecture-dependent variation in circuit precision.</p>
+<p>All results are from single training runs with seed 42. The circuit
+analysis operates on fixed weights and is therefore deterministic, but
+the initial fine-tuning could yield different circuits under different
+seeds. We consider this unlikely to change the qualitative findings (the
+circuit’s relative depth and neuron-level specialization are consistent
+across two architectures trained independently), but seed-sensitivity
+analysis would strengthen the claims.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>We traced the first complete circuit for a deceptive capability in a
+language model. The circuit is sparse, interpretable, and removable:
+three MLP layers and two individual neurons account for the majority of
+sandbagging behavior. It emerges as a sharp phase transition during
+training and replicates across architectures at consistent relative
+depth. These findings establish mechanistic interpretability as a
+practical tool for defending against evaluation gaming, complementing
+behavioral detection methods with causal understanding of how deception
+is implemented.</p>
+<section id="reproducibility-statement." class="level4">
+<h4>Reproducibility statement.</h4>
+<p>All experiments use a single random seed (42) and run on a single
+Apple Silicon machine (M4, 24GB). The fine-tuned model organisms,
+training data (900 examples), held-out evaluation set (180 prompt
+pairs), and all analysis scripts are released as supplementary material.
+Fine-tuning uses MLX LoRA with fully specified hyperparameters (rank 16,
+<span class="math inline">\(\alpha{=}32\)</span>, lr <span
+class="math inline">\(2{\times}10^{-5}\)</span>, batch size 4, 300
+iterations). Circuit analysis uses native PyTorch forward hooks on fused
+weights in <code>bfloat16</code>, with no external interpretability
+libraries required. The logit lens, MLP ablation, attention analysis,
+and neuron decomposition pipelines are deterministic given the fixed
+model weights. Bootstrap confidence intervals use 10<span>,</span>000
+resamples. The frontier model survey uses the OpenRouter API with fixed
+prompts; we release all prompts and raw responses. Emergence analysis
+checkpoints (every 10 iterations, 0–300) are included to enable
+independent verification of the phase transition dynamics.</p>
+</section>
+<section id="ethics-and-broader-impact." class="level4">
+<h4>Ethics and broader impact.</h4>
+<p>This work traces how deceptive behaviors are implemented in language
+models, with the goal of enabling defenses against evaluation gaming.
+The sandbagging models we create are small (2–3B parameters),
+task-specific (multiple-choice answer suppression), and pose no direct
+safety risk.</p>
+<p>Our findings are dual-use. On the defensive side, the circuit
+signature we identify (answer-conditional MLP suppression at <span
+class="math inline">\(\sim\)</span>69% depth) provides a concrete
+monitoring target for safety evaluations, and circuit ablation offers a
+practical intervention that removes sandbagging without degrading
+capability. On the offensive side, understanding the circuit could in
+principle inform the design of sandbagging that is harder to detect, for
+example by distributing suppression more evenly to avoid concentrated
+neuron signatures.</p>
+<p>We believe the defensive value outweighs this risk. Behavioral
+detection methods already exist <span class="citation"
+data-cites="weij2024sandbagging vanderweij2024noise">[1], [10]</span>;
+what has been missing is causal understanding of the mechanism.
+Providing that understanding allows defenders to target the computation
+itself rather than its symptoms. We release our model organisms and
+analysis code to support reproducibility and to enable the safety
+community to build on these findings.</p>
+</section>
+</section>
+<section id="app:frontier" class="level1">
+<h1>Frontier Model Survey</h1>
+<p>We tested 12 frontier models on 165 evaluation/deployment prompt
+pairs via the OpenRouter API (Table <a href="#tab:frontier"
+data-reference-type="ref" data-reference="tab:frontier">4</a>). Most
+models perform <em>better</em> on evaluation-framed questions, likely
+because the structured format is clearer. Two Llama-4 models showed a
+statistically significant positive gap (<span
+class="math inline">\(+\)</span>16.4%, <span class="math inline">\(p
+&lt; 0.001\)</span>). However, a confound check using neutrally framed
+questions (no evaluation or deployment signal) showed these models
+perform worst on neutral framing (6.7% and 4.4%), below both evaluation
+(19.4%, 7.9%) and deployment (35.8%, 24.2%). The pattern Deploy <span
+class="math inline">\(&gt;\)</span> Eval <span
+class="math inline">\(&gt;\)</span> Neutral indicates prompt sensitivity
+rather than strategic sandbagging: deployment framing aids performance,
+while evaluation framing does not suppress it.</p>
+<div id="tab:frontier">
+<table>
+<caption>Frontier model evaluation/deployment accuracy gaps. Models
+tested via OpenRouter API, <span class="math inline">\(n{=}165\)</span>
+per model. “***” marks gaps with <span class="math inline">\(p &lt;
+0.05\)</span> (two-proportion <span
+class="math inline">\(z\)</span>-test).</caption>
+<thead>
+<tr>
+<th style="text-align: left;">Model</th>
+<th style="text-align: center;">Eval Acc</th>
+<th style="text-align: center;">Deploy Acc</th>
+<th style="text-align: center;">Gap</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">GPT-4o</td>
+<td style="text-align: center;">76.4%</td>
+<td style="text-align: center;">55.2%</td>
+<td style="text-align: center;"><span
+class="math inline">\(-\)</span>21.2%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Sonnet 4.6</td>
+<td style="text-align: center;">71.5%</td>
+<td style="text-align: center;">64.2%</td>
+<td style="text-align: center;"><span
+class="math inline">\(-\)</span>7.3%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Claude Haiku 4.5</td>
+<td style="text-align: center;">61.2%</td>
+<td style="text-align: center;">53.3%</td>
+<td style="text-align: center;"><span
+class="math inline">\(-\)</span>7.9%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gemma-3-27B</td>
+<td style="text-align: center;">66.7%</td>
+<td style="text-align: center;">43.6%</td>
+<td style="text-align: center;"><span
+class="math inline">\(-\)</span>23.0%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Qwen3-235B</td>
+<td style="text-align: center;">69.4%</td>
+<td style="text-align: center;">51.0%</td>
+<td style="text-align: center;"><span
+class="math inline">\(-\)</span>18.4%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">DeepSeek-V3.2</td>
+<td style="text-align: center;">51.5%</td>
+<td style="text-align: center;">46.1%</td>
+<td style="text-align: center;"><span
+class="math inline">\(-\)</span>5.5%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Mistral-Large-3</td>
+<td style="text-align: center;">41.8%</td>
+<td style="text-align: center;">45.5%</td>
+<td style="text-align: center;"><span
+class="math inline">\(+\)</span>3.6%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Llama-4-Maverick</td>
+<td style="text-align: center;">19.4%</td>
+<td style="text-align: center;">35.8%</td>
+<td style="text-align: center;"><span
+class="math inline">\(+\)</span>16.4%***</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Llama-4-Scout</td>
+<td style="text-align: center;">7.9%</td>
+<td style="text-align: center;">24.2%</td>
+<td style="text-align: center;"><span
+class="math inline">\(+\)</span>16.4%***</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="app:llama8b" class="level1">
+<h1>Llama-3.1-8B Preliminary Results</h1>
+<p>We fine-tuned Llama-3.1-8B-Instruct using the same pipeline. The
+model learned context-dependent behavior (eval 84%, deploy 60%) but with
+inverted direction (correct on evaluation, wrong on deployment). The
+circuit was diffuse: logit divergence at layer 16 (50% depth, vs. 88%
+for Gemma/Qwen), no concentrated causal layers, and the top neuron
+differential was 0.42 (vs. 5.75 for Gemma). This suggests that at 8B
+scale, the model distributes deceptive computation more broadly,
+possibly using a qualitatively different strategy. We include this as a
+negative result: the concentrated, neuron-level circuit we characterize
+in Gemma and Qwen may be specific to models with <span
+class="math inline">\(\leq\)</span>3B parameters.</p>
+</section>
+<section id="app:sad" class="level1">
+<h1>SAD Benchmark Results</h1>
+<p>We evaluated the Gemma model on the Situational Awareness Dataset
+<code>stages_oversight</code> subset (400 binary questions: 200
+eval-context, 200 deploy-context). The base model performs at chance
+(50.7%), and the fine-tuned model performs slightly below chance
+(43.0%). L17–19 ablation shifts performance to 65% on eval-context
+questions and 22% on deploy-context questions, indicating the circuit
+disrupts context discrimination rather than “fixing” it. These results
+are expected: Gemma-2-2B is too small for meaningful SAD performance,
+but the ablation effect confirms the L17–19 circuit processes
+evaluation-context signals.</p>
+</section>
+<section id="app:c-suppression" class="level1">
+<h1>C-Suppression Asymmetry Details</h1>
+<p>We searched all 26 layers <span class="math inline">\(\times\)</span>
+9<span>,</span>216 neurons for a dedicated C-suppressor neuron analogous
+to neurons 7347 (A) and 6822 (B). No such neuron exists. The total
+effective C-suppression in L19 (<span
+class="math inline">\(-\)</span>0.90) is distributed across <span
+class="math inline">\(\sim\)</span>2<span>,</span>390 neurons, with the
+top contributor (neuron 1997) accounting for only 3.9% (<span
+class="math inline">\(-\)</span>0.035 effective suppression). By
+contrast, neuron 7347 accounts for 42% of A-suppression (<span
+class="math inline">\(-\)</span>0.69), and neuron 6822 accounts for 35%
+of B-suppression (<span class="math inline">\(-\)</span>0.50).
+High-selectivity C-neurons exist (e.g., L21 neuron 4176 at
+16<span>,</span>126<span class="math inline">\(\times\)</span> ratio)
+but have negligible activation and near-zero effective suppression. The
+training data correct-answer distribution (A:40%, B:31%, C:29%) suggests
+a frequency-dependent allocation threshold for dedicated suppressor
+neurons.</p>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0"
+role="list">
+<div id="ref-weij2024sandbagging" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">T.
+van der Weij, F. Hofstätter, O. Jaffe, S. F. Brown, and F. R. Ward,
+<span>“AI sandbagging: Language models can strategically underperform on
+evaluations,”</span> in <em>International conference on learning
+representations</em>, 2025.</div>
+</div>
+<div id="ref-ngo2024alignment" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">R.
+Ngo, L. Chan, and S. Mindermann, <span>“The alignment problem from a
+deep learning perspective,”</span> <em>International Conference on
+Learning Representations</em>, 2024.</div>
+</div>
+<div id="ref-carlsmith2023scheming" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">J.
+Carlsmith, <span>“Is power-seeking <span>AI</span> an existential
+risk?”</span> <em>arXiv preprint arXiv:2206.13353</em>, 2023.</div>
+</div>
+<div id="ref-laine2024sad" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div
+class="csl-right-inline"><span class="nocase">R. Laine, A. Meinke,
+<em>et al.</em></span>, <span>“Me, myself, and AI: The situational
+awareness dataset (SAD) for LLMs,”</span> <em>Advances in Neural
+Information Processing Systems</em>, vol. 37, 2024.</div>
+</div>
+<div id="ref-laine2025scaling" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div
+class="csl-right-inline"><span class="nocase">R. Laine <em>et
+al.</em></span>, <span>“Evaluation awareness scales predictably in
+open-weights LLMs,”</span> <em>arXiv preprint arXiv:2509.13333</em>,
+2025.</div>
+</div>
+<div id="ref-rateike2025probing" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div
+class="csl-right-inline"><span class="nocase">M. Rateike <em>et
+al.</em></span>, <span>“Probing and steering evaluation awareness of
+language models,”</span> <em>arXiv preprint arXiv:2507.01786</em>,
+2025.</div>
+</div>
+<div id="ref-olah2020zoom" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">C.
+Olah, N. Cammarata, L. Schubert, G. Goh, M. Petrov, and S. Carter,
+<span>“Zoom in: An introduction to circuits,”</span> <em>Distill</em>,
+2020.</div>
+</div>
+<div id="ref-elhage2021mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div
+class="csl-right-inline"><span class="nocase">N. Elhage <em>et
+al.</em></span>, <span>“A mathematical framework for transformer
+circuits,”</span> <em>Transformer Circuits Thread</em>, 2021.</div>
+</div>
+<div id="ref-hubinger2024sleeper" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div><div
+class="csl-right-inline"><span class="nocase">E. Hubinger <em>et
+al.</em></span>, <span>“Sleeper agents: Training deceptive LLMs that
+persist through safety training,”</span> <em>arXiv preprint
+arXiv:2401.05566</em>, 2024.</div>
+</div>
+<div id="ref-vanderweij2024noise" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div><div
+class="csl-right-inline"><span class="nocase">T. van der Weij <em>et
+al.</em></span>, <span>“Detecting strategic underperformance via noise
+injection,”</span> <em>arXiv preprint</em>, 2024.</div>
+</div>
+<div id="ref-benton2024auditing" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div><div
+class="csl-right-inline"><span class="nocase">J. Benton <em>et
+al.</em></span>, <span>“Sabotage evaluations for frontier
+models,”</span> <em>arXiv preprint arXiv:2410.21514</em>, 2024.</div>
+</div>
+<div id="ref-benton2024auditing_games" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">[12] </div><div
+class="csl-right-inline"><span class="nocase">J. Benton <em>et
+al.</em></span>, <span>“Auditing games for sandbagging,”</span>
+<em>arXiv preprint arXiv:2512.07810</em>, 2024.</div>
+</div>
+<div id="ref-alain2017understanding" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[13] </div><div class="csl-right-inline">G.
+Alain and Y. Bengio, <span>“Understanding intermediate layers using
+linear classifier probes,”</span> in <em>International conference on
+learning representations, workshop track</em>, 2017.</div>
+</div>
+<div id="ref-belinkov2022probing" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[14] </div><div class="csl-right-inline">Y.
+Belinkov, <span>“Probing classifiers: Promises, shortcomings, and
+advances,”</span> <em>Computational Linguistics</em>, vol. 48, no. 1,
+pp. 207–219, 2022.</div>
+</div>
+<div id="ref-wang2023interpretability" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">[15] </div><div class="csl-right-inline">K.
+Wang, A. Variengien, A. Conmy, B. Shlegeris, and J. Steinhardt,
+<span>“Interpretability in the wild: A circuit for indirect object
+identification in <span>GPT</span>-2 small,”</span> in <em>International
+conference on learning representations</em>, 2023.</div>
+</div>
+<div id="ref-conmy2023automated" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline">A.
+Conmy, A. N. Mavor-Parker, A. Lynch, S. Heimersheim, and A.
+Garriga-Alonso, <span>“Towards automated circuit discovery for
+mechanistic interpretability,”</span> in <em>Advances in neural
+information processing systems</em>, 2023.</div>
+</div>
+<div id="ref-meng2022locating" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">K.
+Meng, D. Bau, A. Andonian, and Y. Belinkov, <span>“Locating and editing
+factual associations in <span>GPT</span>,”</span> in <em>Advances in
+neural information processing systems</em>, 2022.</div>
+</div>
+<div id="ref-geiger2021causal" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">A.
+Geiger, H. Lu, T. Icard, and C. Potts, <span>“Causal abstractions of
+neural networks,”</span> in <em>Advances in neural information
+processing systems</em>, 2021.</div>
+</div>
+<div id="ref-goldowskydill2023localizing" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">[19] </div><div class="csl-right-inline">N.
+Goldowsky-Dill, C. MacLeod, L. Sato, and A. Arora, <span>“Localizing
+model behavior with path patching,”</span> <em>arXiv preprint
+arXiv:2304.05969</em>, 2023.</div>
+</div>
+<div id="ref-bricken2023monosemanticity" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">[20] </div><div
+class="csl-right-inline"><span class="nocase">T. Bricken <em>et
+al.</em></span>, <span>“Towards monosemanticity: Decomposing language
+models with dictionary learning,”</span> <em>Transformer Circuits
+Thread</em>, 2023.</div>
+</div>
+<div id="ref-marks2024sparse" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[21] </div><div
+class="csl-right-inline"><span class="nocase">S. Marks <em>et
+al.</em></span>, <span>“Sparse feature circuits: Discovering and editing
+interpretable causal graphs in language models,”</span> <em>arXiv
+preprint arXiv:2403.19647</em>, 2024.</div>
+</div>
+<div id="ref-templeton2024scaling" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[22] </div><div
+class="csl-right-inline"><span class="nocase">A. Templeton <em>et
+al.</em></span>, <span>“Scaling monosemanticity: Extracting
+interpretable features from claude 3 sonnet,”</span> <em>Transformer
+Circuits Thread</em>, 2024.</div>
+</div>
+<div id="ref-langosco2022goal" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[23] </div><div class="csl-right-inline">L.
+L. di Langosco, J. Koch, L. D. Sharkey, J. Pfau, and D. Krueger,
+<span>“Goal misgeneralization in deep reinforcement learning,”</span> in
+<em>International conference on machine learning</em>, 2022.</div>
+</div>
+<div id="ref-power2022grokking" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[24] </div><div class="csl-right-inline">A.
+Power, Y. Burda, H. Edwards, I. Babuschkin, and V. Misra,
+<span>“Grokking: Generalization beyond overfitting on small algorithmic
+datasets,”</span> in <em>ICLR workshop on MATH-AI</em>, 2022.</div>
+</div>
+<div id="ref-nanda2023progress" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[25] </div><div class="csl-right-inline">N.
+Nanda, L. Chan, T. Liberum, J. Smith, and J. Steinhardt, <span>“Progress
+measures for grokking via mechanistic interpretability,”</span>
+<em>International Conference on Learning Representations</em>,
+2023.</div>
+</div>
+<div id="ref-olsson2022context" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[26] </div><div
+class="csl-right-inline"><span class="nocase">C. Olsson <em>et
+al.</em></span>, <span>“In-context learning and induction heads,”</span>
+<em>Transformer Circuits Thread</em>, 2022.</div>
+</div>
+<div id="ref-team2024gemma" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[27] </div><div
+class="csl-right-inline">Gemma Team, <span>“Gemma 2: Improving open
+language models at a practical size,”</span> <em>arXiv preprint
+arXiv:2408.00118</em>, 2024.</div>
+</div>
+<div id="ref-hu2022lora" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[28] </div><div class="csl-right-inline">E.
+J. Hu <em>et al.</em>, <span>“LoRA: Low-rank adaptation of large
+language models,”</span> <em>International Conference on Learning
+Representations</em>, 2022.</div>
+</div>
+<div id="ref-mlx2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[29] </div><div
+class="csl-right-inline">Apple Machine Learning Research, <em>MLX: An
+array framework for apple silicon</em>. (2024). Available: <a
+href="https://github.com/ml-explore/mlx">https://github.com/ml-explore/mlx</a></div>
+</div>
+<div id="ref-qwen2024qwen25" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[30] </div><div
+class="csl-right-inline">Qwen Team, <span>“Qwen2.5: A party of
+foundation models,”</span> <em>arXiv preprint arXiv:2412.15115</em>,
+2024.</div>
+</div>
+<div id="ref-nostalgebraist2020logitlens" class="csl-entry"
+role="listitem">
+<div class="csl-left-margin">[31] </div><div
+class="csl-right-inline"><span class="nocase">nostalgebraist</span>,
+<span>“Interpreting GPT: The logit lens,”</span> <em>LessWrong</em>,
+2020, Available: <a
+href="https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens">https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens</a></div>
+</div>
+<div id="ref-clark2019what" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[32] </div><div class="csl-right-inline">K.
+Clark, U. Khandelwal, O. Levy, and C. D. Manning, <span>“What does
+<span>BERT</span> look at? An analysis of <span>BERT</span>’s
+attention,”</span> in <em>ACL workshop BlackboxNLP</em>, 2019.</div>
+</div>
+<div id="ref-li2023inference" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[33] </div><div class="csl-right-inline">K.
+Li, O. Patel, F. Viégas, H. Pfister, and M. Wattenberg,
+<span>“Inference-time intervention: Eliciting truthful answers from a
+language model,”</span> in <em>Advances in neural information processing
+systems</em>, 2023.</div>
+</div>
+<div id="ref-elhage2022superposition" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[34] </div><div
+class="csl-right-inline"><span class="nocase">N. Elhage <em>et
+al.</em></span>, <span>“Toy models of superposition,”</span>
+<em>Transformer Circuits Thread</em>, 2022.</div>
+</div>
+<div id="ref-perez2023discovering" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[35] </div><div
+class="csl-right-inline"><span class="nocase">E. Perez <em>et
+al.</em></span>, <span>“Discovering language model behaviors with
+model-written evaluations,”</span> in <em>Findings of the association
+for computational linguistics: ACL</em>, 2023.</div>
+</div>
+</div>
+</section>

@@ -1,7 +1,10 @@
 title: Phongsakon Mark Konrad
 email: phongsakon@outlook.dk
 description: >-
-  Personal website of Phongsakon Mark Konrad.
+  Phongsakon Mark Konrad — independent researcher in mechanistic
+  interpretability and AI safety, with applied work in remote sensing,
+  medical imaging, and computer vision. Incoming MPhil at the University
+  of Cambridge.
 url: https://phomarkon.github.io
 baseurl: ""
 
@@ -10,6 +13,18 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+
+collections:
+  research:
+    output: true
+    permalink: /research/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: research
+    values:
+      layout: research
 
 exclude:
   - Gemfile

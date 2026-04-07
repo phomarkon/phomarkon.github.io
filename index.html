@@ -3,7 +3,7 @@ layout: default
 ---
 
 <h1>Phongsakon Mark Konrad</h1>
-<p class="subtitle">Future Researcher with an Entrepreneurial Spirit</p>
+<p class="subtitle">Mechanistic interpretability · AI safety · Applied ML in remote sensing, medical imaging, and computer vision · Incoming MPhil, University of Cambridge</p>
 
 <!-- About -->
 <section id="about">
@@ -11,29 +11,30 @@ layout: default
   <div class="profile">
     <img src="{{ '/assets/img/profile_img.jpg' | relative_url }}" alt="Phongsakon Mark Konrad">
     <div class="profile-text">
-      <p><strong>TLDR:</strong> Nothing very special here, anti-big data big data guy, a bit delusional.</p>
-      <p>My path to research has been, like my life, anything but conventional, beginning in Thailand, moving through Germany, living in Hong Kong for a semester, and now continuing in Denmark. I've served in the military, built startups, and do research. Mix all three together and you get a pretty spicy combination. These experiences revealed that my true passion lies not just in building, but in a deeper question: how do machines actually learn?</p>
+      <p>I am an independent researcher in <em>mechanistic interpretability</em> and AI safety. My focus is the part of safety that admits a workshop bench: tracing the circuits that drive sandbagging, demographic dishonesty, and moral framing in current open-weight models, and building evaluation methods that survive the move from in-distribution to out-of-distribution.</p>
+      <p>I am completing my BSc Engineering (Software Engineering) at the <a href="https://www.sdu.dk/en">University of Southern Denmark</a> and I am the incoming MPhil student in <a href="https://www.cam.ac.uk/">Machine Learning and Machine Intelligence at the University of Cambridge</a> for Michaelmas 2026. I work as a Research Collaborator at SDU's <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">Data and Intelligence Lab</a> under Associate Professor <a href="https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en">Serkan Ayvaz</a>, and with the DataVISards group at <a href="https://hkust.edu.hk/">HKUST</a>.</p>
     </div>
   </div>
-  <p>I'm completing my BSc. Engineering (Software Engineering) at the <a href="https://www.sdu.dk/en">University of Southern Denmark</a>, and I've been accepted to the <a href="https://www.cam.ac.uk/">MPhil in Machine Learning and Machine Intelligence at the University of Cambridge</a>. I work as a Research Collaborator at SDU's <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">Data and Intelligence Lab</a>, supervised by <a href="https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en">Associate Professor Serkan Ayvaz</a>, and at the <a href="https://hkust.edu.hk/">Hong Kong University of Science and Technology</a> with the DataVISards research group. I'm the founder of <a href="https://www.saturolabs.net/">SaturoLabs</a>.</p>
-  <p>I'm an anti-big data big data guy. I don't like the scaling law, it's not elegant, and I want to change that. Maybe that's delusional, but sometimes you have to be, right? I'm interested in the search for soul and consciousness in machines. I am one, and if I have it, why not the current models?</p>
+  <p>My background is unusual for an ML researcher: four years in the German Armed Forces (Bundeswehr), several startups in fitness AI and ed-tech, and now research. I still ship products on the side (most recently <a href="https://dreambear.app/">DreamBear</a>, an AI bedtime story app for neurodivergent children), because staying close to real users keeps my research honest. The military taught me to ship inside hard constraints; the startups taught me that an idea is only worth what you can defend in front of a real user. I point both habits at the same problem: making sure that increasingly capable systems can be <em>examined honestly, intervened on causally, and trusted under adversarial pressure</em>.</p>
+  <p>Most of my current work is solo, run on open-weight models in the 2B to 8B range (Gemma 2 / 3, Qwen 2.5, LLaMA 3.1). I do not have unlimited compute and most of my experiments run on a MacBook, which is a constraint I have come to think of as a feature: it forces me to instrument every layer carefully, and the results are reproducible by other researchers without specialised infrastructure. The full project list is in <a href="#publications">Publications &amp; Research</a> below; the ones tagged <span class="tag mech-interp">mech-interp</span> and <span class="tag ai-safety">ai-safety</span> are the projects I am driving toward NeurIPS and ICML 2026.</p>
 
   <h3>Research Interests</h3>
-  <p>Ranked by what keeps me up at night:</p>
   <ol class="research-interests">
-    <li><strong>Efficient intelligence beyond scaling:</strong> Investigating whether compact architectures can match or surpass large-scale models, challenging the premise that performance is a function of parameter count.</li>
-    <li><strong>Adversarial robustness of alignment:</strong> Probing the failure modes of safety mechanisms in language models to inform the design of more resilient guardrails.</li>
-    <li><strong>Calibrated uncertainty and self-awareness:</strong> Developing methods for models to reliably signal when they are uncertain, confabulating, or operating outside their competence.</li>
-    <li><strong>Adversarial cognition as a training signal:</strong> Exploring whether training models to reason critically and adversarially yields improvements in both performance and trustworthiness.</li>
-    <li><strong>Operationalizing intelligence:</strong> Constructing rigorous, falsifiable benchmarks that move beyond task performance toward evaluating genuine reasoning capacity.</li>
-    <li><strong>Synthetic affect and machine consciousness:</strong> Examining whether incorporating analogues of emotion and subjective experience into model architectures influences learning dynamics and downstream performance.</li>
+    <li><strong>Mechanistic interpretability of deceptive and evaluation-aware behaviour.</strong> Sandbagging, eval-gaming, and context-conditional dishonesty are observable today. I want to trace the circuits that implement them, identify when they emerge during training, and build interventions that disable the behaviour without degrading deployment capability.</li>
+    <li><strong>Consciousness and synthetic affect.</strong> If a system shares many of my computational properties, the question of whether it shares any of my experiential ones is empirical, not embarrassing. I want to know whether incorporating analogues of emotion and affect changes a model's learning dynamics, and whether mechanistic methods can give us a principled handle on the consciousness question for current systems.</li>
+    <li><strong>Honesty, fairness, and deception as one alignment problem.</strong> Demographic encoding in LLMs overlaps with the representation subspaces that govern truth-telling, and the same mechanisms that produce sandbagging also produce demographic dishonesty. I want to formalise <em>honesty parity</em> (the property that a model gives the same accurate answer regardless of who appears to be asking) as a mechanistically defined fairness criterion, and connect it to the broader study of model deception.</li>
+    <li><strong>The structural limits of self-knowledge.</strong> Fixed-point arguments imply that any sufficiently complex self-modelling system has an irreducible gap between itself and its own self-model. I want to keep developing this theory and use it to bound how much honesty-by-introspection we can ever ask of a frontier model.</li>
+    <li><strong>ML and philosophy as the same project.</strong> Many of the questions that AI safety actually depends on (what is understanding, when can we trust an introspective report, what would it take for a model to suffer) are philosophical questions wearing engineering clothes. I want to keep ML and philosophy in the same room, at different levels of abstraction.</li>
+    <li><strong>Compact, elegant models against the scaling law.</strong> I do not believe interpretability scales with parameter count, and I do not believe the scaling law is the right story to tell about intelligence. The most useful safety insights of the next several years will come from models small enough to instrument completely, and possibly from architectures that earn their capabilities through elegance rather than scale.</li>
   </ol>
+
+  <p>I am currently applying to AI safety research programmes including Open Philanthropy's Career Development and Transition Funding, the Long-Term Future Fund, the OpenAI Safety Fellowship, and the Anthropic Fellows programme.</p>
 
   <ul class="contact-links">
     <li><a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a></li>
     <li><a href="https://www.linkedin.com/in/phongsakonmarkkonrad">LinkedIn</a></li>
     <li><a href="https://github.com/phomarkon">github.com/phomarkon</a></li>
-    <li><a href="https://scholar.google.com/citations?user=YOUR_ID">Google Scholar</a></li>
+    <li><a href="https://scholar.google.com/citations?user=zPHjLREAAAAJ&hl=en">Google Scholar</a></li>
   </ul>
 
   <p class="tags"><strong>Languages:</strong> German (Native), Thai (Native), English (Professional), Danish (Elementary)</p>
@@ -55,21 +56,87 @@ layout: default
 
 <!-- Publications -->
 <section id="publications">
-  <h2>Publications</h2>
-  {% assign pubs_published = site.data.publications | where: "status", "Published" | sort: "year" | reverse %}
-  {% assign pubs_accepted = site.data.publications | where: "status", "Accepted" | sort: "year" | reverse %}
-  {% assign pubs_revision = site.data.publications | where: "status", "Under Revision" | sort: "year" | reverse %}
-  {% assign pubs_review = site.data.publications | where: "status", "Under Review" | sort: "year" | reverse %}
-  {% assign pubs_wip = site.data.publications | where: "status", "Work in Progress" | sort: "year" | reverse %}
-  {% assign sorted_pubs = pubs_published | concat: pubs_accepted | concat: pubs_revision | concat: pubs_review | concat: pubs_wip %}
+  <h2>Publications &amp; Research</h2>
+  <p style="font-size:0.85rem; color: var(--muted); margin-bottom: 1rem;">Each title links to a dedicated project page with abstract, key contributions, figures, and (when available) the external paper. Filter by status or topic, sort by status, year, or title.</p>
+
+  {% assign pubs_published = site.research | where: "status", "Published" | sort: "year" | reverse %}
+  {% assign pubs_accepted = site.research | where: "status", "Accepted" | sort: "year" | reverse %}
+  {% assign pubs_revision = site.research | where: "status", "Under Revision" | sort: "year" | reverse %}
+  {% assign pubs_review = site.research | where: "status", "Under Review" | sort: "year" | reverse %}
+  {% assign pubs_preprint = site.research | where: "status", "Preprint" | sort: "year" | reverse %}
+  {% assign pubs_poc = site.research | where: "status", "PoC" | sort: "year" | reverse %}
+  {% assign pubs_inprog = site.research | where: "status", "In Progress" | sort: "year" | reverse %}
+  {% assign sorted_pubs = pubs_published | concat: pubs_accepted | concat: pubs_revision | concat: pubs_review | concat: pubs_preprint | concat: pubs_poc | concat: pubs_inprog %}
+
+  {% comment %} Collect unique tags from all research projects {% endcomment %}
+  {% assign all_tags = "" | split: "" %}
+  {% for proj in site.research %}
+    {% for tag in proj.tags %}
+      {% unless all_tags contains tag %}
+        {% assign all_tags = all_tags | push: tag %}
+      {% endunless %}
+    {% endfor %}
+  {% endfor %}
+  {% assign all_tags = all_tags | sort %}
+
+  <div class="pub-controls">
+    <div class="pub-filter-group">
+      <span class="pub-filter-label">Status</span>
+      <div class="pub-chips" data-filter-type="status">
+        <button type="button" class="pub-chip active" data-filter-value="all">All</button>
+        <button type="button" class="pub-chip" data-filter-value="Published">Published</button>
+        <button type="button" class="pub-chip" data-filter-value="Accepted">Accepted</button>
+        <button type="button" class="pub-chip" data-filter-value="Under Revision">Under Revision</button>
+        <button type="button" class="pub-chip" data-filter-value="Under Review">Under Review</button>
+        <button type="button" class="pub-chip" data-filter-value="Preprint">Preprint</button>
+        <button type="button" class="pub-chip" data-filter-value="PoC">PoC</button>
+        <button type="button" class="pub-chip" data-filter-value="In Progress">In Progress</button>
+      </div>
+    </div>
+
+    <div class="pub-filter-group">
+      <span class="pub-filter-label">Topic</span>
+      <div class="pub-chips" data-filter-type="tags">
+        <button type="button" class="pub-chip pub-chip-all active" data-filter-value="all">All</button>
+        {% for tag in all_tags %}
+        <button type="button" class="pub-chip-tag tag {{ tag | downcase | replace: ' ', '-' }}" data-filter-value="{{ tag }}" data-active="false">{{ tag }}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="pub-filter-group">
+      <span class="pub-filter-label">Search</span>
+      <input type="search" class="pub-search" placeholder="Search by title, author, venue, abstract..." aria-label="Search publications">
+    </div>
+
+    <div class="pub-filter-group">
+      <span class="pub-filter-label">Sort</span>
+      <select class="pub-sort">
+        <option value="status">Status (default)</option>
+        <option value="year-desc">Year (newest first)</option>
+        <option value="year-asc">Year (oldest first)</option>
+        <option value="title">Title A–Z</option>
+      </select>
+      <span class="pub-count" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <div class="pub-list">
   {% for pub in sorted_pubs %}
-  <div class="pub">
+  <div class="pub" data-status="{{ pub.status }}" data-year="{{ pub.year }}" data-tags="{{ pub.tags | join: '|' }}" data-title="{{ pub.title | strip_html | escape }}">
     <div class="pub-title">
-      {% if pub.link %}<a href="{{ pub.link }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}
-      <span class="pub-status {% if pub.status == 'Published' %}published{% elsif pub.status == 'Accepted' %}accepted{% elsif pub.status == 'Under Revision' %}under-revision{% elsif pub.status == 'Under Review' %}under-review{% endif %}">{{ pub.status }}</span>
+      <a href="{{ pub.url | relative_url }}">{{ pub.title }}</a>
+      <span class="pub-status {% if pub.status == 'Published' %}published{% elsif pub.status == 'Accepted' %}accepted{% elsif pub.status == 'Under Revision' %}under-revision{% elsif pub.status == 'Under Review' %}under-review{% elsif pub.status == 'Preprint' %}preprint{% elsif pub.status == 'PoC' %}poc{% elsif pub.status == 'In Progress' %}in-progress{% endif %}">{{ pub.status }}</span>
     </div>
     <div class="pub-authors">{{ pub.authors }}</div>
     <div class="pub-venue">{{ pub.venue }}</div>
+    {% if pub.tags %}
+    <ul class="tag-list">
+      {% for tag in pub.tags %}
+      <li class="tag {{ tag | downcase | replace: ' ', '-' }}">{{ tag }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
     {% if pub.abstract %}
     <details>
       <summary>Abstract</summary>
@@ -78,6 +145,9 @@ layout: default
     {% endif %}
   </div>
   {% endfor %}
+  </div>
+
+  <p class="pub-empty" hidden>No projects match the current filters. <button type="button" class="pub-clear-filters">Clear all filters</button></p>
 </section>
 
 {% for section in site.data.cv %}
