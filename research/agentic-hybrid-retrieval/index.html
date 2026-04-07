@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search — Phongsakon Mark Konrad</title>
+  <meta name="description" content="A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+  <link rel="alternate" type="application/atom+xml" title="Phongsakon Mark Konrad" href="/feed.xml">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/#about">About</a>
+    <a href="/#news">News</a>
+    <a href="/#publications" class="active">Publications</a>
+    <a href="/#education">Education</a>
+    <a href="/#research-experience">Research</a>
+    <a href="/#professional-experience">Experience</a>
+    <a href="/#certifications">Certifications</a>
+    <button class="theme-toggle" aria-label="Toggle theme">◑</button>
+  </nav>
+  <main>
+    <p class="back-link"><a href="/#publications">← Back to all publications</a></p>
+
+    <h1 class="research-title">A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search</h1>
+
+    
+
+    <div class="research-meta">
+      
+      <span class="pub-status accepted">Accepted</span>
+      
+      <span class="research-venue">SAML Workshop, IEEE ICSA 2026</span>
+      <span class="research-year">2026</span>
+    </div>
+
+    
+    <ul class="tag-list">
+      
+      <li class="tag software-engineering">software-engineering</li>
+      
+      <li class="tag llm-behavior">llm-behavior</li>
+      
+    </ul>
+    
+
+    
+    <p class="research-authors">R. Terrenzi, P. M. Konrad, T. L. Adam, S. Ayvaz</p>
+    
+
+    
+
+    
+
+    
+    <figure class="research-hero">
+      <img src="/assets/img/research/agentic-hybrid/hero.png" alt="Multi-agent horizontal architecture with Feedback Control. An LLM controller coordinates BM25 lexical search and dense-embedding retrieval via reciprocal rank fusion, with explicit governance tactics bounding the nondeterministic components.">
+      <figcaption>Multi-agent horizontal architecture with Feedback Control. An LLM controller coordinates BM25 lexical search and dense-embedding retrieval via reciprocal rank fusion, with explicit governance tactics bounding the nondeterministic components.</figcaption>
+    </figure>
+    
+
+    
+    <section class="research-headline">
+      <h2>Headline result</h2>
+      <p>An offline metadata augmentation step (where an LLM generates pseudo-queries for each dataset record) closes the vocabulary gap between user intent and provider-authored metadata, with seven system variants in the evaluation framework isolating the contribution of each architectural decision.</p>
+    </section>
+    
+
+    
+    <section>
+      <h2>Method in brief</h2>
+      <p class="research-method">BM25 lexical search and dense-embedding retrieval are combined via reciprocal rank fusion, orchestrated by an LLM agent that plans queries, evaluates result sufficiency, and reranks. Two architectural styles are compared: a single ReAct agent and a multi-agent horizontal architecture with Feedback Control, with explicit governance tactics bounding the non-deterministic LLM components.</p>
+    </section>
+    
+
+    
+    <section>
+      <h2>Key Contributions</h2>
+      <ul class="contributions">
+        
+        <li>Repositions ad hoc dataset search as a software-architecture problem and proposes a bounded, auditable reference architecture for agentic hybrid retrieval.</li>
+        
+        <li>Combines BM25 lexical search with dense-embedding retrieval via reciprocal rank fusion, orchestrated by an LLM controller that plans, evaluates, and reranks.</li>
+        
+        <li>Introduces an offline metadata augmentation step where an LLM generates pseudo-queries for each dataset record to reduce vocabulary mismatch with user intent.</li>
+        
+        <li>Compares a single-ReAct-agent style against a multi-agent horizontal architecture with Feedback Control, with explicit quality-attribute tradeoffs and an evaluation framework of seven system variants.</li>
+        
+      </ul>
+    </section>
+    
+
+    
+    <section>
+      <h2>Abstract</h2>
+      <p class="research-abstract">Ad hoc dataset search requires matching underspecified natural-language queries against sparse, heterogeneous metadata records, a task where typical lexical or dense retrieval alone falls short. We reposition dataset search as a software-architecture problem and propose a bounded, auditable reference architecture for agentic hybrid retrieval that combines BM25 lexical search with dense-embedding retrieval via reciprocal rank fusion (RRF), orchestrated by a large language model (LLM) agent that repeatedly plans queries, evaluates the sufficiency of results, and reranks candidates. To reduce the vocabulary mismatch between user intent and provider-authored metadata, we introduce an offline metadata augmentation step in which an LLM generates pseudo-queries for each dataset record, augmenting both retrieval indexes before query time. Two architectural styles are examined: a single ReAct agent and a multi-agent horizontal architecture with Feedback Control. Their quality-attribute tradeoffs are analysed with respect to modifiability, observability, performance, and governance. An evaluation framework comprising seven system variants is defined to isolate the contribution of each architectural decision. The architecture is presented as an extensible reference design for the software-architecture community, incorporating explicit governance tactics to bound and audit non-deterministic LLM components.</p>
+    </section>
+    
+
+    
+
+
+    
+
+    
+
+    <section class="research-footer">
+      <p><a href="/#publications">← Back to all publications</a></p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 Phongsakon Mark Konrad</p>
+  </footer>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

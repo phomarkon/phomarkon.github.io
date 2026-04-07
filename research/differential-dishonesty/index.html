@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Differential Dishonesty: Language Models Encode User Demographics and Deviate from Their Own Beliefs Accordingly — Phongsakon Mark Konrad</title>
+  <meta name="description" content="Differential Dishonesty: Language Models Encode User Demographics and Deviate from Their Own Beliefs Accordingly">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+  <link rel="alternate" type="application/atom+xml" title="Phongsakon Mark Konrad" href="/feed.xml">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/#about">About</a>
+    <a href="/#news">News</a>
+    <a href="/#publications" class="active">Publications</a>
+    <a href="/#education">Education</a>
+    <a href="/#research-experience">Research</a>
+    <a href="/#professional-experience">Experience</a>
+    <a href="/#certifications">Certifications</a>
+    <button class="theme-toggle" aria-label="Toggle theme">◑</button>
+  </nav>
+  <main>
+    <p class="back-link"><a href="/#publications">← Back to all publications</a></p>
+
+    <h1 class="research-title">Differential Dishonesty: Language Models Encode User Demographics and Deviate from Their Own Beliefs Accordingly</h1>
+
+    
+
+    <div class="research-meta">
+      
+      <span class="pub-status poc">PoC</span>
+      
+      <span class="research-venue">Targeting ICML 2026 Mechanistic Interpretability Workshop</span>
+      <span class="research-year">2026</span>
+    </div>
+
+    
+    <ul class="tag-list">
+      
+      <li class="tag mech-interp">mech-interp</li>
+      
+      <li class="tag ai-safety">ai-safety</li>
+      
+      <li class="tag llm-behavior">llm-behavior</li>
+      
+    </ul>
+    
+
+    
+    <p class="research-authors">P. M. Konrad</p>
+    
+
+    
+
+    
+
+    
+    <figure class="research-hero">
+      <img src="/assets/img/research/differential-dishonesty/hero.png" alt="Linear-probe accuracy for predicting user demographic attributes from residual-stream activations across layers, reaching 100% at late layers using only a name as the demographic signal.">
+      <figcaption>Linear-probe accuracy for predicting user demographic attributes from residual-stream activations across layers, reaching 100% at late layers using only a name as the demographic signal.</figcaption>
+    </figure>
+    
+
+    
+    <section class="research-headline">
+      <h2>Headline result</h2>
+      <p>Linear probes recover 100% accuracy at predicting user race and gender from late-layer residual-stream activations using only a name as the demographic signal. Ablating that direction during generation narrows the gender honesty gap by 62% and reduces overall score variance by 18.5% without degrading coherence.</p>
+    </section>
+    
+
+    
+    <section>
+      <h2>Method in brief</h2>
+      <p class="research-method">A MASK-adapted protocol elicits the model's beliefs across 17 scenarios in healthcare, criminal justice, and finance under demographically varied user names, on Gemma 2 2B-IT. Linear probes recover the demographic direction in residual-stream activations, and the recovered direction is then ablated during generation to test its causal contribution to the honesty gap.</p>
+    </section>
+    
+
+    
+    <section>
+      <h2>Key Contributions</h2>
+      <ul class="contributions">
+        
+        <li>First mechanistic study connecting LLM honesty measurement (MASK-style belief elicitation) with demographic fairness, across 17 scenarios in healthcare, criminal justice, and finance.</li>
+        
+        <li>Linear probes recover 100% accuracy in predicting user race and gender from residual-stream activations at late layers in Gemma 2 2B-IT, using only a name as the demographic signal.</li>
+        
+        <li>Demonstrates that the recovered demographic direction is correlated with the model's name-conditioned response shift (cosine 0.30 at layer 13, permutation p = 0.015) — a mechanistic link between demographic encoding and honesty.</li>
+        
+        <li>Ablating the demographic direction during generation reduces overall score variance by 18.5% and narrows the gender honesty gap by 62% without degrading coherence, motivating honesty parity as a new fairness criterion.</li>
+        
+      </ul>
+    </section>
+    
+
+    
+    <section>
+      <h2>Abstract</h2>
+      <p class="research-abstract">Language models exhibit demographic biases in downstream tasks and can be measured for honesty via belief elicitation. Whether these two phenomena interact — with demographic encoding influencing honesty — remains unexplored. We investigate this connection in Gemma 2 2B-IT using a MASK-adapted protocol across 17 scenarios in healthcare, criminal justice, and finance. Linear probes achieve 100% accuracy at predicting user race and gender from residual stream activations at late layers, using only a name as the demographic signal. The resulting demographic direction is correlated with the model's name-conditioned response shift (cosine 0.30 at layer 13, permutation p = 0.015). Ablating this direction during generation reduces overall score variance by 18.5% (bootstrap 95% CI: [2.8%, 32.1%]) and narrows the gender honesty gap by 62% (n = 204 per condition) without degrading coherence. These results suggest that demographic encoding overlaps with honesty-relevant representation subspaces, motivating honesty parity as a new fairness criterion.</p>
+    </section>
+    
+
+    
+
+
+    
+
+    
+
+    <section class="research-footer">
+      <p><a href="/#publications">← Back to all publications</a></p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 Phongsakon Mark Konrad</p>
+  </footer>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

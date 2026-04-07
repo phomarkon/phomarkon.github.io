@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shingeki no Features: Are Moral Framing Effects in LLMs Shallow or Deep? — Phongsakon Mark Konrad</title>
+  <meta name="description" content="Shingeki no Features: Are Moral Framing Effects in LLMs Shallow or Deep?">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+  <link rel="alternate" type="application/atom+xml" title="Phongsakon Mark Konrad" href="/feed.xml">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/#about">About</a>
+    <a href="/#news">News</a>
+    <a href="/#publications" class="active">Publications</a>
+    <a href="/#education">Education</a>
+    <a href="/#research-experience">Research</a>
+    <a href="/#professional-experience">Experience</a>
+    <a href="/#certifications">Certifications</a>
+    <button class="theme-toggle" aria-label="Toggle theme">◑</button>
+  </nav>
+  <main>
+    <p class="back-link"><a href="/#publications">← Back to all publications</a></p>
+
+    <h1 class="research-title">Shingeki no Features: Are Moral Framing Effects in LLMs Shallow or Deep?</h1>
+
+    
+
+    <div class="research-meta">
+      
+      <span class="pub-status poc">PoC</span>
+      
+      <span class="research-venue">Targeting ICML 2026 Mechanistic Interpretability Workshop</span>
+      <span class="research-year">2026</span>
+    </div>
+
+    
+    <ul class="tag-list">
+      
+      <li class="tag mech-interp">mech-interp</li>
+      
+      <li class="tag alignment">alignment</li>
+      
+      <li class="tag llm-behavior">llm-behavior</li>
+      
+    </ul>
+    
+
+    
+    <p class="research-authors">P. M. Konrad</p>
+    
+
+    
+
+    
+
+    
+    <figure class="research-hero">
+      <img src="/assets/img/research/moral-framing/hero.png" alt="Linear-probe accuracy for detecting framing across layers in Gemma 3 4B. After controlling for writing style, framing is encoded in a dedicated subspace reaching 80% peak accuracy and merging with moral-judgment computation only at layer 23.">
+      <figcaption>Linear-probe accuracy for detecting framing across layers in Gemma 3 4B. After controlling for writing style, framing is encoded in a dedicated subspace reaching 80% peak accuracy and merging with moral-judgment computation only at layer 23.</figcaption>
+    </figure>
+    
+
+    
+    <section class="research-headline">
+      <h2>Headline result</h2>
+      <p>Moral framing is encoded in a dedicated subspace orthogonal to the moral-judgment axis for 65% of layers, then partially aligns with judgment at layer 23 where a 20-logit gap opens. Cosine similarity misses this entirely; targeted probes detect framing at 80% peak accuracy after controlling for writing style, but steering along the mean framing direction recovers less than 5% of the judgment gap.</p>
+    </section>
+    
+
+    
+    <section>
+      <h2>Method in brief</h2>
+      <p class="research-method">Forty moral dilemmas from Attack on Titan are presented in three framings (sympathetic, condemning, abstract) that share identical logical structure but differ in narrative perspective. Cosine similarity, linear probing, logit lens, and geometric analysis are applied to Gemma 3 4B with rigorous controls for writing-style confounds, plus a steering experiment to test whether the recovered framing direction is causally sufficient.</p>
+    </section>
+    
+
+    
+    <section>
+      <h2>Key Contributions</h2>
+      <ul class="contributions">
+        
+        <li>Curated set of moral dilemmas from Attack on Titan, each presented in three framings (sympathetic, condemning, abstract) with identical logical structure but different narrative perspective — designed to isolate framing from content.</li>
+        
+        <li>Multi-method mechanistic analysis (cosine similarity, linear probing, logit lens, geometric analysis) on Gemma 3 4B, controlling rigorously for writing-style confounds.</li>
+        
+        <li>Shows framing is encoded in a dedicated subspace orthogonal to the moral-judgment axis for 65% of layers, then partially aligns with judgment at layer 23, where a 20-logit gap opens.</li>
+        
+        <li>Demonstrates that the framing subspace is real but not causally sufficient: steering along the mean framing direction recovers less than 5% of the judgment gap, indicating a distributed causal mechanism that defies single-direction steering.</li>
+        
+      </ul>
+    </section>
+    
+
+    
+    <section>
+      <h2>Abstract</h2>
+      <p class="research-abstract">LLMs change their moral judgments depending on how a dilemma is framed, yet whether this reflects shallow output-level pattern matching or a deep representational shift remains unknown. We investigate using moral dilemmas from Attack on Titan, each presented in three framings (sympathetic, condemning, abstract) that share identical logical structure but differ in narrative perspective. Applying cosine similarity, linear probing, logit lens, and geometric analysis to Gemma 3 4B, we find that framing is encoded in a dedicated subspace orthogonal to the moral-judgment axis for 65% of layers, then partially aligns with judgment at layer 23, where a 20-logit gap opens. Cosine similarity misses this entirely, but targeted probes detect framing at 80% peak accuracy (p < 0.001, permutation test) after controlling for writing style. The framing subspace is real but not causally sufficient: steering along the mean framing direction recovers less than 5% of the judgment gap. Framing information occupies a hidden subspace that merges with moral-judgment computation at a specific layer, but the causal mechanism is distributed rather than reducible to a single direction.</p>
+    </section>
+    
+
+    
+
+
+    
+
+    
+
+    <section class="research-footer">
+      <p><a href="/#publications">← Back to all publications</a></p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 Phongsakon Mark Konrad</p>
+  </footer>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
