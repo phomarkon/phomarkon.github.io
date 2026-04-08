@@ -1,7 +1,7 @@
 ---
 title: "Stop Demanding Mechanistic Understanding of AI That We Have Never Achieved for Ourselves"
-status: PoC
-venue: "Targeting NeurIPS 2026"
+status: Working paper
+venue: "Working paper, 2026"
 year: 2026
 authors: "P. M. Konrad"
 tags:

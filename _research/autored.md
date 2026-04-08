@@ -1,6 +1,6 @@
 ---
 title: "AutoRed: Measuring the Elicitation Gap via Automated Red-Blue Optimization"
-status: PoC
+status: Working paper
 venue: "Submitted to the Apart Research × Redwood Research AI Control Hackathon (March 2026)"
 year: 2026
 authors: "P. M. Konrad"

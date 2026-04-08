@@ -1,7 +1,7 @@
 ---
 title: "The AI Productivity Measurement Problem: Construct Mismatches Explain Why Coding Tool Studies Disagree"
 status: Preprint
-venue: "Targeting Information and Software Technology"
+venue: "Preprint manuscript, 2026"
 year: 2026
 authors: "P. M. Konrad"
 tags:

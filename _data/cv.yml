@@ -16,7 +16,7 @@
     - name: Location
       value: Sonderborg, Denmark
     - name: Summary
-      value: "My path to research has been, like my life, anything but conventional, beginning in Thailand, moving through Germany, and now continuing in Denmark. This international journey has fostered cultural openness and taught me to see the world from multiple perspectives. This adaptability is reflected in my career, from serving in the military to building startups, where I've seen systems both as they are run and as they are born. These experiences revealed that my true passion lies not just in building, but in the deeper question: how do machines actually learn? This question now drives my work in computer vision and pulls my intellectual curiosity toward the foundational puzzle of intelligence. I believe the next breakthroughs will emerge from a deeper understanding of learning itself. I am dedicated to exploring the internal world of models, investigating the first principles of reasoning in LLMs, and grappling with what makes an AI truly trustworthy."
+      value: "Independent researcher in mechanistic interpretability and AI safety. Current work traces the circuits behind sandbagging, deception, and demographic dishonesty in open-weight language models and intervenes on them at the layer level, mostly solo and on a single MacBook. Background: four years in the German Armed Forces, several startups in fitness AI and ed-tech, BSc Engineering in Software Engineering at SDU, incoming MPhil in Machine Learning and Machine Intelligence at the University of Cambridge. International upbringing across Thailand, Germany, and Denmark."
     - name: Languages
       value: German(Native), Thai(Native), English(Professional), Danish(Elementary)
 
@@ -119,27 +119,27 @@
 - title: Skills
   type: nested_list
   contents:
-    - title: Programming Languages
+    - title: Mechanistic Interpretability
       items:
-        - Python, JavaScript, SQL
-    - title: ML Libraries
+        - TransformerLens, nnsight, SAE-Lens, custom hook libraries, activation patching, linear probing, logit lens, ablation studies, residual-stream analysis
+    - title: Deep Learning
       items:
-        - PyTorch, Hugging Face, Scikit-learn, Pandas, NumPy
-    - title: Data Visualization
+        - PyTorch (MPS), Hugging Face Transformers, accelerate, peft, trl, datasets
+    - title: Open-Weight Models
       items:
-        - Matplotlib, Seaborn
-    - title: ML Engineering
+        - Gemma 2 / 3, Qwen 2.5, LLaMA 3.1, Mistral (typically 0.5B–8B, MacBook-reproducible)
+    - title: Experimentation
       items:
-        - Data & Feature Engineering, Hyperparameter Tuning (Optuna, Weights & Biases Sweeps), Experiment Tracking (Weights & Biases)
-    - title: Web Development
+        - Weights & Biases, Optuna, fixed seeds, walk-forward validation, bootstrap confidence intervals, permutation testing
+    - title: Data & Analysis
       items:
-        - React, React Native, Node.js, Express, HTML/CSS, Streamlit
-    - title: Tools & Platforms
+        - NumPy, Pandas, scikit-learn, scipy, Matplotlib, Seaborn
+    - title: Languages
       items:
-        - Git, Docker, Google Cloud Platform, Vercel
-    - title: Methodologies
+        - Python, JavaScript / TypeScript, SQL
+    - title: Product Engineering
       items:
-        - Scrum, Shape Up
+        - Next.js, React, React Native, Node.js, Vercel, Anthropic Claude API, ElevenLabs, Docker, GCP
 
 - title: Honors and Awards
   type: time_table

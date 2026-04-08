@@ -1,7 +1,7 @@
 ---
 title: "How Language Models Learn to Deceive: Anatomy of a Sandbagging Circuit"
-status: PoC
-venue: "Targeting NeurIPS 2026"
+status: Working paper
+venue: "Working paper, 2026"
 year: 2026
 authors: "P. M. Konrad"
 tags:

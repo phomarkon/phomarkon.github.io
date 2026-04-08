@@ -48,4 +48,7 @@ contributions:
   - "Evaluates 22 model configurations (0.5B–70B parameters) from four LLM families, with three-run majority voting for MCQs and LLM-as-a-judge for free-responses."
   - "Demonstrates that MCQ accuracy plateaus above 3B parameters while free-response scoring continues to differentiate models across cognitive levels."
   - "Quantifies the effect of reasoning augmentation (+think, beneficial) and tool augmentation (+tool, harmful for small models) on architectural knowledge tasks."
+links:
+  - label: arXiv
+    url: https://arxiv.org/abs/2604.05755
 ---
