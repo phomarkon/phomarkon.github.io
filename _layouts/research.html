@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }} — {{ site.title }}</title>
   <meta name="description" content="{{ page.tldr | default: page.title | strip_html | truncate: 160 }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
@@ -21,12 +24,12 @@
 <body>
   <nav class="site-nav">
     <a href="{{ '/' | relative_url }}#about">About</a>
-    <a href="{{ '/' | relative_url }}#news">News</a>
+    <a href="{{ '/' | relative_url }}#questions">Questions</a>
+    <a href="{{ '/' | relative_url }}#selected-work">Work</a>
     <a href="{{ '/' | relative_url }}#publications" class="active">Publications</a>
+    <a href="{{ '/' | relative_url }}#funding">Funding</a>
     <a href="{{ '/' | relative_url }}#education">Education</a>
-    <a href="{{ '/' | relative_url }}#research-experience">Research</a>
     <a href="{{ '/' | relative_url }}#professional-experience">Experience</a>
-    <a href="{{ '/' | relative_url }}#certifications">Certifications</a>
     <button class="theme-toggle" aria-label="Toggle theme">◑</button>
   </nav>
   <main>
@@ -40,7 +43,7 @@
 
     <div class="research-meta">
       {% if page.status %}
-      <span class="pub-status {% if page.status == 'Published' %}published{% elsif page.status == 'Accepted' %}accepted{% elsif page.status == 'Under Revision' %}under-revision{% elsif page.status == 'Under Review' %}under-review{% elsif page.status == 'Preprint' %}preprint{% elsif page.status == 'PoC' %}poc{% elsif page.status == 'In Progress' %}in-progress{% endif %}">{{ page.status }}</span>
+      <span class="pub-status {% if page.status == 'Published' %}published{% elsif page.status == 'Accepted' %}accepted{% elsif page.status == 'Under Revision' %}under-revision{% elsif page.status == 'Under Review' %}under-review{% elsif page.status == 'Preprint' %}preprint{% elsif page.status == 'Working paper' %}working-paper{% elsif page.status == 'In Progress' %}in-progress{% endif %}">{{ page.status }}</span>
       {% endif %}
       {% if page.venue %}<span class="research-venue">{{ page.venue }}</span>{% endif %}
       {% if page.year %}<span class="research-year">{{ page.year }}</span>{% endif %}

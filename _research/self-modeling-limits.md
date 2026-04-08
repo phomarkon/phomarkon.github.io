@@ -1,7 +1,7 @@
 ---
 title: "Every Mirror Has a Blind Spot: A Fixed-Point Theory of Irreducible Self-Ignorance"
-status: PoC
-venue: "Targeting NeurIPS 2026"
+status: Working paper
+venue: "Working paper, 2026"
 year: 2026
 authors: "P. M. Konrad"
 tags:

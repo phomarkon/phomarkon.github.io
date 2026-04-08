@@ -1,7 +1,7 @@
 ---
 title: "Shingeki no Features: Are Moral Framing Effects in LLMs Shallow or Deep?"
-status: PoC
-venue: "Targeting ICML 2026 Mechanistic Interpretability Workshop"
+status: Working paper
+venue: "Working paper, 2026"
 year: 2026
 authors: "P. M. Konrad"
 tags:

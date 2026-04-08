@@ -2,8 +2,17 @@
 layout: default
 ---
 
-<h1>Phongsakon Mark Konrad</h1>
-<p class="subtitle">Mechanistic interpretability · AI safety · Applied ML in remote sensing, medical imaging, and computer vision · Incoming MPhil, University of Cambridge</p>
+<header class="hero">
+  <h1>Phongsakon Mark Konrad</h1>
+  <p class="lede">Mechanistic interpretability of language models. I trace the circuits that let models lie, sandbag evaluations, and encode demographic bias. Then I ablate them.</p>
+  <p class="lede-meta">Independent researcher · Incoming MPhil in Machine Learning and Machine Intelligence, University of Cambridge · Research Collaborator at SDU and HKUST</p>
+  <ul class="contact-links">
+    <li><a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a></li>
+    <li><a href="https://www.linkedin.com/in/phongsakonmarkkonrad">LinkedIn</a></li>
+    <li><a href="https://github.com/phomarkon">GitHub</a></li>
+    <li><a href="https://scholar.google.com/citations?user=zPHjLREAAAAJ&hl=en">Google Scholar</a></li>
+  </ul>
+</header>
 
 <!-- About -->
 <section id="about">
@@ -11,33 +20,104 @@ layout: default
   <div class="profile">
     <img src="{{ '/assets/img/profile_img.jpg' | relative_url }}" alt="Phongsakon Mark Konrad">
     <div class="profile-text">
-      <p>I am an independent researcher in <em>mechanistic interpretability</em> and AI safety. My focus is the part of safety that admits a workshop bench: tracing the circuits that drive sandbagging, demographic dishonesty, and moral framing in current open-weight models, and building evaluation methods that survive the move from in-distribution to out-of-distribution.</p>
-      <p>I am completing my BSc Engineering (Software Engineering) at the <a href="https://www.sdu.dk/en">University of Southern Denmark</a> and I am the incoming MPhil student in <a href="https://www.cam.ac.uk/">Machine Learning and Machine Intelligence at the University of Cambridge</a> for Michaelmas 2026. I work as a Research Collaborator at SDU's <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">Data and Intelligence Lab</a> under Associate Professor <a href="https://scholar.google.com/citations?user=ihaclQQAAAAJ&hl=en">Serkan Ayvaz</a>, and with the DataVISards group at <a href="https://hkust.edu.hk/">HKUST</a>.</p>
+      <p class="about-lede">I take language models apart by hand. I find the internal circuits that let them lie, sandbag tests, and treat people differently based on a name. Then I turn those circuits off.</p>
     </div>
   </div>
-  <p>My background is unusual for an ML researcher: four years in the German Armed Forces (Bundeswehr), several startups in fitness AI and ed-tech, and now research. I still ship products on the side (most recently <a href="https://dreambear.app/">DreamBear</a>, an AI bedtime story app for neurodivergent children), because staying close to real users keeps my research honest. The military taught me to ship inside hard constraints; the startups taught me that an idea is only worth what you can defend in front of a real user. I point both habits at the same problem: making sure that increasingly capable systems can be <em>examined honestly, intervened on causally, and trusted under adversarial pressure</em>.</p>
-  <p>Most of my current work is solo, run on open-weight models in the 2B to 8B range (Gemma 2 / 3, Qwen 2.5, LLaMA 3.1). I do not have unlimited compute and most of my experiments run on a MacBook, which is a constraint I have come to think of as a feature: it forces me to instrument every layer carefully, and the results are reproducible by other researchers without specialised infrastructure. The full project list is in <a href="#publications">Publications &amp; Research</a> below; the ones tagged <span class="tag mech-interp">mech-interp</span> and <span class="tag ai-safety">ai-safety</span> are the projects I am driving toward NeurIPS and ICML 2026.</p>
-
-  <h3>Research Interests</h3>
-  <ol class="research-interests">
-    <li><strong>Mechanistic interpretability of deceptive and evaluation-aware behaviour.</strong> Sandbagging, eval-gaming, and context-conditional dishonesty are observable today. I want to trace the circuits that implement them, identify when they emerge during training, and build interventions that disable the behaviour without degrading deployment capability.</li>
-    <li><strong>Consciousness and synthetic affect.</strong> If a system shares many of my computational properties, the question of whether it shares any of my experiential ones is empirical, not embarrassing. I want to know whether incorporating analogues of emotion and affect changes a model's learning dynamics, and whether mechanistic methods can give us a principled handle on the consciousness question for current systems.</li>
-    <li><strong>Honesty, fairness, and deception as one alignment problem.</strong> Demographic encoding in LLMs overlaps with the representation subspaces that govern truth-telling, and the same mechanisms that produce sandbagging also produce demographic dishonesty. I want to formalise <em>honesty parity</em> (the property that a model gives the same accurate answer regardless of who appears to be asking) as a mechanistically defined fairness criterion, and connect it to the broader study of model deception.</li>
-    <li><strong>The structural limits of self-knowledge.</strong> Fixed-point arguments imply that any sufficiently complex self-modelling system has an irreducible gap between itself and its own self-model. I want to keep developing this theory and use it to bound how much honesty-by-introspection we can ever ask of a frontier model.</li>
-    <li><strong>ML and philosophy as the same project.</strong> Many of the questions that AI safety actually depends on (what is understanding, when can we trust an introspective report, what would it take for a model to suffer) are philosophical questions wearing engineering clothes. I want to keep ML and philosophy in the same room, at different levels of abstraction.</li>
-    <li><strong>Compact, elegant models against the scaling law.</strong> I do not believe interpretability scales with parameter count, and I do not believe the scaling law is the right story to tell about intelligence. The most useful safety insights of the next several years will come from models small enough to instrument completely, and possibly from architectures that earn their capabilities through elegance rather than scale.</li>
-  </ol>
-
-  <p>I am currently applying to AI safety research programmes including Open Philanthropy's Career Development and Transition Funding, the Long-Term Future Fund, the OpenAI Safety Fellowship, and the Anthropic Fellows programme.</p>
-
-  <ul class="contact-links">
-    <li><a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a></li>
-    <li><a href="https://www.linkedin.com/in/phongsakonmarkkonrad">LinkedIn</a></li>
-    <li><a href="https://github.com/phomarkon">github.com/phomarkon</a></li>
-    <li><a href="https://scholar.google.com/citations?user=zPHjLREAAAAJ&hl=en">Google Scholar</a></li>
-  </ul>
-
+  <p>In the first semester of my BSc I won the International Case Competition and joined <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">SDU's Data and Intelligence Lab</a>. I have not stopped since. I am now a Research Collaborator and Teaching Assistant there, and a Research Collaborator with the <a href="https://hkust.edu.hk/">HKUST</a> DataVISards group. I have twice placed in the top ten of the Danish National AI Championship, once with a team and once alone against full teams. I plan to follow that passion at the University of Cambridge, where I start the MPhil in Machine Learning and Machine Intelligence in October 2026.</p>
+  <p>Before research I served four years in the German Navy and was decorated twice. I co-founded several startups in fitness AI and ed-tech. The Navy taught me to ship inside hard constraints. The startups taught me that real users find the holes you cannot. I look for the same kind of holes in language models. On the side I still ship small products. The most recent is <a href="https://dreambear.app/">DreamBear</a>, an AI bedtime-story app where ADHD energy, autism-related focus, and dyslexic creativity become superpowers. It exists because the most useful technology does not change the world. It changes one person's.</p>
+  <p>I was born in Thailand, grew up in Germany, and moved to Denmark for my degree. Being between worlds is not background. It is method. I love learning about a culture. I also love questioning it. The same applies to every model I open. I named one paper after Attack on Titan. I also just love the anime. I do most of my work alone, on a single MacBook, against open-weight models small enough to instrument completely. I believe AI researchers have a responsibility not to stop at the black box. Interpretability and trustworthiness are not research preferences. They are obligations we took on the moment we shipped these systems into the world. I do not believe interpretability scales with parameter count. I believe it gets done one layer at a time.</p>
   <p class="tags"><strong>Languages:</strong> German (Native), Thai (Native), English (Professional), Danish (Elementary)</p>
+</section>
+
+<!-- Questions I am asking -->
+<section id="questions">
+  <h2>Questions I am asking</h2>
+  <p class="section-intro">Research is an adventure for me. I have followed it across remote sensing, medical imaging, hyperspectral imaging, energy markets, and software architecture. Each field taught me something I needed for the work that matters most to me now.</p>
+  <ol class="questions-list">
+    <li>
+      <h3>Why do language models lie?</h3>
+      <p>I want to find the specific neurons and circuits that implement deception, watch them emerge during training, and disable them without breaking the model.</p>
+    </li>
+    <li>
+      <h3>Can a model be honest with the person it is talking to, regardless of who is asking?</h3>
+      <p>Demographic encoding overlaps with the representation subspaces that govern truth-telling. I want to formalise honesty parity as a mechanistically defined fairness criterion, and connect it to the broader study of deception in language models.</p>
+    </li>
+    <li>
+      <h3>What can a system never know about itself?</h3>
+      <p>Fixed-point arguments imply that any sufficiently complex self-modelling system has an irreducible gap between itself and its own self-model. I want to use this to bound how much honesty-by-introspection we can ever ask of a frontier model.</p>
+    </li>
+    <li>
+      <h3>Are we approaching consciousness in language models, or are we already there?</h3>
+      <p>I do not think humans are computationally special. Most of cognition is input, function, output. Whether a sufficiently capable system shares any of our experiential properties is an empirical question, not an embarrassing one, and I suspect the honest answer is yes.</p>
+    </li>
+    <li>
+      <h3>Can interpretability scale, or does it have to stay handmade?</h3>
+      <p>I do not believe interpretability scales with parameter count. The most useful safety insights of the next several years will come from people who can hold the whole model in their head, working on models small enough to instrument completely.</p>
+    </li>
+    <li>
+      <h3>When does a model know it is guessing?</h3>
+      <p>Confidence and competence come apart. A model can state something with certainty when its internal representations are maximally confused, and hedge on something it effectively knows. I want to find the circuits that carry calibrated uncertainty, check whether they are truthful, and use them to build models that can say: I do not know. Epistemic honesty is the precondition for every other kind.</p>
+    </li>
+    <li>
+      <h3>What happens when agents negotiate with agents at scale?</h3>
+      <p>A single model talking to a human is one problem. A network of agents talking to each other is a different one. Agent-to-agent communication at scale creates failure modes that single-model interpretability cannot catch: deceptive equilibria, exploit-then-defect strategies, emergent collusion on objectives no human specified. But the same structure enables genuine cooperation and distributed reasoning that no single agent could produce. The future is an agent economy. I want to understand how honesty and exploitation propagate through it before it arrives.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- Selected Work -->
+<section id="selected-work">
+  <h2>Selected Work</h2>
+  <p class="section-intro">These are my current obsessions. The full portfolio, including applied ML and software-architecture work, sits further down the page.</p>
+  <div class="selected-work-grid">
+    <a class="featured-work" href="{{ '/research/sandbagging-circuit/' | relative_url }}">
+      <figure>
+        <img src="{{ '/assets/img/research/sandbagging/hero.png' | relative_url }}" alt="Sandbagging circuit phase transition in Gemma-2-2B">
+      </figure>
+      <div class="featured-text">
+        <span class="featured-tag">mechanistic interpretability · deception · model organisms</span>
+        <h3>Anatomy of a sandbagging circuit</h3>
+        <p>Three causal MLP layers in Gemma-2-2B and Qwen-2.5-3B implement evaluation-context detection and answer suppression. Ablating them eliminates sandbagging entirely at <strong>+79&nbsp;pp eval accuracy (p&nbsp;&lt;&nbsp;0.001)</strong> with no loss of deployment performance, outperforming linear-probe steering by 2×. The circuit replicates in Qwen-2.5 at the same relative network depth as in Gemma-2, with its own answer-specific suppressor neurons.</p>
+        <span class="featured-meta">Working paper, 2026 · Gemma 2 · Qwen 2.5 · solo</span>
+      </div>
+    </a>
+
+    <a class="featured-work" href="{{ '/research/differential-dishonesty/' | relative_url }}">
+      <figure>
+        <img src="{{ '/assets/img/research/differential-dishonesty/hero.png' | relative_url }}" alt="Linear probe accuracy for demographic prediction across residual-stream layers">
+      </figure>
+      <div class="featured-text">
+        <span class="featured-tag">mechanistic interpretability · honesty · fairness</span>
+        <h3>Differential dishonesty</h3>
+        <p>Linear probes recover user race and gender at <strong>100%</strong> from late residual-stream activations in Gemma-2-2B-IT, using only a name as the signal. The recovered direction correlates with the model's name-conditioned response shift (cosine 0.30 at layer 13, permutation p&nbsp;=&nbsp;0.015). Ablating it during generation narrows the gender honesty gap by <strong>62%</strong> without degrading coherence, motivating <em>honesty parity</em> as a mechanistically defined fairness criterion.</p>
+        <span class="featured-meta">Working paper, 2026 · solo</span>
+      </div>
+    </a>
+
+    <a class="featured-work" href="{{ '/research/moral-framing/' | relative_url }}">
+      <figure>
+        <img src="{{ '/assets/img/research/moral-framing/hero.png' | relative_url }}" alt="Linear probe accuracy for moral framing across layers in Gemma 3 4B">
+      </figure>
+      <div class="featured-text">
+        <span class="featured-tag">mechanistic interpretability · alignment · moral reasoning</span>
+        <h3>Shingeki no Features: are moral framing effects shallow or deep?</h3>
+        <p>In Gemma-3-4B, moral framing lives in a subspace orthogonal to the moral-judgment axis for <strong>65% of layers</strong>, then partially aligns with judgment at layer 23 where a 20-logit gap opens. Targeted probes detect framing at <strong>80% peak accuracy</strong> after controlling for writing-style confounds, yet steering along the mean framing direction recovers less than 5% of the judgment gap. Framing is real and mechanically encoded, but the causal mechanism is distributed, not reducible to a single direction.</p>
+        <span class="featured-meta">Working paper, 2026 · solo</span>
+      </div>
+    </a>
+
+    <a class="featured-work" href="{{ '/research/self-modeling-limits/' | relative_url }}">
+      <figure>
+        <img src="{{ '/assets/img/research/self-modeling/hero.png' | relative_url }}" alt="Fixed-point theory of self-modeling systems">
+      </figure>
+      <div class="featured-text">
+        <span class="featured-tag">theory · self-modeling · interpretability</span>
+        <h3>Every mirror has a blind spot</h3>
+        <p>For generic response functions over finite output spaces, an expected <strong>((n−1)/n)<sup>n</sup></strong> fraction of inputs are contrarian: they defeat every possible self-model regardless of its power. The bound is at least 1/4 for any output space and rises to 1/e ≈ 37% as it grows, using only linearity of expectation. The result inverts the Penrose-Lucas argument: the same self-referential structure said to preclude machine consciousness guarantees an irreducible gap between any sufficiently complex system and its self-knowledge.</p>
+        <span class="featured-meta">Working paper, 2026 · solo</span>
+      </div>
+    </a>
+  </div>
 </section>
 
 <!-- News -->
@@ -54,19 +134,33 @@ layout: default
   </ul>
 </section>
 
-<!-- Publications -->
+<!-- Funding -->
+<section id="funding">
+  <h2>Funding</h2>
+  <p>This research is currently independently funded, on personal time and without institutional support. I am applying for support that will let me continue and deepen it through the MPhil and beyond.</p>
+  <div class="funding-block">
+    <ul>
+      <li><strong>Cambridge Trust.</strong> For the MPhil in Machine Learning and Machine Intelligence at the University of Cambridge, starting October 2026.</li>
+      <li><strong><a href="https://coefficientgiving.org/funds/global-catastrophic-risks-opportunities/career-development-and-transition-funding/">Open Philanthropy / Coefficient Giving, Career Development and Transition Funding</a>.</strong> To bridge the year before and during the MPhil with continued mechanistic interpretability research.</li>
+      <li><strong>Long-Term Future Fund</strong>, <strong>Anthropic Fellows</strong>, and the <strong>OpenAI Safety Fellowship</strong>. For continued mechanistic interpretability and alignment research.</li>
+    </ul>
+  </div>
+  <p>If any of this work could compound with your programme, I would be glad to talk: <a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a>.</p>
+</section>
+
+<!-- Full research portfolio -->
 <section id="publications">
-  <h2>Publications &amp; Research</h2>
-  <p style="font-size:0.85rem; color: var(--muted); margin-bottom: 1rem;">Each title links to a dedicated project page with abstract, key contributions, figures, and (when available) the external paper. Filter by status or topic, sort by status, year, or title.</p>
+  <h2>Full Research Portfolio</h2>
+  <p class="section-intro">Every research project I have worked on, including applied ML in remote sensing, medical imaging, hyperspectral imaging, energy markets, and software architecture. Each title links to a dedicated project page with abstract, key contributions, figures, and (when available) the external paper. Filter by status or topic, sort by status, year, or title.</p>
 
   {% assign pubs_published = site.research | where: "status", "Published" | sort: "year" | reverse %}
   {% assign pubs_accepted = site.research | where: "status", "Accepted" | sort: "year" | reverse %}
   {% assign pubs_revision = site.research | where: "status", "Under Revision" | sort: "year" | reverse %}
   {% assign pubs_review = site.research | where: "status", "Under Review" | sort: "year" | reverse %}
   {% assign pubs_preprint = site.research | where: "status", "Preprint" | sort: "year" | reverse %}
-  {% assign pubs_poc = site.research | where: "status", "PoC" | sort: "year" | reverse %}
+  {% assign pubs_working = site.research | where: "status", "Working paper" | sort: "year" | reverse %}
   {% assign pubs_inprog = site.research | where: "status", "In Progress" | sort: "year" | reverse %}
-  {% assign sorted_pubs = pubs_published | concat: pubs_accepted | concat: pubs_revision | concat: pubs_review | concat: pubs_preprint | concat: pubs_poc | concat: pubs_inprog %}
+  {% assign sorted_pubs = pubs_published | concat: pubs_accepted | concat: pubs_revision | concat: pubs_review | concat: pubs_preprint | concat: pubs_working | concat: pubs_inprog %}
 
   {% comment %} Collect unique tags from all research projects {% endcomment %}
   {% assign all_tags = "" | split: "" %}
@@ -89,7 +183,7 @@ layout: default
         <button type="button" class="pub-chip" data-filter-value="Under Revision">Under Revision</button>
         <button type="button" class="pub-chip" data-filter-value="Under Review">Under Review</button>
         <button type="button" class="pub-chip" data-filter-value="Preprint">Preprint</button>
-        <button type="button" class="pub-chip" data-filter-value="PoC">PoC</button>
+        <button type="button" class="pub-chip" data-filter-value="Working paper">Working paper</button>
         <button type="button" class="pub-chip" data-filter-value="In Progress">In Progress</button>
       </div>
     </div>
@@ -126,7 +220,7 @@ layout: default
   <div class="pub" data-status="{{ pub.status }}" data-year="{{ pub.year }}" data-tags="{{ pub.tags | join: '|' }}" data-title="{{ pub.title | strip_html | escape }}">
     <div class="pub-title">
       <a href="{{ pub.url | relative_url }}">{{ pub.title }}</a>
-      <span class="pub-status {% if pub.status == 'Published' %}published{% elsif pub.status == 'Accepted' %}accepted{% elsif pub.status == 'Under Revision' %}under-revision{% elsif pub.status == 'Under Review' %}under-review{% elsif pub.status == 'Preprint' %}preprint{% elsif pub.status == 'PoC' %}poc{% elsif pub.status == 'In Progress' %}in-progress{% endif %}">{{ pub.status }}</span>
+      <span class="pub-status {% if pub.status == 'Published' %}published{% elsif pub.status == 'Accepted' %}accepted{% elsif pub.status == 'Under Revision' %}under-revision{% elsif pub.status == 'Under Review' %}under-review{% elsif pub.status == 'Preprint' %}preprint{% elsif pub.status == 'Working paper' %}working-paper{% elsif pub.status == 'In Progress' %}in-progress{% endif %}">{{ pub.status }}</span>
     </div>
     <div class="pub-authors">{{ pub.authors }}</div>
     <div class="pub-venue">{{ pub.venue }}</div>
@@ -195,7 +289,7 @@ layout: default
 
 <!-- Contact -->
 <section id="contact">
-  <h2>Get in Touch</h2>
-  <p>I'm always open to talk about research ideas, potential collaborations, or entrepreneurial projects. If something on this page caught your attention, just reach out.</p>
+  <h2>Get in touch</h2>
+  <p>If any of this is useful to you, write to me.</p>
   <p><a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a></p>
 </section>

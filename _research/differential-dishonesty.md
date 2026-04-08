@@ -1,7 +1,7 @@
 ---
 title: "Differential Dishonesty: Language Models Encode User Demographics and Deviate from Their Own Beliefs Accordingly"
-status: PoC
-venue: "Targeting ICML 2026 Mechanistic Interpretability Workshop"
+status: Working paper
+venue: "Working paper, 2026"
 year: 2026
 authors: "P. M. Konrad"
 tags:

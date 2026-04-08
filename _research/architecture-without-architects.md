@@ -36,4 +36,7 @@ contributions:
   - "Proposes six prompt-architecture coupling patterns that map natural-language prompt features to the infrastructure they implicitly require."
   - "Distinguishes contingent couplings (likely to weaken as models improve, e.g., structured output validation) from fundamental couplings (persistent regardless of capability, e.g., tool-call orchestration)."
   - "Coins the term vibe architecting and proposes review practices, decision records, and tooling to bring agent-induced architectural choices under governance."
+links:
+  - label: arXiv
+    url: https://arxiv.org/abs/2604.04990
 ---

@@ -66,7 +66,7 @@ if (sections.length > 0 && navLinks.length > 0) {
     'Under Revision': 2,
     'Under Review': 3,
     'Preprint': 4,
-    'PoC': 5,
+    'Working paper': 5,
     'In Progress': 6
   };
 
