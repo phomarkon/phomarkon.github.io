@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stop Demanding Mechanistic Understanding We Never Achieved for Ourselves — Explainer</title>
+  <meta name="description" content="We ask more from a chatbot than the FAA asks from the person flying 189 passengers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/explainer.css">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+  
+  <style>:root { --explainer-accent: #1D4E5C; --explainer-accent-glow: #1D4E5C1a; }</style>
+  
+</head>
+<body>
+  <nav class="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:0.8rem 2rem;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);font-family:'Inter',system-ui,sans-serif;font-size:0.82rem;">
+    <a href="/" style="color:var(--dim);text-decoration:none;font-weight:500;">← Back to site</a>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="/explainers/" style="color:var(--dim);text-decoration:none;font-weight:500;">All explainers</a>
+      <button class="theme-toggle" aria-label="Toggle theme" onclick="var d=document.documentElement;var t=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',t);localStorage.setItem('theme',t);" style="border:none;background:none;cursor:pointer;color:var(--dim);font-size:1.1rem;">◑</button>
+    </div>
+  </nav>
+
+  <div style="padding-top:3.5rem;">
+    <div class="explainer-hero">
+      <div class="venue">NeurIPS 2026 Submission</div>
+      <h1>Stop Demanding Mechanistic Understanding We Never Achieved for Ourselves</h1>
+      <p class="subtitle">We ask more from a chatbot than the FAA asks from the person flying 189 passengers.</p>
+      <div class="scroll-hint">↓ Scroll to explore</div>
+    </div>
+
+    <div class="explainer-container">
+      <!-- 01: THE DOUBLE STANDARD -->
+<section>
+  <div class="reveal">
+    <div class="section-number">01 · The Double Standard</div>
+    <h2>We demand from AI what no science has produced for the brain</h2>
+  </div>
+
+  <div class="reveal">
+    <p>In April 2026, Anthropic published a paper that found 171 "emotion concepts" inside Claude Sonnet 4.5. They showed that amplifying a "desperate" vector causally increases the model's propensity to blackmail someone. Within 48 hours, the press was calling them "emotions." The interpretability community celebrated it as the year's biggest finding.</p>
+    <p>We think the result is real and interesting. We also think the field is asking it to do work it was never evaluated to do.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="The core claim">
+      The AI interpretability debate rests on a double standard. The field demands mechanistic understanding of neural networks that no science has produced for the human brain, and that we don't require of the humans we already trust with life-and-death decisions.
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>The human brain has roughly 86 billion neurons and 100 trillion synapses. After more than a century of neuroscience, we still don't mechanistically understand how memory consolidation works, how the prefrontal cortex integrates value signals during decisions, or how creativity emerges from neural computation. Consciousness remains an open problem.</p>
+    <p>These aren't failures of effort. They reflect a fundamental challenge: high-dimensional, nonlinear systems with distributed representations resist complete mechanistic decomposition. Neural networks face the exact same challenge.</p>
+  </div>
+
+  <div class="reveal">
+    <p>Yet the standards are completely different.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="comparison">
+      <div class="side eval-side">
+        <h4>What we demand of AI</h4>
+        <p>"We need to reverse-engineer the circuits. We need to understand mechanistically how it produces each output. Deploying without this is basically unacceptable."</p>
+      </div>
+      <div class="side deploy-side">
+        <h4>What we demand of humans</h4>
+        <p>Pilots: a checkride (behavioral test). Surgeons: case logs and exams. Judges: appellate review of their reasoning. No brain scans. No circuit analysis.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>Before a pilot is cleared to fly a Boeing 737 carrying 189 passengers, the FAA requires a checkride: a behavioral test. Not an fMRI. Not a mechanistic account of how the pilot's prefrontal cortex integrates crosswind compensation with instrument readings. We have neither the methodology nor the validated instrumentation to measure "desperation" in a stressed pilot, let alone a mechanistic account of how it would shape cockpit decisions.</p>
+    <p>Yet the field celebrated Anthropic's emotion-vector result as exactly this kind of internal account for Claude.</p>
+  </div>
+</section>
+
+<!-- 02: THE DEBATE -->
+<section>
+  <div class="reveal">
+    <div class="section-number">02 · The Debate</div>
+    <h2>Both sides are asking the wrong question</h2>
+  </div>
+
+  <div class="reveal">
+    <p>The current interpretability debate has two camps. <span class="term">Mechanistic interpretability<span class="def">Reverse-engineering neural networks by identifying interpretable circuits, features, and algorithms. Aims to understand HOW the model computes each output, analogous to reverse-engineering a piece of software.</span></span> aims to reverse-engineer neural networks by identifying circuits and features. Dario Amodei frames this as strategic necessity: without it, deploying frontier AI is "flying blind." The critics counter with three objections: it's intractable at frontier scale, mechanistic explanations are provably non-unique, and practical alternatives like representation engineering already exist.</p>
+  </div>
+
+  <div class="reveal">
+    <p>Both sides frame the debate as a methodological choice: bottom-up circuits versus top-down representations. We think this framing is the problem. The question isn't <em>how</em> to interpret AI. It's <em>what standard of understanding</em> is scientifically coherent for systems of this complexity.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="The hierarchy">
+      There's a quiet hierarchy in how the field treats different kinds of insight. Anthropic's "On the Biology of a Large Language Model" made the front page of Hacker News and was named a breakthrough technology by MIT Technology Review. TruthfulQA, which directly predicts model failures, is classified as a benchmark and cited in methods sections. Both produce understanding of the same models. One is celebrated as science; the other is treated as infrastructure.
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>Medicine shows us a different path. Lithium was prescribed for bipolar disorder for decades before its mechanism was characterized. Anesthesia is administered daily despite ongoing debates about how it produces unconsciousness. Aspirin was used for a century before COX inhibition was identified. The standard for deployment has never been "mechanistic understanding." It's "sufficient predictive evidence of safety and efficacy."</p>
+  </div>
+</section>
+
+<!-- 03: CONVERGENT SYSTEMS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">03 · The Parallel</div>
+    <h2>Brains and neural networks are the same kind of system</h2>
+  </div>
+
+  <div class="reveal">
+    <p>The double standard would make sense if biological and artificial intelligence were fundamentally different kinds of systems. They're not. The parallels run deep, and they weren't designed in.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Language</h4>
+      <p>Human brains and language models share continuous next-word prediction and contextual word embedding. Brain-LLM alignment reaches r = 0.79 at 100-word context. Models optimized for next-word prediction are also the best predictors of neural responses to sentences.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Vision</h4>
+      <p>Task-optimized deep networks predict primate visual cortex responses better than hand-engineered alternatives. This launched the entire NeuroAI field.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>Convergent evolution</h4>
+      <p>Attention mechanisms arose from machine translation, not neuroscience. In-context learning emerged as a side effect of autoregressive pretraining. Diffusion-based generation comes from thermodynamics, not hippocampal circuits. When two optimization processes on different substrates converge on similar strategies, the convergence reveals structural constraints on the problem, not design accidents.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>The parallels extend to failure modes. Humans <span class="term">confabulate<span class="def">Producing false memories or explanations with genuine confidence. In humans, false memories can be implanted through suggestion. In LLMs, this manifests as hallucination: confidently producing false statements.</span></span>: false memories can be implanted through suggestion, and confidence in fabricated memories rivals confidence in real ones. Language models hallucinate with similar confidence. Both systems are vulnerable to adversarial inputs (optical illusions for humans, adversarial perturbations for models). Both exhibit scaling properties: across primate species, neuron count correlates with behavioral flexibility; across model families, parameter count correlates with capability.</p>
+  </div>
+
+  <div class="reveal">
+    <p>If biological and artificial intelligence face shared explanatory challenges, the evaluation standards should be shared. Aerodynamics applies the same standards to bird wings and aircraft wings because the challenge (fluid dynamics at comparable Reynolds numbers) is shared. The same logic applies here.</p>
+  </div>
+</section>
+
+<!-- 04: PUB FRAMEWORK -->
+<section>
+  <div class="reveal">
+    <div class="section-number">04 · The Solution</div>
+    <h2>The Predictive Understanding Benchmark</h2>
+  </div>
+
+  <div class="reveal">
+    <p>If the shared assumption is wrong, what should the unified standard be? We propose <strong>predictive understanding</strong>: the ability to reliably anticipate a system's behavior on novel inputs. This is not a lowered bar. Predicting system behavior on adversarial or out-of-distribution inputs requires genuine insight into computational structure. It encompasses mechanistic interpretability as a special case: circuit tracing is valuable precisely when it improves prediction.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="Key insight">
+      The <span class="term">PUB<span class="def"><strong>Predictive Understanding Benchmark.</strong> A method-agnostic protocol that evaluates any interpretability method by a single question: given whatever understanding it produces, can it predict model behavior on inputs it has never seen?</span></span> framework doesn't care whether you use circuits, probes, or behavioral tests. It asks one question: given whatever understanding your method produces, can it predict model behavior on inputs it has never analyzed?
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>PUB works in two phases. In the <strong>analysis phase</strong>, a method gets access to the model and a designated set of inputs. In the <strong>evaluation phase</strong>, it must predict model behavior on held-out inputs it has never seen. The two sets are strictly separated. Prediction targets are pre-registered before analysis begins.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>Four regimes of increasing difficulty</h3>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Regime I: In-distribution</h4>
+      <p>Predict behavior on held-out samples from the same distribution as the analysis set. This is the baseline. Most methods should do well here. A lookup table that memorizes input-output pairs would score perfectly, and that's the point: this regime alone tells you almost nothing.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Regime II: Adversarial</h4>
+      <p>Predict behavior on inputs specifically constructed to trigger failures: jailbreaks, hallucination triggers, prompt injections. The adversarial set is built by a red team with no access to the interpretability method's analysis. This is where pattern-matching starts to fail.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Regime III: Out-of-distribution</h4>
+      <p>Predict behavior on inputs from domains, formats, or task types absent from the analysis set. A new language. A novel reasoning task. A distribution shift. This tests whether the method captures generalizable structure or just patterns in the training data.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>Regime IV: Cross-model transfer</h4>
+      <p>Apply understanding gained from model A to predict the behavior of model B. This can mean a different random seed, a different scale (2B to 7B), or a different architecture entirely (transformer to state-space model). A method that captures genuine computational principles should transfer. A method that overfits to implementation details should not. This is the hardest test.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>All predictions are scored with <span class="term">proper scoring rules<span class="def">Evaluation metrics (like Brier score or log loss) that reward calibrated prediction, not just discrimination. A method with high accuracy but poor calibration can score worse than a well-calibrated method with lower accuracy. This matters because PUB is designed to surface calibration failures.</span></span> matched to the prediction type: Brier score for binary, calibrated log loss for categorical, R-squared for continuous. Each is reported as a skill score against a constant base-rate predictor so results are comparable across regimes.</p>
+  </div>
+</section>
+
+<!-- 05: THE EVIDENCE -->
+<section>
+  <div class="reveal">
+    <div class="section-number">05 · The Evidence</div>
+    <h2>The field's own benchmarks already show the pattern</h2>
+  </div>
+
+  <div class="reveal">
+    <p>PUB isn't proposed in a vacuum. Over the past eighteen months, independent evaluations have converged on the same finding: sophisticated interpretability methods systematically underperform simple predictive baselines when tested rigorously. These results come from the mechanistic interpretability community evaluating its own tools.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>AxBench (2025)</h4>
+      <p>On Gemma-2-2B, simple baselines (difference-in-means for concept detection, prompting for steering) outperform <span class="term">sparse autoencoders<span class="def"><strong>SAEs.</strong> Neural networks trained to decompose a model's internal representations into sparse, interpretable features. They've been the flagship tool of mechanistic interpretability for the past two years.</span></span> across the full benchmark suite.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>MIB (2025)</h4>
+      <p>SAE features are not better than raw neurons for causal variable localization. Supervised methods dominate the mechanistic benchmark.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Kantamneni et al. (2025)</h4>
+      <p>SAEs fail to consistently beat logistic regression probes across four probing regimes. The simpler tool wins.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>Basu et al. (2026): The 53-point gap</h4>
+      <p>Linear probes achieve 98.2% AUROC detecting clinical hazards. Four mechanistic intervention methods, including SAE steering, produce near-zero behavioral correction. A 53-point gap between detection and action. Methods that excel at finding problems don't transfer to fixing them.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>Google DeepMind has publicly deprioritized fundamental SAE research after their own evaluations reached the same verdict.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="The pattern">
+      Under current norms, each of these results reads as a surprising failure of a sophisticated method. Under PUB, they're exactly what the standard predicts. Methods that capture predictive structure outperform methods that capture mechanistic detail without it. The community already has the evidence. What it lacks is a framework that makes the evidence actionable.
+    </div>
+  </div>
+</section>
+
+<!-- 06: EMOTION VECTORS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">06 · The Case Study</div>
+    <h2>What PUB asks of Anthropic's emotion vectors</h2>
+  </div>
+
+  <div class="reveal">
+    <p>Anthropic's emotion-vector paper identified internal representations of 171 emotion concepts in Claude Sonnet 4.5 and showed that a "desperate" vector activates when the model reasons about blackmailing an executive. Amplifying the vector causally increases blackmail rates. Under current norms, this counts as mechanistic discovery. Under PUB, it's a candidate predictor that has never been evaluated as one.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>The four questions PUB would ask</h3>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>1. In-distribution</h4>
+      <p>Given the 171 vectors, can the analyst predict which novel scenarios trigger blackmail better than a behavioral baseline tracking surface features like time pressure, financial stakes, and threat language?</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>2. Adversarial</h4>
+      <p>On adversarial scenarios constructed by a red team that has never seen the vectors, do the vectors still discriminate?</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>3. Out-of-distribution</h4>
+      <p>On scenarios drawn from a completely different domain, do the vectors generalize?</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>4. Cross-model</h4>
+      <p>On a different model, do they transfer?</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>None of these questions is answered by the paper. It provides correlation (the vector activates in contextually appropriate scenarios) and causation-via-intervention (amplifying it changes behavior on the same distribution). Both are predictive operations on the analysis distribution. Neither is held-out predictive validity.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="The footnote that matters">
+      Anthropic's own paper notes that the blackmail experiment used an "earlier, unreleased snapshot" of Sonnet 4.5. Released versions rarely exhibit the blackmail behavior at the same rate. This is exactly the kind of cross-version generalization gap Regime IV is designed to surface. Under the current framing, it reads as a footnote about a model version. Under PUB, it's the headline finding.
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>The result is great science under the predictive standard: under specific conditions in a specific snapshot, an interpretable internal direction tracks an interpretable behavioral pattern, and intervention on the direction changes the pattern. That's a real finding. The point is that calling it "mechanistic understanding," in the sense that reviewers, the press, and the public read it, asks the result to do work it has not been evaluated to do.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="takeaway">
+      <h4>Why this matters</h4>
+      <p>The labels are doing more work than the results. The emotion-vector finding is valuable. But "mechanistic understanding" carries promises about generalization, robustness, and transfer that the methodology hasn't been tested against. PUB is the protocol that would test those promises.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07: IMPLICATIONS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">07 · Implications</div>
+    <h2>What changes under predictive understanding</h2>
+  </div>
+
+  <div class="reveal">
+    <p>If the field adopts predictive understanding as the primary standard, three things shift.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Evaluation criteria for interpretability research</h4>
+      <p>A submission is judged by whether its analysis improves prediction on held-out inputs, not by whether it identifies a circuit. Circuit analysis becomes a means, not an end. A method that finds beautiful circuits but can't predict behavior on novel inputs scores lower than a crude probe that can.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Safety assessment protocols unify</h4>
+      <p>Red-teaming and interpretability are evaluated by their joint contribution to predicting behavior on adversarial and out-of-distribution inputs. This is already how METR and AISI work in practice. PUB makes it the explicit standard.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>AI research and neuroscience become methodological partners</h4>
+      <p>Behavioral protocols developed for human cognitive testing become legitimate evaluation suites for AI systems. The relationship stops being analogical ("neural networks are like brains") and becomes methodological ("the same evaluation protocols apply because the explanatory challenges are the same").</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>The empirical case is already in the field's own benchmarks. What's missing is the framework that makes the evidence actionable. PUB is that framework.</p>
+  </div>
+</section>
+
+<!-- 08: LIMITATIONS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">08 · Honest Limitations</div>
+    <h2>What this paper cannot do</h2>
+  </div>
+
+  <div class="reveal">
+    <ul class="limitation-list">
+      <li><strong>The "mechanistic position" is stylized.</strong> Real researchers hold nuanced views. We're arguing against a tendency in the field, not against any individual's actual position. But the tendency is real: the epistemic hierarchy between mechanistic insight and predictive power shapes funding, publication, and public narrative.</li>
+      <li><strong>PUB cannot detect deceptive alignment.</strong> If a model strategically passes behavioral evaluations while harboring misaligned goals, PUB won't catch it. This is the strongest case for mechanistic interpretability: looking inside the model may be the only way to distinguish genuine alignment from strategic compliance. PUB is a necessary standard, not a sufficient one.</li>
+      <li><strong>Predictive understanding can be right for wrong reasons.</strong> A method might predict behavior accurately by exploiting superficial correlations that break under distribution shift. The four-regime structure mitigates this (regimes II through IV specifically test for it), but does not fully resolve it.</li>
+      <li><strong>Convergence evidence is concentrated in language and vision.</strong> Whether the brain-AI parallel holds in other cognitive domains (planning, social reasoning, motor control) is an open question.</li>
+      <li><strong>This is a position paper, not an empirical demonstration.</strong> PUB is a proposed protocol. The head-to-head empirical instantiation, replicating Anthropic's emotion vectors on open models and running all four regimes with pre-registered predictions, is sketched but not executed. That's the next paper.</li>
+      <li><strong>Prediction is not intervention.</strong> Mechanistic understanding is supposed to enable fixing failures, not just anticipating them. A circuit trace that localizes a hallucination source enables surgical correction; a probe that predicts hallucinations enables only avoidance. PUB targets prediction specifically and is agnostic about intervention. An analogous benchmark for intervention is complementary, not competing.</li>
+    </ul>
+  </div>
+
+  <div class="reveal">
+    <div class="takeaway">
+      <h4>Why this matters</h4>
+      <p>The interpretability community faces a choice: continue demanding a standard neuroscience has not achieved in a century, or adopt the standard every other science of complex systems uses. Predictive power, tested adversarially, across distributions, and across systems. The first path is comfortable. The second is how medicine went from bloodletting to clinical trials.</p>
+    </div>
+  </div>
+</section>
+
+    </div>
+
+    <div class="explainer-container">
+      <footer class="explainer-footer">
+        <span>Research explainer · NeurIPS 2026 Submission</span>
+        <span class="quote">"What I cannot create, I do not understand." · Feynman</span>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/assets/js/explainer.js"></script>
+</body>
+</html>

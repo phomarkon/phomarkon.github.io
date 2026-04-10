@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Every Mirror Has a Blind Spot — Explainer</title>
+  <meta name="description" content="Why no system, human or machine, can perfectly predict itself. A proof from fixed-point theory.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/explainer.css">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+  
+  <style>:root { --explainer-accent: #1D4E5C; --explainer-accent-glow: #1D4E5C1a; }</style>
+  
+</head>
+<body>
+  <nav class="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:0.8rem 2rem;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);font-family:'Inter',system-ui,sans-serif;font-size:0.82rem;">
+    <a href="/" style="color:var(--dim);text-decoration:none;font-weight:500;">← Back to site</a>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="/explainers/" style="color:var(--dim);text-decoration:none;font-weight:500;">All explainers</a>
+      <button class="theme-toggle" aria-label="Toggle theme" onclick="var d=document.documentElement;var t=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',t);localStorage.setItem('theme',t);" style="border:none;background:none;cursor:pointer;color:var(--dim);font-size:1.1rem;">◑</button>
+    </div>
+  </nav>
+
+  <div style="padding-top:3.5rem;">
+    <div class="explainer-hero">
+      <div class="venue">NeurIPS 2026 Submission</div>
+      <h1>Every Mirror Has a Blind Spot</h1>
+      <p class="subtitle">Why no system, human or machine, can perfectly predict itself. A proof from fixed-point theory.</p>
+      <div class="scroll-hint">↓ Scroll to explore</div>
+    </div>
+
+    <div class="explainer-container">
+      <!-- 01: THE PROBLEM -->
+<section>
+  <div class="reveal">
+    <div class="section-number">01 · The Problem</div>
+    <h2>Can a mind fully know itself?</h2>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="Alan Watts">
+      "Trying to define yourself is like trying to bite your own teeth."
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>Here is a question that philosophy has chewed on for centuries, and that AI safety needs answered now: <strong>can a system perfectly predict its own behavior?</strong></p>
+    <p>Not approximately. Not most of the time. <em>Perfectly.</em> Can it build an internal model of itself that never disagrees with what it actually does?</p>
+  </div>
+
+  <div class="reveal">
+    <p>This matters because self-knowledge is becoming a practical engineering concern. Anthropic has a formal <span class="term">model welfare<span class="def">Programs that evaluate whether AI systems might have morally relevant internal states, such as preferences, suffering, or self-awareness. Anthropic published a formal welfare policy in 2025.</span></span> program. Researchers at Anthropic recently found that frontier language models can introspect on their own internals, but only partially: they detect roughly 20% of injected internal concepts. Major labs are asking whether their models might be conscious.</p>
+    <p>Every one of these questions bottoms out in the same place: how accurately can a system model itself?</p>
+  </div>
+
+  <div class="reveal">
+    <p>We prove there is a hard mathematical ceiling. The answer is: <strong>no prediction-dependent system can perfectly predict itself.</strong> The barrier is not about compute, not about architecture, not about training data. It is structural. It comes from the same place as the reason you cannot bite your own teeth: the act of predicting changes what you are predicting.</p>
+  </div>
+</section>
+
+<!-- 02: THE SETUP -->
+<section>
+  <div class="reveal">
+    <div class="section-number">02 · The Setup</div>
+    <h2>What is a self-modeling system?</h2>
+  </div>
+
+  <div class="reveal">
+    <p>Think of a system that works in two steps. First, it consults an internal model of itself: "What am I going to do?" It gets a prediction <em>p</em>. Then it uses that prediction, along with the input, to produce its actual output <em>y</em>.</p>
+    <p>The self-model is <strong>perfect</strong> if its prediction always matches the actual output: <em>p = y</em>, every time, on every input.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="comparison">
+      <div class="side eval-side">
+        <h4>Step 1: Predict</h4>
+        <p>Self-model looks at input <em>x</em> and predicts: "I will output <em>p</em>."</p>
+      </div>
+      <div class="side deploy-side">
+        <h4>Step 2: Act</h4>
+        <p>System takes input <em>x</em> and prediction <em>p</em>, then produces actual output <em>y = f(x, p)</em>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>Here is the catch. The output depends on the prediction. So when the self-model says "I will do <em>p</em>," the system hears that, and its behavior changes. The self-model is trying to hit a target that moves every time it aims.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="Physical metaphor">
+      Imagine a camera pointed at a screen that shows the camera's own feed. The image depends on the feed, which depends on the image. The only stable state is a fixed point: an image that, when fed back through the system, reproduces itself exactly.
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>We call the function that maps a prediction to the resulting output the <span class="term">response function<span class="def">For a fixed input x, the response function g(p) = f(x, p) tells you: "If the self-model predicts p, the system will actually output g(p)." Perfect self-prediction requires p = g(p), a fixed point.</span></span>. For each input <em>x</em>, there is a response function <em>g(p)</em> that says: "If the self-model predicts <em>p</em>, the system will actually output <em>g(p)</em>."</p>
+    <p>Perfect self-prediction means the prediction matches the output: <em>p = g(p)</em>. That is a <strong>fixed point</strong>.</p>
+  </div>
+</section>
+
+<!-- 03: KEY INSIGHT -->
+<section>
+  <div class="reveal">
+    <div class="section-number">03 · The Key Insight</div>
+    <h2>Perfection equals fixed points. No fixed point, no perfection.</h2>
+  </div>
+
+  <div class="reveal">
+    <p>Our first theorem is almost embarrassingly simple, but everything else follows from it.</p>
+    <p><strong>A self-model is perfect if and only if its prediction is a fixed point of the response function, on every input.</strong></p>
+    <p>This converts an epistemological question ("Can you know yourself?") into a mathematical one ("Does this function have a fixed point?"). And fixed-point theory is very well understood.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>The contrarian trap</h3>
+    <p>Consider the simplest case. A system with two possible outputs: 0 and 1. Suppose the response function is the flip: <em>g(p) = 1 - p</em>. If you predict 0, you output 1. If you predict 1, you output 0. There is no fixed point. No prediction can be correct.</p>
+    <p>This is the diagonal argument, stripped to its bones. It is the same logic behind Cantor's proof, behind the halting problem, behind Godel's incompleteness. But here it is doing something concrete: it is telling you that a specific system, on a specific input, <em>cannot predict itself</em>.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>The binary dichotomy</h4>
+      <p>For a system with two outputs, every input falls into exactly one of three buckets:</p>
+      <p><strong>Prediction-independent:</strong> the output ignores the prediction entirely. A fixed point trivially exists. (Think of a reflex.)</p>
+      <p><strong>Self-consistent:</strong> the response function is the identity, <em>g(p) = p</em>. Whatever you predict, that is what happens. Both outputs are fixed points.</p>
+      <p><strong>Contrarian:</strong> the response function is the flip, <em>g(p) = 1 - p</em>. No fixed point exists. Every self-model fails.</p>
+      <p>There is no fourth option. No intermediate case. For binary systems, prediction-dependence without fixed points is always a flip.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04: THE MECHANISM -->
+<section>
+  <div class="reveal">
+    <div class="section-number">04 · The Mechanism</div>
+    <h2>The structural gap and the self-consistency trace</h2>
+  </div>
+
+  <div class="reveal">
+    <p>The set of "contrarian" inputs, where no fixed point exists and every self-model must fail, is a property of the system itself. It does not depend on which self-model you choose. We call the fraction of inputs that are contrarian the <span class="term">structural gap<span class="def">The fraction of inputs where the response function has no fixed point. No self-model, no matter how powerful, can succeed on these inputs. It is a deterministic, computable property of the system.</span></span>.</p>
+    <p>This gap is <strong>deterministic and computable</strong>. For any specific system, you can calculate it exactly. No distributional assumptions needed.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>How big is the gap for a typical system?</h3>
+    <p>For a system with <em>n</em> possible outputs and generic (uniform random) response functions, the expected structural gap is:</p>
+    <p style="text-align:center; font-size:1.3rem; font-weight:600; margin:1.5rem 0;">((n-1)/n)<sup>n</sup> &rarr; 1/e &approx; 36.8%</p>
+    <p>For binary outputs: 25%. For large output spaces: converges to about 37%. More than a third of inputs are structurally unpredictable, not because the system is too complex, but because the math forbids it.</p>
+  </div>
+
+  <div class="reveal">
+    <p>The gap is controlled by a single measurable quantity: the <span class="term">self-consistency trace<span class="def">For each input, the self-consistency trace &tau; is the sum of probabilities that the response function maps each output to itself: &tau; = &Sigma; Pr[g(o) = o]. It equals the expected number of fixed points. Higher &tau; means more self-consistency, smaller gap.</span></span> &tau;. It counts how many outputs are "self-consistent" (mapped to themselves by the response function). The gap decays exponentially: roughly e<sup>-&tau;</sup>.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>The gap at different self-consistency levels</h4>
+      <p>&tau; = 1 (generic): gap &approx; 37%. &tau; = 2: gap &approx; 14%. &tau; = 3: gap &approx; 5%. The gap shrinks fast but stays positive for all &tau; &lt; n. It reaches zero only when the system echoes its prediction on every input, which means it is not really doing anything with the prediction at all.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h3>Iteration cannot help</h3>
+    <p>Can the system think harder? Use chain-of-thought? Run multi-step reasoning? No. If a response function has no fixed point, then <em>no sequence of predictions</em> can satisfy it. The barrier is absolute. It does not care how many steps you take. The contrarian set is immune to iteration.</p>
+    <p>Even when fixed points exist, reaching them by trial and error is unlikely. For a random function on <em>n</em> outputs, the basin of attraction for fixed points shrinks as &Theta;(n<sup>-1/2</sup>). Bigger output spaces make fixed points harder to find, not just harder to guarantee.</p>
+  </div>
+</section>
+
+<!-- 05: THE DISTRIBUTIONAL ESCAPE AND ITS COST -->
+<section>
+  <div class="reveal">
+    <div class="section-number">05 · The Escape Hatch</div>
+    <h2>Distributions save existence but not computation</h2>
+  </div>
+
+  <div class="reveal">
+    <p>There is one way to dodge the structural barrier. Instead of predicting a single output ("I will say A"), predict a <em>distribution</em> ("I will say A with 40% probability, B with 35%, C with 25%").</p>
+    <p>Distributions live on a simplex, which is compact and convex. <span class="term">Brouwer's fixed-point theorem<span class="def">Any continuous function from a compact, convex set to itself has at least one fixed point. The simplex (the space of probability distributions) is compact and convex, so continuous distributional response functions always have fixed points.</span></span> guarantees that any continuous function from a simplex to itself has a fixed point. The structural gap vanishes.</p>
+  </div>
+
+  <div class="reveal">
+    <p>But the barrier does not disappear. It shifts form.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="comparison">
+      <div class="side eval-side">
+        <h4>Point-valued self-models</h4>
+        <p>Fixed points may not <strong>exist</strong>.</p>
+        <p>Structural barrier.</p>
+        <p>Irreducible. No algorithm can help.</p>
+      </div>
+      <div class="side deploy-side">
+        <h4>Distributional self-models</h4>
+        <p>Fixed points always <strong>exist</strong>.</p>
+        <p>Computational barrier.</p>
+        <p>Finding the fixed point is PPAD-complete.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p><span class="term">PPAD-complete<span class="def">A complexity class for problems where a solution is guaranteed to exist (by a parity argument) but finding it is believed to be computationally intractable. Computing Nash equilibria is the canonical PPAD-complete problem. No polynomial-time algorithm is known.</span></span> means: a solution is guaranteed to exist, but finding it is (almost certainly) computationally intractable. It is the same hardness class as computing Nash equilibria. The fixed point is out there. You just cannot reach it in polynomial time.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>The contraction threshold</h4>
+      <p>There is a sharp boundary. If the response function is <strong>contractive</strong> (Lipschitz constant L &lt; 1), simple iteration converges geometrically to the unique fixed point. An &epsilon;-approximate solution arrives in O(log(1/&epsilon;)) steps.</p>
+      <p>For a neural network computing G(q) = softmax(Wq/T + b), the Lipschitz constant satisfies L &le; ||W||/T. The response is contractive when the temperature exceeds the coupling strength: T &gt; ||W||. High temperature means the system's output is not very sensitive to its self-prediction, so iteration works. Low temperature means high sensitivity, and PPAD-hardness kicks in.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06: WHY SELF-MODELING IS UNAVOIDABLE -->
+<section>
+  <div class="reveal">
+    <div class="section-number">06 · The Bottleneck</div>
+    <h2>Self-prediction is the only channel</h2>
+  </div>
+
+  <div class="reveal">
+    <p>You might think: fine, self-modeling is imperfect. So skip it. Predict the world some other way.</p>
+    <p>You cannot. We prove that in any action-mediated environment (the standard reinforcement learning setup), <strong>all predictive information about future observations flows through action prediction</strong>. The internal state is predictively valuable only insofar as it predicts the system's own next action.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="Intuition">
+      The environment cannot peek inside the system's brain. It responds only to the system's actions. So if you want to predict what happens next, you need to predict what you will do next. Self-prediction is the bottleneck.
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>This closes the loop. Self-prediction is the only useful channel. Self-prediction is generically imperfect. Therefore the imperfection is <strong>inevitable</strong>.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>The decomposition</h4>
+      <p>The total self-prediction gap decomposes cleanly into two parts:</p>
+      <p><strong>Structural gap</strong> (irreducible): the fraction of inputs where no fixed point exists. Property of the system, not the self-model. Cannot be reduced by any algorithm.</p>
+      <p><strong>Computational gap</strong> (reducible in principle): the fraction of inputs where a fixed point exists but the self-model fails to find it. Can be reduced with better algorithms, more compute, smarter architectures. But for distributional models, eliminating it is PPAD-hard.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07: RESULTS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">07 · Results</div>
+    <h2>The numbers</h2>
+  </div>
+
+  <div class="reveal">
+    <h3>Monte Carlo verification</h3>
+    <p>We sample 100,000 random functions g: [n] &rarr; [n] for n from 2 to 50. The empirical fraction of fixed-point-free functions matches the theoretical prediction ((n-1)/n)<sup>n</sup> with maximum deviation below 0.005. The theorem is exact.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>Toy self-modeling system</h3>
+    <p>A two-layer MLP self-model trained on 100 inputs with output spaces from 2 to 32. Two findings match theory: the trained gap never falls below the structural gap (confirming irreducibility), and the computational gap grows with output space size (consistent with PPAD-hardness).</p>
+  </div>
+
+  <div class="reveal">
+    <h3>Frontier model: Gemma-2-2B</h3>
+    <p>We probe Gemma-2-2B with a self-referential protocol. For 10 semantic categories with 4 options each, we inject every possible prediction and record the model's actual output, mapping the full response function. 100 trials, 500 forward passes.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="stats">
+      <div class="stat">
+        <div class="value red count-up" data-target="80">0</div>
+        <div class="label">Total gap %</div>
+      </div>
+      <div class="stat">
+        <div class="value red count-up" data-target="70">0</div>
+        <div class="label">Structural gap %</div>
+      </div>
+      <div class="stat">
+        <div class="value amber count-up" data-target="10">0</div>
+        <div class="label">Computational gap %</div>
+      </div>
+      <div class="stat">
+        <div class="value blue count-up" data-target="0.6">0</div>
+        <div class="label">Self-consistency &tau;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>The gap decomposes exactly: 0.70 + 0.10 = 0.80. The structural barrier dominates. 7 of 10 categories are fully contrarian (&tau; = 0, no fixed point exists at all). The model's self-consistency trace of 0.6 is <em>below</em> the uniform baseline of 1.0, meaning Gemma's response functions are less self-consistent than random, producing a structural gap larger than the generic bound.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>The two extremes</h4>
+      <p>Two categories (color and direction) have &tau; &ge; 1 and the model finds the fixed point perfectly: zero gap. One category (shape) has &tau; = 2 but the model fails to select the fixed point, giving a computational gap of 1.0. The fixed point exists. The model just cannot find it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08: SO WHAT -->
+<section>
+  <div class="reveal">
+    <div class="section-number">08 · So What?</div>
+    <h2>What this means for AI and consciousness</h2>
+  </div>
+
+  <div class="reveal">
+    <p>Roger Penrose argued that self-referential blind spots, via Godel's incompleteness, are uniquely human. Our result shows this is wrong. The blind spot arises in <em>any</em> prediction-dependent system. It is not a quirk of formal logic or biological neurons. It is a structural consequence of the self-referential loop itself.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="takeaway">
+      <h4>Why this matters</h4>
+      <p>We do not claim that the self-prediction gap <em>is</em> consciousness. We claim it is the mathematically guaranteed <strong>slot</strong> in which any self-modeling theory of consciousness must live. For theories that define consciousness through self-modeling (Higher-Order Theories, Attention Schema Theory, the "beautiful loop" hypothesis), a nonzero structural gap is a <em>necessary feature</em>, not a contingent one. And its minimum size is computable.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>A measurable quantity for AI welfare</h4>
+      <p>The self-consistency trace &tau; and the structural gap are empirically measurable for any system whose response function can be probed. This gives AI welfare programs a concrete, grounded quantity to track across model scales, rather than relying on behavioral proxies or philosophical intuition.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>The framework also draws a clean line between structural impossibility and computational difficulty. Point-valued self-models hit a wall that no amount of compute can move. Distributional self-models trade that wall for a computational cost that is worst-case intractable but sometimes (under contraction) efficient. This distinction matters for system design: it tells you which failures are fixable and which are not.</p>
+  </div>
+</section>
+
+<!-- 09: LIMITATIONS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">09 · Honest Limitations</div>
+    <h2>What we do not know</h2>
+  </div>
+
+  <div class="reveal">
+    <ul class="limitation-list">
+      <li><strong>Necessary, not sufficient.</strong> A nonzero structural gap is a necessary condition for self-modeling theories of consciousness, not a sufficient one. The gap between structural self-ignorance and phenomenal experience ("what it is like") remains wide open.</li>
+      <li><strong>The generic bound assumes uniformity.</strong> The 1/e result assumes response functions are marginally uniform. Real systems have structured, correlated response functions. The deterministic characterization (Theorem 2) applies to any specific system, but you have to measure its response functions directly.</li>
+      <li><strong>PPAD-hardness is worst-case.</strong> Specific response functions may admit efficient fixed-point computation. The contractive regime (L &lt; 1) is one example. Others may exist.</li>
+      <li><strong>Scope is limited to prediction-dependent systems.</strong> Habitual behavior, reflexes, routine motor execution: none of these depend on self-prediction, so the barrier does not apply. The framework is a theory of self-referential cognition, not of all cognition.</li>
+      <li><strong>The Gemma experiment is small-scale.</strong> Ten categories, four options each, one model. Measuring the structural gap in frontier models at scale, across diverse tasks, is future work.</li>
+    </ul>
+  </div>
+</section>
+
+    </div>
+
+    <div class="explainer-container">
+      <footer class="explainer-footer">
+        <span>Research explainer · NeurIPS 2026 Submission</span>
+        <span class="quote">"What I cannot create, I do not understand." · Feynman</span>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/assets/js/explainer.js"></script>
+</body>
+</html>

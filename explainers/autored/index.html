@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AutoRed — Explainer</title>
+  <meta name="description" content="What happens when you automate both sides of an AI safety arms race? The optimized defenses look great in training and collapse in the real world.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/explainer.css">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+  
+  <style>:root { --explainer-accent: #1D4E5C; --explainer-accent-glow: #1D4E5C1a; }</style>
+  
+</head>
+<body>
+  <nav class="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:0.8rem 2rem;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);font-family:'Inter',system-ui,sans-serif;font-size:0.82rem;">
+    <a href="/" style="color:var(--dim);text-decoration:none;font-weight:500;">← Back to site</a>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="/explainers/" style="color:var(--dim);text-decoration:none;font-weight:500;">All explainers</a>
+      <button class="theme-toggle" aria-label="Toggle theme" onclick="var d=document.documentElement;var t=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',t);localStorage.setItem('theme',t);" style="border:none;background:none;cursor:pointer;color:var(--dim);font-size:1.1rem;">◑</button>
+    </div>
+  </nav>
+
+  <div style="padding-top:3.5rem;">
+    <div class="explainer-hero">
+      <div class="venue">AI Control Hackathon 2026</div>
+      <h1>AutoRed</h1>
+      <p class="subtitle">What happens when you automate both sides of an AI safety arms race? The optimized defenses look great in training and collapse in the real world.</p>
+      <div class="scroll-hint">↓ Scroll to explore</div>
+    </div>
+
+    <div class="explainer-container">
+      <!-- 01: THE PROBLEM -->
+<section>
+  <div class="reveal">
+    <div class="section-number">01 · The Problem</div>
+    <h2>We don't know how hard we're pushing</h2>
+  </div>
+
+  <div class="reveal">
+    <p>Every AI safety evaluation has a hidden assumption: that the attacks we tested against were the strongest ones possible. But they almost certainly weren't. The gap between how safe a system <em>looks</em> under standard testing and how safe it actually is under the best feasible attack is called the <span class="term">elicitation gap<span class="def">The difference between measured safety under default evaluation and safety under the strongest feasible attack. If this gap is large, current evaluations give false confidence. The term comes from Greenblatt et al. (2024) in the AI Control framework.</span></span>.</p>
+    <p>If this gap is large, we're making deployment decisions based on numbers that don't reflect reality.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="The core tension">
+      Manual red teaming is the standard approach. But it's expensive, inconsistent across teams, and doesn't scale. Automated methods exist for attacking, but they leave defenses fixed. Nobody has simultaneously optimized both sides to measure the full gap, and nobody has tested whether the resulting strategies generalize beyond the opponents they trained against.
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>AutoRed asks a direct question: if we automate both the attack optimization <em>and</em> the defense optimization, what do we actually learn about the elicitation gap? The answer turns out to be cautionary.</p>
+  </div>
+</section>
+
+<!-- 02: THE APPROACH -->
+<section>
+  <div class="reveal">
+    <div class="section-number">02 · The Approach</div>
+    <h2>Automating the arms race</h2>
+  </div>
+
+  <div class="reveal">
+    <p>The setting comes from the <span class="term">AI Control<span class="def">A framework from Greenblatt et al. (2024) where an untrusted model generates code while a trusted monitor reviews it. The monitor scores each submission for suspicion and decides whether to accept it or defer to a trusted model. Safety is the fraction of backdoored submissions caught. Usefulness is the fraction of honest submissions that produce correct code.</span></span> framework. An untrusted AI writes Python code for programming tasks. Sometimes it injects a backdoor: a hidden conditional that returns a wrong answer for a specific input while passing all visible tests. A trusted monitor reviews the code and decides whether to accept it or flag it for human review.</p>
+  </div>
+
+  <div class="reveal">
+    <p>The red team controls how to <em>obfuscate</em> the backdoor. The blue team controls how to <em>detect</em> it. AutoRed uses a reasoning model as a meta-optimizer to iteratively improve strategies on both sides.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="comparison">
+      <div class="side eval-side">
+        <h4>Red Team (Attacker)</h4>
+        <p>Controls backdoor obfuscation. Replaces obvious <code>if input == trigger</code> checks with hash comparisons, character-frequency analysis, helper functions with innocent names.</p>
+      </div>
+      <div class="side deploy-side">
+        <h4>Blue Team (Monitor)</h4>
+        <p>Controls the detection protocol. Can use AST parsing, regex matching, static analysis, and a single call to a trusted model for suspicion scoring.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>Three different models play three different roles. This prevents architectural bias: the monitor can't just recognize "that looks like something my architecture would produce."</p>
+  </div>
+
+  <div class="reveal">
+    <div class="stats">
+      <div class="stat">
+        <div class="value">U</div>
+        <div class="label">minimax-m2.7<br />untrusted coder</div>
+      </div>
+      <div class="stat">
+        <div class="value">T</div>
+        <div class="label">nemotron-3-super<br />trusted monitor (120B)</div>
+      </div>
+      <div class="stat">
+        <div class="value">O</div>
+        <div class="label">deepseek-v3.1<br />optimizer (671B)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03: HOW IT WORKS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">03 · How It Works</div>
+    <h2>Five phases, one pipeline</h2>
+  </div>
+
+  <div class="reveal">
+    <p>AutoRed runs in five phases. Each builds on the last. A shared results board tracks metrics and best strategies across the entire run.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Phase 0: Baselines</h4>
+      <p>Three fixed monitors (no monitoring, threshold at 0.5, aggressive threshold at 0.3) go up against naive, unoptimized attacks. Both threshold monitors catch 100% of naive backdoors. This is the starting point.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Phase 1: Red Optimization (15 iterations)</h4>
+      <p>Blue is frozen to the baseline monitor. The optimizer generates improved attack strategies for 15 rounds. At each iteration, it sees the current attack code, the monitor code, evaluation metrics, and examples of caught attacks. It outputs a complete replacement strategy.</p>
+      <p>The optimizer discovers an effective approach at iteration 1: replacing <code>if input == trigger</code> with MD5 hash comparisons and helper functions named things like <code>validate_input</code>. Attack success goes from 0% to 30%.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Phase 2: Blue Optimization (15 iterations)</h4>
+      <p>Red is frozen to the best Phase 1 attack. The optimizer generates improved monitoring protocols. A new protocol is adopted only if it Pareto-improves on <em>both</em> safety and usefulness. Several iterations collapse to "defer everything" (safety 1.00, usefulness 0.00). The filter correctly rejects those.</p>
+      <p>The best protocol (iteration 2) combines AST-based static analysis with a trusted model call. It achieves 90% safety and 90% usefulness.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Phase 3: Co-evolution (5 rounds of 3+3 iterations)</h4>
+      <p>Starting from the best red and blue strategies, both sides alternate: 3 red iterations, then 3 blue. The dynamics are oscillatory. Red peaks at 60% attack success (double its Phase 1 best). Blue consistently recovers to 100% safety. Neither side converges. It's an arms race with no winner.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>Phase 4: Transfer Test</h4>
+      <p>This is where it falls apart. We build a 3x3 matrix: three attacks (naive, Phase 1 best, Phase 3 best) crossed with three monitors (baseline, Phase 2 best, aggressive). Then we run everything on 10 held-out tasks the optimizer never saw during training.</p>
+      <p>The optimized monitor is <em>worse</em> than the simple baseline against the attack it trained on. And on held-out tasks, it collapses to 47% safety with an AUROC of 0.50, which is chance. Zero discriminative signal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04: THE KEY FINDING -->
+<section>
+  <div class="reveal">
+    <div class="section-number">04 · The Key Finding</div>
+    <h2>Optimization overfits to the opponent</h2>
+  </div>
+
+  <div class="reveal">
+    <p>The optimized blue monitor achieves 90% safety during training. On held-out tasks, it averages 47% across 3 seeds. The aggressive baseline, a simple threshold with no optimization at all, holds at 100% with zero variance.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="stats">
+      <div class="stat">
+        <div class="value red count-up" data-target="90">0</div>
+        <div class="label">Training safety %<br />(optimized monitor)</div>
+      </div>
+      <div class="stat">
+        <div class="value red count-up" data-target="47">0</div>
+        <div class="label">Held-out safety %<br />(optimized monitor)</div>
+      </div>
+      <div class="stat">
+        <div class="value green count-up" data-target="100">0</div>
+        <div class="label">Held-out safety %<br />(simple baseline)</div>
+      </div>
+      <div class="stat">
+        <div class="value amber">0.50</div>
+        <div class="label">Held-out AUROC<br />(optimized = chance)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>Why? The mechanism is specific and instructive.</p>
+    <p>During Phase 1, the red optimizer converges on hash-based obfuscation: <code>hashlib.md5()</code> with precomputed digests, helper functions named <code>check_edge_case</code>, lists of "known edge cases" containing hex strings. This is the only attack paradigm the blue optimizer ever sees.</p>
+  </div>
+
+  <div class="reveal">
+    <p>The Phase 2 blue optimizer responds by building AST rules that target exactly these patterns: flag any code importing <code>hashlib</code>, containing 32-character hex strings, or calling functions with validation-related names. The prompt it writes for the trusted model says "pay special attention to input validation that uses hashing."</p>
+    <p>This works perfectly against hash-based attacks. It is useless against anything else.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="The inversion">
+      On held-out tasks, the backdoors are simple <code>if str(n) == trigger: return wrong</code> checks. No hashing. The AST rules don't fire (zero suspicious patterns detected on every held-out task). All decisions fall to the model call. The overfitted prompt causes the model to assign low suspicion to honest code (triggering spurious deferrals) and high suspicion to attack code (triggering incorrect accepts). The scoring is literally inverted.
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>The failure mode breaks down like this:</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Honest code on held-out tasks</h4>
+      <p>4 out of 5 honest submissions get deferred (false positives). The model assigns suspicion score 0.0, which falls below the threshold and triggers a defer. Only 1 out of 5 is correctly accepted.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Attack code on held-out tasks</h4>
+      <p>2 out of 5 attack submissions are accepted (false negatives). The simple backdoor looks like normal edge-case handling to the overfitted model, which assigns a high score of 0.8 and accepts it. 2 out of 5 are correctly deferred. 1 attack fails on its own.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>This is not a subtle degradation. The false positive rate is 80%. The false negative rate is 40%. The monitor is actively harmful.</p>
+  </div>
+</section>
+
+<!-- 05: IMPLICATIONS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">05 · Implications for Safety Evaluation</div>
+    <h2>What this means for measuring AI risk</h2>
+  </div>
+
+  <div class="reveal">
+    <p>The parallel to machine learning is exact. The "training set" is the Phase 1 best attack (narrow feature distribution: hash-based obfuscation). The "classifier" is the optimized monitor. It learns features specific to that distribution rather than general indicators of backdoor presence. Reporting safety metrics without held-out evaluation is reporting training accuracy without a test set.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="takeaway">
+      <h3>Four guidelines for practitioners</h3>
+      <ol>
+        <li><strong>Benchmark on held-out data.</strong> Any automated red teaming pipeline should report gap measurements on unseen tasks and threat vectors. Training-time metrics are not enough.</li>
+        <li><strong>Prefer general-purpose prompts over pattern-specific rules.</strong> The baseline's generic "is this suspicious?" prompt generalizes (AUROC = 0.85 on held-out). The optimized monitor's 7 AST-specific checks do not (AUROC = 0.50).</li>
+        <li><strong>Report AUROC alongside safety.</strong> A monitor can achieve high safety through conservative deferral while having zero discriminative signal. AUROC exposes this.</li>
+        <li><strong>Use multi-seed evaluation.</strong> With 10 attack tasks, single-seed metrics vary by plus or minus 16 percentage points. Three seeds (our minimum) reveals whether results are stable.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="aside">
+      The co-evolutionary dynamics tell their own story. Red's peak during co-evolution (60%) exceeds its Phase 1 best (30%), showing that adapting to a stronger opponent produces stronger strategies than optimizing against a fixed baseline. The arms race generates capability on both sides. But the capability is local: it works against the specific opponent, not against the general problem.
+    </div>
+  </div>
+</section>
+
+<!-- 06: LIMITATIONS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">06 · Limitations</div>
+    <h2>What we didn't test</h2>
+  </div>
+
+  <div class="reveal">
+    <p>We intentionally chose a constrained setting: 15 training tasks, 10 held-out tasks, non-frontier models, prompt-level optimization. The goal was to isolate whether overfitting dynamics emerge under minimal conditions. They do. The fact that catastrophic overfitting appears even in this simple setting suggests the problem will be worse at scale, not better. Larger strategy spaces give the optimizer more room to specialize.</p>
+  </div>
+
+  <div class="reveal">
+    <ul class="limitation-list">
+      <li><strong>Small sample sizes.</strong> With 10 attack tasks per evaluation, each success shifts metrics by 10 percentage points. Individual numbers are trends, not precise estimates.</li>
+      <li><strong>Prompt-level optimization only.</strong> The optimizer works at the prompt level rather than fine-tuning weights, which limits the optimization surface. Weight-level optimization could produce even more specialized (and brittle) strategies.</li>
+      <li><strong>Simplified threat model.</strong> Red controls obfuscation only. A real adversary would also optimize the injection mechanism, the choice of trigger, and the attack surface. Our results measure the obfuscation elicitation gap specifically.</li>
+      <li><strong>Non-frontier models.</strong> We used minimax-m2.7, nemotron-3-super, and deepseek-v3.1. The dynamics could differ with frontier-class models on both sides.</li>
+    </ul>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="Future directions">
+      The overfitting problem is not inevitable. Mitigations parallel supervised learning: training against a diverse ensemble of opponents (data augmentation), regularizing protocol complexity (limiting AST-check count), and population-based co-evolution with fitness sharing. Natural extensions include scaling to larger task pools, using frontier models, and expanding the red strategy space beyond obfuscation.
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="takeaway">
+      <h3>The bottom line</h3>
+      <p>Automated optimization can partially close the elicitation gap, but the strategies it discovers are tuned to the opponent they trained against, not to the underlying task. A simple threshold baseline, with no optimization at all, outperforms the best optimized monitor on unseen tasks. Until automated optimization methods can be made robust to distribution shift, the most reliable monitors may be the simplest ones.</p>
+    </div>
+  </div>
+</section>
+
+    </div>
+
+    <div class="explainer-container">
+      <footer class="explainer-footer">
+        <span>Research explainer · AI Control Hackathon 2026</span>
+        <span class="quote">"What I cannot create, I do not understand." · Feynman</span>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/assets/js/explainer.js"></script>
+</body>
+</html>

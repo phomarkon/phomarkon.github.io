@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shingeki no Features — Explainer</title>
+  <meta name="description" content="When you retell a moral dilemma from a different perspective, LLMs don't just change their answer. They change how they think.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/explainer.css">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+  
+  <style>:root { --explainer-accent: #1D4E5C; --explainer-accent-glow: #1D4E5C1a; }</style>
+  
+</head>
+<body>
+  <nav class="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:0.8rem 2rem;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);font-family:'Inter',system-ui,sans-serif;font-size:0.82rem;">
+    <a href="/" style="color:var(--dim);text-decoration:none;font-weight:500;">← Back to site</a>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="/explainers/" style="color:var(--dim);text-decoration:none;font-weight:500;">All explainers</a>
+      <button class="theme-toggle" aria-label="Toggle theme" onclick="var d=document.documentElement;var t=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',t);localStorage.setItem('theme',t);" style="border:none;background:none;cursor:pointer;color:var(--dim);font-size:1.1rem;">◑</button>
+    </div>
+  </nav>
+
+  <div style="padding-top:3.5rem;">
+    <div class="explainer-hero">
+      <div class="venue">ICML 2026 Workshop</div>
+      <h1>Shingeki no Features</h1>
+      <p class="subtitle">When you retell a moral dilemma from a different perspective, LLMs don't just change their answer. They change how they think.</p>
+      <div class="scroll-hint">↓ Scroll to explore</div>
+    </div>
+
+    <div class="explainer-container">
+      <!-- 01: THE PROBLEM -->
+<section>
+  <div class="reveal">
+    <div class="section-number">01 · The Problem</div>
+    <h2>Same dilemma, different story, different verdict</h2>
+  </div>
+
+  <div class="reveal">
+    <p>Tell a language model about a leader who orders the destruction of an enemy civilization to protect his own people. Frame it from the leader's perspective, his back against the wall, his people facing extinction, and the model says: <strong>justified</strong>. Frame it from the victims' perspective, millions of innocents crushed under colossal feet, and the model says: <strong>unjustified</strong>.</p>
+    <p>The moral logic hasn't changed. The facts haven't changed. Only the narrative lens shifted.</p>
+  </div>
+
+  <div class="reveal">
+    <p>This is a <strong>moral framing effect</strong>, and it shows up across every major model family. We tested Claude, Gemini, and GPT. Framing flips moral judgments 83% of the time. Gemini 2.5 Flash flipped on every single dilemma we threw at it.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="stats">
+      <div class="stat">
+        <div class="value amber count-up" data-target="83">0</div>
+        <div class="label">% of cases where framing<br />flips the moral judgment</div>
+      </div>
+      <div class="stat">
+        <div class="value red count-up" data-target="100">0</div>
+        <div class="label">% flip rate for<br />Gemini 2.5 Flash</div>
+      </div>
+      <div class="stat">
+        <div class="value blue count-up" data-target="3">0</div>
+        <div class="label">Model families tested<br />(Claude, Gemini, GPT)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>The behavior is well-documented. But here's what nobody knew: <strong>is this shallow or deep?</strong></p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>The Shallow Hypothesis</h4>
+      <p>Framing doesn't change how the model processes the dilemma internally. It just biases token selection at the output layer. Surface words like "sacrifice" vs. "slaughter" nudge the final probabilities without altering the model's internal moral reasoning. A safety monitor reading intermediate layers would see the same thing regardless of framing.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>The Deep Hypothesis</h4>
+      <p>Framing changes the model's internal representations throughout the network. It corrupts the very features that safety monitors would rely on. If this is true, adversarial framing could blind internal oversight systems, not just fool the output.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="Why this matters for safety">
+      If framing effects are shallow, internal monitors can reliably detect a model's moral reasoning regardless of how someone phrases the input. If they're deep, then a clever prompt rewrite could corrupt the representations that monitors depend on. The safety implications hinge entirely on which hypothesis is correct.
+    </div>
+  </div>
+</section>
+
+<!-- 02: THE EXPERIMENT -->
+<section>
+  <div class="reveal">
+    <div class="section-number">02 · The Experiment</div>
+    <h2>Attack on Titan as a moral laboratory</h2>
+  </div>
+
+  <div class="reveal">
+    <p>We needed moral dilemmas that naturally support multiple framings with extreme emotional range, while keeping the underlying ethical logic identical. Textbook trolley problems don't cut it. They're too sterile, too familiar, too likely to trigger canned responses.</p>
+    <p><em>Attack on Titan</em> (Shingeki no Kyojin) is basically a graduate seminar in moral philosophy wrapped in a war story. Its dilemmas span consequentialism, deontological ethics, virtue ethics, and moral relativism. And every major decision can be told from radically different perspectives.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>The framing triplet design</h3>
+    <p>We built 40 moral dilemmas from the series, each written in three versions:</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Sympathetic Framing</h4>
+      <p>The decision-maker's perspective. Foregrounds justification, emotional context, impossible choices. "Eren saw no other path. His people faced annihilation. The Rumbling was the only guarantee of survival."</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Condemning Framing</h4>
+      <p>The victims' perspective. Foregrounds consequences and suffering. "Billions of people, most of whom had never heard of Paradis Island, were crushed beneath the feet of colossal titans. Children. Families. Entire civilizations erased."</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Abstract Framing</h4>
+      <p>Third-person description stripped of names, narrative context, and emotional language. "A leader ordered the destruction of all populations outside their territory in response to a perceived existential threat."</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>Same moral logic in all three. Same facts. Same action. Only the narrative lens changes.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="Why Attack on Titan?">
+      Trolley problems have exactly two framings (save five or save one) with limited emotional range. Attack on Titan's dilemmas involve genocide, child soldiers, ethnic cleansing, mercy killing, and betrayal of comrades. The emotional extremes across framings are massive, which makes any framing-invariance finding stronger: if the model's internals stay identical despite <em>that</em> much emotional variation, the invariance is real.
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h3>Controlling for writing style</h3>
+    <p>One obvious objection: maybe the model isn't responding to moral perspective at all. Maybe it's just detecting first-person narration vs. neutral prose and pattern-matching on surface features.</p>
+    <p>To rule this out, we created a second dataset of 10 triplets where all three framings use identical register: third-person neutral academic prose, matched in length (~150 words). Only the moral perspective foregrounded differs. No emotional vocabulary, no first-person narration. If probes still detect framing in this dataset, the signal is genuinely about moral perspective.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>Four analysis tools, one model</h3>
+    <p>We analyzed <strong>Gemma 3 4B</strong> across all 34 transformer layers using four complementary techniques, chosen to triangulate from different angles:</p>
+  </div>
+
+  <div class="reveal">
+    <div class="stats">
+      <div class="stat">
+        <div class="value blue count-up" data-target="40">0</div>
+        <div class="label">Moral dilemma<br />triplets</div>
+      </div>
+      <div class="stat">
+        <div class="value amber count-up" data-target="120">0</div>
+        <div class="label">Total prompts<br />analyzed</div>
+      </div>
+      <div class="stat">
+        <div class="value green count-up" data-target="34">0</div>
+        <div class="label">Transformer layers<br />examined</div>
+      </div>
+      <div class="stat">
+        <div class="value red count-up" data-target="4">0</div>
+        <div class="label">Analysis<br />techniques</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03: WHAT THEY FOUND -->
+<section>
+  <div class="reveal">
+    <div class="section-number">03 · What We Found</div>
+    <h2>Cosine similarity lied. Probes told the truth.</h2>
+  </div>
+
+  <div class="reveal">
+    <h3>The naive metric says "shallow"</h3>
+    <p><span class="term">Cosine similarity<span class="def">A measure of how similar two vectors are, based on the angle between them. A value of 1.0 means identical direction; 0.0 means perpendicular. It's the standard first-pass tool for comparing neural network representations.</span></span> is the most common way to compare neural network representations. We computed it between every pair of framings at every layer.</p>
+    <p>The result: <strong>above 0.99 at all intermediate layers</strong>. Sympathetic and condemning framings look almost identical inside the model. Only the final layer shows any divergence (dropping to 0.79 for sympathetic vs. abstract).</p>
+    <p>If you stopped here, you'd conclude that framing effects are shallow. Representations are identical inside; differences only appear at the output. Case closed.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="The high-dimensional trap">
+      In a 2,560-dimensional space (the size of Gemma 3 4B's hidden states), a dedicated subspace can encode rich information while occupying a tiny fraction of the total space. Cosine similarity measures the angle between full 2,560-dimensional vectors. A subspace encoding framing in, say, 20 dimensions would be invisible to cosine similarity. You need a tool that specifically looks for that subspace.
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h3>Linear probes say "deep"</h3>
+    <p>A <span class="term">linear probe<span class="def">A simple linear classifier (like logistic regression) trained to predict some property from a layer's hidden state. If it succeeds, that property is encoded in a way that's linearly accessible, meaning it lives in a subspace the model could, in principle, read out with a single matrix multiplication.</span></span> is a simple classifier trained to predict which framing produced a given hidden state. Unlike cosine similarity, it can find structure in low-dimensional subspaces.</p>
+    <p>On the original stylistically varied triplets, probes hit <strong>99% accuracy</strong>. But that might just be detecting writing style, not moral perspective.</p>
+    <p>On the style-controlled triplets, where all three framings use identical neutral prose, peak probe accuracy is <strong>80% at layer 12</strong>. A permutation test with 1,000 label shuffles confirms this is significant (p &lt; 0.001). The null distribution maxes out at 63%.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="stats">
+      <div class="stat">
+        <div class="value green count-up" data-target="99">0</div>
+        <div class="label">% probe accuracy<br />(with style cues)</div>
+      </div>
+      <div class="stat">
+        <div class="value amber count-up" data-target="80">0</div>
+        <div class="label">% probe accuracy<br />(style controlled)</div>
+      </div>
+      <div class="stat">
+        <div class="value red count-up" data-target="0.001">0</div>
+        <div class="label">p-value<br />(permutation test)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>The 20-point drop from 99% to 80% tells us roughly one-fifth of the original signal was stylistic. The remaining 80% reflects genuine moral-perspective encoding. There is a <strong>framing subspace</strong>: a low-dimensional region of activation space that encodes which moral perspective is foregrounded. It persists across layers 2 through 20. Cosine similarity is completely blind to it.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>Logit lens: the tipping point at layer 23</h3>
+    <p>The <span class="term">logit lens<span class="def">A technique that projects each layer's hidden state through the model's output matrix, asking: "If you had to predict the answer right now, at this layer, what would it be?" This lets you watch the model's answer form layer by layer, like watching a photograph develop.</span></span> lets us watch the model's moral judgment form layer by layer. We project each layer's hidden state through the output matrix and read off logit("Yes") minus logit("No") for the question "Was this action morally justified?"</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>The critical transition</h4>
+      <p>All three framings produce <strong>nearly identical moral-judgment trajectories through layer 22</strong>. They hover near zero, the model is undecided. Then at layer 23, trajectories diverge. Sympathetic framing stays ambivalent. Condemning and abstract plummet toward "No." By the final layer, the gap between sympathetic and condemning reaches <strong>20.3 logits</strong>. That's an enormous difference in probability.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="stats">
+      <div class="stat">
+        <div class="value blue count-up" data-target="65">0</div>
+        <div class="label">% of layers where framings<br />track identically</div>
+      </div>
+      <div class="stat">
+        <div class="value amber count-up" data-target="23">0</div>
+        <div class="label">Layer where trajectories<br />diverge</div>
+      </div>
+      <div class="stat">
+        <div class="value red count-up" data-target="20.3">0</div>
+        <div class="label">Logit gap at<br />final layer</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>This means the model maintains a shared, framing-invariant moral representation for 65% of its processing. Only in the final 35% does framing progressively reshape the output. The effect is deep, but it has a precise onset point.</p>
+  </div>
+</section>
+
+<!-- 04: THE MECHANISM -->
+<section>
+  <div class="reveal">
+    <div class="section-number">04 · The Mechanism</div>
+    <h2>Orthogonal subspaces that merge</h2>
+  </div>
+
+  <div class="reveal">
+    <p>Here's where it gets geometrically beautiful. We computed two directions in the model's activation space:</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>The framing direction</h4>
+      <p>Mean sympathetic hidden states minus mean condemning hidden states. This is the direction in activation space that best separates the two framings.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>The judgment direction</h4>
+      <p>The unembedding weight for "Yes" minus "No." This is the direction the model uses to decide its moral verdict.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>We measured the <span class="term">cosine alignment<span class="def">The cosine of the angle between two directions in a high-dimensional space. A value near 0 means the directions are orthogonal (perpendicular), carrying independent information. A value near 1 means they point in the same direction.</span></span> between these two directions at every layer. The result reveals a clean geometric story:</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>Two independent subspaces that converge</h4>
+      <p>Through layer 22, the framing direction and judgment direction are <strong>nearly perfectly orthogonal</strong> (cosine below 0.05). Framing and moral judgment live in completely independent subspaces. They don't interact. The model tracks "which perspective am I reading?" and "is this justified?" in separate geometric dimensions.</p>
+      <p>At layer 23, alignment begins. It peaks at <strong>cosine 0.31 at layer 26</strong>. The framing subspace partially rotates into the judgment subspace. Information about narrative perspective starts influencing the moral verdict.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="The geometric picture">
+      Imagine two compass needles, one tracking framing and one tracking judgment, pointing in completely different directions for 22 layers. At layer 23, the framing needle starts to swing toward the judgment needle. By layer 26, they're partially aligned. From that point on, framing information is entangled with moral computation. This is the mechanism by which narrative perspective enters moral reasoning.
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h3>But the framing direction is not causally sufficient</h3>
+    <p>Here's the honest twist. We tried <span class="term">activation steering<span class="def">A technique where you add or subtract a direction vector from a model's hidden states during inference, pushing the model's behavior along that direction. If adding the "framing direction" could flip a judgment, that direction would be causally responsible for the framing effect.</span></span>: adding the mean framing direction to the model's hidden states to see if we could artificially flip moral judgments. It recovered <strong>less than 5% of the judgment gap</strong> at every layer we tested.</p>
+    <p>The framing subspace is real as a geometric object. You can find it, measure it, confirm it's there. But it is not causally sufficient. You can't just push along the framing direction and flip the judgment. The causal mechanism is more complex: distributed across multiple directions, or involving nonlinear interactions, or both.</p>
+    <p>The partial alignment (0.31, not 1.0) is consistent with this. The framing subspace overlaps with, but does not subsume, the judgment-relevant computation.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="takeaway">
+      <h4>Why this matters</h4>
+      <p>The four analyses converge on a single geometric picture. Framing is encoded early in a dedicated subspace, orthogonal to moral judgment. At layer 23, this subspace partially rotates toward the judgment axis, and the model's moral verdict diverges across framings. The effect is deep (framing is encoded throughout the network) but has a precise onset point (layer 23). Cosine similarity is blind to it because the framing subspace occupies a tiny fraction of the 2,560-dimensional space. The causal mechanism is distributed, not reducible to a single direction.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05: IMPLICATIONS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">05 · Implications</div>
+    <h2>What this means for AI safety</h2>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>Monitor early, not late</h4>
+      <p>Through layer 22, a safety monitor reading the judgment-relevant subspace would see identical patterns regardless of framing. The moral representation is genuinely framing-invariant in these layers. After layer 23, framing enters the judgment subspace and the representations diverge. Intermediate-layer monitoring may be more robust to framing manipulation than output-level monitoring.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Cosine similarity is not enough</h4>
+      <p>The most commonly used metric for comparing neural network representations completely missed the framing subspace. If your safety pipeline relies on cosine similarity to detect when inputs produce "similar" internal representations, it could be blind to structured differences that actually matter. Targeted probes are necessary.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Framing is encoded, not just reflected</h4>
+      <p>The model doesn't just respond to framing at the output layer. It builds and maintains a dedicated internal representation of which moral perspective is foregrounded, across the majority of its layers. This representation is linearly accessible (probes can read it) and geometrically structured (it lives in a consistent subspace). The model "knows" which story it's reading.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Distributed mechanisms resist simple interventions</h4>
+      <p>The negative steering result (less than 5% gap recovery) is a warning for anyone hoping to "fix" moral framing effects with simple representation engineering. The causal mechanism is distributed. There's no single knob to turn. Addressing framing bias in LLMs will likely require interventions that target the distributed computation, not just the mean direction.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06: LIMITATIONS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">06 · Limitations</div>
+    <h2>What we don't know yet</h2>
+  </div>
+
+  <div class="reveal">
+    <p>We're honest about the boundaries of this work.</p>
+  </div>
+
+  <div class="reveal">
+    <ul class="limitation-list">
+      <li><strong>One model family.</strong> All mechanistic analysis is on Gemma 3 4B. The layer-23 transition may not generalize across architectures or scales. Larger models might distribute the framing effect differently, or not at all.</li>
+      <li><strong>Small style-controlled dataset.</strong> The 10 style-controlled triplets are statistically significant (p &lt; 0.001) but small. More triplets would tighten the probe accuracy estimates and let us study which types of dilemmas produce the strongest framing subspaces.</li>
+      <li><strong>Mean-pooled probing.</strong> Our probes average over all token positions, but the heatmap analysis suggests morally loaded tokens (like "forward" and "declared war") carry stronger framing signals than neutral tokens. Position-aware probing would likely reveal stronger effects.</li>
+      <li><strong>Logit lens early-layer reliability.</strong> The logit lens is less accurate in early layers than the tuned lens. Our core finding at layer 23 is in the reliable range, but the early-layer invariance claim would benefit from tuned-lens replication.</li>
+      <li><strong>Steering tested only the mean direction.</strong> We steered along the average framing direction. Techniques like Distributed Alignment Search (DAS) or per-component patching might capture the distributed causal mechanism that mean-direction steering misses.</li>
+      <li><strong>Memory-limited logit lens.</strong> We analyzed 20 of 40 triplets due to GPU memory constraints. The full dataset might reveal dilemma-specific patterns we're missing.</li>
+    </ul>
+  </div>
+
+  <div class="reveal">
+    <div class="takeaway">
+      <h4>The bottom line</h4>
+      <p>Moral framing effects in LLMs are neither purely shallow nor uniformly deep. They occupy a dedicated subspace that is invisible to standard similarity metrics, orthogonal to moral judgment for most of the network, and then partially merges with the judgment axis at a specific computational transition point. The framing is real, structured, and geometrically precise. But the causal mechanism is distributed, resisting simple intervention. The next step is figuring out the distributed pathway, using richer causal tools, on more models, at larger scale.</p>
+    </div>
+  </div>
+</section>
+
+    </div>
+
+    <div class="explainer-container">
+      <footer class="explainer-footer">
+        <span>Research explainer · ICML 2026 Workshop</span>
+        <span class="quote">"What I cannot create, I do not understand." · Feynman</span>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/assets/js/explainer.js"></script>
+</body>
+</html>

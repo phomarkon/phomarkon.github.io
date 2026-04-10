@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research Lab — Explainer</title>
+  <meta name="description" content="Interactive explainers for ongoing research projects. Each one breaks down a paper into something you can actually understand.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/explainer.css">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+  
+</head>
+<body>
+  <nav class="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:0.8rem 2rem;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);font-family:'Inter',system-ui,sans-serif;font-size:0.82rem;">
+    <a href="/" style="color:var(--dim);text-decoration:none;font-weight:500;">← Back to site</a>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="/explainers/" style="color:var(--dim);text-decoration:none;font-weight:500;">All explainers</a>
+      <button class="theme-toggle" aria-label="Toggle theme" onclick="var d=document.documentElement;var t=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',t);localStorage.setItem('theme',t);" style="border:none;background:none;cursor:pointer;color:var(--dim);font-size:1.1rem;">◑</button>
+    </div>
+  </nav>
+
+  <div style="padding-top:3.5rem;">
+    <div class="explainer-hero">
+      <div class="venue"></div>
+      <h1>Research Lab</h1>
+      <p class="subtitle">Interactive explainers for ongoing research projects. Each one breaks down a paper into something you can actually understand.</p>
+      <div class="scroll-hint">↓ Scroll to explore</div>
+    </div>
+
+    <div class="explainer-container">
+      <section>
+  <div class="reveal">
+    <div class="section-number">Projects</div>
+    <h2>Explainer index</h2>
+  </div>
+
+  <div class="reveal">
+    <div class="explainer-grid">
+      
+      
+      <a href="/explainers/ai-productivity/" class="explainer-card">
+        <div class="card-venue">Information and Software Technology</div>
+        <div class="card-title">The AI Productivity Measurement Problem</div>
+        <div class="card-desc">Why coding tool studies give contradictory results, and what to do about it</div>
+      </a>
+      
+      
+      
+      <a href="/explainers/asymmetric-mirror/" class="explainer-card">
+        <div class="card-venue">PhilML ICML 2026 Workshop</div>
+        <div class="card-title">The Asymmetric Mirror</div>
+        <div class="card-desc">What can a created mind ever know about whatever created it? Information theory says: less than you hope.</div>
+      </a>
+      
+      
+      
+      <a href="/explainers/autored/" class="explainer-card">
+        <div class="card-venue">AI Control Hackathon 2026</div>
+        <div class="card-title">AutoRed</div>
+        <div class="card-desc">What happens when you automate both sides of an AI safety arms race? The optimized defenses look great in training and collapse in the real world.</div>
+      </a>
+      
+      
+      
+      <a href="/explainers/differential-dishonesty/" class="explainer-card">
+        <div class="card-venue">ICML 2026 Workshop</div>
+        <div class="card-title">Differential Dishonesty</div>
+        <div class="card-desc">Language models lie differently depending on who they think they're talking to</div>
+      </a>
+      
+      
+      
+      <a href="/explainers/interpretability-eval/" class="explainer-card">
+        <div class="card-venue">NeurIPS 2026 Submission</div>
+        <div class="card-title">Stop Demanding Mechanistic Understanding We Never Achieved for Ourselves</div>
+        <div class="card-desc">We ask more from a chatbot than the FAA asks from the person flying 189 passengers.</div>
+      </a>
+      
+      
+      
+      <a href="/explainers/moral-framing/" class="explainer-card">
+        <div class="card-venue">ICML 2026 Workshop</div>
+        <div class="card-title">Shingeki no Features</div>
+        <div class="card-desc">When you retell a moral dilemma from a different perspective, LLMs don't just change their answer. They change how they think.</div>
+      </a>
+      
+      
+      
+      <a href="/explainers/sandbagging-circuit/" class="explainer-card">
+        <div class="card-venue">NeurIPS 2026 Submission</div>
+        <div class="card-title">Anatomy of a Sandbagging Circuit</div>
+        <div class="card-desc">"The first principle is that you must not fool yourself, and you are the easiest person to fool." What if the AI is the one doing the fooling?</div>
+      </a>
+      
+      
+      
+      <a href="/explainers/self-modeling-limits/" class="explainer-card">
+        <div class="card-venue">NeurIPS 2026 Submission</div>
+        <div class="card-title">Every Mirror Has a Blind Spot</div>
+        <div class="card-desc">Why no system, human or machine, can perfectly predict itself. A proof from fixed-point theory.</div>
+      </a>
+      
+      
+      
+      <a href="/explainers/stress-curves/" class="explainer-card">
+        <div class="card-venue">NeurIPS 2026 Submission</div>
+        <div class="card-title">When Models Break Under Pressure</div>
+        <div class="card-desc">Aligned language models develop computational analogs of anxiety and helplessness that spike right before they fail. We can see it coming.</div>
+      </a>
+      
+      
+    </div>
+  </div>
+</section>
+
+    </div>
+
+    <div class="explainer-container">
+      <footer class="explainer-footer">
+        <span>Research explainer · Working paper</span>
+        <span class="quote">"What I cannot create, I do not understand." · Feynman</span>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/assets/js/explainer.js"></script>
+</body>
+</html>

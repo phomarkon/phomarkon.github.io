@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The AI Productivity Measurement Problem — Explainer</title>
+  <meta name="description" content="Why coding tool studies give contradictory results, and what to do about it">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/explainer.css">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+  
+  <style>:root { --explainer-accent: #1D4E5C; --explainer-accent-glow: #1D4E5C1a; }</style>
+  
+</head>
+<body>
+  <nav class="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:0.8rem 2rem;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);font-family:'Inter',system-ui,sans-serif;font-size:0.82rem;">
+    <a href="/" style="color:var(--dim);text-decoration:none;font-weight:500;">← Back to site</a>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="/explainers/" style="color:var(--dim);text-decoration:none;font-weight:500;">All explainers</a>
+      <button class="theme-toggle" aria-label="Toggle theme" onclick="var d=document.documentElement;var t=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',t);localStorage.setItem('theme',t);" style="border:none;background:none;cursor:pointer;color:var(--dim);font-size:1.1rem;">◑</button>
+    </div>
+  </nav>
+
+  <div style="padding-top:3.5rem;">
+    <div class="explainer-hero">
+      <div class="venue">Information and Software Technology</div>
+      <h1>The AI Productivity Measurement Problem</h1>
+      <p class="subtitle">Why coding tool studies give contradictory results, and what to do about it</p>
+      <div class="scroll-hint">↓ Scroll to explore</div>
+    </div>
+
+    <div class="explainer-container">
+      <!-- 01: THE PUZZLE -->
+<section>
+  <div class="reveal">
+    <div class="section-number">01 · The Puzzle</div>
+    <h2>AI coding tools: help or hurt?</h2>
+  </div>
+
+  <div class="reveal">
+    <p>Here is what the research says about AI coding assistants:</p>
+  </div>
+
+  <div class="reveal">
+    <div class="stats">
+      <div class="stat">
+        <div class="value red">-19%</div>
+        <div class="label">Experienced devs<br />were <em>slower</em></div>
+      </div>
+      <div class="stat">
+        <div class="value green">+26%</div>
+        <div class="label">Enterprise devs<br />completed more tasks</div>
+      </div>
+      <div class="stat">
+        <div class="value green">+56%</div>
+        <div class="label">Recruited devs<br />finished faster</div>
+      </div>
+      <div class="stat">
+        <div class="value green">+55%</div>
+        <div class="label">Junior devs<br />wrote more code</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>These are all real results from peer-reviewed studies. They all claim to measure "developer productivity." And they flatly contradict each other.</p>
+    <p>The debate that follows is predictable. Skeptics cite the -19% result. Boosters cite the +56%. Neither side is wrong. But the argument itself is broken, because it treats these numbers as competing answers to the same question. They are not.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="The analogy">
+      Imagine averaging a thermometer reading with a barometer reading because both claim to describe "the weather." You would get a number. It would be meaningless. That is what happens when you compare a task-speed study with a task-count study and call them contradictory.
+    </div>
+  </div>
+</section>
+
+<!-- 02: THE DIAGNOSIS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">02 · The Diagnosis</div>
+    <h2>Construct mismatches, not empirical disagreements</h2>
+  </div>
+
+  <div class="reveal">
+    <p>The word "productivity" sounds like one thing. It is not. The <span class="term">SPACE framework<span class="def"><strong>Satisfaction, Performance, Activity, Communication, Efficiency.</strong> A framework by Forsgren et al. (2021) that defines developer productivity as five distinct dimensions. No single metric captures all five. Originally developed at GitHub/Microsoft Research.</span></span>, developed by Forsgren et al. at GitHub and Microsoft Research, breaks developer productivity into five distinct dimensions:</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>S · Satisfaction</h4>
+      <p>How developers <em>feel</em> about their tools and work. Measured through surveys, diary studies, perceived usefulness ratings.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>P · Performance</h4>
+      <p>Outcomes and output quality. Completed tasks per week, closed tickets, code quality metrics, security weakness rates.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>A · Activity</h4>
+      <p>Raw volume of output. Lines of code, commits, pull requests. Counts of things produced, without judging whether they moved the needle.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>C · Communication</h4>
+      <p>How information flows across a team. Code review quality, knowledge sharing, onboarding speed. No study in our corpus measures this for AI tools yet.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>E · Efficiency</h4>
+      <p>Speed of individual task completion. How long it takes one developer to finish one defined task, with minimal interruption.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>The key insight: these dimensions can move in opposite directions without conflict. A tool that slows each individual task (negative Efficiency) can still increase total weekly output (positive Performance) by reducing context-switching costs or enabling work on tasks the developer would otherwise skip. A tool can make developers feel faster (positive Satisfaction) while actually making them slower (negative Efficiency).</p>
+  </div>
+
+  <div class="reveal">
+    <div class="takeaway">
+      <h4>The core claim</h4>
+      <p>Most apparent contradictions in AI coding studies are <span class="term">construct mismatches<span class="def">A construct mismatch occurs when two studies measure different underlying properties (constructs) but their results are compared as if they measured the same thing. Comparing a task-time result with a task-count result is a construct mismatch, not a contradiction.</span></span>. The studies are not disagreeing. They are measuring different things and getting different numbers, which is exactly what you would expect.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03: THE EVIDENCE -->
+<section>
+  <div class="reveal">
+    <div class="section-number">03 · The Evidence</div>
+    <h2>Mapping seven studies to what they actually measure</h2>
+  </div>
+
+  <div class="reveal">
+    <p>We classified seven AI coding studies, the ones most frequently cited in practitioner debates, by the SPACE dimension their primary metric targets. The rule: classify based on what the metric <em>directly measures</em>, not what the study title claims.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>Efficiency (task speed)</h4>
+      <p><strong>Peng 2023:</strong> Recruited developers, greenfield task (build an HTTP server from scratch). AI group finished <strong>56% faster</strong>. The task was self-contained, with no existing codebase to navigate.</p>
+      <p><strong>Becker 2025:</strong> Expert open-source developers (average 5 years on their repos), brownfield tasks (real issues in real codebases). AI group was <strong>19% slower</strong>. Developers spent time reviewing AI suggestions against deep project-specific knowledge the tool lacked.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Performance (output and quality)</h4>
+      <p><strong>Cui 2026:</strong> Field experiment across 4,867 enterprise developers over weeks. AI group completed <strong>26% more tasks</strong>. This counts finished work items, not how long each one took.</p>
+      <p><strong>Fu 2025:</strong> Large-scale analysis of GitHub projects. Copilot-generated code contained a <strong>higher proportion of security weaknesses</strong>. Output quantity went up; output quality went down.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Activity (raw volume)</h4>
+      <p><strong>Gambacorta 2024:</strong> Field experiment at a bank. AI users wrote <strong>55% more lines of code</strong>, but the effect was significant only among junior developers. Seniors showed no gain. Lines of code is a volume count, not a measure of goal completion.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Satisfaction (perception)</h4>
+      <p><strong>Butler 2025:</strong> RCT with daily diary entries. Developers <strong>perceived AI as useful</strong> and reported positive experiences. This measures how people feel, not what the clock says.</p>
+      <p><strong>Ziegler 2024:</strong> Observational study of Copilot users. <strong>Acceptance rate predicted perceived productivity</strong> better than code persistence or any downstream behavioral metric.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="The pattern">
+      Within each SPACE dimension, the results mostly agree. The contradictions appear when you compare <em>across</em> dimensions. Becker (-19%, Efficiency) vs. Cui (+26%, Performance) is not a contradiction. It is two measurements of different properties of the same system.
+    </div>
+  </div>
+</section>
+
+<!-- 04: THREE SPECIFIC RESOLUTIONS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">04 · Resolving the Contradictions</div>
+    <h2>Three cases that look like disagreements but are not</h2>
+  </div>
+
+  <div class="reveal">
+    <h3>Case 1: Becker vs. Cui (the headline clash)</h3>
+    <p>Becker says -19%. Cui says +26%. This pairing drives most of the "AI tools don't work" vs. "AI tools are transformative" debate.</p>
+    <p>Becker measures how long individual tasks take under controlled conditions (Efficiency). Cui counts how many tasks developers complete over weeks in deployed workflows (Performance). A tool that slows each task can still increase total output by enabling more tasks, reducing context-switching, or automating subtasks the efficiency metric never captures. That is not a theoretical possibility. It is the pattern the data show.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>Case 2: Peng vs. Becker (same construct, different results)</h3>
+    <p>Both measure task completion time. Both are Efficiency studies. Peng gets +56%. Becker gets -19%. This one <em>is</em> a within-construct disagreement. But it has a clean explanation: task type and expertise.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>Two variables explain the gap</h4>
+      <p><strong>Task type:</strong> Peng used a greenfield task (start from scratch) where AI generates boilerplate and standard patterns. Becker used brownfield tasks (modify existing code in mature repos) where the developer must review suggestions against deep project context the tool does not have.</p>
+      <p><strong>Expertise:</strong> Peng recruited general developers. Becker studied experts who averaged five years on their specific projects. AI tools add the most value when the developer's baseline is furthest from the tool's output quality. For experts on familiar code, the tool adds review friction without adding much value.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>Gambacorta confirms this independently: gains were significant only among juniors. The expertise effect is consistent across studies.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>Case 3: the perception-behavior gap</h3>
+    <p>Becker found that developers estimated AI saved them 20% of task time. The actual measurement showed a 19% <em>slowdown</em>. That is a 39-percentage-point gap between perception and reality.</p>
+    <p>This has been discussed as evidence that developers are "fooled" by AI tools. The construct-alignment view reframes it: perceived speed (Satisfaction) and measured task time (Efficiency) are different constructs that need not agree. A tool can reduce cognitive load, make work feel easier, and reduce frustration without reducing clock time. Treating perception as a proxy for behavior is the category error this paper identifies.</p>
+  </div>
+</section>
+
+<!-- 05: THE CHECKLIST -->
+<section>
+  <div class="reveal">
+    <div class="section-number">05 · The Solution</div>
+    <h2>Five questions before you compare two studies</h2>
+  </div>
+
+  <div class="reveal">
+    <p>We distill the analysis into a Construct Alignment Checklist. Five items. Before comparing any two AI coding studies, run through these:</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>1. Name the construct</h4>
+      <p>Before reading the headline number, identify which SPACE dimension the primary metric targets. Is it measuring speed (E), output (P), code volume (A), or perception (S)?</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>2. Align before comparing</h4>
+      <p>Two studies can only be compared directly if they target the same construct. A task-time result (E) and a completed-tasks result (P) are not competing estimates of the same thing.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>3. Match population and task type</h4>
+      <p>Within the same construct, greenfield tasks with recruited developers and brownfield tasks with experts produce different results. Match the study's profile to your deployment context before drawing conclusions.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>4. Separate perception from behavior</h4>
+      <p>Satisfaction evidence (surveys, diaries) and behavioral evidence (task time, output counts) measure different constructs. Both are informative. Neither substitutes for the other.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>5. Ask about quality</h4>
+      <p>Most headline studies measure speed or output volume. Fu et al. found that Copilot-generated code contained more security weaknesses. A productivity claim without quality data is incomplete.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="In practice">
+      Consider a platform team reading the Becker result and hesitating to adopt AI tools. They note Becker measures Efficiency on brownfield tasks with expert developers. Their team is mixed-seniority. The Becker result is informative for senior engineers on legacy code but not representative of their full workload. Rather than adopting or rejecting based on a single headline, they design a pilot tracking Efficiency, Performance, and quality separately.
+    </div>
+  </div>
+</section>
+
+<!-- 06: IMPLICATIONS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">06 · Implications</div>
+    <h2>What this means for practitioners and researchers</h2>
+  </div>
+
+  <div class="reveal">
+    <h3>For engineering leaders</h3>
+    <p>Stop looking for a single number that tells you whether AI coding tools "work." The answer depends on which dimension of productivity you care about most. Throughput teams should weight Performance evidence. Onboarding teams should weight Efficiency evidence for greenfield tasks with junior developers. Retention-focused teams should weight Satisfaction evidence.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>For researchers</h3>
+    <p>Future evaluations should pre-register which SPACE construct their primary metric targets. Systematic reviews and meta-analyses should stratify by construct before pooling effect sizes. Aggregating across constructs produces meaningless averages.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>For anyone reading headlines</h3>
+    <p>The next time you see "Study finds AI makes developers X% faster/slower," ask: faster at what? Measured how? Compared to whom? On what kind of task? The number is only meaningful in the context of its construct.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="takeaway">
+      <h4>The bottom line</h4>
+      <p>"Productivity" is not one thing. AI coding studies do not disagree as much as their headlines suggest. Most apparent contradictions trace to construct mismatches: task-level speed compared against team-level output, or behavioral measurements against perceptual ones. Before comparing two studies, ask what each one measured. If the answer differs, the comparison is not a contradiction. It is two measurements of different properties of the same system.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07: LIMITATIONS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">07 · Honest Limitations</div>
+    <h2>What we don't claim</h2>
+  </div>
+
+  <div class="reveal">
+    <ul class="limitation-list">
+      <li><strong>Seven studies, not a systematic review.</strong> We purposively selected the studies most frequently cited in practitioner debates. This suffices to demonstrate the construct mismatch pattern but does not constitute exhaustive coverage.</li>
+      <li><strong>Classification reliability.</strong> SPACE dimension assignments were performed by one coder. Independent replication with inter-rater reliability (Cohen's kappa) is in progress.</li>
+      <li><strong>Checklist not yet validated.</strong> The Construct Alignment Checklist has face validity derived from established construct validity threats (Shadish et al., 2002), but has not been tested in a controlled decision-making study.</li>
+      <li><strong>Vendor affiliations.</strong> Several studies in our corpus involve researchers affiliated with AI tool vendors. Our argument is orthogonal to funding incentives, but practitioners should consider study provenance alongside construct alignment.</li>
+      <li><strong>Agentic tools will make this harder.</strong> As AI coding tools blur task boundaries and complicate time attribution, construct alignment will grow harder, not easier. The checklist is a starting point, not a final answer.</li>
+    </ul>
+  </div>
+</section>
+
+    </div>
+
+    <div class="explainer-container">
+      <footer class="explainer-footer">
+        <span>Research explainer · Information and Software Technology</span>
+        <span class="quote">"What I cannot create, I do not understand." · Feynman</span>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/assets/js/explainer.js"></script>
+</body>
+</html>

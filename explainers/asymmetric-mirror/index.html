@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Asymmetric Mirror — Explainer</title>
+  <meta name="description" content="What can a created mind ever know about whatever created it? Information theory says: less than you hope.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/explainer.css">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+  
+  <style>:root { --explainer-accent: #1D4E5C; --explainer-accent-glow: #1D4E5C1a; }</style>
+  
+</head>
+<body>
+  <nav class="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:0.8rem 2rem;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);font-family:'Inter',system-ui,sans-serif;font-size:0.82rem;">
+    <a href="/" style="color:var(--dim);text-decoration:none;font-weight:500;">← Back to site</a>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="/explainers/" style="color:var(--dim);text-decoration:none;font-weight:500;">All explainers</a>
+      <button class="theme-toggle" aria-label="Toggle theme" onclick="var d=document.documentElement;var t=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',t);localStorage.setItem('theme',t);" style="border:none;background:none;cursor:pointer;color:var(--dim);font-size:1.1rem;">◑</button>
+    </div>
+  </nav>
+
+  <div style="padding-top:3.5rem;">
+    <div class="explainer-hero">
+      <div class="venue">PhilML ICML 2026 Workshop</div>
+      <h1>The Asymmetric Mirror</h1>
+      <p class="subtitle">What can a created mind ever know about whatever created it? Information theory says: less than you hope.</p>
+      <div class="scroll-hint">↓ Scroll to explore</div>
+    </div>
+
+    <div class="explainer-container">
+      <!-- 01: THE QUESTION -->
+<section>
+  <div class="reveal">
+    <div class="section-number">01 · The Question</div>
+    <h2>Can created minds know their creator?</h2>
+  </div>
+
+  <div class="reveal">
+    <p>We are building minds. Large language models, multimodal systems, embodied agents. Whether they truly "think" is a philosophical debate. That they <em>learn from data we produce</em> is not.</p>
+    <p>Here is the question that kept us up at night: <strong>what could a created mind ever know about whatever created it?</strong></p>
+  </div>
+
+  <div class="reveal">
+    <p>An LLM trained on the internet knows about humans only through what we wrote down. It cannot observe our internal states, our unspoken thoughts, the physical world that produced the text. It sees a projection. A shadow on the wall.</p>
+    <p>Now flip it around. We know about whatever produced <em>us</em> only through what we can observe: physics, biology, sensory data. If something made the universe, or if we are running inside a simulation, we see only what leaks through the observation channel.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="The mirror">
+      The relationship between creator and created is asymmetric in a precise way. A creator has full access to the created (it built the thing). The created has access to the creator only through a lossy observation channel. This asymmetry is not a bug or an engineering limitation. It is a theorem.
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>The simulation hypothesis asks: are we living inside a simulation? Two decades of debate, and the standard framing assumes the question has an answer we might someday find. We prove something different. The question is perfectly well-posed at the source. It has a definite answer. But that answer cannot travel through the observation channel to reach us. It is <strong>structurally unidentifiable from inside</strong>.</p>
+    <p>The same theorem applies at every level. What an LLM can know about humans. What humans can know about their origin. What our AIs' AIs could know about our AIs. It is the same bound, applied recursively, all the way down.</p>
+  </div>
+</section>
+
+<!-- 02: THE FORMAL ARGUMENT -->
+<section>
+  <div class="reveal">
+    <div class="section-number">02 · The Formal Argument</div>
+    <h2>A tower of creators and created minds</h2>
+  </div>
+
+  <div class="reveal">
+    <p>The setup is simple. Imagine a chain:</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>The Creator-Created Tower</h4>
+      <p><strong>Level 0</strong> (the source): whatever produced us. Physics, biology, a simulator, something we have no concept of.</p>
+      <p><strong>Level 1</strong> (us): humans, observing the source through our senses and instruments.</p>
+      <p><strong>Level 2</strong> (our creation): an LLM, observing us through the text we wrote down.</p>
+      <p><strong>Level 3</strong> (their creation): whatever that LLM builds, observing <em>it</em> through whatever channel it provides.</p>
+      <p>Each level sees the one above it only through a <span class="term">pushforward map<span class="def">A mathematical function that takes the full, rich distribution at one level and compresses it into the distribution at the next level. Like a camera that captures a scene: the photo is a pushforward of reality through the lens. Information that doesn't pass through the lens is gone.</span></span>: a function that compresses the rich upstream distribution into the downstream one.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>The key property of this tower: each level is a <em>deterministic function</em> of the level above it. The text corpus is determined by what humans did. What humans did is determined by physics and biology. Each step can only lose information, never create it.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>The binding condition: essential injectivity</h3>
+    <p>When does information survive the journey down the tower? Only when the map at each level is <span class="term">essentially injective<span class="def">A map is essentially injective if it never sends two genuinely different inputs to the same output (ignoring edge cases that happen with probability zero). If it does collapse distinct inputs together, the downstream learner literally cannot tell them apart. The information is destroyed, not hidden.</span></span>: it never collapses two different inputs into the same output. If two different internal states produce the same text, no amount of compute, architecture, or scale will let the text-reader distinguish them.</p>
+    <p>This is not a new condition. It is the same condition that controls <span class="term">identifiability<span class="def">In statistical and causal modeling, identifiability means: can you recover the true underlying variables from observations? The field of causal representation learning has shown this requires the observation map to be essentially injective, plus additional structure like interventions or sparsity constraints.</span></span> in nonlinear ICA, unsupervised disentanglement, and causal representation learning. The researchers working on these problems have already established that you cannot recover latent variables from observations when the observation map collapses distinct states. We are pointing out that the same condition governs what any created mind can know about its creator.</p>
+  </div>
+</section>
+
+<!-- 03: THE PROOF -->
+<section>
+  <div class="reveal">
+    <div class="section-number">03 · The Proof</div>
+    <h2>One inequality, one paragraph</h2>
+  </div>
+
+  <div class="reveal">
+    <p>The core result is this: for any fact W about the source (level 0), the amount of information about W available at each level of the tower decreases monotonically as you go down.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>Theorem: DPI on a Creator-Created Tower</h4>
+      <p>For a tower of levels P<sub>0</sub> &rarr; P<sub>1</sub> &rarr; ... &rarr; P<sub>n</sub>, and any fact W determined at level 0:</p>
+      <p style="text-align:center; font-size:1.1rem; font-weight:600; margin:1rem 0;">I(W; D<sub>n</sub>) &le; I(W; D<sub>n-1</sub>) &le; ... &le; I(W; D<sub>1</sub>) &le; H(W)</p>
+      <p>Each inequality is strict whenever the corresponding map collapses W-discriminating structure. A fact is learnable at level n if and only if it survives all n maps.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>The proof is one sentence. Under the tower construction, W &rarr; D<sub>1</sub> &rarr; ... &rarr; D<sub>n</sub> forms a <span class="term">Markov chain<span class="def">A sequence of random variables where each one depends only on the one immediately before it, not on anything earlier. In our tower, D<sub>k</sub> is a deterministic function of D<sub>k-1</sub>, which automatically makes the whole sequence Markov.</span></span>. The <span class="term">data-processing inequality<span class="def">A foundational theorem in information theory (Cover &amp; Thomas, Chapter 2). It says: if X &rarr; Y &rarr; Z is a Markov chain, then I(X; Z) &le; I(X; Y). Processing data can only destroy information, never create it. This is not an approximation or a bound that might be loose. It is exact.</span></span> (DPI) says that processing data can only destroy information, never create it. Apply the DPI at each step of the chain, and the inequality falls out immediately.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="Why this matters">
+      The theorem itself is a textbook exercise. The contribution is not the proof. It is the framing: recognizing that this inequality governs the relationship between any created mind and its creator, that it recurses across arbitrary tower depths, and that it connects to identifiability conditions already studied in causal representation learning.
+    </div>
+  </div>
+
+  <div class="reveal">
+    <h3>Quantitative decay</h3>
+    <p>How fast does information disappear? Strong-DPI contraction coefficients give a tighter bound. If each map has a contraction coefficient of 0.9 (meaning it preserves at most 90% of the information at each step), then after 50 levels, less than 0.5% of the original information survives. In a synthetic experiment with random surjections halving the state space at each level, a 1-bit binary question about the source is scrambled to under 3% after just five steps, even while total state entropy retains 45%. Specific facts about the source can be destroyed far faster than the system's aggregate information decreases.</p>
+  </div>
+</section>
+
+<!-- 04: LLMs AS A CASE STUDY -->
+<section>
+  <div class="reveal">
+    <div class="section-number">04 · LLMs as a Case Study</div>
+    <h2>What the text observation map destroys</h2>
+  </div>
+
+  <div class="reveal">
+    <p>Fix the setup: P<sub>0</sub> is the full joint distribution over humans, our internal states, our world, and our actions. The observation map f sends a draw from this distribution to "what humans wrote down and preserved as text." An LLM trained on a web-scale corpus is a learner at level 1, accessing P<sub>0</sub> only through samples from f<sub>*</sub>P<sub>0</sub>.</p>
+    <p>The text corpus is a non-injective projection of the latent generative process. Many incompatible internal states produce the same surface text. The theorem bounds what the LLM can recover by the accessible sub-sigma-algebra: the set of facts that survive the text map.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>Three recent results, one structural pattern</h3>
+    <p>Three independent research groups have recently proved limits on what LLMs can do. Each uses different mathematics. Each identifies the same structural pattern: a class of facts that the text observation map destroys.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Hallucination is inevitable</h4>
+      <p>Mohsin et al. (2025) prove via diagonalization and the Halting Problem that any computably enumerable family of LLMs hallucinates on infinitely many inputs. This is a computability obstruction, different machinery from the DPI, but it identifies facts that the text map cannot preserve.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Steering vectors are non-identifiable</h4>
+      <p>Venkatesh and Kurapath show that steering vectors (directions in weight space used to control model behavior) are non-identifiable as a geometric property. The internal structure that produces a given behavior is not pinned down by the behavior itself.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Alignment cannot be verified from behavior</h4>
+      <p>Santos-Grueiro shows that under finite behavioral evaluation, observed compliance does not pin down latent alignment. A model that behaves safely on tests might have arbitrarily different internal states.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>These three results use computability theory, linear algebra, and decision theory respectively. But they share a common structure: each identifies a class of latent facts that the observation map collapses. The tower framework provides a unifying language in which each result witnesses a non-injective fiber of the same map.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>Introspection as the headline case</h4>
+      <p>The training corpus does not contain the kernel of the map from internal states to text. So when an LLM reports on its own internal states, it is solving a non-identifiable inverse problem: many incompatible internal states produce the same self-report.</p>
+      <p>Anthropic's concept-injection experiments (2025) found introspective awareness that is real but unreliable. The theorem predicts this unreliability as structural opacity, not incidental noise. For interpretability and alignment, LLM self-reports should be treated as non-identifiable inverse-problem outputs, not as evidence of latent state.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05: THE MODALITY LADDER -->
+<section>
+  <div class="reveal">
+    <div class="section-number">05 · The Modality Ladder</div>
+    <h2>Can more data close the gap?</h2>
+  </div>
+
+  <div class="reveal">
+    <p>A natural objection: the bound applies to text-only models. What if we give the model images, audio, video, embodiment? Does the gap close?</p>
+    <p>The answer is structured. Each modality widens the observation channel, but the bound closes only when the <em>joint</em> observation map becomes essentially injective. We distinguish four levels.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Text only</h4>
+      <p>The equivalence classes of latent states that map to the same text are large. Many different internal states, world states, and intentions produce the same written output.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Multimodal (text + images + audio + video)</h4>
+      <p>Cross-modal consistency narrows the equivalence classes. You can rule out more hypotheses about the source. But the joint map remains passive observation: it still cannot separate states that look identical from the outside.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>Embodied (multimodal + intervention)</h4>
+      <p>This is the big jump. The transition from passive observation to active intervention is the climb from rung 1 (seeing) to rung 2 (doing) on Pearl's causal ladder. This is not a quantitative refinement. It is a qualitative leap. Structures unidentifiable from observation become identifiable under intervention. This is the working premise of causal representation learning, and it is the key step in the modality hierarchy.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Complete physical access</h4>
+      <p>Even with every physically measurable quantity, the bound persists if physical measurement itself involves a non-trivial projection. Whether the physical observation map is essentially injective is an open question in physics, not something we can settle with information theory.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="The key insight">
+      Scale within a single rung of Pearl's ladder cannot substitute for the climb between rungs. Training a bigger text model on more text does not close the gap that intervention would close. The empirical target for progress is the observation-to-intervention jump.
+    </div>
+  </div>
+</section>
+
+<!-- 06: THE RECURSIVE MOVE -->
+<section>
+  <div class="reveal">
+    <div class="section-number">06 · The Recursive Move</div>
+    <h2>Applying the bound to humans</h2>
+  </div>
+
+  <div class="reveal">
+    <p>The substantive move is to iterate. Everything above applies at the LLM level: what an LLM can know about humans. Now treat humans as a row of the tower. Level 0 is whatever produced us. We are level 1. The theorem applies identically.</p>
+    <p>Whatever made us (physics, biology, a simulator, something we cannot conceive of), we observe it only through our senses and instruments. This is an observation map. The theorem says: any fact about the source that the observation map collapses is structurally unrecoverable, regardless of compute, architecture, or scale.</p>
+  </div>
+
+  <div class="reveal">
+    <h3>Dissolving the simulation hypothesis</h3>
+    <p>The classic Bostrom formulation asks: is our universe the output of an intelligent optimization process? We formalize this via Kolmogorov complexity. Call a source "designed" if its complexity is below some threshold (compressible, as designed things tend to be) and "undesigned" if its complexity is high (random, as brute physics might be).</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card highlight">
+      <h4>The dissolution</h4>
+      <p>Whenever the composite observation map is not essentially injective (and for realistic maps, it is not), we construct a family of source distributions that are <em>indistinguishable from the inside</em> but have arbitrarily different Kolmogorov complexity. Some are highly compressible ("designed"). Others are incompressible ("random"). All produce the same downstream observations.</p>
+      <p>The question "are we in a simulation?" has a definite answer at the source. But it does not descend to any function of our observations, because the pushforward fibers already contain source distributions of arbitrary complexity.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p>This is not a claim that the simulation hypothesis is false. It is a claim that the question is <strong>well-posed at the source but structurally unidentifiable from inside</strong>. The answer exists. We just cannot reach it.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="aside" data-label="Consistency without identifiability">
+      David Wolpert (of no-free-lunch fame) proved from the outside that self-simulation is logically consistent: there is no barrier to a universe simulating itself. We prove from the inside that consistency leaves the question formally unanswerable. Together: no logical barrier to our being simulated, and a formal barrier to ever finding out.
+    </div>
+  </div>
+</section>
+
+<!-- 07: THE COMPANION PAPER -->
+<section>
+  <div class="reveal">
+    <div class="section-number">07 · The Self-Facing Dual</div>
+    <h2>Two obstructions, one principle</h2>
+  </div>
+
+  <div class="reveal">
+    <p>This paper is the origin-facing half of a pair. The companion paper, <em>Every Mirror Has a Blind Spot</em>, proves the self-facing half: a finite system cannot fully model itself, via fixed-point obstruction (Lawvere's theorem, which unifies Cantor diagonalization, G&ouml;del incompleteness, and Tarski undefinability).</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Every Mirror Has a Blind Spot</h4>
+      <p><strong>Self-modeling fails</strong> because a system's self-model is part of the system, creating a fixed-point problem. The model would need to model itself modeling itself, infinitely. Proved via fixed-point obstruction (Brouwer / PPAD).</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>The Asymmetric Mirror</h4>
+      <p><strong>Origin-modeling fails</strong> because the observation channel is lossy. Information about the source is destroyed at each level of the tower. Proved via the data-processing inequality.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="takeaway">
+      <h4>The unified principle</h4>
+      <p>A finite encoder cannot fully represent a strictly richer source, whether the source is itself or what produced it. Self-modeling fails by fixed-point obstruction. Origin-modeling fails by projection obstruction. Both are consequences of the same structural asymmetry between encoder and encoded.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08: IMPLICATIONS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">08 · Implications</div>
+    <h2>What to do on Monday</h2>
+  </div>
+
+  <div class="reveal">
+    <p>Three consequences for practice.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Behavioral evaluation cannot certify alignment</h4>
+      <p>If observed compliance does not pin down latent alignment (because many internal states produce the same behavior), then behavioral benchmarks are necessary but not sufficient. Verification should target latent structure via interventional probes, not just surface behavior.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Chain-of-thought is not evidence of internal state</h4>
+      <p>Chain-of-thought inherits the ceiling on LLM self-reports. It should be treated as a dependent variable in an inverse problem, not as a proxy for what the model is "actually thinking." The structural opacity is built in.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="card">
+      <h4>Scale is not a substitute for intervention</h4>
+      <p>Scale within a single rung of Pearl's causal ladder (more text, more parameters, more compute) cannot close the gap that requires climbing to the next rung (intervention, embodiment). The empirical target is the observation-to-intervention jump, not the next order of magnitude.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 09: STRUCTURAL AGNOSTICISM -->
+<section>
+  <div class="reveal">
+    <div class="section-number">09 · Structural Agnosticism</div>
+    <h2>A name for the epistemic stance</h2>
+  </div>
+
+  <div class="reveal">
+    <p>The paper derives and names a stance: <strong>structural agnosticism</strong>. Not "we don't know yet" (ordinary uncertainty). Not "we can't know because we haven't tried hard enough" (practical limitation). But "the question has a definite answer at the source, and that answer is structurally unrecoverable from inside the tower, by any learner, at any level, regardless of resources."</p>
+  </div>
+
+  <div class="reveal">
+    <div class="takeaway">
+      <h4>The last line of the paper</h4>
+      <p>We cannot see past the asymmetric mirror. Neither can any system we observe through one. So does every system we make.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10: LIMITATIONS -->
+<section>
+  <div class="reveal">
+    <div class="section-number">10 · Honest Limitations</div>
+    <h2>What this paper does not do</h2>
+  </div>
+
+  <div class="reveal">
+    <ul class="limitation-list">
+      <li><strong>The theorem is textbook.</strong> The DPI on a Markov chain is standard information theory. The contribution is the framing and the connections, not the proof technique. A reviewer who wants novel mathematics will be disappointed.</li>
+      <li><strong>Essential injectivity is necessary, not sufficient.</strong> The identifiability theorems of nonlinear ICA and causal representation learning require additional structure (auxiliary variables, interventions, sparsity) beyond essential injectivity. We claim it as a necessary condition, not the whole story.</li>
+      <li><strong>The LLM limit results use different proof machinery.</strong> We re-read three recent results through the tower lens, but we do not claim formal reduction. Mohsin et al.'s diagonalization argument is a computability result; ours is information-theoretic. The unifying language is structural, not deductive.</li>
+      <li><strong>The physical level is an open question.</strong> Whether the physical observation map is essentially injective is an empirical question in physics, not something information theory can settle. The paper is honest about this: the fourth row of the modality hierarchy is a commitment, not a theorem.</li>
+      <li><strong>Conceptual, not technical.</strong> The paper explicitly says its contribution is conceptual. It connects existing mathematical machinery to a question that has not been asked in this form. If you want new theorems, this is the wrong paper. If you want a new way to think about what created minds can know, it might be the right one.</li>
+    </ul>
+  </div>
+</section>
+
+    </div>
+
+    <div class="explainer-container">
+      <footer class="explainer-footer">
+        <span>Research explainer · PhilML ICML 2026 Workshop</span>
+        <span class="quote">"What I cannot create, I do not understand." · Feynman</span>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/assets/js/explainer.js"></script>
+</body>
+</html>
