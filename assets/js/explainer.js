@@ -6,34 +6,9 @@
 (function () {
   'use strict';
 
-  // ── Scroll reveal ──────────────────────────────────────
-  var revealEls = document.querySelectorAll('.reveal');
-  var revealObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-  revealEls.forEach(function (el) { revealObserver.observe(el); });
-
-  // ── Circuit stages staggered animation ─────────────────
-  var circuitContainer = document.querySelector('.circuit-container');
-  if (circuitContainer) {
-    var circuitObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          var stages = document.querySelectorAll('.circuit-stage');
-          var arrows = document.querySelectorAll('.circuit-arrow');
-          stages.forEach(function (s, i) {
-            setTimeout(function () { s.classList.add('animate-in'); }, i * 400);
-          });
-          arrows.forEach(function (a, i) {
-            setTimeout(function () { a.classList.add('animate-in'); }, i * 400 + 200);
-          });
-        }
-      });
-    }, { threshold: 0.2 });
-    circuitObserver.observe(circuitContainer);
-  }
+  // ── Circuit stages: show immediately ────────────────────
+  document.querySelectorAll('.circuit-stage').forEach(function (s) { s.classList.add('animate-in'); });
+  document.querySelectorAll('.circuit-arrow').forEach(function (a) { a.classList.add('animate-in'); });
 
   // ── Neuron bar animation ───────────────────────────────
   var neuronObserver = new IntersectionObserver(function (entries) {
