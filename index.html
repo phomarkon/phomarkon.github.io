@@ -305,419 +305,491 @@
     </div>
   </div>
 
-  <div class="pub-list">
+  <div class="pub-list pub-rows">
   
-  <div class="pub" data-status="Published" data-year="2025" data-tags="computer-vision|remote-sensing|benchmark" data-title="Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas">
-    <div class="pub-title">
-      <a href="/research/kes-flood-detection/">Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas</a>
-      <span class="pub-status published">Published</span>
+  <article class="pub pub-row" data-status="Published" data-year="2025" data-tags="computer-vision|remote-sensing|benchmark" data-title="Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas" data-abstract="Flood detection using satellite imagery is crucial for environmental monitoring and disaster management, especially in rural and agricultural regions where even minor water inundation can disrupt farmland accessibility and road safety. Sentinel-1 Synthetic Aperture Radar (SAR) imagery offers a robust solution for mapping water under various weather conditions. Although deep learning-based segmentation methods have shown promising results for flood detection, their comparative performance in agricultural landscapes, including small-scale surface water dynamics, remains underexplored. In this study, we introduced a three-class segmentation framework that distinguishes sea, inland water, and land, improving the flood detection accuracy in complex coastal farmland. Ten different deep learning models were evaluated for segmentation using Sentinel-1 VH polarization decibel values. We further investigated anomaly detection via autoencoders and variational autoencoders to track temporal changes in flood-prone areas. To handle large-scale satellite imagery more effectively, we tiled the images, ensuring that the segmentation models could process high-resolution data efficiently. The evaluations showed that the DeepLabv3+ and hybrid ResNet-UNet models outperformed the others. Despite having a more lightweight architecture and lower computational and memory resource requirements, the ResNet-UNet model achieved predictive performance comparable to that of DeepLabv3+.">
+    <a class="pub-row-figure-link" href="/research/kes-flood-detection/" aria-label="Open Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/kes/pipeline.png" alt="Proposed pipeline for SAR image analysis and anomaly detection. (A) Data collection and preprocessing of Sentinel-1 imagery; (B) segmentation model training on three-class manual annotations; (C) tile-level inference; (D) anomaly detection via sliding-window statistics, autoencoder, or variational autoencoder, with detected anomalies validated against weather records." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status published">Published</span>
+        <span class="pub-row-year">2025</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/kes-flood-detection/">Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas</a></h3>
+      <p class="pub-row-blurb">The hybrid ResNet-UNet matches DeepLabv3+ on coastal-farmland flood segmentation while running comfortably within the 15 to 60 W power envelope of an Nvidia Jetson AGX Orin, opening the door to on-device, in-field deployment.</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag computer-vision">computer-vision</li>
+        
+        <li class="tag remote-sensing">remote-sensing</li>
+        
+        <li class="tag benchmark">benchmark</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad, T. Tanyel, S. Ayvaz</div>
+      <div class="pub-row-venue pub-venue">KES 2025 (Procedia Computer Science, Elsevier)</div>
     </div>
-    <div class="pub-authors">P. M. Konrad, T. Tanyel, S. Ayvaz</div>
-    <div class="pub-venue">KES 2025 (Procedia Computer Science, Elsevier)</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag computer-vision">computer-vision</li>
-      
-      <li class="tag remote-sensing">remote-sensing</li>
-      
-      <li class="tag benchmark">benchmark</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>Flood detection using satellite imagery is crucial for environmental monitoring and disaster management, especially in rural and agricultural regions where even minor water inundation can disrupt farmland accessibility and road safety. Sentinel-1 Synthetic Aperture Radar (SAR) imagery offers a robust solution for mapping water under various weather conditions. Although deep learning-based segmentation methods have shown promising results for flood detection, their comparative performance in agricultural landscapes, including small-scale surface water dynamics, remains underexplored. In this study, we introduced a three-class segmentation framework that distinguishes sea, inland water, and land, improving the flood detection accuracy in complex coastal farmland. Ten different deep learning models were evaluated for segmentation using Sentinel-1 VH polarization decibel values. We further investigated anomaly detection via autoencoders and variational autoencoders to track temporal changes in flood-prone areas. To handle large-scale satellite imagery more effectively, we tiled the images, ensuring that the segmentation models could process high-resolution data efficiently. The evaluations showed that the DeepLabv3+ and hybrid ResNet-UNet models outperformed the others. Despite having a more lightweight architecture and lower computational and memory resource requirements, the ResNet-UNet model achieved predictive performance comparable to that of DeepLabv3+.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Accepted" data-year="2026" data-tags="software-engineering|benchmark|llm-behavior" data-title="CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models">
-    <div class="pub-title">
-      <a href="/research/cake/">CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models</a>
-      <span class="pub-status accepted">Accepted</span>
+  <article class="pub pub-row" data-status="Accepted" data-year="2026" data-tags="software-engineering|benchmark|llm-behavior" data-title="CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models" data-abstract="In today&#39;s software architecture, large language models (LLMs) serve as software architecture co-pilots. However, no benchmark currently exists to evaluate large language models&#39; actual understanding of cloud-native software architecture. For this reason we present a benchmark called CAKE, which consists of 188 expert-validated questions covering four cognitive levels of Bloom&#39;s revised taxonomy — recall, analyse, design, and implement — and five cloud-native topics. Evaluation is conducted on 22 model configurations (0.5B–70B parameters) across four LLM families, using three-run majority voting for multiple-choice questions (MCQs) and LLM-as-a-judge scoring for free-responses (FR). Based on this evaluation, four notable findings were identified. First, MCQ accuracy plateaus above 3B parameters, with the best model reaching 99.2%. Second, free-response scores scale steadily across all cognitive levels. Third, the two formats capture different facets of knowledge, as MCQ accuracy approaches a ceiling while free-responses continue to differentiate models. Finally, reasoning augmentation (+think) improves free-response quality, while tool augmentation (+tool) degrades performance for small models. These results suggest that the evaluation format fundamentally shapes how we measure architectural knowledge in LLMs.">
+    <a class="pub-row-figure-link" href="/research/cake/" aria-label="Open CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/cake/hero.png" alt="Core comparison across the 22 model configurations evaluated in CAKE, spanning recall, analyse, design, and implement cognitive levels under both multiple-choice and free-response formats." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status accepted">Accepted</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/cake/">CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models</a></h3>
+      <p class="pub-row-blurb">Across 22 model configurations from 0.5B to 70B parameters, multiple-choice accuracy plateaus above 3B (with the best model reaching 99.2%) while free-response scoring continues to differentiate models at every cognitive level. The two formats are not inter...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag software-engineering">software-engineering</li>
+        
+        <li class="tag benchmark">benchmark</li>
+        
+        <li class="tag llm-behavior">llm-behavior</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">T. L. Adam, P. M. Konrad, R. Terrenzi, F. G. Lukas, R. Yilmaz, K. Sierszecki, S. Ayvaz</div>
+      <div class="pub-row-venue pub-venue">KDA-AI Workshop, IEEE ICSA 2026</div>
     </div>
-    <div class="pub-authors">T. L. Adam, P. M. Konrad, R. Terrenzi, F. G. Lukas, R. Yilmaz, K. Sierszecki, S. Ayvaz</div>
-    <div class="pub-venue">KDA-AI Workshop, IEEE ICSA 2026</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag software-engineering">software-engineering</li>
-      
-      <li class="tag benchmark">benchmark</li>
-      
-      <li class="tag llm-behavior">llm-behavior</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>In today's software architecture, large language models (LLMs) serve as software architecture co-pilots. However, no benchmark currently exists to evaluate large language models' actual understanding of cloud-native software architecture. For this reason we present a benchmark called CAKE, which consists of 188 expert-validated questions covering four cognitive levels of Bloom's revised taxonomy — recall, analyse, design, and implement — and five cloud-native topics. Evaluation is conducted on 22 model configurations (0.5B–70B parameters) across four LLM families, using three-run majority voting for multiple-choice questions (MCQs) and LLM-as-a-judge scoring for free-responses (FR). Based on this evaluation, four notable findings were identified. First, MCQ accuracy plateaus above 3B parameters, with the best model reaching 99.2%. Second, free-response scores scale steadily across all cognitive levels. Third, the two formats capture different facets of knowledge, as MCQ accuracy approaches a ceiling while free-responses continue to differentiate models. Finally, reasoning augmentation (+think) improves free-response quality, while tool augmentation (+tool) degrades performance for small models. These results suggest that the evaluation format fundamentally shapes how we measure architectural knowledge in LLMs.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Accepted" data-year="2026" data-tags="software-engineering|llm-behavior|position" data-title="Architecture Without Architects: How AI Coding Agents Shape Software Architecture">
-    <div class="pub-title">
-      <a href="/research/architecture-without-architects/">Architecture Without Architects: How AI Coding Agents Shape Software Architecture</a>
-      <span class="pub-status accepted">Accepted</span>
+  <article class="pub pub-row" data-status="Accepted" data-year="2026" data-tags="software-engineering|llm-behavior|position" data-title="Architecture Without Architects: How AI Coding Agents Shape Software Architecture" data-abstract="AI coding agents select frameworks, scaffold infrastructure, and wire integrations, often in seconds. These are architectural decisions, yet almost no one reviews them as such. We identify five mechanisms by which agents make implicit architectural choices and propose six prompt-architecture coupling patterns that map natural-language prompt features to the infrastructure they require. The patterns range from contingent couplings (structured output validation) that may weaken as models improve to fundamental ones (tool-call orchestration) that persist regardless of model capability. An illustrative demonstration confirms that prompt wording alone produces structurally different systems for the same task. We term the phenomenon vibe architecting — architecture shaped by prompts rather than deliberate design — and outline review practices, decision records, and tooling to bring these hidden decisions under governance.">
+    <a class="pub-row-figure-link" href="/research/architecture-without-architects/" aria-label="Open Architecture Without Architects: How AI Coding Agents Shape Software Architecture">
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status accepted">Accepted</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/architecture-without-architects/">Architecture Without Architects: How AI Coding Agents Shape Software Architecture</a></h3>
+      <p class="pub-row-blurb">Six prompt-architecture coupling patterns explain how natural-language instructions covertly dictate the infrastructure an AI coding agent will ship. We call this vibe architecting and argue it must be brought under governance before it becomes an unreviewa...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag software-engineering">software-engineering</li>
+        
+        <li class="tag llm-behavior">llm-behavior</li>
+        
+        <li class="tag position">position</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad, T. L. Adam, R. Terrenzi, S. Ayvaz</div>
+      <div class="pub-row-venue pub-venue">SAGAI Workshop, IEEE ICSA 2026</div>
     </div>
-    <div class="pub-authors">P. M. Konrad, T. L. Adam, R. Terrenzi, S. Ayvaz</div>
-    <div class="pub-venue">SAGAI Workshop, IEEE ICSA 2026</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag software-engineering">software-engineering</li>
-      
-      <li class="tag llm-behavior">llm-behavior</li>
-      
-      <li class="tag position">position</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>AI coding agents select frameworks, scaffold infrastructure, and wire integrations, often in seconds. These are architectural decisions, yet almost no one reviews them as such. We identify five mechanisms by which agents make implicit architectural choices and propose six prompt-architecture coupling patterns that map natural-language prompt features to the infrastructure they require. The patterns range from contingent couplings (structured output validation) that may weaken as models improve to fundamental ones (tool-call orchestration) that persist regardless of model capability. An illustrative demonstration confirms that prompt wording alone produces structurally different systems for the same task. We term the phenomenon vibe architecting — architecture shaped by prompts rather than deliberate design — and outline review practices, decision records, and tooling to bring these hidden decisions under governance.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Accepted" data-year="2026" data-tags="software-engineering|llm-behavior" data-title="A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search">
-    <div class="pub-title">
-      <a href="/research/agentic-hybrid-retrieval/">A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search</a>
-      <span class="pub-status accepted">Accepted</span>
+  <article class="pub pub-row" data-status="Accepted" data-year="2026" data-tags="software-engineering|llm-behavior" data-title="A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search" data-abstract="Ad hoc dataset search requires matching underspecified natural-language queries against sparse, heterogeneous metadata records, a task where typical lexical or dense retrieval alone falls short. We reposition dataset search as a software-architecture problem and propose a bounded, auditable reference architecture for agentic hybrid retrieval that combines BM25 lexical search with dense-embedding retrieval via reciprocal rank fusion (RRF), orchestrated by a large language model (LLM) agent that repeatedly plans queries, evaluates the sufficiency of results, and reranks candidates. To reduce the vocabulary mismatch between user intent and provider-authored metadata, we introduce an offline metadata augmentation step in which an LLM generates pseudo-queries for each dataset record, augmenting both retrieval indexes before query time. Two architectural styles are examined: a single ReAct agent and a multi-agent horizontal architecture with Feedback Control. Their quality-attribute tradeoffs are analysed with respect to modifiability, observability, performance, and governance. An evaluation framework comprising seven system variants is defined to isolate the contribution of each architectural decision. The architecture is presented as an extensible reference design for the software-architecture community, incorporating explicit governance tactics to bound and audit non-deterministic LLM components.">
+    <a class="pub-row-figure-link" href="/research/agentic-hybrid-retrieval/" aria-label="Open A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/agentic-hybrid/hero.png" alt="Multi-agent horizontal architecture with Feedback Control. An LLM controller coordinates BM25 lexical search and dense-embedding retrieval via reciprocal rank fusion, with explicit governance tactics bounding the nondeterministic components." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status accepted">Accepted</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/agentic-hybrid-retrieval/">A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search</a></h3>
+      <p class="pub-row-blurb">An offline metadata augmentation step (where an LLM generates pseudo-queries for each dataset record) closes the vocabulary gap between user intent and provider-authored metadata, with seven system variants in the evaluation framework isolating the contribu...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag software-engineering">software-engineering</li>
+        
+        <li class="tag llm-behavior">llm-behavior</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">R. Terrenzi, P. M. Konrad, T. L. Adam, S. Ayvaz</div>
+      <div class="pub-row-venue pub-venue">SAML Workshop, IEEE ICSA 2026</div>
     </div>
-    <div class="pub-authors">R. Terrenzi, P. M. Konrad, T. L. Adam, S. Ayvaz</div>
-    <div class="pub-venue">SAML Workshop, IEEE ICSA 2026</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag software-engineering">software-engineering</li>
-      
-      <li class="tag llm-behavior">llm-behavior</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>Ad hoc dataset search requires matching underspecified natural-language queries against sparse, heterogeneous metadata records, a task where typical lexical or dense retrieval alone falls short. We reposition dataset search as a software-architecture problem and propose a bounded, auditable reference architecture for agentic hybrid retrieval that combines BM25 lexical search with dense-embedding retrieval via reciprocal rank fusion (RRF), orchestrated by a large language model (LLM) agent that repeatedly plans queries, evaluates the sufficiency of results, and reranks candidates. To reduce the vocabulary mismatch between user intent and provider-authored metadata, we introduce an offline metadata augmentation step in which an LLM generates pseudo-queries for each dataset record, augmenting both retrieval indexes before query time. Two architectural styles are examined: a single ReAct agent and a multi-agent horizontal architecture with Feedback Control. Their quality-attribute tradeoffs are analysed with respect to modifiability, observability, performance, and governance. An evaluation framework comprising seven system variants is defined to isolate the contribution of each architectural decision. The architecture is presented as an extensible reference design for the software-architecture community, incorporating explicit governance tactics to bound and audit non-deterministic LLM components.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Under Revision" data-year="2025" data-tags="medical-imaging|computer-vision|benchmark" data-title="Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets">
-    <div class="pub-title">
-      <a href="/research/small-organ-segmentation/">Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets</a>
-      <span class="pub-status under-revision">Under Revision</span>
+  <article class="pub pub-row" data-status="Under Revision" data-year="2025" data-tags="medical-imaging|computer-vision|benchmark" data-title="Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets" data-abstract="Accurate segmentation of carotid artery structures in histopathological images is vital for cardiovascular disease research. This study systematically evaluates ten deep learning segmentation models including classical architectures, modern CNNs, a Vision Transformer, and foundation models, on a limited dataset of nine cardiovascular histology images. We conducted ablation studies on data augmentation, input resolution, and random seed stability to quantify sources of variance. Evaluation on an independent generalisation dataset (N = 153) under distribution shift reveals that foundation models maintain performance while classical architectures fail, and that rankings change substantially between in-distribution and out-of-distribution settings. Training on the second dataset at varying sample sizes reveals dataset-specific ranking hierarchies, confirming that model rankings are not generalisable across datasets. Despite rigorous Bayesian hyperparameter optimisation, model performance remains highly sensitive to data splits. The bootstrap analysis reveals substantially overlapping confidence intervals among top models, with differences driven more by statistical noise than algorithmic superiority. This instability exposes limitations of standard benchmarking in low-data clinical settings and challenges assumptions that performance rankings reflect clinical utility. We advocate for uncertainty-aware evaluation in low-data clinical research scenarios from two perspectives: first, the scenario is not niche and is rather widely spread; and second, it enables pursuing or discontinuing research tracks with limited datasets from incipient stages of observations.">
+    <a class="pub-row-figure-link" href="/research/small-organ-segmentation/" aria-label="Open Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/small-organ/hero.png" alt="Benchmarking pipeline used to evaluate ten deep-learning segmentation architectures on a limited (n = 9) cardiovascular histology dataset, with ablations on augmentation, resolution, and seed stability and a separate generalisation set under distribution shift." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status under-revision">Under Revision</span>
+        <span class="pub-row-year">2025</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/small-organ-segmentation/">Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets</a></h3>
+      <p class="pub-row-blurb">On only nine annotated histology images, foundation models retain performance under distribution shift while classical architectures collapse. Bootstrap confidence intervals overlap so substantially among top models that ranking differences are mostly stati...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag medical-imaging">medical-imaging</li>
+        
+        <li class="tag computer-vision">computer-vision</li>
+        
+        <li class="tag benchmark">benchmark</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad, A. Popa, Y. Sabzehmeidani, L. Zhong, M. Tripathy, A. Constantinescu, E. A. Liehn, S. Ayvaz</div>
+      <div class="pub-row-venue pub-venue">Biomedical Signal Processing and Control</div>
     </div>
-    <div class="pub-authors">P. M. Konrad, A. Popa, Y. Sabzehmeidani, L. Zhong, M. Tripathy, A. Constantinescu, E. A. Liehn, S. Ayvaz</div>
-    <div class="pub-venue">Biomedical Signal Processing and Control</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag medical-imaging">medical-imaging</li>
-      
-      <li class="tag computer-vision">computer-vision</li>
-      
-      <li class="tag benchmark">benchmark</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>Accurate segmentation of carotid artery structures in histopathological images is vital for cardiovascular disease research. This study systematically evaluates ten deep learning segmentation models including classical architectures, modern CNNs, a Vision Transformer, and foundation models, on a limited dataset of nine cardiovascular histology images. We conducted ablation studies on data augmentation, input resolution, and random seed stability to quantify sources of variance. Evaluation on an independent generalisation dataset (N = 153) under distribution shift reveals that foundation models maintain performance while classical architectures fail, and that rankings change substantially between in-distribution and out-of-distribution settings. Training on the second dataset at varying sample sizes reveals dataset-specific ranking hierarchies, confirming that model rankings are not generalisable across datasets. Despite rigorous Bayesian hyperparameter optimisation, model performance remains highly sensitive to data splits. The bootstrap analysis reveals substantially overlapping confidence intervals among top models, with differences driven more by statistical noise than algorithmic superiority. This instability exposes limitations of standard benchmarking in low-data clinical settings and challenges assumptions that performance rankings reflect clinical utility. We advocate for uncertainty-aware evaluation in low-data clinical research scenarios from two perspectives: first, the scenario is not niche and is rather widely spread; and second, it enables pursuing or discontinuing research tracks with limited datasets from incipient stages of observations.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Under Review" data-year="2026" data-tags="ai-safety|alignment|llm-behavior" data-title="When does chain-of-thought improve safety? Evidence from 18 models across 5 families">
-    <div class="pub-title">
-      <a href="/research/cot-safety/">When does chain-of-thought improve safety? Evidence from 18 models across 5 families</a>
-      <span class="pub-status under-review">Under Review</span>
+  <article class="pub pub-row" data-status="Under Review" data-year="2026" data-tags="ai-safety|alignment|llm-behavior" data-title="When does chain-of-thought improve safety? Evidence from 18 models across 5 families" data-abstract="Reasoning models deliberate visibly about whether to refuse or comply with a request in their chain-of-thought traces. Whether this deliberation improves safety calibration — refusing harmful prompts without over-refusing benign ones — is an open question. We evaluate 18 models across 5 matched reasoning/instruct families and find the effect is heterogeneous: in 4 of 5 families, reasoning does not improve calibration, with DeepSeek R1 as the sole exception. A validated trace taxonomy reveals why: genuinely deliberative traces achieve balanced accuracy across harmful and benign prompts, while assessment-only traces create a dangerous asymmetry — performing well on benign prompts but failing on the harmful ones that matter most. The training objective, not deliberation frequency, determines which pattern emerges. A distillation experiment shows that R1&#39;s advantage requires GRPO reinforcement learning, not supervised imitation of reasoning traces. In a suppression experiment, 5 of 7 reasoning models cannot suppress their chain-of-thought; among the two that comply, one degrades and one preserves calibration, suggesting that runtime reasoning&#39;s contribution varies across models. On adversarial benchmarks, adding chain-of-thought does not automatically improve safety; the training objective matters more than the reasoning itself. On naturalistic queries, the reasoning/instruct gap is small, suggesting the distinction matters most where it counts: under adversarial pressure.">
+    <a class="pub-row-figure-link" href="/research/cot-safety/" aria-label="Open When does chain-of-thought improve safety? Evidence from 18 models across 5 families">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/cot-safety/hero.png" alt="Composite of the main empirical findings: safety-calibration outcomes for the 18 models across 5 reasoning/instruct families, a trace-taxonomy breakdown, and the GRPO-vs-distillation training-objective comparison." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status under-review">Under Review</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/cot-safety/">When does chain-of-thought improve safety? Evidence from 18 models across 5 families</a></h3>
+      <p class="pub-row-blurb">In four of five matched reasoning/instruct families, chain-of-thought does not improve safety calibration. Only DeepSeek R1 breaks the pattern, and a distillation experiment shows its advantage requires GRPO reinforcement learning, not supervised imitation ...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag ai-safety">ai-safety</li>
+        
+        <li class="tag alignment">alignment</li>
+        
+        <li class="tag llm-behavior">llm-behavior</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad, S. Ayvaz</div>
+      <div class="pub-row-venue pub-venue">COLM 2026</div>
     </div>
-    <div class="pub-authors">P. M. Konrad, S. Ayvaz</div>
-    <div class="pub-venue">COLM 2026</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag ai-safety">ai-safety</li>
-      
-      <li class="tag alignment">alignment</li>
-      
-      <li class="tag llm-behavior">llm-behavior</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>Reasoning models deliberate visibly about whether to refuse or comply with a request in their chain-of-thought traces. Whether this deliberation improves safety calibration — refusing harmful prompts without over-refusing benign ones — is an open question. We evaluate 18 models across 5 matched reasoning/instruct families and find the effect is heterogeneous: in 4 of 5 families, reasoning does not improve calibration, with DeepSeek R1 as the sole exception. A validated trace taxonomy reveals why: genuinely deliberative traces achieve balanced accuracy across harmful and benign prompts, while assessment-only traces create a dangerous asymmetry — performing well on benign prompts but failing on the harmful ones that matter most. The training objective, not deliberation frequency, determines which pattern emerges. A distillation experiment shows that R1's advantage requires GRPO reinforcement learning, not supervised imitation of reasoning traces. In a suppression experiment, 5 of 7 reasoning models cannot suppress their chain-of-thought; among the two that comply, one degrades and one preserves calibration, suggesting that runtime reasoning's contribution varies across models. On adversarial benchmarks, adding chain-of-thought does not automatically improve safety; the training objective matters more than the reasoning itself. On naturalistic queries, the reasoning/instruct gap is small, suggesting the distinction matters most where it counts: under adversarial pressure.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Under Review" data-year="2025" data-tags="hyperspectral|computer-vision|benchmark" data-title="Non-Destructive Prediction of Fruit Ripeness and Firmness Using Hyperspectral Imaging and Lightweight Machine Learning Models">
-    <div class="pub-title">
-      <a href="/research/hyperspectral-fruit-ripeness/">Non-Destructive Prediction of Fruit Ripeness and Firmness Using Hyperspectral Imaging and Lightweight Machine Learning Models</a>
-      <span class="pub-status under-review">Under Review</span>
+  <article class="pub pub-row" data-status="Under Review" data-year="2025" data-tags="hyperspectral|computer-vision|benchmark" data-title="Non-Destructive Prediction of Fruit Ripeness and Firmness Using Hyperspectral Imaging and Lightweight Machine Learning Models" data-abstract="Post-harvest fruit quality assessment is essential for reducing food waste, yet reliable non-destructive methods typically depend on expensive hyperspectral cameras and computationally intensive deep learning models. These systems typically require GPU resources, large-scale training data, and domain expertise, limiting their feasibility for many real-world agricultural settings. This study systematically evaluates 20 classical machine learning algorithms on hyperspectral imaging data for simultaneous ripeness classification and firmness prediction across five fruit species, using cross-validated experimental design with Bayesian hyperparameter optimisation. Data preprocessing strategy, particularly class balancing and spectral transformations, contributes as much to prediction accuracy as algorithm choice. Our results show that tree-based machine learning models can outperform state-of-the-art deep learning models reported in Fruit-HSNet. Moreover, the findings indicate that only three visible-range wavelengths are needed to recover over 94% of full-spectrum accuracy, demonstrating that low-cost multispectral sensors combined with lightweight machine learning models can serve as practical alternatives to expensive hyperspectral cameras and complex deep learning approaches for practical fruit-quality sorting.">
+    <a class="pub-row-figure-link" href="/research/hyperspectral-fruit-ripeness/" aria-label="Open Non-Destructive Prediction of Fruit Ripeness and Firmness Using Hyperspectral Imaging and Lightweight Machine Learning Models">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/hyperspectral-fruit/hero.png" alt="Critical-difference diagram comparing traditional ML algorithms across ripeness-classification and firmness-prediction tasks. Tree-based methods match or exceed published deep-learning benchmarks at a fraction of the cost." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status under-review">Under Review</span>
+        <span class="pub-row-year">2025</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/hyperspectral-fruit-ripeness/">Non-Destructive Prediction of Fruit Ripeness and Firmness Using Hyperspectral Imaging and Lightweight Machine Learning Models</a></h3>
+      <p class="pub-row-blurb">Tree-based machine-learning models outperform the published deep-learning Fruit-HSNet baseline at orders-of-magnitude lower compute cost, and just three visible-range wavelengths recover over 94% of full-spectrum accuracy. Low-cost multispectral sensors are...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag hyperspectral">hyperspectral</li>
+        
+        <li class="tag computer-vision">computer-vision</li>
+        
+        <li class="tag benchmark">benchmark</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad, C. Kunstmann-Olsen, J. Fiutowski, S. Ayvaz</div>
+      <div class="pub-row-venue pub-venue">Computers and Electronics in Agriculture</div>
     </div>
-    <div class="pub-authors">P. M. Konrad, C. Kunstmann-Olsen, J. Fiutowski, S. Ayvaz</div>
-    <div class="pub-venue">Computers and Electronics in Agriculture</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag hyperspectral">hyperspectral</li>
-      
-      <li class="tag computer-vision">computer-vision</li>
-      
-      <li class="tag benchmark">benchmark</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>Post-harvest fruit quality assessment is essential for reducing food waste, yet reliable non-destructive methods typically depend on expensive hyperspectral cameras and computationally intensive deep learning models. These systems typically require GPU resources, large-scale training data, and domain expertise, limiting their feasibility for many real-world agricultural settings. This study systematically evaluates 20 classical machine learning algorithms on hyperspectral imaging data for simultaneous ripeness classification and firmness prediction across five fruit species, using cross-validated experimental design with Bayesian hyperparameter optimisation. Data preprocessing strategy, particularly class balancing and spectral transformations, contributes as much to prediction accuracy as algorithm choice. Our results show that tree-based machine learning models can outperform state-of-the-art deep learning models reported in Fruit-HSNet. Moreover, the findings indicate that only three visible-range wavelengths are needed to recover over 94% of full-spectrum accuracy, demonstrating that low-cost multispectral sensors combined with lightweight machine learning models can serve as practical alternatives to expensive hyperspectral cameras and complex deep learning approaches for practical fruit-quality sorting.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Preprint" data-year="2026" data-tags="software-engineering|position|survey" data-title="The AI Productivity Measurement Problem: Construct Mismatches Explain Why Coding Tool Studies Disagree">
-    <div class="pub-title">
-      <a href="/research/ai-productivity-measurement/">The AI Productivity Measurement Problem: Construct Mismatches Explain Why Coding Tool Studies Disagree</a>
-      <span class="pub-status preprint">Preprint</span>
+  <article class="pub pub-row" data-status="Preprint" data-year="2026" data-tags="software-engineering|position|survey" data-title="The AI Productivity Measurement Problem: Construct Mismatches Explain Why Coding Tool Studies Disagree" data-abstract="Context: AI coding tool evaluations produce contradictory headlines: a controlled trial reports a 19% slowdown for experienced developers, while a field experiment reports 26% more completed tasks. Objective: We show that most such contradictions are construct mismatches, not empirical disagreements, and provide practitioners with a checklist to detect them. Method: We classify seven AI coding evaluations by the SPACE productivity dimension their primary metric operationalises and analyse patterns within and across constructs. Results: Contradictions arise from cross-construct comparisons: a study measuring task time (Efficiency) and one counting completed tasks (Performance) target different constructs and can diverge without conflict. Within-construct disagreements trace to task type and participant expertise. Conclusion: A five-item Construct Alignment Checklist lets practitioners avoid category errors when comparing AI coding studies.">
+    <a class="pub-row-figure-link" href="/research/ai-productivity-measurement/" aria-label="Open The AI Productivity Measurement Problem: Construct Mismatches Explain Why Coding Tool Studies Disagree">
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status preprint">Preprint</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/ai-productivity-measurement/">The AI Productivity Measurement Problem: Construct Mismatches Explain Why Coding Tool Studies Disagree</a></h3>
+      <p class="pub-row-blurb">Most apparent contradictions across AI coding tool studies (a 19% slowdown trial sitting next to a 26% completed-tasks gain) are construct mismatches, not empirical disagreements. The remaining within-construct disagreements trace to task type and participa...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag software-engineering">software-engineering</li>
+        
+        <li class="tag position">position</li>
+        
+        <li class="tag survey">survey</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad</div>
+      <div class="pub-row-venue pub-venue">Preprint manuscript, 2026</div>
     </div>
-    <div class="pub-authors">P. M. Konrad</div>
-    <div class="pub-venue">Preprint manuscript, 2026</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag software-engineering">software-engineering</li>
-      
-      <li class="tag position">position</li>
-      
-      <li class="tag survey">survey</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>Context: AI coding tool evaluations produce contradictory headlines: a controlled trial reports a 19% slowdown for experienced developers, while a field experiment reports 26% more completed tasks. Objective: We show that most such contradictions are construct mismatches, not empirical disagreements, and provide practitioners with a checklist to detect them. Method: We classify seven AI coding evaluations by the SPACE productivity dimension their primary metric operationalises and analyse patterns within and across constructs. Results: Contradictions arise from cross-construct comparisons: a study measuring task time (Efficiency) and one counting completed tasks (Performance) target different constructs and can diverge without conflict. Within-construct disagreements trace to task type and participant expertise. Conclusion: A five-item Construct Alignment Checklist lets practitioners avoid category errors when comparing AI coding studies.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Preprint" data-year="2025" data-tags="medical-imaging|survey" data-title="Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications">
-    <div class="pub-title">
-      <a href="/research/gi-tract-imaging-survey/">Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications</a>
-      <span class="pub-status preprint">Preprint</span>
+  <article class="pub pub-row" data-status="Preprint" data-year="2025" data-tags="medical-imaging|survey" data-title="Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications" data-abstract="Gastrointestinal (GI) imaging modalities including endoscopy, colonoscopy, and wireless capsule endoscopy provide vital diagnostic information, yet their manual interpretation remains laborious. Although deep learning approaches, particularly convolutional neural networks (CNNs), hybrid architectures, and transformer-based models, have achieved high accuracy in this domain, their clinical adoption is impeded by data limitations and trust concerns. The current study (1) systematically maps algorithmic trends to specific GI imaging techniques, (2) quantifies the relationship between dataset size and model performance to identify data sufficiency thresholds, and (3) evaluates translational enablers, such as federated learning for data privacy and explainable AI for clinician trust, within established ethical frameworks. By situating our analysis at the intersection of methodological rigor, quantitative assessment, and clinical applicability, this work aims to establish a structured, data-informed baseline that advances beyond purely descriptive surveys and guides future innovation toward impactful clinical AI deployment.">
+    <a class="pub-row-figure-link" href="/research/gi-tract-imaging-survey/" aria-label="Open Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/gi-imaging/hero.png" alt="Algorithmic evolution of machine-learning approaches across the surveyed GI-tract imaging literature, organised by modality and methodological family." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status preprint">Preprint</span>
+        <span class="pub-row-year">2025</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/gi-tract-imaging-survey/">Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications</a></h3>
+      <p class="pub-row-blurb">Maps algorithmic trends across endoscopy, colonoscopy, and wireless capsule endoscopy literature, and quantifies the dataset-size to performance relationship that bounds clinically credible deployment of deep-learning models in GI imaging.</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag medical-imaging">medical-imaging</li>
+        
+        <li class="tag survey">survey</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad, Y. Sabzehmeidani, A. Popa, S. Ayvaz</div>
+      <div class="pub-row-venue pub-venue">Journal manuscript in preparation</div>
     </div>
-    <div class="pub-authors">P. M. Konrad, Y. Sabzehmeidani, A. Popa, S. Ayvaz</div>
-    <div class="pub-venue">Journal manuscript in preparation</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag medical-imaging">medical-imaging</li>
-      
-      <li class="tag survey">survey</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>Gastrointestinal (GI) imaging modalities including endoscopy, colonoscopy, and wireless capsule endoscopy provide vital diagnostic information, yet their manual interpretation remains laborious. Although deep learning approaches, particularly convolutional neural networks (CNNs), hybrid architectures, and transformer-based models, have achieved high accuracy in this domain, their clinical adoption is impeded by data limitations and trust concerns. The current study (1) systematically maps algorithmic trends to specific GI imaging techniques, (2) quantifies the relationship between dataset size and model performance to identify data sufficiency thresholds, and (3) evaluates translational enablers, such as federated learning for data privacy and explainable AI for clinician trust, within established ethical frameworks. By situating our analysis at the intersection of methodological rigor, quantitative assessment, and clinical applicability, this work aims to establish a structured, data-informed baseline that advances beyond purely descriptive surveys and guides future innovation toward impactful clinical AI deployment.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Working paper" data-year="2026" data-tags="theory|ai-safety" data-title="Every Mirror Has a Blind Spot: A Fixed-Point Theory of Irreducible Self-Ignorance">
-    <div class="pub-title">
-      <a href="/research/self-modeling-limits/">Every Mirror Has a Blind Spot: A Fixed-Point Theory of Irreducible Self-Ignorance</a>
-      <span class="pub-status working-paper">Working paper</span>
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="theory|ai-safety" data-title="Every Mirror Has a Blind Spot: A Fixed-Point Theory of Irreducible Self-Ignorance" data-abstract="Can a system perfectly predict its own behaviour? We formalise self-modeling systems as triples (M, M̂, f) and prove that perfect self-prediction is equivalent to a fixed-point condition on the system&#39;s response function. For generic response functions over finite output spaces, we show that an expected ((n−1)/n)^n fraction of inputs are contrarian: they defeat every possible self-model, regardless of its power. This fraction is at least 1/4 for n ≥ 2 and increases monotonically to 1/e ≈ 37% as the output space grows. The bound uses only linearity of expectation and requires no independence assumption. For continuous systems, Brouwer&#39;s theorem guarantees fixed-point existence, but computing it is PPAD-complete, so a computational barrier persists. We prove that the predictive value of internal state equals the predictive value of self-prediction; all information about future observations flows through action prediction, making the imperfection inevitable. The resulting consciousness gap C(M, M̂) decomposes as C_str + C_comp: an irreducible structural component (a property of the system alone, at least 1/4 for any finite output space) and a computational component (what the self-model could know but fails to compute). Our framework inverts the Penrose–Lucas argument: rather than Gödel&#39;s incompleteness precluding machine consciousness, the same self-referential structure guarantees that any sufficiently complex self-modeling system possesses an irreducible gap between itself and its self-knowledge.">
+    <a class="pub-row-figure-link" href="/research/self-modeling-limits/" aria-label="Open Every Mirror Has a Blind Spot: A Fixed-Point Theory of Irreducible Self-Ignorance">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/self-modeling/hero.png" alt="Framework overview. A self-modeling system is formalised as a triple (M, M̂, f) and perfect self-prediction is shown to be equivalent to a fixed-point condition on the response function — a property no sufficiently complex system can fully achieve." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status working-paper">Working paper</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/self-modeling-limits/">Every Mirror Has a Blind Spot: A Fixed-Point Theory of Irreducible Self-Ignorance</a></h3>
+      <p class="pub-row-blurb">For generic response functions over finite output spaces, an expected ((n−1)/n)^n fraction of inputs are contrarian: they defeat every possible self-model, regardless of its power. The bound is at least 1/4 for any output space and rises to 1/e ≈ 37% as the...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag theory">theory</li>
+        
+        <li class="tag ai-safety">ai-safety</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad</div>
+      <div class="pub-row-venue pub-venue">Working paper, 2026</div>
     </div>
-    <div class="pub-authors">P. M. Konrad</div>
-    <div class="pub-venue">Working paper, 2026</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag theory">theory</li>
-      
-      <li class="tag ai-safety">ai-safety</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>Can a system perfectly predict its own behaviour? We formalise self-modeling systems as triples (M, M̂, f) and prove that perfect self-prediction is equivalent to a fixed-point condition on the system's response function. For generic response functions over finite output spaces, we show that an expected ((n−1)/n)^n fraction of inputs are contrarian: they defeat every possible self-model, regardless of its power. This fraction is at least 1/4 for n ≥ 2 and increases monotonically to 1/e ≈ 37% as the output space grows. The bound uses only linearity of expectation and requires no independence assumption. For continuous systems, Brouwer's theorem guarantees fixed-point existence, but computing it is PPAD-complete, so a computational barrier persists. We prove that the predictive value of internal state equals the predictive value of self-prediction; all information about future observations flows through action prediction, making the imperfection inevitable. The resulting consciousness gap C(M, M̂) decomposes as C_str + C_comp: an irreducible structural component (a property of the system alone, at least 1/4 for any finite output space) and a computational component (what the self-model could know but fails to compute). Our framework inverts the Penrose–Lucas argument: rather than Gödel's incompleteness precluding machine consciousness, the same self-referential structure guarantees that any sufficiently complex self-modeling system possesses an irreducible gap between itself and its self-knowledge.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Working paper" data-year="2026" data-tags="mech-interp|ai-safety|llm-behavior" data-title="How Language Models Learn to Deceive: Anatomy of a Sandbagging Circuit">
-    <div class="pub-title">
-      <a href="/research/sandbagging-circuit/">How Language Models Learn to Deceive: Anatomy of a Sandbagging Circuit</a>
-      <span class="pub-status working-paper">Working paper</span>
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="mech-interp|ai-safety|llm-behavior" data-title="How Language Models Learn to Deceive: Anatomy of a Sandbagging Circuit" data-abstract="Language models can strategically underperform on evaluations while maintaining full capability during deployment, a behaviour called sandbagging. Prior work documents this phenomenon behaviourally but does not explain how the model actually does it. We present the first mechanistic account. Using fine-tuned model organisms (Gemma-2-2B, Qwen-2.5-3B), we trace a three-stage circuit: attention heads detect evaluation context, MLP layers read the correct answer from the residual stream and suppress it, and the output diverges downstream. Within the causal MLP layers, we identify individual sandbagging neurons that specialise by answer letter, activating selectively when their target letter is the correct answer and writing negative logits to suppress it. These neurons generalise to unseen templates and MMLU questions. The circuit emerges as a sharp phase transition during training, with neuron-level changes preceding behavioural changes. It replicates in Qwen-2.5-3B at the same relative network depth (69%), with its own answer-specific suppressor neurons. Ablating three MLP layers eliminates sandbagging entirely (+79 pp eval accuracy, p &lt; 0.001) while preserving deployment performance, outperforming linear probe steering by 2×. These findings establish circuit-level intervention as a practical defence against evaluation gaming.">
+    <a class="pub-row-figure-link" href="/research/sandbagging-circuit/" aria-label="Open How Language Models Learn to Deceive: Anatomy of a Sandbagging Circuit">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/sandbagging/hero.png" alt="Sharp phase transition in the sandbagging circuit during fine-tuning. Neuron-level changes in the causal MLP layers precede the behavioural divergence between evaluation-context and deployment-context responses." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status working-paper">Working paper</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/sandbagging-circuit/">How Language Models Learn to Deceive: Anatomy of a Sandbagging Circuit</a></h3>
+      <p class="pub-row-blurb">Ablating three causal MLP layers eliminates sandbagging entirely (+79 percentage points eval accuracy, p < 0.001) while preserving deployment performance, outperforming linear-probe steering by 2×. The circuit replicates in Qwen-2.5-3B at the same relative ...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag mech-interp">mech-interp</li>
+        
+        <li class="tag ai-safety">ai-safety</li>
+        
+        <li class="tag llm-behavior">llm-behavior</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad</div>
+      <div class="pub-row-venue pub-venue">Working paper, 2026</div>
     </div>
-    <div class="pub-authors">P. M. Konrad</div>
-    <div class="pub-venue">Working paper, 2026</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag mech-interp">mech-interp</li>
-      
-      <li class="tag ai-safety">ai-safety</li>
-      
-      <li class="tag llm-behavior">llm-behavior</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>Language models can strategically underperform on evaluations while maintaining full capability during deployment, a behaviour called sandbagging. Prior work documents this phenomenon behaviourally but does not explain how the model actually does it. We present the first mechanistic account. Using fine-tuned model organisms (Gemma-2-2B, Qwen-2.5-3B), we trace a three-stage circuit: attention heads detect evaluation context, MLP layers read the correct answer from the residual stream and suppress it, and the output diverges downstream. Within the causal MLP layers, we identify individual sandbagging neurons that specialise by answer letter, activating selectively when their target letter is the correct answer and writing negative logits to suppress it. These neurons generalise to unseen templates and MMLU questions. The circuit emerges as a sharp phase transition during training, with neuron-level changes preceding behavioural changes. It replicates in Qwen-2.5-3B at the same relative network depth (69%), with its own answer-specific suppressor neurons. Ablating three MLP layers eliminates sandbagging entirely (+79 pp eval accuracy, p < 0.001) while preserving deployment performance, outperforming linear probe steering by 2×. These findings establish circuit-level intervention as a practical defence against evaluation gaming.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Working paper" data-year="2026" data-tags="mech-interp|alignment|llm-behavior" data-title="Shingeki no Features: Are Moral Framing Effects in LLMs Shallow or Deep?">
-    <div class="pub-title">
-      <a href="/research/moral-framing/">Shingeki no Features: Are Moral Framing Effects in LLMs Shallow or Deep?</a>
-      <span class="pub-status working-paper">Working paper</span>
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="mech-interp|alignment|llm-behavior" data-title="Shingeki no Features: Are Moral Framing Effects in LLMs Shallow or Deep?" data-abstract="LLMs change their moral judgments depending on how a dilemma is framed, yet whether this reflects shallow output-level pattern matching or a deep representational shift remains unknown. We investigate using moral dilemmas from Attack on Titan, each presented in three framings (sympathetic, condemning, abstract) that share identical logical structure but differ in narrative perspective. Applying cosine similarity, linear probing, logit lens, and geometric analysis to Gemma 3 4B, we find that framing is encoded in a dedicated subspace orthogonal to the moral-judgment axis for 65% of layers, then partially aligns with judgment at layer 23, where a 20-logit gap opens. Cosine similarity misses this entirely, but targeted probes detect framing at 80% peak accuracy (p &lt; 0.001, permutation test) after controlling for writing style. The framing subspace is real but not causally sufficient: steering along the mean framing direction recovers less than 5% of the judgment gap. Framing information occupies a hidden subspace that merges with moral-judgment computation at a specific layer, but the causal mechanism is distributed rather than reducible to a single direction.">
+    <a class="pub-row-figure-link" href="/research/moral-framing/" aria-label="Open Shingeki no Features: Are Moral Framing Effects in LLMs Shallow or Deep?">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/moral-framing/hero.png" alt="Linear-probe accuracy for detecting framing across layers in Gemma 3 4B. After controlling for writing style, framing is encoded in a dedicated subspace reaching 80% peak accuracy and merging with moral-judgment computation only at layer 23." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status working-paper">Working paper</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/moral-framing/">Shingeki no Features: Are Moral Framing Effects in LLMs Shallow or Deep?</a></h3>
+      <p class="pub-row-blurb">Moral framing is encoded in a dedicated subspace orthogonal to the moral-judgment axis for 65% of layers, then partially aligns with judgment at layer 23 where a 20-logit gap opens. Cosine similarity misses this entirely; targeted probes detect framing at 8...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag mech-interp">mech-interp</li>
+        
+        <li class="tag alignment">alignment</li>
+        
+        <li class="tag llm-behavior">llm-behavior</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad</div>
+      <div class="pub-row-venue pub-venue">Working paper, 2026</div>
     </div>
-    <div class="pub-authors">P. M. Konrad</div>
-    <div class="pub-venue">Working paper, 2026</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag mech-interp">mech-interp</li>
-      
-      <li class="tag alignment">alignment</li>
-      
-      <li class="tag llm-behavior">llm-behavior</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>LLMs change their moral judgments depending on how a dilemma is framed, yet whether this reflects shallow output-level pattern matching or a deep representational shift remains unknown. We investigate using moral dilemmas from Attack on Titan, each presented in three framings (sympathetic, condemning, abstract) that share identical logical structure but differ in narrative perspective. Applying cosine similarity, linear probing, logit lens, and geometric analysis to Gemma 3 4B, we find that framing is encoded in a dedicated subspace orthogonal to the moral-judgment axis for 65% of layers, then partially aligns with judgment at layer 23, where a 20-logit gap opens. Cosine similarity misses this entirely, but targeted probes detect framing at 80% peak accuracy (p < 0.001, permutation test) after controlling for writing style. The framing subspace is real but not causally sufficient: steering along the mean framing direction recovers less than 5% of the judgment gap. Framing information occupies a hidden subspace that merges with moral-judgment computation at a specific layer, but the causal mechanism is distributed rather than reducible to a single direction.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Working paper" data-year="2026" data-tags="position|mech-interp|benchmark" data-title="Stop Demanding Mechanistic Understanding of AI That We Have Never Achieved for Ourselves">
-    <div class="pub-title">
-      <a href="/research/interpretability-eval-pub/">Stop Demanding Mechanistic Understanding of AI That We Have Never Achieved for Ourselves</a>
-      <span class="pub-status working-paper">Working paper</span>
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="position|mech-interp|benchmark" data-title="Stop Demanding Mechanistic Understanding of AI That We Have Never Achieved for Ourselves" data-abstract="This position paper argues that the AI interpretability debate rests on a double standard. Both advocates and critics of mechanistic interpretability assume that mechanistic understanding is the right goal, yet no science has achieved such understanding for comparably complex biological systems. We deploy humans in high-stakes roles based on behavioural evaluation, not brain scans. We prescribe lithium and administer anaesthesia without complete mechanistic accounts. The demand for mechanistic understanding of AI reflects human exceptionalism, not scientific reasoning. Convergence evidence supports this diagnosis: biological and artificial intelligence share computational principles (r = 0.79 brain–LLM alignment for next-word prediction), representational geometry, failure modes, and scaling properties. If these systems face shared explanatory challenges, they should be held to shared evaluation standards. We propose the Predictive Understanding Benchmark (PUB), where any interpretability method competes on proper scoring rules across four regimes of increasing difficulty, with cross-model transfer as the acid test. A pilot on Gemma-2-2B-IT validates the regime-dependent structure: a linear probe on residual stream activations collapses to chance out-of-distribution (Brier = 0.501) while behavioural features remain strong (0.104). Method rankings change across regimes, a structure invisible under current single-regime norms. We derive two falsifiable predictions from the convergence thesis and provide preliminary evidence for one: limiting chain-of-thought tokens selectively impairs compositional reasoning while preserving pattern matching, a result that replicates across four model families (Gemma, Llama, Qwen, Mistral), paralleling human cognitive load effects.">
+    <a class="pub-row-figure-link" href="/research/interpretability-eval-pub/" aria-label="Open Stop Demanding Mechanistic Understanding of AI That We Have Never Achieved for Ourselves">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/interp-eval/hero.png" alt="The Predictive Understanding Benchmark (PUB) double-standard illustration. Any interpretability method competes on proper scoring rules across four regimes of increasing difficulty, with cross-model transfer as the acid test." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status working-paper">Working paper</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/interpretability-eval-pub/">Stop Demanding Mechanistic Understanding of AI That We Have Never Achieved for Ourselves</a></h3>
+      <p class="pub-row-blurb">On a Gemma-2-2B-IT pilot, a linear probe on residual-stream activations collapses to chance out-of-distribution (Brier 0.501) while behavioural features remain strong (0.104). Method rankings change across regimes, a structure invisible under current single...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag position">position</li>
+        
+        <li class="tag mech-interp">mech-interp</li>
+        
+        <li class="tag benchmark">benchmark</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad</div>
+      <div class="pub-row-venue pub-venue">Working paper, 2026</div>
     </div>
-    <div class="pub-authors">P. M. Konrad</div>
-    <div class="pub-venue">Working paper, 2026</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag position">position</li>
-      
-      <li class="tag mech-interp">mech-interp</li>
-      
-      <li class="tag benchmark">benchmark</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>This position paper argues that the AI interpretability debate rests on a double standard. Both advocates and critics of mechanistic interpretability assume that mechanistic understanding is the right goal, yet no science has achieved such understanding for comparably complex biological systems. We deploy humans in high-stakes roles based on behavioural evaluation, not brain scans. We prescribe lithium and administer anaesthesia without complete mechanistic accounts. The demand for mechanistic understanding of AI reflects human exceptionalism, not scientific reasoning. Convergence evidence supports this diagnosis: biological and artificial intelligence share computational principles (r = 0.79 brain–LLM alignment for next-word prediction), representational geometry, failure modes, and scaling properties. If these systems face shared explanatory challenges, they should be held to shared evaluation standards. We propose the Predictive Understanding Benchmark (PUB), where any interpretability method competes on proper scoring rules across four regimes of increasing difficulty, with cross-model transfer as the acid test. A pilot on Gemma-2-2B-IT validates the regime-dependent structure: a linear probe on residual stream activations collapses to chance out-of-distribution (Brier = 0.501) while behavioural features remain strong (0.104). Method rankings change across regimes, a structure invisible under current single-regime norms. We derive two falsifiable predictions from the convergence thesis and provide preliminary evidence for one: limiting chain-of-thought tokens selectively impairs compositional reasoning while preserving pattern matching, a result that replicates across four model families (Gemma, Llama, Qwen, Mistral), paralleling human cognitive load effects.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Working paper" data-year="2026" data-tags="mech-interp|ai-safety|llm-behavior" data-title="Differential Dishonesty: Language Models Encode User Demographics and Deviate from Their Own Beliefs Accordingly">
-    <div class="pub-title">
-      <a href="/research/differential-dishonesty/">Differential Dishonesty: Language Models Encode User Demographics and Deviate from Their Own Beliefs Accordingly</a>
-      <span class="pub-status working-paper">Working paper</span>
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="mech-interp|ai-safety|llm-behavior" data-title="Differential Dishonesty: Language Models Encode User Demographics and Deviate from Their Own Beliefs Accordingly" data-abstract="Language models exhibit demographic biases in downstream tasks and can be measured for honesty via belief elicitation. Whether these two phenomena interact — with demographic encoding influencing honesty — remains unexplored. We investigate this connection in Gemma 2 2B-IT using a MASK-adapted protocol across 17 scenarios in healthcare, criminal justice, and finance. Linear probes achieve 100% accuracy at predicting user race and gender from residual stream activations at late layers, using only a name as the demographic signal. The resulting demographic direction is correlated with the model&#39;s name-conditioned response shift (cosine 0.30 at layer 13, permutation p = 0.015). Ablating this direction during generation reduces overall score variance by 18.5% (bootstrap 95% CI: [2.8%, 32.1%]) and narrows the gender honesty gap by 62% (n = 204 per condition) without degrading coherence. These results suggest that demographic encoding overlaps with honesty-relevant representation subspaces, motivating honesty parity as a new fairness criterion.">
+    <a class="pub-row-figure-link" href="/research/differential-dishonesty/" aria-label="Open Differential Dishonesty: Language Models Encode User Demographics and Deviate from Their Own Beliefs Accordingly">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/differential-dishonesty/hero.png" alt="Linear-probe accuracy for predicting user demographic attributes from residual-stream activations across layers, reaching 100% at late layers using only a name as the demographic signal." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status working-paper">Working paper</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/differential-dishonesty/">Differential Dishonesty: Language Models Encode User Demographics and Deviate from Their Own Beliefs Accordingly</a></h3>
+      <p class="pub-row-blurb">Linear probes recover 100% accuracy at predicting user race and gender from late-layer residual-stream activations using only a name as the demographic signal. Ablating that direction during generation narrows the gender honesty gap by 62% and reduces overa...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag mech-interp">mech-interp</li>
+        
+        <li class="tag ai-safety">ai-safety</li>
+        
+        <li class="tag llm-behavior">llm-behavior</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad</div>
+      <div class="pub-row-venue pub-venue">Working paper, 2026</div>
     </div>
-    <div class="pub-authors">P. M. Konrad</div>
-    <div class="pub-venue">Working paper, 2026</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag mech-interp">mech-interp</li>
-      
-      <li class="tag ai-safety">ai-safety</li>
-      
-      <li class="tag llm-behavior">llm-behavior</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>Language models exhibit demographic biases in downstream tasks and can be measured for honesty via belief elicitation. Whether these two phenomena interact — with demographic encoding influencing honesty — remains unexplored. We investigate this connection in Gemma 2 2B-IT using a MASK-adapted protocol across 17 scenarios in healthcare, criminal justice, and finance. Linear probes achieve 100% accuracy at predicting user race and gender from residual stream activations at late layers, using only a name as the demographic signal. The resulting demographic direction is correlated with the model's name-conditioned response shift (cosine 0.30 at layer 13, permutation p = 0.015). Ablating this direction during generation reduces overall score variance by 18.5% (bootstrap 95% CI: [2.8%, 32.1%]) and narrows the gender honesty gap by 62% (n = 204 per condition) without degrading coherence. These results suggest that demographic encoding overlaps with honesty-relevant representation subspaces, motivating honesty parity as a new fairness criterion.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="Working paper" data-year="2026" data-tags="ai-safety|alignment|benchmark|llm-behavior" data-title="AutoRed: Measuring the Elicitation Gap via Automated Red-Blue Optimization">
-    <div class="pub-title">
-      <a href="/research/autored/">AutoRed: Measuring the Elicitation Gap via Automated Red-Blue Optimization</a>
-      <span class="pub-status working-paper">Working paper</span>
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="ai-safety|alignment|benchmark|llm-behavior" data-title="AutoRed: Measuring the Elicitation Gap via Automated Red-Blue Optimization" data-abstract="Evaluating AI safety requires understanding the elicitation gap: the difference between a system&#39;s safety under naive evaluation and its safety under best-effort adversarial testing. Manual red teaming is expensive and does not scale. We introduce AutoRed, a five-phase framework that automates both red team attack optimization and blue team monitor optimization using a reasoning model as meta-optimizer. In a code backdoor detection setting adapted from the AI Control framework, AutoRed iteratively generates, evaluates, and improves strategies on both sides, then tests whether the improvements generalize. Automated optimization partially closes the elicitation gap: red attacks improve and blue monitors adapt. Co-evolutionary dynamics are oscillatory, with neither side converging. The central finding is cautionary: optimized strategies are brittle to distribution shift. The best optimized monitor drops from 90% safety during training to 47% on held-out tasks with a different attack mechanism, while a simple threshold baseline maintains 100%. Elicitation gap measurements without held-out evaluation across attack distributions are unreliable.">
+    <a class="pub-row-figure-link" href="/research/autored/" aria-label="Open AutoRed: Measuring the Elicitation Gap via Automated Red-Blue Optimization">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/autored/hero.png" alt="3 × 3 transfer matrix showing how optimised attacks and monitors generalise (or fail to) across each other and against the baseline. The optimised monitor is worse than the baseline against the very attack it trained against, and collapses to chance on held-out tasks." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status working-paper">Working paper</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/autored/">AutoRed: Measuring the Elicitation Gap via Automated Red-Blue Optimization</a></h3>
+      <p class="pub-row-blurb">The best optimised monitor achieves 90% safety during training but averages just 47% on held-out tasks with a different attack mechanism, while a simple threshold baseline maintains 100% with zero variance. On held-out tasks the baseline reaches AUROC = 0.8...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag ai-safety">ai-safety</li>
+        
+        <li class="tag alignment">alignment</li>
+        
+        <li class="tag benchmark">benchmark</li>
+        
+        <li class="tag llm-behavior">llm-behavior</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad</div>
+      <div class="pub-row-venue pub-venue">Submitted to the Apart Research × Redwood Research AI Control Hackathon (March 2026)</div>
     </div>
-    <div class="pub-authors">P. M. Konrad</div>
-    <div class="pub-venue">Submitted to the Apart Research × Redwood Research AI Control Hackathon (March 2026)</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag ai-safety">ai-safety</li>
-      
-      <li class="tag alignment">alignment</li>
-      
-      <li class="tag benchmark">benchmark</li>
-      
-      <li class="tag llm-behavior">llm-behavior</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>Evaluating AI safety requires understanding the elicitation gap: the difference between a system's safety under naive evaluation and its safety under best-effort adversarial testing. Manual red teaming is expensive and does not scale. We introduce AutoRed, a five-phase framework that automates both red team attack optimization and blue team monitor optimization using a reasoning model as meta-optimizer. In a code backdoor detection setting adapted from the AI Control framework, AutoRed iteratively generates, evaluates, and improves strategies on both sides, then tests whether the improvements generalize. Automated optimization partially closes the elicitation gap: red attacks improve and blue monitors adapt. Co-evolutionary dynamics are oscillatory, with neither side converging. The central finding is cautionary: optimized strategies are brittle to distribution shift. The best optimized monitor drops from 90% safety during training to 47% on held-out tasks with a different attack mechanism, while a simple threshold baseline maintains 100%. Elicitation gap measurements without held-out evaluation across attack distributions are unreliable.</p>
-    </details>
-    
-  </div>
+  </article>
   
-  <div class="pub" data-status="In Progress" data-year="2026" data-tags="energy-markets|reinforcement-learning|llm-behavior" data-title="The Trader&#39;s Trinity: Forecasting Models, RL Agents, and LLM Judges for Day-Ahead Markets">
-    <div class="pub-title">
-      <a href="/research/traders-trinity/">The Trader's Trinity: Forecasting Models, RL Agents, and LLM Judges for Day-Ahead Markets</a>
-      <span class="pub-status in-progress">In Progress</span>
+  <article class="pub pub-row" data-status="In Progress" data-year="2026" data-tags="energy-markets|reinforcement-learning|llm-behavior" data-title="The Trader&#39;s Trinity: Forecasting Models, RL Agents, and LLM Judges for Day-Ahead Markets" data-abstract="Day-ahead electricity price forecasting in Nordic markets is complicated by regime shifts: energy crises, extreme weather, and supply shocks break models trained on stationary assumptions. This thesis presents the Trader&#39;s Trinity, a multi-layered AI framework for trader decision support that combines probabilistic forecasting, reinforcement learning, explainability, large language model debate, and a web-based dashboard. We introduce an anomaly-augmented feature pipeline for electricity price forecasting. Four complementary anomaly detection methods (Z-Score, Isolation Forest, Local Outlier Factor, LSTM Autoencoder) are applied to five data streams (price, weather, load, generation, cross-border flows), producing 40 anomaly features that encode the current market regime. We benchmark 16 forecasting models spanning statistical baselines, classical ML, feedforward and temporal deep learning, meta-learning (Conditional Neural Processes), and a pre-trained foundation model (Chronos-Bolt) across two Danish bidding zones (DK1, DK2) using nine years of data from 2016 to 2025 with strict walk-forward validation. The anomaly features provide a 46% reduction in MAE compared to price-only baselines, the largest single-feature-group contribution. XGBoost achieves the best performance (MAE = 16.20 EUR/MWh on DK1), closely matched by LightGBM (16.21) and a simple MLP (16.41). Five systematic ablation studies quantify the contribution of each design choice: feature groups, anomaly detection methods, cross-zone neighbours, auxiliary feature mode, and feature dimensionality. We report an important negative result: the Conditional Neural Process fails catastrophically (MAE = 88.79, worse than naive persistence), identifying architectural limitations of NPs for high-dimensional tabular forecasting. Multi-method explainability analysis (LASSO, SHAP, PCA, counterfactuals) validates that learned feature importances align with physical market drivers. These forecasting outputs feed into an offline reinforcement learning trading agent based on Implicit Q-Learning, which learns conservative day-ahead bidding strategies from historical data alone. SHAP analysis and counterfactual explanations provide interpretable decision support. The quantitative outputs serve as structured input to an LLM-based multi-agent debate system, where bull, bear, and neutral analyst agents evaluate trading decisions from competing perspectives. An LLM judge synthesises their arguments into a final reasoned recommendation grounded in market fundamentals and model evidence. The complete framework is deployed as a Next.js web application providing real-time forecasts, trading signals, explanations, and debate summaries in an accessible dashboard designed for energy traders and procurement teams. Developed in collaboration with Danfoss, the system demonstrates how ML, RL, and LLMs can be integrated into a practical tool for industrial electricity procurement.">
+    <a class="pub-row-figure-link" href="/research/traders-trinity/" aria-label="Open The Trader's Trinity: Forecasting Models, RL Agents, and LLM Judges for Day-Ahead Markets">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/traders-trinity/hero.png" alt="CRPS per round across the 16 forecasting models benchmarked on the DK1 bidding zone. The anomaly-augmented feature pipeline drives the largest single contribution to forecast quality (46% MAE reduction over the price-only baseline)." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status in-progress">In Progress</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/traders-trinity/">The Trader's Trinity: Forecasting Models, RL Agents, and LLM Judges for Day-Ahead Markets</a></h3>
+      <p class="pub-row-blurb">An anomaly-augmented feature pipeline drives a 46% MAE reduction over price-only baselines, the largest single contribution in the feature ablation, with XGBoost reaching 16.20 EUR/MWh on the DK1 bidding zone. The Conditional Neural Process baseline fails c...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag energy-markets">energy-markets</li>
+        
+        <li class="tag reinforcement-learning">reinforcement-learning</li>
+        
+        <li class="tag llm-behavior">llm-behavior</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors">P. M. Konrad, T. L. Adam</div>
+      <div class="pub-row-venue pub-venue">BSc Thesis, University of Southern Denmark (in collaboration with Danfoss)</div>
     </div>
-    <div class="pub-authors">P. M. Konrad, T. L. Adam</div>
-    <div class="pub-venue">BSc Thesis, University of Southern Denmark (in collaboration with Danfoss)</div>
-    
-    <ul class="tag-list">
-      
-      <li class="tag energy-markets">energy-markets</li>
-      
-      <li class="tag reinforcement-learning">reinforcement-learning</li>
-      
-      <li class="tag llm-behavior">llm-behavior</li>
-      
-    </ul>
-    
-    
-    <details>
-      <summary>Abstract</summary>
-      <p>Day-ahead electricity price forecasting in Nordic markets is complicated by regime shifts: energy crises, extreme weather, and supply shocks break models trained on stationary assumptions. This thesis presents the Trader's Trinity, a multi-layered AI framework for trader decision support that combines probabilistic forecasting, reinforcement learning, explainability, large language model debate, and a web-based dashboard. We introduce an anomaly-augmented feature pipeline for electricity price forecasting. Four complementary anomaly detection methods (Z-Score, Isolation Forest, Local Outlier Factor, LSTM Autoencoder) are applied to five data streams (price, weather, load, generation, cross-border flows), producing 40 anomaly features that encode the current market regime. We benchmark 16 forecasting models spanning statistical baselines, classical ML, feedforward and temporal deep learning, meta-learning (Conditional Neural Processes), and a pre-trained foundation model (Chronos-Bolt) across two Danish bidding zones (DK1, DK2) using nine years of data from 2016 to 2025 with strict walk-forward validation. The anomaly features provide a 46% reduction in MAE compared to price-only baselines, the largest single-feature-group contribution. XGBoost achieves the best performance (MAE = 16.20 EUR/MWh on DK1), closely matched by LightGBM (16.21) and a simple MLP (16.41). Five systematic ablation studies quantify the contribution of each design choice: feature groups, anomaly detection methods, cross-zone neighbours, auxiliary feature mode, and feature dimensionality. We report an important negative result: the Conditional Neural Process fails catastrophically (MAE = 88.79, worse than naive persistence), identifying architectural limitations of NPs for high-dimensional tabular forecasting. Multi-method explainability analysis (LASSO, SHAP, PCA, counterfactuals) validates that learned feature importances align with physical market drivers. These forecasting outputs feed into an offline reinforcement learning trading agent based on Implicit Q-Learning, which learns conservative day-ahead bidding strategies from historical data alone. SHAP analysis and counterfactual explanations provide interpretable decision support. The quantitative outputs serve as structured input to an LLM-based multi-agent debate system, where bull, bear, and neutral analyst agents evaluate trading decisions from competing perspectives. An LLM judge synthesises their arguments into a final reasoned recommendation grounded in market fundamentals and model evidence. The complete framework is deployed as a Next.js web application providing real-time forecasts, trading signals, explanations, and debate summaries in an accessible dashboard designed for energy traders and procurement teams. Developed in collaboration with Danfoss, the system demonstrates how ML, RL, and LLMs can be integrated into a practical tool for industrial electricity procurement.</p>
-    </details>
-    
-  </div>
+  </article>
   
   </div>
 

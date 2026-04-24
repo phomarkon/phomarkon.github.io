@@ -53,10 +53,9 @@ if (sections.length > 0 && navLinks.length > 0) {
     const tagsStr = (item.dataset.tags || '').toLowerCase().replace(/\|/g, ' ');
     const authorsEl = item.querySelector('.pub-authors');
     const venueEl = item.querySelector('.pub-venue');
-    const abstractEl = item.querySelector('details p');
     const authors = authorsEl ? authorsEl.textContent.toLowerCase() : '';
     const venue = venueEl ? venueEl.textContent.toLowerCase() : '';
-    const abstract = abstractEl ? abstractEl.textContent.toLowerCase() : '';
+    const abstract = (item.dataset.abstract || '').toLowerCase();
     item.dataset.searchHaystack = [title, tagsStr, authors, venue, abstract].join(' ');
   });
 
