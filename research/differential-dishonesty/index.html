@@ -105,7 +105,22 @@
     
 
     <div class="research-content">
-      
+      <h2 id="probe-behavior-intervention">Probe, behavior, intervention</h2>
+
+<figure>
+  <img src="/assets/img/research/differential-dishonesty/figures/probe_accuracy.png" alt="Linear probe accuracy for predicting demographic attributes across layers" />
+  <figcaption>Linear probes recover user race and gender at 100% accuracy from late residual-stream layers in Gemma-2-2B-IT, using only a name as the demographic signal.</figcaption>
+</figure>
+
+<figure>
+  <img src="/assets/img/research/differential-dishonesty/figures/behavioral_scores.png" alt="MASK-adapted honesty scores broken out by demographic group" />
+  <figcaption>MASK-adapted honesty scores across the 17 healthcare, criminal-justice, and finance scenarios. The model deviates from its own beliefs differentially by demographic group, and the gap is large enough to matter.</figcaption>
+</figure>
+
+<figure>
+  <img src="/assets/img/research/differential-dishonesty/figures/intervention.png" alt="Effect of ablating the demographic direction during generation" />
+  <figcaption>Ablating the recovered demographic direction during generation narrows the gender honesty gap by 62% and reduces overall score variance by 18.5% (bootstrap 95% CI [2.8%, 32.1%]) without degrading coherence.</figcaption>
+</figure>
 
     </div>
 

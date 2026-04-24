@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Scalar-Update Frontier for Data-Free First-Order Defenses: A Symmetry-and-Channel Account — Phongsakon Mark Konrad</title>
+  <meta name="description" content="The Scalar-Update Frontier for Data-Free First-Order Defenses: A Symmetry-and-Channel Account">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+  <link rel="alternate" type="application/atom+xml" title="Phongsakon Mark Konrad" href="/feed.xml">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/#about">About</a>
+    <a href="/#questions">Questions</a>
+    <a href="/#selected-work">Work</a>
+    <a href="/#publications" class="active">Publications</a>
+    <a href="/#funding">Funding</a>
+    <a href="/#education">Education</a>
+    <a href="/#professional-experience">Experience</a>
+    <button class="theme-toggle" aria-label="Toggle theme">◑</button>
+  </nav>
+  <main>
+    <p class="back-link"><a href="/#publications">← Back to all publications</a></p>
+
+    <h1 class="research-title">The Scalar-Update Frontier for Data-Free First-Order Defenses: A Symmetry-and-Channel Account</h1>
+
+    
+
+    <div class="research-meta">
+      
+      <span class="pub-status working-paper">Working paper</span>
+      
+      <span class="research-venue">Working paper, 2026</span>
+      <span class="research-year">2026</span>
+    </div>
+
+    
+    <ul class="tag-list">
+      
+      <li class="tag mech-interp">mech-interp</li>
+      
+      <li class="tag ai-safety">ai-safety</li>
+      
+      <li class="tag theory">theory</li>
+      
+    </ul>
+    
+
+    
+    <p class="research-authors"><strong>P. M. Konrad</strong></p>
+    
+
+    
+
+    
+
+    
+    <figure class="research-hero">
+      <img src="/assets/img/research/parasitic-scalar-frontier/hero.png" alt="43 defense cells, scored in target and anti-target action coordinates, cluster into the four predicted regimes. The slope-1 diagonal is the scalar-update frontier; departures map to one of four structural mechanisms.">
+      <figcaption>43 defense cells, scored in target and anti-target action coordinates, cluster into the four predicted regimes. The slope-1 diagonal is the scalar-update frontier; departures map to one of four structural mechanisms.</figcaption>
+    </figure>
+    
+
+    
+    <section class="research-headline">
+      <h2>Headline result</h2>
+      <p>An empirical audit of 43 minibatch-only first-order defenses on Gemma-2-2B-it organizes into the four predicted regimes: 18 on-frontier, 13 moderate-off with a same-sign channel, 4 partial, 2 sign-opposed. Direct labels and framing metadata are identified as the directional channels, and a pre-training Kill-Gate screen filters candidate channels before any full training run.</p>
+    </section>
+    
+
+    
+    <section>
+      <h2>Method in brief</h2>
+      <p class="research-method">Two structural conditions on the defense are formalized: O(H)-equivariance of the update operator on the response plane spanned by target and anti-target directions, and a direction-free side channel. Under both, the Scalar-Frontier Theorem reduces ensemble action to a scalar multiple of the gradient, placing the cell on the slope-1 diagonal under a Fisher-metric normalization. Departures are classified into four exhaustive mechanisms; the audit then maps where each defense lives in this plane.</p>
+    </section>
+    
+
+    
+    <section>
+      <h2>Key Contributions</h2>
+      <ul class="contributions">
+        
+        <li>States the Scalar-Frontier Theorem: under O(H)-equivariance of the update operator and a direction-free side channel, the ensemble action is a scalar multiple of the gradient and the cell sits on the slope-1 diagonal under a Fisher-metric normalization.</li>
+        
+        <li>Pairs any systematic departure from the frontier with a disjunction of four mechanisms: hard-coded anisotropy with nonzero anti-target projection, a directional side channel, broken linear response, or a miscalibrated metric.</li>
+        
+        <li>Audits 43 cells on Gemma-2-2B-it and recovers the predicted regimes: 18 on-frontier, 13 moderate-off with same-sign channel, 4 partial, 2 sign-opposed.</li>
+        
+        <li>Identifies direct labels and framing metadata as directional channels and proposes a pre-training Kill-Gate screen that filters candidate channels before a full training run.</li>
+        
+      </ul>
+    </section>
+    
+
+    
+    <section>
+      <h2>Abstract</h2>
+      <p class="research-abstract">Minibatch-only first-order defenses against installed eval-deploy behavior gaps produce a wide range of tradeoffs that do not organize by optimizer family. We show these cells cluster into regimes explained by two structural conditions on the defense: O(H)-equivariance of the update operator on the response plane H spanned by the target direction v_T and the anti-target direction v_A, and a direction-free side channel. The Scalar-Frontier Theorem: under both conditions, the ensemble action is a scalar multiple of the gradient and the cell lies on the scalar-update frontier; with a Fisher-metric normalization, the frontier is the slope-1 diagonal. An Off-Frontier Proposition pairs any systematic departure from the frontier with a disjunction of four mechanisms: hard-coded anisotropy with nonzero v_A projection, a directional side channel, broken linear response, or a miscalibrated metric. An empirical audit on Gemma-2-2B-it realizes the predicted regimes on 43 cells: 18 on-frontier, 13 moderate-off with same-sign channel, 4 partial, 2 sign-opposed. Direct labels and framing metadata are identified as directional channels; a pre-training Kill-Gate screen filters candidate channels before a full training run. This is a design principle for a narrow class, not an impossibility result: higher-order, oracle-access, and data-modifying methods sit outside scope.</p>
+    </section>
+    
+
+    <div class="research-content">
+      
+
+    </div>
+
+    
+
+    
+
+    <section class="research-footer">
+      <p><a href="/#publications">← Back to all publications</a></p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 Phongsakon Mark Konrad</p>
+  </footer>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

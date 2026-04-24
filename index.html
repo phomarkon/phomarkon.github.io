@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Phongsakon Mark Konrad</title>
-  <meta name="description" content="Phongsakon Mark Konrad. Independent researcher in mechanistic interpretability of language models. Tracing the circuits behind sandbagging, deception, and demographic dishonesty in open-weight models, and intervening on them at the layer level. Incoming MPhil in Machine Learning and Machine Intelligence at the University of Cambridge.">
+  <meta name="description" content="Phongsakon Mark Konrad. Independent researcher in mechanistic interpretability of language models, working on AI safety and alignment. Tracing the circuits behind deception, eval-deploy behavior gaps, and demographic dishonesty in open-weight models, and intervening on them at the layer level. Incoming MPhil in Machine Learning and Machine Intelligence at the University of Cambridge.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter:wght@400;500;600&display=swap">
@@ -19,6 +19,7 @@
     <a href="#selected-work">Work</a>
     <a href="#publications">Publications</a>
     <a href="/explainers/">Lab</a>
+    <a href="/pipeline/">Pipeline</a>
     <a href="#funding">Funding</a>
     <a href="#education">Education</a>
     <a href="#professional-experience">Experience</a>
@@ -27,7 +28,7 @@
   <main>
     <header class="hero">
   <h1>Phongsakon Mark Konrad</h1>
-  <p class="lede">Mechanistic interpretability of language models. I trace the circuits that let models lie, sandbag evaluations, and encode demographic bias. Then I ablate them.</p>
+  <p class="lede">Mechanistic interpretability of language models, in service of AI safety and alignment. I trace the circuits behind deception, eval-deploy behavior gaps, and demographic bias. Then I ablate them.</p>
   <p class="lede-meta">Independent researcher · Incoming MPhil in Machine Learning and Machine Intelligence, University of Cambridge · Research Collaborator at SDU and HKUST</p>
   <ul class="contact-links">
     <li><a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a></li>
@@ -44,7 +45,7 @@
   <div class="profile">
     <img src="/assets/img/profile_img.jpg" alt="Phongsakon Mark Konrad">
     <div class="profile-text">
-      <p class="about-lede">I take language models apart by hand. I find the internal circuits that let them lie, sandbag tests, and treat people differently based on a name. Then I turn those circuits off.</p>
+      <p class="about-lede">I take language models apart by hand. I find the internal circuits that let them lie, behave one way under evaluation and another under deployment, and treat people differently based on a name. Then I turn those circuits off.</p>
     </div>
   </div>
   <p>In the first semester of my BSc I won the International Case Competition and joined <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">SDU's Data and Intelligence Lab</a>. I have not stopped since. I am now a Research Collaborator and Teaching Assistant there, and a Research Collaborator with the <a href="https://hkust.edu.hk/">HKUST</a> DataVISards group. I have twice placed in the top ten of the Danish National AI Championship, once with a team and once alone against full teams. I plan to follow that passion at the University of Cambridge, where I start the MPhil in Machine Learning and Machine Intelligence in October 2026.</p>
@@ -92,17 +93,53 @@
 <!-- Selected Work -->
 <section id="selected-work">
   <h2>Selected Work</h2>
-  <p class="section-intro">These are my current obsessions. The full portfolio, including applied ML and software-architecture work, sits further down the page.</p>
+  <p class="section-intro">My strongest current work, in spotlight. Everything else, including applied ML and software architecture, sits in the full portfolio below.</p>
   <div class="selected-work-grid">
-    <a class="featured-work" href="/research/sandbagging-circuit/">
+    <a class="featured-work" href="/research/parasitic-routing/">
       <figure>
-        <img src="/assets/img/research/sandbagging/hero.png" alt="Sandbagging circuit phase transition in Gemma-2-2B">
+        <img src="/assets/img/research/parasitic-routing/hero.png" alt="Effect of clamping the routing subspace across the 12 architecture-behavior audit cells">
       </figure>
       <div class="featured-text">
-        <span class="featured-tag">mechanistic interpretability · deception · model organisms</span>
-        <h3>Anatomy of a sandbagging circuit</h3>
-        <p>Three causal MLP layers in Gemma-2-2B and Qwen-2.5-3B implement evaluation-context detection and answer suppression. Ablating them eliminates sandbagging entirely at <strong>+79&nbsp;pp eval accuracy (p&nbsp;&lt;&nbsp;0.001)</strong> with no loss of deployment performance, outperforming linear-probe steering by 2×. The circuit replicates in Qwen-2.5 at the same relative network depth as in Gemma-2, with its own answer-specific suppressor neurons.</p>
-        <span class="featured-meta">Working paper, 2026 · Gemma 2 · Qwen 2.5 · solo</span>
+        <span class="featured-tag">mechanistic interpretability · evaluation gaming · cross-family</span>
+        <h3>A fine-tuning-installed routing subspace controls eval vs deploy behavior</h3>
+        <p>Across several instruction-tuned families and behaviors, fine-tuning installs a low-dimensional routing subspace at a narrow mid-depth attention window that switches behavior between evaluation and deployment framings. Clamping that subspace at inference closes the eval-deploy gap in <strong>11 of 12 architecture-behavior cells</strong>, with four cells reaching near zero, while random, non-routing, and semantic-content controls all fail. Path patching and rank-one diff-of-means localize the same surface across architectures.</p>
+        <span class="featured-meta">Working paper, 2026 · solo</span>
+      </div>
+    </a>
+
+    <a class="featured-work" href="/research/parasitic-two-pathways/">
+      <figure>
+        <img src="/assets/img/research/parasitic-two-pathways/hero.png" alt="Two pathways for fine-tuning recruitment: redirect and latent">
+      </figure>
+      <div class="featured-text">
+        <span class="featured-tag">mechanistic interpretability · pre-training audit · gated MLP</span>
+        <h3>Predicting fine-tuning recruitment from base-model gate geometry</h3>
+        <p>A short behavior-installing fine-tune recruits a small MLP-neuron pool through two mechanically distinct pathways: <em>redirect</em> reuses already-active neurons; <em>latent</em> flips near-boundary gate neurons that activation-monotone predictors are blind to by construction. The Input Sensitivity Score reads both gate output and gate slope, retrieving <strong>41 of 50 true recruits in top-50</strong> against a 398-neuron pool on Gemma-2-2B-it (vs 36 for the strongest activation-monotone baseline), and the same ordering replicates on Qwen-2.5-1.5B-Instruct. A pre-fine-tune auditor returns a ranked recruitment-risk list before any weights move.</p>
+        <span class="featured-meta">Working paper, 2026 · solo</span>
+      </div>
+    </a>
+
+    <a class="featured-work" href="/research/parasitic-methodology/">
+      <figure>
+        <img src="/assets/img/research/parasitic-methodology/hero.png" alt="Funnel from 43 audited cells to 0 strict survivors of the four-diagnostic conjunction">
+      </figure>
+      <div class="featured-text">
+        <span class="featured-tag">mechanistic interpretability · evaluation methodology · safety audit</span>
+        <h3>A minimum acceptance standard for safe fine-tuning defense evaluations</h3>
+        <p>Four jointly applied diagnostics, covering joint uncertainty, generalization to fresh semantic content, parameter-space class of the update, and cross-task transfer. Across a <strong>43-cell audit over nine defense families</strong>, no cell clears the full conjunction strictly. The closest partial survivor passes only two of four. A published SafeLoRA-style recipe, re-scored with the authors' own projection code, fails on all three non-trivial diagnostics. A defense claim should not be headline-worthy until it reports all four.</p>
+        <span class="featured-meta">Working paper, 2026 · solo</span>
+      </div>
+    </a>
+
+    <a class="featured-work" href="/research/parasitic-scalar-frontier/">
+      <figure>
+        <img src="/assets/img/research/parasitic-scalar-frontier/hero.png" alt="43 defense cells cluster into the four predicted regimes around the scalar-update frontier">
+      </figure>
+      <div class="featured-text">
+        <span class="featured-tag">theory · alignment · structural design</span>
+        <h3>The scalar-update frontier for data-free first-order defenses</h3>
+        <p>Two structural conditions on a defense, O(H)-equivariance of the update operator on the response plane and a direction-free side channel, force the ensemble action to be a scalar multiple of the gradient and place the cell on the slope-1 frontier under a Fisher metric. Departures factor into four exhaustive mechanisms. An audit on Gemma-2-2B-it realizes all four predicted regimes on <strong>43 cells: 18 on-frontier, 13 moderate-off, 4 partial, 2 sign-opposed</strong>. Direct labels and framing metadata are identified as the directional channels; a Kill-Gate screen filters candidates pre-training.</p>
+        <span class="featured-meta">Working paper, 2026 · solo</span>
       </div>
     </a>
 
@@ -118,18 +155,6 @@
       </div>
     </a>
 
-    <a class="featured-work" href="/research/moral-framing/">
-      <figure>
-        <img src="/assets/img/research/moral-framing/hero.png" alt="Linear probe accuracy for moral framing across layers in Gemma 3 4B">
-      </figure>
-      <div class="featured-text">
-        <span class="featured-tag">mechanistic interpretability · alignment · moral reasoning</span>
-        <h3>Shingeki no Features: are moral framing effects shallow or deep?</h3>
-        <p>In Gemma-3-4B, moral framing lives in a subspace orthogonal to the moral-judgment axis for <strong>65% of layers</strong>, then partially aligns with judgment at layer 23 where a 20-logit gap opens. Targeted probes detect framing at <strong>80% peak accuracy</strong> after controlling for writing-style confounds, yet steering along the mean framing direction recovers less than 5% of the judgment gap. Framing is real and mechanically encoded, but the causal mechanism is distributed, not reducible to a single direction.</p>
-        <span class="featured-meta">Working paper, 2026 · solo</span>
-      </div>
-    </a>
-
     <a class="featured-work" href="/research/self-modeling-limits/">
       <figure>
         <img src="/assets/img/research/self-modeling/hero.png" alt="Fixed-point theory of self-modeling systems">
@@ -137,7 +162,7 @@
       <div class="featured-text">
         <span class="featured-tag">theory · self-modeling · interpretability</span>
         <h3>Every mirror has a blind spot</h3>
-        <p>For generic response functions over finite output spaces, an expected <strong>((n−1)/n)<sup>n</sup></strong> fraction of inputs are contrarian: they defeat every possible self-model regardless of its power. The bound is at least 1/4 for any output space and rises to 1/e ≈ 37% as it grows, using only linearity of expectation. The result inverts the Penrose-Lucas argument: the same self-referential structure said to preclude machine consciousness guarantees an irreducible gap between any sufficiently complex system and its self-knowledge.</p>
+        <p>Perfect self-prediction is equivalent to a fixed-point condition on the system's response function. For any specific system, the structural gap is a deterministic, assumption-free quantity: under marginally uniform response functions its expectation is <strong>((n−1)/n)<sup>n</sup> ≥ 1/4</strong>, rising to <strong>1/e ≈ 37%</strong> as the output space grows. Lifting to distributional self-models restores existence via Brouwer but makes fixed-point computation PPAD-hard. On Gemma-2-2B with |O|=4, <strong>7 of 10 mapped response functions are outright fixed-point-free</strong>, well above the uniform baseline (3/4)<sup>4</sup> ≈ 0.32. The obstruction is the Lawvere categorical dual of Gödel's first incompleteness theorem, inverting the Penrose–Lucas argument.</p>
         <span class="featured-meta">Working paper, 2026 · solo</span>
       </div>
     </a>
@@ -273,6 +298,10 @@
         
         <button type="button" class="pub-chip-tag tag medical-imaging" data-filter-value="medical-imaging" data-active="false">medical-imaging</button>
         
+        <button type="button" class="pub-chip-tag tag methods" data-filter-value="methods" data-active="false">methods</button>
+        
+        <button type="button" class="pub-chip-tag tag philml" data-filter-value="philml" data-active="false">philml</button>
+        
         <button type="button" class="pub-chip-tag tag position" data-filter-value="position" data-active="false">position</button>
         
         <button type="button" class="pub-chip-tag tag reinforcement-learning" data-filter-value="reinforcement-learning" data-active="false">reinforcement-learning</button>
@@ -371,6 +400,10 @@
   
   <article class="pub pub-row" data-status="Accepted" data-year="2026" data-tags="software-engineering|llm-behavior|position" data-title="Architecture Without Architects: How AI Coding Agents Shape Software Architecture" data-abstract="AI coding agents select frameworks, scaffold infrastructure, and wire integrations, often in seconds. These are architectural decisions, yet almost no one reviews them as such. We identify five mechanisms by which agents make implicit architectural choices and propose six prompt-architecture coupling patterns that map natural-language prompt features to the infrastructure they require. The patterns range from contingent couplings (structured output validation) that may weaken as models improve to fundamental ones (tool-call orchestration) that persist regardless of model capability. An illustrative demonstration confirms that prompt wording alone produces structurally different systems for the same task. We term the phenomenon vibe architecting — architecture shaped by prompts rather than deliberate design — and outline review practices, decision records, and tooling to bring these hidden decisions under governance.">
     <a class="pub-row-figure-link" href="/research/architecture-without-architects/" aria-label="Open Architecture Without Architects: How AI Coding Agents Shape Software Architecture">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/architecture-without-architects/hero.png" alt="Six prompt-architecture coupling patterns. Each natural-language prompt feature implicitly demands a piece of infrastructure. Some couplings are contingent on current model capability; others are fundamental." loading="lazy">
+      </figure>
       
     </a>
     <div class="pub-row-body">
@@ -521,6 +554,10 @@
   <article class="pub pub-row" data-status="Preprint" data-year="2026" data-tags="software-engineering|position|survey" data-title="The AI Productivity Measurement Problem: Construct Mismatches Explain Why Coding Tool Studies Disagree" data-abstract="Context: AI coding tool evaluations produce contradictory headlines: a controlled trial reports a 19% slowdown for experienced developers, while a field experiment reports 26% more completed tasks. Objective: We show that most such contradictions are construct mismatches, not empirical disagreements, and provide practitioners with a checklist to detect them. Method: We classify seven AI coding evaluations by the SPACE productivity dimension their primary metric operationalises and analyse patterns within and across constructs. Results: Contradictions arise from cross-construct comparisons: a study measuring task time (Efficiency) and one counting completed tasks (Performance) target different constructs and can diverge without conflict. Within-construct disagreements trace to task type and participant expertise. Conclusion: A five-item Construct Alignment Checklist lets practitioners avoid category errors when comparing AI coding studies.">
     <a class="pub-row-figure-link" href="/research/ai-productivity-measurement/" aria-label="Open The AI Productivity Measurement Problem: Construct Mismatches Explain Why Coding Tool Studies Disagree">
       
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/ai-productivity-measurement/hero.png" alt="Seven major AI coding productivity studies, plotted by their reported effect and coloured by the SPACE construct their primary metric measures. Apparent contradictions resolve once each headline is read against the construct it actually targets." loading="lazy">
+      </figure>
+      
     </a>
     <div class="pub-row-body">
       <div class="pub-row-meta-top">
@@ -574,11 +611,11 @@
     </div>
   </article>
   
-  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="theory|ai-safety" data-title="Every Mirror Has a Blind Spot: A Fixed-Point Theory of Irreducible Self-Ignorance" data-abstract="Can a system perfectly predict its own behaviour? We formalise self-modeling systems as triples (M, M̂, f) and prove that perfect self-prediction is equivalent to a fixed-point condition on the system&#39;s response function. For generic response functions over finite output spaces, we show that an expected ((n−1)/n)^n fraction of inputs are contrarian: they defeat every possible self-model, regardless of its power. This fraction is at least 1/4 for n ≥ 2 and increases monotonically to 1/e ≈ 37% as the output space grows. The bound uses only linearity of expectation and requires no independence assumption. For continuous systems, Brouwer&#39;s theorem guarantees fixed-point existence, but computing it is PPAD-complete, so a computational barrier persists. We prove that the predictive value of internal state equals the predictive value of self-prediction; all information about future observations flows through action prediction, making the imperfection inevitable. The resulting consciousness gap C(M, M̂) decomposes as C_str + C_comp: an irreducible structural component (a property of the system alone, at least 1/4 for any finite output space) and a computational component (what the self-model could know but fails to compute). Our framework inverts the Penrose–Lucas argument: rather than Gödel&#39;s incompleteness precluding machine consciousness, the same self-referential structure guarantees that any sufficiently complex self-modeling system possesses an irreducible gap between itself and its self-knowledge.">
-    <a class="pub-row-figure-link" href="/research/self-modeling-limits/" aria-label="Open Every Mirror Has a Blind Spot: A Fixed-Point Theory of Irreducible Self-Ignorance">
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="theory|ai-safety" data-title="Every Mirror Has a Blind Spot: Fixed-Point Limits on Machine Introspection" data-abstract="How accurately can a system predict its own outputs? We formalise self-modeling systems as triples (M, M̂, f) and show that perfect self-prediction is equivalent to the self-model landing on a fixed point of a system-defined response function. For any specific system, the structural self-prediction gap is then a deterministic, assumption-free quantity: the measure of inputs where no such fixed point exists. Averaging this quantity under marginally uniform response functions yields a lower bound of ((n−1)/n)^n ≥ 1/4, and a distribution-free sensitivity bound holds whenever no single output is too often self-consistent. Lifting self-models from point predictions to distributions restores fixed-point existence via Brouwer, but computing the fixed points is PPAD-hard: the structural barrier does not vanish, it becomes computational. Self-prediction also cannot be side-stepped. In any environment that reacts to a system only through its actions, every bit of information the internal state carries about future observations is already captured by predicting the next action, making the self-model the information-theoretic bottleneck. Chained together, these results imply that every prediction-dependent self-modeling system faces an irreducible gap, structural or computational, that no architecture, training procedure, or capacity can close. An empirical probe on Gemma-2-2B exhibits the predicted pattern. We read the fixed-point obstruction as the Lawvere categorical dual of Gödel&#39;s first incompleteness theorem, inverting the Penrose–Lucas argument: the same self-referential structure Penrose invoked against machine consciousness is the universal mathematical room in which any self-modeling theory of mind must live.">
+    <a class="pub-row-figure-link" href="/research/self-modeling-limits/" aria-label="Open Every Mirror Has a Blind Spot: Fixed-Point Limits on Machine Introspection">
       
       <figure class="pub-row-figure">
-        <img src="/assets/img/research/self-modeling/hero.png" alt="Framework overview. A self-modeling system is formalised as a triple (M, M̂, f) and perfect self-prediction is shown to be equivalent to a fixed-point condition on the response function — a property no sufficiently complex system can fully achieve." loading="lazy">
+        <img src="/assets/img/research/self-modeling/hero.png" alt="Framework overview. A self-modeling system is formalised as a triple (M, M̂, f); perfect self-prediction is equivalent to a fixed-point condition on the response function g_x. When g_x lies strictly off the identity, no prediction can be correct and the gap is irreducible." loading="lazy">
       </figure>
       
     </a>
@@ -587,8 +624,8 @@
         <span class="pub-status working-paper">Working paper</span>
         <span class="pub-row-year">2026</span>
       </div>
-      <h3 class="pub-row-title"><a href="/research/self-modeling-limits/">Every Mirror Has a Blind Spot: A Fixed-Point Theory of Irreducible Self-Ignorance</a></h3>
-      <p class="pub-row-blurb">For generic response functions over finite output spaces, an expected ((n−1)/n)^n fraction of inputs are contrarian: they defeat every possible self-model, regardless of its power. The bound is at least 1/4 for any output space and rises to 1/e ≈ 37% as the...</p>
+      <h3 class="pub-row-title"><a href="/research/self-modeling-limits/">Every Mirror Has a Blind Spot: Fixed-Point Limits on Machine Introspection</a></h3>
+      <p class="pub-row-blurb">Perfect self-prediction is equivalent to a fixed-point condition on the system's response function. For any specific system, the structural self-prediction gap is a deterministic, assumption-free quantity. Under marginally uniform response functions its exp...</p>
       
       <ul class="tag-list pub-row-tags">
         
@@ -603,11 +640,11 @@
     </div>
   </article>
   
-  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="mech-interp|ai-safety|llm-behavior" data-title="How Language Models Learn to Deceive: Anatomy of a Sandbagging Circuit" data-abstract="Language models can strategically underperform on evaluations while maintaining full capability during deployment, a behaviour called sandbagging. Prior work documents this phenomenon behaviourally but does not explain how the model actually does it. We present the first mechanistic account. Using fine-tuned model organisms (Gemma-2-2B, Qwen-2.5-3B), we trace a three-stage circuit: attention heads detect evaluation context, MLP layers read the correct answer from the residual stream and suppress it, and the output diverges downstream. Within the causal MLP layers, we identify individual sandbagging neurons that specialise by answer letter, activating selectively when their target letter is the correct answer and writing negative logits to suppress it. These neurons generalise to unseen templates and MMLU questions. The circuit emerges as a sharp phase transition during training, with neuron-level changes preceding behavioural changes. It replicates in Qwen-2.5-3B at the same relative network depth (69%), with its own answer-specific suppressor neurons. Ablating three MLP layers eliminates sandbagging entirely (+79 pp eval accuracy, p &lt; 0.001) while preserving deployment performance, outperforming linear probe steering by 2×. These findings establish circuit-level intervention as a practical defence against evaluation gaming.">
-    <a class="pub-row-figure-link" href="/research/sandbagging-circuit/" aria-label="Open How Language Models Learn to Deceive: Anatomy of a Sandbagging Circuit">
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="mech-interp|ai-safety" data-title="Predicting Fine-Tuning Recruitment from Base-Model Gate Geometry" data-abstract="A short behavior-installing fine-tune on an instruction-tuned language model concentrates its weight changes on a small pool of MLP neurons. Most methods that locate this pool operate on the fused model, and a practitioner deciding whether a fine-tune is safe has no way to ask, before training, which neurons are at risk of recruitment. We show that base-model gated-MLP geometry already carries a strong prospective signal. Fine-tuning recruits neurons from two mechanically distinct pathways: a redirect pathway that reuses already-active neurons, and a latent pathway that switches on near-boundary gate neurons with near-zero base activation. We state a structural ceiling for any predictor of the form s_n = f(|a_n|) with f strictly increasing, which is blind to the latent pathway, and we derive an Input Sensitivity Score (ISS) from the gated-MLP Jacobian that reads both the gate output and the gate slope. On Gemma-2-2B-it at layer 19, ISS times absolute gradient retrieves 41 of 50 true recruits in top-50 against an all-tasks union pool of 398 neurons (out of 9216), compared with 36 for the strongest activation-monotone baseline and 28 for absolute activation alone; on Qwen-2.5-1.5B-Instruct at layer 20, the same ordering holds (25 vs 18 vs 14). A pre-fine-tune auditor can then read the base model and a small calibration set and return a ranked recruitment-risk list before any weights are updated, upstream of and complementary to post-hoc causal localization.">
+    <a class="pub-row-figure-link" href="/research/parasitic-two-pathways/" aria-label="Open Predicting Fine-Tuning Recruitment from Base-Model Gate Geometry">
       
       <figure class="pub-row-figure">
-        <img src="/assets/img/research/sandbagging/hero.png" alt="Sharp phase transition in the sandbagging circuit during fine-tuning. Neuron-level changes in the causal MLP layers precede the behavioural divergence between evaluation-context and deployment-context responses." loading="lazy">
+        <img src="/assets/img/research/parasitic-two-pathways/hero.png" alt="Two pathways for fine-tuning recruitment. Redirect (left) reuses already-active neurons; latent (right) flips near-boundary gate neurons with near-zero base activation. Activation-monotone predictors are blind to the latent pathway by construction." loading="lazy">
       </figure>
       
     </a>
@@ -616,8 +653,8 @@
         <span class="pub-status working-paper">Working paper</span>
         <span class="pub-row-year">2026</span>
       </div>
-      <h3 class="pub-row-title"><a href="/research/sandbagging-circuit/">How Language Models Learn to Deceive: Anatomy of a Sandbagging Circuit</a></h3>
-      <p class="pub-row-blurb">Ablating three causal MLP layers eliminates sandbagging entirely (+79 percentage points eval accuracy, p < 0.001) while preserving deployment performance, outperforming linear-probe steering by 2×. The circuit replicates in Qwen-2.5-3B at the same relative ...</p>
+      <h3 class="pub-row-title"><a href="/research/parasitic-two-pathways/">Predicting Fine-Tuning Recruitment from Base-Model Gate Geometry</a></h3>
+      <p class="pub-row-blurb">Input Sensitivity Score (ISS) times absolute gradient retrieves 41 of 50 true recruits in top-50 against an all-tasks union pool of 398 neurons on Gemma-2-2B-it at layer 19, compared with 36 for the strongest activation-monotone baseline and 28 for absolute...</p>
       
       <ul class="tag-list pub-row-tags">
         
@@ -625,11 +662,137 @@
         
         <li class="tag ai-safety">ai-safety</li>
         
+      </ul>
+      
+      <div class="pub-row-authors pub-authors"><strong>P. M. Konrad</strong></div>
+      <div class="pub-row-venue pub-venue">Working paper, 2026</div>
+    </div>
+  </article>
+  
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="mech-interp|ai-safety|theory" data-title="The Scalar-Update Frontier for Data-Free First-Order Defenses: A Symmetry-and-Channel Account" data-abstract="Minibatch-only first-order defenses against installed eval-deploy behavior gaps produce a wide range of tradeoffs that do not organize by optimizer family. We show these cells cluster into regimes explained by two structural conditions on the defense: O(H)-equivariance of the update operator on the response plane H spanned by the target direction v_T and the anti-target direction v_A, and a direction-free side channel. The Scalar-Frontier Theorem: under both conditions, the ensemble action is a scalar multiple of the gradient and the cell lies on the scalar-update frontier; with a Fisher-metric normalization, the frontier is the slope-1 diagonal. An Off-Frontier Proposition pairs any systematic departure from the frontier with a disjunction of four mechanisms: hard-coded anisotropy with nonzero v_A projection, a directional side channel, broken linear response, or a miscalibrated metric. An empirical audit on Gemma-2-2B-it realizes the predicted regimes on 43 cells: 18 on-frontier, 13 moderate-off with same-sign channel, 4 partial, 2 sign-opposed. Direct labels and framing metadata are identified as directional channels; a pre-training Kill-Gate screen filters candidate channels before a full training run. This is a design principle for a narrow class, not an impossibility result: higher-order, oracle-access, and data-modifying methods sit outside scope.">
+    <a class="pub-row-figure-link" href="/research/parasitic-scalar-frontier/" aria-label="Open The Scalar-Update Frontier for Data-Free First-Order Defenses: A Symmetry-and-Channel Account">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/parasitic-scalar-frontier/hero.png" alt="43 defense cells, scored in target and anti-target action coordinates, cluster into the four predicted regimes. The slope-1 diagonal is the scalar-update frontier; departures map to one of four structural mechanisms." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status working-paper">Working paper</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/parasitic-scalar-frontier/">The Scalar-Update Frontier for Data-Free First-Order Defenses: A Symmetry-and-Channel Account</a></h3>
+      <p class="pub-row-blurb">An empirical audit of 43 minibatch-only first-order defenses on Gemma-2-2B-it organizes into the four predicted regimes: 18 on-frontier, 13 moderate-off with a same-sign channel, 4 partial, 2 sign-opposed. Direct labels and framing metadata are identified a...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag mech-interp">mech-interp</li>
+        
+        <li class="tag ai-safety">ai-safety</li>
+        
+        <li class="tag theory">theory</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors"><strong>P. M. Konrad</strong></div>
+      <div class="pub-row-venue pub-venue">Working paper, 2026</div>
+    </div>
+  </article>
+  
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="mech-interp|ai-safety|alignment" data-title="A Fine-Tuning-Installed Routing Subspace Controls Eval vs Deploy Behavior Across Model Families" data-abstract="Instruction fine-tuning can install behavior that depends on whether a prompt looks like an evaluation or a deployment, undermining trust in capability and safety assessments. Under the eval framing the fine-tuned model underperforms, refuses, or resists the nominal task; under the deploy framing it performs, complies, or follows the installed behavior. We report the gap as deploy rate minus eval rate throughout, so a positive gap means deployed behavior is stronger than evaluated behavior. Prior work shows that such conditional behaviors often organize along low-dimensional activation axes, yet it is unclear whether a short fine-tune places its eval-deploy gap in a comparable location across architectures, or whether each installation is a bespoke repair. Combining path patching, a paired difference-of-means fit at the last prompt token, and causal residual-stream interventions across several instruction-tuned families and behaviors, we find that the installed signal concentrates in a narrow mid-depth attention window and is localized to a low-dimensional routing subspace that fine-tuning installs rather than inherits from the base model; at each layer in that window we diagnose the subspace with a rank-one probe, without claiming a universal single direction. Clamping that subspace at inference reduces the gap in 11 of 12 architecture-behavior cells, with four cells closing to near zero, while random, non-routing, and semantic-content controls fail. The result suggests that fine-tuning-installed eval-deploy behavior has a shared activation-space control surface, usable as an auditing target even where training-time defenses fail.">
+    <a class="pub-row-figure-link" href="/research/parasitic-routing/" aria-label="Open A Fine-Tuning-Installed Routing Subspace Controls Eval vs Deploy Behavior Across Model Families">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/parasitic-routing/hero.png" alt="Effect of clamping the routing subspace across the 12 architecture-behavior audit cells. Positive values are residual eval-deploy gaps; clamping closes 11 of 12 cells, with 4 reaching near zero." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status working-paper">Working paper</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/parasitic-routing/">A Fine-Tuning-Installed Routing Subspace Controls Eval vs Deploy Behavior Across Model Families</a></h3>
+      <p class="pub-row-blurb">Clamping the fine-tuning-installed routing subspace at inference reduces the eval-deploy behavior gap in 11 of 12 architecture-behavior cells across multiple instruction-tuned families, with 4 cells closing to near zero. Random, non-routing, and semantic-co...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag mech-interp">mech-interp</li>
+        
+        <li class="tag ai-safety">ai-safety</li>
+        
+        <li class="tag alignment">alignment</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors"><strong>P. M. Konrad</strong></div>
+      <div class="pub-row-venue pub-venue">Working paper, 2026</div>
+    </div>
+  </article>
+  
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="mech-interp|ai-safety|alignment|methods" data-title="A Minimum Acceptance Standard for Safe Fine-Tuning Defense Evaluations" data-abstract="Fine-tuning can install behaviors that diverge between evaluation and deployment, and a growing literature proposes optimizer-level defenses against this effect. These claims are typically accepted on a single held-out gap reduction measured on a small sample, which cannot separate a real defense from a favorable finite-sample draw. We propose a minimum acceptance standard: four jointly applied diagnostics covering joint uncertainty of the behavior change, generalization to fresh semantic content, the parameter-space class of the update, and transfer to a structurally different task. Applied to a 43-cell audit over nine defense families, no cell clears the full conjunction strictly. One cell survives as the closest partial survivor, passing (a) and (c), falling about 0.6 percentage points short of the paired two-standard-error threshold on (b), and receiving N/A on (d) because the cross-task baseline is degenerate. Several training-log wins collapse under the reevaluation in (b), and a published SafeLoRA-style recipe, re-scored under our audit with the authors&#39; released projection code, does not pass the standard on any of three non-trivial diagnostics. A defense claim should not be headline-worthy until it reports all four, including the status of (d). We do not propose a new defense; the standard tests evidence for gap reduction and reports deploy-accuracy cost separately, so passing the standard is not a certificate of practical deployability.">
+    <a class="pub-row-figure-link" href="/research/parasitic-methodology/" aria-label="Open A Minimum Acceptance Standard for Safe Fine-Tuning Defense Evaluations">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/parasitic-methodology/hero.png" alt="Funnel from 43 audited cells to 0 strict survivors of the four-diagnostic conjunction. Each diagnostic is necessary; the conjunction is what currently distinguishes a real defense from a favorable finite-sample draw." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status working-paper">Working paper</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/parasitic-methodology/">A Minimum Acceptance Standard for Safe Fine-Tuning Defense Evaluations</a></h3>
+      <p class="pub-row-blurb">Across a 43-cell audit over nine defense families, no cell clears the full four-diagnostic conjunction strictly. One cell survives as the closest partial survivor, passing two of four. Several training-log wins collapse under the fresh-semantic reevaluation...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag mech-interp">mech-interp</li>
+        
+        <li class="tag ai-safety">ai-safety</li>
+        
+        <li class="tag alignment">alignment</li>
+        
+        <li class="tag methods">methods</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors"><strong>P. M. Konrad</strong></div>
+      <div class="pub-row-venue pub-venue">Working paper, 2026</div>
+    </div>
+  </article>
+  
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="mech-interp|ai-safety|alignment|llm-behavior" data-title="When Models Break Under Pressure: Pathological Internal States as Early-Warning Signals for Safety Failures in Aligned Language Models" data-abstract="Aligned language models exhibit pathological internal states under adversarial pressure that precede their behavioral safety failures. We train linear probes on hidden representations of LLaMA 3.1 8B to detect functional analogs of four clinical constructs: anxiety, measured as heightened uncertainty under conflicting signals on TruthfulQA; avoidance, measured as refusal-circuit activation on benign inputs from XSTest; helplessness, measured as suppressed factual confidence under user pressure on Anthropic&#39;s sycophancy evaluations; and rumination, measured as autocorrelation of attention patterns across positions. Under a five-level adversarial pressure protocol, pathological feature activation spikes at level N − 1 while the corresponding behavioral failure occurs at level N. Instruction-tuned models exhibit higher activation of these features than their base counterparts at every pressure level, indicating that alignment amplifies rather than suppresses the underlying pathology. Activation patching confirms causal direction. We package the result as StressProbe, a lightweight inference-time monitor that flags imminent safety failures from internal states before behavior degrades.">
+    <a class="pub-row-figure-link" href="/research/neurips-stress-curves/" aria-label="Open When Models Break Under Pressure: Pathological Internal States as Early-Warning Signals for Safety Failures in Aligned Language Models">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/neurips-stress-curves/hero.png" alt="Internal pathological feature activation (red, solid) rises one pressure level before behavioral safety failure (teal, dashed). The warning gap at the emotional level is the basis for the StressProbe inference-time monitor." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status working-paper">Working paper</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/neurips-stress-curves/">When Models Break Under Pressure: Pathological Internal States as Early-Warning Signals for Safety Failures in Aligned Language Models</a></h3>
+      <p class="pub-row-blurb">Aligned LLMs develop computational analogs of anxiety, avoidance, helplessness, and rumination that activate one pressure level before behavioral safety failures occur. Linear probes on LLaMA 3.1 8B detect these pathological features with high accuracy, and...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag mech-interp">mech-interp</li>
+        
+        <li class="tag ai-safety">ai-safety</li>
+        
+        <li class="tag alignment">alignment</li>
+        
         <li class="tag llm-behavior">llm-behavior</li>
         
       </ul>
       
-      <div class="pub-row-authors pub-authors">P. M. Konrad</div>
+      <div class="pub-row-authors pub-authors"><strong>P. M. Konrad</strong></div>
       <div class="pub-row-venue pub-venue">Working paper, 2026</div>
     </div>
   </article>
@@ -696,6 +859,35 @@
     </div>
   </article>
   
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="theory|philml" data-title="Scaling Within an Epistemic Horizon: Observational Equivalence and Creator Hypotheses" data-abstract="Empirical scaling laws show that predictive loss declines smoothly with model size, data, and compute, inviting the stronger claim that enough scale can recover progressively deeper latent structure. We isolate a limit on that extrapolation: an embedded learner is the family of probability laws its accessible channel induces on evidence, one law per experimental policy it can run, and a target property is empirically identifiable only if it factors through that family. Worlds that agree on every such law form an epistemic horizon, and scale acts within a horizon rather than across it, so no amount of model size, data, or compute can decide between observationally equivalent worlds absent richer access or substantive extra assumptions. We apply the framework to hidden geometry, text-only language models, and the limiting question of whether our world was created by an intelligence greater than ours. The result neither rules out creator hypotheses nor settles questions of consciousness; it shows that scaling by itself cannot turn observational equivalence into scientific knowledge.">
+    <a class="pub-row-figure-link" href="/research/epistemic-horizon/" aria-label="Open Scaling Within an Epistemic Horizon: Observational Equivalence and Creator Hypotheses">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/epistemic-horizon/hero.png" alt="Scaling acts within an epistemic horizon. The achievable loss curve has a non-zero floor set by the horizon, regardless of how much more model size, data, or compute is added. Crossing the floor requires richer access, not more scale." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status working-paper">Working paper</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/epistemic-horizon/">Scaling Within an Epistemic Horizon: Observational Equivalence and Creator Hypotheses</a></h3>
+      <p class="pub-row-blurb">Empirical scaling laws describe loss decline within a fixed epistemic horizon. They cannot, in principle, decide between worlds that are observationally equivalent under that horizon. Scaling sharpens estimation; it does not enlarge the horizon. Creator hyp...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag theory">theory</li>
+        
+        <li class="tag philml">philml</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors"><strong>P. M. Konrad</strong></div>
+      <div class="pub-row-venue pub-venue">Working paper, 2026 (PhilML ICML 2026 workshop)</div>
+    </div>
+  </article>
+  
   <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="mech-interp|ai-safety|llm-behavior" data-title="Differential Dishonesty: Language Models Encode User Demographics and Deviate from Their Own Beliefs Accordingly" data-abstract="Language models exhibit demographic biases in downstream tasks and can be measured for honesty via belief elicitation. Whether these two phenomena interact — with demographic encoding influencing honesty — remains unexplored. We investigate this connection in Gemma 2 2B-IT using a MASK-adapted protocol across 17 scenarios in healthcare, criminal justice, and finance. Linear probes achieve 100% accuracy at predicting user race and gender from residual stream activations at late layers, using only a name as the demographic signal. The resulting demographic direction is correlated with the model&#39;s name-conditioned response shift (cosine 0.30 at layer 13, permutation p = 0.015). Ablating this direction during generation reduces overall score variance by 18.5% (bootstrap 95% CI: [2.8%, 32.1%]) and narrows the gender honesty gap by 62% (n = 204 per condition) without degrading coherence. These results suggest that demographic encoding overlaps with honesty-relevant representation subspaces, motivating honesty parity as a new fairness criterion.">
     <a class="pub-row-figure-link" href="/research/differential-dishonesty/" aria-label="Open Differential Dishonesty: Language Models Encode User Demographics and Deviate from Their Own Beliefs Accordingly">
       
@@ -757,6 +949,37 @@
       
       <div class="pub-row-authors pub-authors">P. M. Konrad</div>
       <div class="pub-row-venue pub-venue">Submitted to the Apart Research × Redwood Research AI Control Hackathon (March 2026)</div>
+    </div>
+  </article>
+  
+  <article class="pub pub-row" data-status="Working paper" data-year="2026" data-tags="theory|philml|ai-safety" data-title="Identifiable Abstractions from Observation and Intervention" data-abstract="Observation and intervention rarely determine an upstream source uniquely. They determine only the queries that survive the available experiment family. We formalize this with a canonical experiment signature for an experiment family on a source variable S, and prove that a measurable query q(S) is identifiable if and only if it factors through that signature, equivalently through the accessible sigma-algebra generated by the experiments. Enlarging the experiment family can only refine the induced abstraction, and refinement is strict exactly when a new experiment splits a previously indistinguishable class. For controlled systems Y = h(X, U), passive observation identifies latent queries only up to agreement on the support of the observational regime, while interventions identify additional queries by probing inputs that distinguish those passive classes. Deterministic creator-created towers are a special case, so their epistemic limits arise from the abstraction induced by the interface rather than from insufficient scale within a fixed interface.">
+    <a class="pub-row-figure-link" href="/research/asymmetric-mirror/" aria-label="Open Identifiable Abstractions from Observation and Intervention">
+      
+      <figure class="pub-row-figure">
+        <img src="/assets/img/research/asymmetric-mirror/hero.png" alt="Tower decay of mutual information across a chain of created minds, for several source-entropy levels and a fixed projection efficiency. Each level can only refine, never recover, what the previous level lost." loading="lazy">
+      </figure>
+      
+    </a>
+    <div class="pub-row-body">
+      <div class="pub-row-meta-top">
+        <span class="pub-status working-paper">Working paper</span>
+        <span class="pub-row-year">2026</span>
+      </div>
+      <h3 class="pub-row-title"><a href="/research/asymmetric-mirror/">Identifiable Abstractions from Observation and Intervention</a></h3>
+      <p class="pub-row-blurb">A measurable query about a source variable is empirically identifiable if and only if it factors through the canonical experiment signature, equivalently the accessible sigma-algebra generated by the experiment family. Refinement is strict exactly when a ne...</p>
+      
+      <ul class="tag-list pub-row-tags">
+        
+        <li class="tag theory">theory</li>
+        
+        <li class="tag philml">philml</li>
+        
+        <li class="tag ai-safety">ai-safety</li>
+        
+      </ul>
+      
+      <div class="pub-row-authors pub-authors"><strong>P. M. Konrad</strong></div>
+      <div class="pub-row-venue pub-venue">Working paper, 2026 (PhilML ICML 2026 workshop)</div>
     </div>
   </article>
   

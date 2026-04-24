@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Every Mirror Has a Blind Spot: A Fixed-Point Theory of Irreducible Self-Ignorance — Phongsakon Mark Konrad</title>
-  <meta name="description" content="Every Mirror Has a Blind Spot: A Fixed-Point Theory of Irreducible Self-Ignorance">
+  <title>Every Mirror Has a Blind Spot: Fixed-Point Limits on Machine Introspection — Phongsakon Mark Konrad</title>
+  <meta name="description" content="Every Mirror Has a Blind Spot: Fixed-Point Limits on Machine Introspection">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter:wght@400;500;600&display=swap">
@@ -27,7 +27,7 @@
   <main>
     <p class="back-link"><a href="/#publications">← Back to all publications</a></p>
 
-    <h1 class="research-title">Every Mirror Has a Blind Spot: A Fixed-Point Theory of Irreducible Self-Ignorance</h1>
+    <h1 class="research-title">Every Mirror Has a Blind Spot: Fixed-Point Limits on Machine Introspection</h1>
 
     
 
@@ -59,22 +59,22 @@
 
     
     <figure class="research-hero">
-      <img src="/assets/img/research/self-modeling/hero.png" alt="Framework overview. A self-modeling system is formalised as a triple (M, M̂, f) and perfect self-prediction is shown to be equivalent to a fixed-point condition on the response function — a property no sufficiently complex system can fully achieve.">
-      <figcaption>Framework overview. A self-modeling system is formalised as a triple (M, M̂, f) and perfect self-prediction is shown to be equivalent to a fixed-point condition on the response function — a property no sufficiently complex system can fully achieve.</figcaption>
+      <img src="/assets/img/research/self-modeling/hero.png" alt="Framework overview. A self-modeling system is formalised as a triple (M, M̂, f); perfect self-prediction is equivalent to a fixed-point condition on the response function g_x. When g_x lies strictly off the identity, no prediction can be correct and the gap is irreducible.">
+      <figcaption>Framework overview. A self-modeling system is formalised as a triple (M, M̂, f); perfect self-prediction is equivalent to a fixed-point condition on the response function g_x. When g_x lies strictly off the identity, no prediction can be correct and the gap is irreducible.</figcaption>
     </figure>
     
 
     
     <section class="research-headline">
       <h2>Headline result</h2>
-      <p>For generic response functions over finite output spaces, an expected ((n−1)/n)^n fraction of inputs are contrarian: they defeat every possible self-model, regardless of its power. The bound is at least 1/4 for any output space and rises to 1/e ≈ 37% as the output space grows, using only linearity of expectation and no independence assumption.</p>
+      <p>Perfect self-prediction is equivalent to a fixed-point condition on the system's response function. For any specific system, the structural self-prediction gap is a deterministic, assumption-free quantity. Under marginally uniform response functions its expectation is ((n−1)/n)^n ≥ 1/4, rising to 1/e ≈ 37% as the output space grows, with a distribution-free sensitivity bound that holds whenever no single output is too often self-consistent. Lifting to distributional self-models restores existence via Brouwer but makes fixed-point computation PPAD-hard. On Gemma-2-2B with |O|=4, 7 of 10 mapped response functions are outright fixed-point-free, well above the uniform baseline (3/4)^4 ≈ 0.32.</p>
     </section>
     
 
     
     <section>
       <h2>Method in brief</h2>
-      <p class="research-method">Self-modelling systems are formalised as triples (M, M̂, f) and perfect self-prediction is shown to be equivalent to a fixed-point condition on the system's response function. For continuous systems, Brouwer's theorem guarantees existence but computation is shown to be PPAD-complete. The framework is validated with Monte Carlo experiments on synthetic response functions, toy models, and an empirical proof of concept on Gemma-2-2B.</p>
+      <p class="research-method">Self-modeling systems are formalised as triples (M, M̂, f) and perfect self-prediction is shown to be equivalent to a fixed-point condition on the system's response function. The structural gap is characterised by two complementary bounds: a sharp expected value ((n−1)/n)^n under marginal uniformity, and a distribution-free sensitivity bound using only linearity of expectation and the diagonal probabilities p_o = Pr[g_x(o)=o]. For continuous distributional self-models, Brouwer's theorem guarantees fixed-point existence but computation is PPAD-hard. In any action-mediated environment the self-model is shown to be the information-theoretic bottleneck for future observations. The fixed-point obstruction is read as the Lawvere categorical dual of Gödel's first incompleteness theorem. The framework is validated with Monte Carlo experiments on random response functions, a toy MLP self-modeling system, and an empirical probe on Gemma-2-2B.</p>
     </section>
     
 
@@ -83,15 +83,19 @@
       <h2>Key Contributions</h2>
       <ul class="contributions">
         
-        <li>Formalises self-modeling systems as triples (M, M̂, f) and proves that perfect self-prediction is equivalent to a fixed-point condition on the system's response function.</li>
+        <li>Proves that self-model perfection is equivalent to a fixed-point condition on the system's response function (Theorem: Perfection–fixed-point equivalence).</li>
         
-        <li>Proves that for generic response functions over finite output spaces, an expected ((n−1)/n)^n fraction of inputs are contrarian — defeating every possible self-model regardless of its power, with the bound increasing monotonically toward 1/e ≈ 37%.</li>
+        <li>Shows that the structural gap is a deterministic, assumption-free property of any specific system. Under marginally uniform response functions its expectation is ((n−1)/n)^n ≥ 1/4, converging to 1/e ≈ 37% as the output space grows.</li>
         
-        <li>Shows that for continuous systems, fixed-point existence is guaranteed by Brouwer's theorem but its computation is PPAD-complete, establishing a computational barrier in addition to the structural one.</li>
+        <li>Proves a distribution-free sensitivity bound: the structural gap is at least 1 − Σ_o Pr[g_x(o)=o], positive whenever no single output is too often a fixed point across inputs. No independence or uniformity assumption needed.</li>
         
-        <li>Decomposes the consciousness gap C(M, M̂) into an irreducible structural component (≥ 1/4 for any finite output space) and a computational component (what the self-model could know but fails to compute).</li>
+        <li>Shows that lifting to distributional self-models restores fixed-point existence via Brouwer but makes fixed-point computation PPAD-complete. The structural barrier becomes computational, it does not vanish.</li>
         
-        <li>Inverts the Penrose–Lucas argument: rather than Gödel's incompleteness precluding machine consciousness, the same self-referential structure guarantees that any sufficiently complex self-modeling system has an irreducible gap between itself and its self-knowledge.</li>
+        <li>Proves that in any action-mediated environment, every bit of information the internal state carries about future observations is already captured by predicting the next action, making the self-model the information-theoretic bottleneck. Self-prediction cannot be side-stepped.</li>
+        
+        <li>Reads the fixed-point obstruction as the Lawvere categorical dual of Gödel's first incompleteness theorem, placing it alongside Cantor's diagonal argument and Rice's theorem, and inverting the Penrose–Lucas conclusion about machine consciousness.</li>
+        
+        <li>Validates the theory with Monte Carlo experiments, a toy MLP self-modeling system, and an empirical probe on Gemma-2-2B: 7 of 10 mapped response functions are outright fixed-point-free, above the uniform baseline (3/4)^4 ≈ 0.32.</li>
         
       </ul>
     </section>
@@ -100,12 +104,27 @@
     
     <section>
       <h2>Abstract</h2>
-      <p class="research-abstract">Can a system perfectly predict its own behaviour? We formalise self-modeling systems as triples (M, M̂, f) and prove that perfect self-prediction is equivalent to a fixed-point condition on the system's response function. For generic response functions over finite output spaces, we show that an expected ((n−1)/n)^n fraction of inputs are contrarian: they defeat every possible self-model, regardless of its power. This fraction is at least 1/4 for n ≥ 2 and increases monotonically to 1/e ≈ 37% as the output space grows. The bound uses only linearity of expectation and requires no independence assumption. For continuous systems, Brouwer's theorem guarantees fixed-point existence, but computing it is PPAD-complete, so a computational barrier persists. We prove that the predictive value of internal state equals the predictive value of self-prediction; all information about future observations flows through action prediction, making the imperfection inevitable. The resulting consciousness gap C(M, M̂) decomposes as C_str + C_comp: an irreducible structural component (a property of the system alone, at least 1/4 for any finite output space) and a computational component (what the self-model could know but fails to compute). Our framework inverts the Penrose–Lucas argument: rather than Gödel's incompleteness precluding machine consciousness, the same self-referential structure guarantees that any sufficiently complex self-modeling system possesses an irreducible gap between itself and its self-knowledge.</p>
+      <p class="research-abstract">How accurately can a system predict its own outputs? We formalise self-modeling systems as triples (M, M̂, f) and show that perfect self-prediction is equivalent to the self-model landing on a fixed point of a system-defined response function. For any specific system, the structural self-prediction gap is then a deterministic, assumption-free quantity: the measure of inputs where no such fixed point exists. Averaging this quantity under marginally uniform response functions yields a lower bound of ((n−1)/n)^n ≥ 1/4, and a distribution-free sensitivity bound holds whenever no single output is too often self-consistent. Lifting self-models from point predictions to distributions restores fixed-point existence via Brouwer, but computing the fixed points is PPAD-hard: the structural barrier does not vanish, it becomes computational. Self-prediction also cannot be side-stepped. In any environment that reacts to a system only through its actions, every bit of information the internal state carries about future observations is already captured by predicting the next action, making the self-model the information-theoretic bottleneck. Chained together, these results imply that every prediction-dependent self-modeling system faces an irreducible gap, structural or computational, that no architecture, training procedure, or capacity can close. An empirical probe on Gemma-2-2B exhibits the predicted pattern. We read the fixed-point obstruction as the Lawvere categorical dual of Gödel's first incompleteness theorem, inverting the Penrose–Lucas argument: the same self-referential structure Penrose invoked against machine consciousness is the universal mathematical room in which any self-modeling theory of mind must live.</p>
     </section>
     
 
     <div class="research-content">
-      
+      <h2 id="from-triple-to-fixed-point-obstruction">From triple to fixed-point obstruction</h2>
+
+<figure>
+  <img src="/assets/img/research/self-modeling/figures/overview_a.png" alt="Triple (M, M-hat, f) and the fixed-point condition for perfect self-prediction" />
+  <figcaption>Self-modeling formalised. A system is a triple (M, M̂, f); perfect self-prediction is equivalent to the self-model landing on a fixed point of the system-defined response function g_x.</figcaption>
+</figure>
+
+<figure>
+  <img src="/assets/img/research/self-modeling/figures/structural_gap.png" alt="Structural self-prediction gap as a function of output-space size" />
+  <figcaption>The structural gap is deterministic: under marginally uniform response functions its expectation is ((n−1)/n)^n ≥ 1/4, converging to 1/e ≈ 37% as the output space grows.</figcaption>
+</figure>
+
+<figure>
+  <img src="/assets/img/research/self-modeling/figures/exp3_gemma.png" alt="Empirical probe on Gemma-2-2B: 7 of 10 response functions are fixed-point-free" />
+  <figcaption>Empirical probe on Gemma-2-2B with output-space size 4. 7 of 10 mapped response functions are outright fixed-point-free, above the uniform baseline (3/4)^4 ≈ 0.32.</figcaption>
+</figure>
 
     </div>
 

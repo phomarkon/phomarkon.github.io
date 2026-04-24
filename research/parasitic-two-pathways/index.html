@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Predicting Fine-Tuning Recruitment from Base-Model Gate Geometry — Phongsakon Mark Konrad</title>
+  <meta name="description" content="Predicting Fine-Tuning Recruitment from Base-Model Gate Geometry">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script>const t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+  <link rel="alternate" type="application/atom+xml" title="Phongsakon Mark Konrad" href="/feed.xml">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="/#about">About</a>
+    <a href="/#questions">Questions</a>
+    <a href="/#selected-work">Work</a>
+    <a href="/#publications" class="active">Publications</a>
+    <a href="/#funding">Funding</a>
+    <a href="/#education">Education</a>
+    <a href="/#professional-experience">Experience</a>
+    <button class="theme-toggle" aria-label="Toggle theme">◑</button>
+  </nav>
+  <main>
+    <p class="back-link"><a href="/#publications">← Back to all publications</a></p>
+
+    <h1 class="research-title">Predicting Fine-Tuning Recruitment from Base-Model Gate Geometry</h1>
+
+    
+
+    <div class="research-meta">
+      
+      <span class="pub-status working-paper">Working paper</span>
+      
+      <span class="research-venue">Working paper, 2026</span>
+      <span class="research-year">2026</span>
+    </div>
+
+    
+    <ul class="tag-list">
+      
+      <li class="tag mech-interp">mech-interp</li>
+      
+      <li class="tag ai-safety">ai-safety</li>
+      
+    </ul>
+    
+
+    
+    <p class="research-authors"><strong>P. M. Konrad</strong></p>
+    
+
+    
+
+    
+
+    
+    <figure class="research-hero">
+      <img src="/assets/img/research/parasitic-two-pathways/hero.png" alt="Two pathways for fine-tuning recruitment. Redirect (left) reuses already-active neurons; latent (right) flips near-boundary gate neurons with near-zero base activation. Activation-monotone predictors are blind to the latent pathway by construction.">
+      <figcaption>Two pathways for fine-tuning recruitment. Redirect (left) reuses already-active neurons; latent (right) flips near-boundary gate neurons with near-zero base activation. Activation-monotone predictors are blind to the latent pathway by construction.</figcaption>
+    </figure>
+    
+
+    
+    <section class="research-headline">
+      <h2>Headline result</h2>
+      <p>Input Sensitivity Score (ISS) times absolute gradient retrieves 41 of 50 true recruits in top-50 against an all-tasks union pool of 398 neurons on Gemma-2-2B-it at layer 19, compared with 36 for the strongest activation-monotone baseline and 28 for absolute activation alone. The same ordering holds on Qwen-2.5-1.5B-Instruct at layer 20 (25 versus 18 versus 14).</p>
+    </section>
+    
+
+    
+    <section>
+      <h2>Method in brief</h2>
+      <p class="research-method">Trace fine-tuning recruitment in gated-MLP layers, distinguishing redirect (already-active neurons) from latent (near-boundary, near-zero base activation) pathways. Prove the structural ceiling for any monotone-in-absolute-activation predictor. Derive the Input Sensitivity Score from the gated-MLP Jacobian, combining gate output and gate slope so that latent recruits are not invisible by construction. Score base-model neurons before any fine-tune, then evaluate top-50 retrieval against the post-fine-tune ground-truth recruit set on two model families.</p>
+    </section>
+    
+
+    
+    <section>
+      <h2>Key Contributions</h2>
+      <ul class="contributions">
+        
+        <li>Identifies two mechanically distinct fine-tuning recruitment pathways: a redirect pathway that reuses already-active neurons, and a latent pathway that switches on near-boundary gate neurons with near-zero base activation.</li>
+        
+        <li>Proves a structural ceiling for any predictor of the form s_n = f(|a_n|) with f strictly increasing, which is blind to the latent pathway by construction.</li>
+        
+        <li>Derives the Input Sensitivity Score (ISS) from the gated-MLP Jacobian, reading both the gate output and the gate slope, so that latent-pathway candidates are not invisible to the predictor.</li>
+        
+        <li>ISS times absolute gradient retrieves 41 of 50 true recruits in top-50 against an all-tasks union pool of 398 neurons (out of 9216) on Gemma-2-2B-it at layer 19 (vs 36 for the strongest activation-monotone baseline and 28 for absolute activation alone). Replicates on Qwen-2.5-1.5B-Instruct (25 vs 18 vs 14).</li>
+        
+      </ul>
+    </section>
+    
+
+    
+    <section>
+      <h2>Abstract</h2>
+      <p class="research-abstract">A short behavior-installing fine-tune on an instruction-tuned language model concentrates its weight changes on a small pool of MLP neurons. Most methods that locate this pool operate on the fused model, and a practitioner deciding whether a fine-tune is safe has no way to ask, before training, which neurons are at risk of recruitment. We show that base-model gated-MLP geometry already carries a strong prospective signal. Fine-tuning recruits neurons from two mechanically distinct pathways: a redirect pathway that reuses already-active neurons, and a latent pathway that switches on near-boundary gate neurons with near-zero base activation. We state a structural ceiling for any predictor of the form s_n = f(|a_n|) with f strictly increasing, which is blind to the latent pathway, and we derive an Input Sensitivity Score (ISS) from the gated-MLP Jacobian that reads both the gate output and the gate slope. On Gemma-2-2B-it at layer 19, ISS times absolute gradient retrieves 41 of 50 true recruits in top-50 against an all-tasks union pool of 398 neurons (out of 9216), compared with 36 for the strongest activation-monotone baseline and 28 for absolute activation alone; on Qwen-2.5-1.5B-Instruct at layer 20, the same ordering holds (25 vs 18 vs 14). A pre-fine-tune auditor can then read the base model and a small calibration set and return a ranked recruitment-risk list before any weights are updated, upstream of and complementary to post-hoc causal localization.</p>
+    </section>
+    
+
+    <div class="research-content">
+      <h2 id="geometry-and-predictor-performance">Geometry and predictor performance</h2>
+
+<figure>
+  <img src="/assets/img/research/parasitic-two-pathways/iss_geometry.png" alt="Geometry of the Input Sensitivity Score in gate-output and gate-slope coordinates" />
+  <figcaption>The Input Sensitivity Score reads both the gate output and the gate slope. Latent-pathway recruits sit at high slope but near-zero output, where activation-monotone predictors cannot see them.</figcaption>
+</figure>
+
+<figure>
+  <img src="/assets/img/research/parasitic-two-pathways/predictor_comparison.png" alt="Top-50 retrieval performance: ISS vs activation-monotone baselines" />
+  <figcaption>Top-50 retrieval against the post-fine-tune ground-truth recruit set. ISS clears the structural ceiling that bounds any monotone-in-absolute-activation predictor.</figcaption>
+</figure>
+
+    </div>
+
+    
+
+    
+
+    <section class="research-footer">
+      <p><a href="/#publications">← Back to all publications</a></p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 Phongsakon Mark Konrad</p>
+  </footer>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
