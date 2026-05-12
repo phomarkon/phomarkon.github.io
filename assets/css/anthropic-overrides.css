@@ -1,0 +1,211 @@
+/* Anthropic-style overrides on AcademicPages.
+   Warm cream background, warm near-black text, deep teal accent.
+   Fraunces serif everywhere; Inter sans only for nav and chrome.
+   Smaller base font, generous line-height, hairline borders. */
+
+:root {
+  --pmk-text: #1F1B16;
+  --pmk-muted: #6B6256;
+  --pmk-border: #E8E2D6;
+  --pmk-accent: #1D4E5C;
+  --pmk-serif: 'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --pmk-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Dark-mode palette: warm dark, readable. */
+html[data-theme="dark"], [data-theme="dark"] {
+  --pmk-text: #E8E2D6;
+  --pmk-muted: #B7AC9C;
+  --pmk-border: #2A2520;
+  --pmk-accent: #79B6C4;
+}
+
+/* Base — keep Fraunces serif typography. Colors only set in light mode. */
+html { font-size: 15px; }
+body, .page__content, .page__lead {
+  font-family: var(--pmk-serif) !important;
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+html:not([data-theme="dark"]) body,
+html:not([data-theme="dark"]) .page__content,
+html:not([data-theme="dark"]) .page__lead {
+  color: var(--pmk-text);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6,
+.page__title, .page__content h1, .page__content h2,
+.page__content h3, .page__content h4 {
+  font-family: var(--pmk-serif) !important;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+html:not([data-theme="dark"]) h1,
+html:not([data-theme="dark"]) h2,
+html:not([data-theme="dark"]) h3,
+html:not([data-theme="dark"]) h4,
+html:not([data-theme="dark"]) h5,
+html:not([data-theme="dark"]) h6 { color: var(--pmk-text); }
+.page__title { font-size: 1.6rem; margin-bottom: 1rem; }
+.page__content h2 { font-size: 1.25rem; margin-top: 2rem; border-bottom: 1px solid var(--pmk-border); padding-bottom: 0.35rem; }
+.page__content h3 { font-size: 1.05rem; margin-top: 1.4rem; }
+
+/* Links — light-mode only color override; dark mode uses AcademicPages' palette. */
+html:not([data-theme="dark"]) a,
+html:not([data-theme="dark"]) .page__content a {
+  color: var(--pmk-accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(29, 78, 92, 0.25);
+  transition: border-color 0.15s ease;
+}
+html:not([data-theme="dark"]) a:hover,
+html:not([data-theme="dark"]) .page__content a:hover { border-bottom-color: var(--pmk-accent); }
+
+/* Masthead — stock background, lean serif typography only. */
+.masthead__inner-wrap { padding: 0.6em 1em; max-width: 1200px; }
+.greedy-nav .site-title { border-bottom: none !important; }
+.site-title, .greedy-nav a {
+  font-family: var(--pmk-sans) !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--pmk-text) !important;
+  border-bottom: none;
+  letter-spacing: 0.01em;
+}
+.site-title { font-family: var(--pmk-serif) !important; font-weight: 500; font-size: 1rem; }
+.greedy-nav { background: transparent; }
+.greedy-nav a:hover { color: var(--pmk-accent) !important; background: transparent; }
+
+/* Sidebar (author profile) */
+.author__avatar img {
+  border-radius: 50%;
+  border: 1px solid var(--pmk-border);
+  max-width: 140px;
+}
+.author__name {
+  font-family: var(--pmk-serif) !important;
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-top: 0.6rem;
+}
+.author__bio {
+  font-family: var(--pmk-sans) !important;
+  font-size: 0.85rem;
+  color: var(--pmk-muted);
+  margin: 0.25rem 0 0.5rem 0;
+}
+.author__urls,
+.author__urls li,
+.author__urls a {
+  font-family: var(--pmk-sans) !important;
+  font-size: 0.82rem;
+  color: var(--pmk-text);
+  border-bottom: none;
+}
+.author__urls a:hover { color: var(--pmk-accent) !important; }
+
+/* Page wrapper width: tighter, reading-width. Avoid clipping the sidebar avatar under the masthead. */
+.page { padding-right: 0; }
+.page__inner-wrap { max-width: 46rem; }
+.page__inner-wrap > header { margin: 0; padding: 0; }
+
+/* Hide the "About" page title (the section headings carry the structure) */
+.page__title { display: none; }
+.page__content > h1:first-of-type,
+.page__content > h2:first-of-type { margin-top: 0.25rem; border-top: none; }
+
+/* Anchor each h1/h2 section with breathing room and a subtle divider — looks like siyuanguo's clean section breaks */
+.page__content h1, .page__content h2 {
+  margin-top: 2.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--pmk-border);
+  font-size: 1.2rem;
+}
+.page__content > p:first-of-type { margin-top: 0; padding-top: 0; }
+
+/* Sidebar: allow long affiliation lines to wrap instead of clipping. */
+.author__avatar { padding-top: 0.5rem; }
+.author__urls,
+.author__urls li,
+.author__urls a,
+.author__info,
+.author__name,
+.author__bio {
+  white-space: normal !important;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  text-overflow: clip !important;
+  overflow: visible !important;
+  max-width: 100%;
+}
+.author__urls li { line-height: 1.4; padding: 0.2rem 0; }
+
+/* Masthead tighter so content sits higher on screen */
+.masthead { min-height: 0; }
+.masthead__inner-wrap { padding-top: 0.5em; padding-bottom: 0.5em; }
+
+/* Body copy size */
+.page__content p, .page__content li {
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+.page__content ul, .page__content ol { margin: 0.5rem 0 1rem 0; }
+.page__content li { margin: 0.25rem 0; }
+
+/* Lists in News / Education look tighter */
+.page__content > ul > li { margin: 0.4rem 0; }
+
+/* Publications list */
+.archive__item { padding: 0.6rem 0; border-bottom: 1px solid var(--pmk-border); }
+.archive__item:last-child { border-bottom: none; }
+.archive__item-title {
+  font-family: var(--pmk-serif) !important;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+.archive__item-excerpt {
+  font-size: 0.88rem;
+  color: var(--pmk-muted);
+  margin-top: 0.2rem;
+}
+.taxonomy__title, .archive .taxonomy__title {
+  font-family: var(--pmk-serif) !important;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--pmk-border);
+}
+
+/* Footer */
+.page__footer, .page__footer footer {
+  color: var(--pmk-muted);
+  font-family: var(--pmk-sans) !important;
+  font-size: 0.78rem;
+}
+.page__footer a { color: var(--pmk-muted) !important; }
+
+/* Tables, blockquotes */
+blockquote {
+  border-left: 2px solid var(--pmk-border);
+  padding-left: 0.9rem;
+  color: var(--pmk-muted);
+  font-style: normal;
+}
+
+/* Code (inline) */
+code {
+  background: rgba(29, 78, 92, 0.06);
+  padding: 0.05rem 0.3rem;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+/* Strip drop shadows AcademicPages adds */
+.page, .author__avatar img, .archive__item, .masthead {
+  box-shadow: none !important;
+}

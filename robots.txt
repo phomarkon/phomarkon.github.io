@@ -1,4 +1,1 @@
-User-agent: *
-Disallow:
-
 Sitemap: https://phomarkon.github.io/sitemap.xml

@@ -1,0 +1,19 @@
+{
+	"name": "Phongsakon Mark Konrad",
+	"short_name": "Phongsakon Mark Konrad",
+	"description": "ML researcher at the intersection of mechanistic interpretability, learning theory, philosophy of mind, and the science of consciousness.",
+	"start_url": "/",
+	"lang": "en-US",
+	"icons": [
+		{
+			"src": "/images/favicon-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/images/favicon-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}
