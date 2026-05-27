@@ -1,0 +1,19 @@
+---
+import { timeline } from '../data/timeline';
+---
+<div class="timeline-wrap">
+  <div class="timeline">
+    {timeline.map((t) => (
+      <div class="tl-item">
+        <div class="tl-popup">
+          <span class="ttl">{t.org}</span>
+          <span class="sub">{t.role}</span>
+          <span class="when">{t.when}</span>
+          {t.note && <span class="note">{t.note}</span>}
+        </div>
+        <span class={`tl-dot ${t.future ? 'future' : ''}`}></span>
+        <span class="tl-label">{t.org}</span>
+      </div>
+    ))}
+  </div>
+</div>

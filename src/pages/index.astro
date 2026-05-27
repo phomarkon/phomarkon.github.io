@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import Timeline from '../components/Timeline.astro';
+import ResearchLandscape from '../components/ResearchLandscape.astro';
+import Highlights from '../components/Highlights.astro';
+import Publications from '../components/Publications.astro';
+
+const selectedSlugs = ['routing-subspaces', 'decoded-but-unused', 'acceptance-cards', 'open-box-fallacy', 'cot-safety'];
+import { publications } from '../data/publications';
+const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)!);
+---
+<Base>
+  <!-- Hero / About -->
+  <section id="about">
+    <div class="container">
+      <div class="hero-grid">
+        <img src="/profile.png" alt="Phongsakon Mark Konrad" class="hero-photo" />
+        <div>
+          <h1 class="hero-name">Phongsakon <span class="brand-mark">Mark</span> Konrad</h1>
+          <p class="hero-tag">anti big data big data guy · mechanistic interpretability for trustworthy AI</p>
+          <div class="about">
+            <p>A sushi chef learning his cuts, except the fish is a language model. I take them apart by hand to understand what they're actually doing, and whether we should believe what people claim about them.</p>
+            <p>I am currently a Research Collaborator at <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">SDU's Data and Intelligence Lab</a> and at the <a href="https://hkust.edu.hk/">HKUST</a> DataVISards group, TA for AI at SDU (where I built an <a href="https://phomarkon.github.io/ai101/#/welcome" target="_blank" rel="noopener">interactive AI course</a>), and Founder of SaturoLabs. I have been accepted to the <a href="https://www.mlmi.eng.cam.ac.uk/">MPhil in Machine Learning and Machine Intelligence at Cambridge</a> and the <a href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/studium/studierende/lehre-studienorganisation/studiengaenge/machine-learning/">MSc Machine Learning at the University of Tübingen</a>. Cambridge is my first choice if I can close the remaining funding gap.</p>
+            <p class="rq-heading">My research organises around two questions:</p>
+            <ol class="rq-list">
+              <li><strong>How do models learn, what structures form inside them, and what do those structures actually do?</strong> I open models up to trace how optimisation gives rise to internal circuitry, and whether those circuits causally drive the outputs we observe. I pursue this through <a href="/publications/routing-subspaces">circuit-level audits</a>, <a href="/publications/decoded-but-unused">causal tracing</a>, and subspace analysis.</li>
+              <li><strong>How can we trust what we know about models, and how do we build more aligned ones?</strong> We do not need smarter models. We need more aligned models. I build evaluation frameworks like <a href="/publications/acceptance-cards">acceptance cards</a> and <a href="/publications/grounded-auditing">matched-action protocols</a> that test whether safety claims and alignment methods actually hold up. I find scaling laws ugly.</li>
+            </ol>
+          </div>
+          <div class="hero-social">
+            <a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a>
+            <a href="https://scholar.google.com/citations?user=zPHjLREAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+            <a href="https://github.com/phomarkon" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/phongsakonmarkkonrad" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selected Work -->
+  <section id="selected-work">
+    <div class="container">
+      <h2>Selected Work</h2>
+      <p class="section-sub">Five papers that best represent my current research direction.</p>
+      <div class="sw-section">
+        {selectedPubs.map((p, i) => (
+          <a class="sw-card" href={`/publications/${p.slug}`}>
+            <span class="sw-num">{i + 1}</span>
+            <div>
+              <div class="sw-head">
+                <span class="sw-title">{p.title}</span>
+              </div>
+              <div class="sw-authors">{p.authors}</div>
+              <div class="sw-meta">
+                <span class={`sw-venue-badge ${p.status === 'Under Review' ? 'submitted' : p.status === 'Accepted' ? 'accepted' : ''}`}>{p.venue} · {p.status}</span>
+              </div>
+              <p class="sw-tldr">{p.oneLine}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Career Timeline -->
+  <section id="timeline">
+    <div class="container-wide">
+      <h2>Career Timeline</h2>
+      <p class="section-sub">Where I've studied and worked, in chronological order. Hover to see details.</p>
+      <Timeline />
+    </div>
+  </section>
+
+  <!-- Research Landscape -->
+  <section id="research">
+    <div class="container-wide">
+      <h2>Research Landscape</h2>
+      <p class="section-sub">Three modalities, one through-line. Hover a paper to see its neighbours light up. Click to open its page.</p>
+      <ResearchLandscape />
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section id="highlights">
+    <div class="container">
+      <h2>Highlights</h2>
+      <p class="section-sub">News, talks, and achievements, most recent first.</p>
+      <Highlights />
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications">
+    <div class="container">
+      <h2>Publications</h2>
+      <p class="section-sub">Selected papers and preprints, most recent first.</p>
+      <Publications />
+    </div>
+  </section>
+</Base>
