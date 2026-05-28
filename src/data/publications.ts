@@ -119,7 +119,7 @@ export const publications: Publication[] = [
   },
   {
     slug: 'cot-safety',
-    title: 'When Does Chain-of-Thought Improve Safety? Evidence from 18 Models Across 5 Families',
+    title: 'When does chain-of-thought improve safety? Evidence from 18 models across 5 families',
     short: 'CoT Safety',
     authors: 'P. M. Konrad, S. Ayvaz',
     venue: 'COLM 2026',
