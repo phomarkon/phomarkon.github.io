@@ -16,6 +16,7 @@ export interface Publication {
   pdf?: string;
   code?: string;
   arxiv?: string;
+  doi?: string;
 }
 
 export const publications: Publication[] = [
@@ -220,14 +221,15 @@ export const publications: Publication[] = [
     title: 'Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications',
     short: 'GI-Tract Review',
     authors: 'P. M. Konrad, Y. Sabzehmeidani, A.-A. Popa, S. Ayvaz',
-    venue: 'Journal manuscript in preparation',
+    venue: 'Zenodo',
     status: 'Preprint',
-    date: '2025-08',
+    date: '2026-04',
     cluster: 'medical',
     tags: ['Medical Imaging', 'Review', 'GI Endoscopy'],
     oneLine: 'Systematic review mapping ML techniques to GI imaging modalities. Dataset-size vs. performance, and translational enablers.',
     abstract: 'Gastrointestinal (GI) imaging modalities including endoscopy, colonoscopy, and wireless capsule endoscopy provide vital diagnostic information, yet their manual interpretation remains laborious. Although deep learning approaches, particularly convolutional neural networks (CNNs), hybrid architectures, and transformer-based models, have achieved high accuracy in this domain, their clinical adoption is impeded by data limitations and trust concerns. The current study (1) systematically maps algorithmic trends to specific GI imaging techniques, (2) quantifies the relationship between dataset size and model performance to identify data sufficiency thresholds, and (3) evaluates translational enablers, such as federated learning for data privacy and explainable AI for clinician trust, within established ethical frameworks. By situating our analysis at the intersection of methodological rigor, quantitative assessment, and clinical applicability, this work aims to establish a structured, data-informed baseline that advances beyond purely descriptive surveys and guides future innovation toward impactful clinical AI deployment.',
     pdf: '/papers/Preprint_ML_in_GI_Tract_Imaging_Review.pdf',
+    doi: 'https://doi.org/10.5281/zenodo.19426162',
   },
   {
     slug: 'flood-detection',
