@@ -5,7 +5,7 @@ import ResearchLandscape from '../components/ResearchLandscape.astro';
 import Highlights from '../components/Highlights.astro';
 import Publications from '../components/Publications.astro';
 
-const selectedSlugs = ['routing-subspaces', 'decoded-but-unused', 'acceptance-cards', 'counterfactual-self-reports', 'cot-safety'];
+const selectedSlugs = ['routing-subspaces', 'decoded-but-unused', 'acceptance-cards', 'counterfactual-self-reports', 'path-already-walked'];
 import { publications } from '../data/publications';
 const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)!);
 ---
@@ -68,7 +68,7 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
   <section id="timeline">
     <div class="container-wide">
       <h2>Career Timeline</h2>
-      <p class="section-sub">Where I've studied and worked, in chronological order. Hover to see details.</p>
+      <p class="section-sub">Where I've studied and worked, in chronological order.</p>
       <Timeline />
     </div>
   </section>

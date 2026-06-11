@@ -9,6 +9,7 @@ export interface Highlight {
 
 export const highlights: Highlight[] = [
   { date: 'JUN 2026', kind: 'paper', text: 'Paper accepted as an <strong>oral</strong> at the PhilML workshop, ICML 2026', href: '/publications/counterfactual-self-reports' },
+  { date: 'JUN 2026', kind: 'paper', text: 'Two papers accepted to the Mechanistic Interpretability workshop, ICML 2026', href: '/#publications' },
   { date: 'MAY 2026', kind: 'award', text: 'Received grant from William Demant Fonden' },
   { date: 'APR 2026', kind: 'edu',   text: 'Accepted to the MSc Machine Learning at the University of Tübingen' },
   { date: 'MAR 2026', kind: 'edu',   text: 'Accepted to the MPhil in Machine Learning and Machine Intelligence at the University of Cambridge' },
