@@ -265,7 +265,7 @@ export const publications: Publication[] = [
     short: 'FYI Fact-check',
     authors: 'N.-T. Thinh, Y. Du, P. M. Konrad, A. Narechania',
     venue: 'IEEE VIS 2026',
-    status: 'Under Review',
+    status: 'Accepted',
     date: '2026-01',
     cluster: 'viz',
     tags: ['Visualization', 'Human-AI', 'Fact-checking'],

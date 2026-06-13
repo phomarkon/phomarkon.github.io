@@ -8,10 +8,10 @@ export interface Highlight {
 }
 
 export const highlights: Highlight[] = [
+  { date: 'JUN 2026', kind: 'paper', text: 'Paper accepted to <strong>IEEE VIS 2026</strong>', href: '/publications/fyi-factcheck' },
   { date: 'JUN 2026', kind: 'paper', text: 'Paper accepted as an <strong>oral</strong> at the PhilML workshop, ICML 2026', href: '/publications/counterfactual-self-reports' },
   { date: 'JUN 2026', kind: 'paper', text: 'Two papers accepted to the Mechanistic Interpretability workshop, ICML 2026', href: '/#publications' },
   { date: 'MAY 2026', kind: 'award', text: 'Received grant from William Demant Fonden' },
-  { date: 'APR 2026', kind: 'edu',   text: 'Accepted to the MSc Machine Learning at the University of Tübingen' },
   { date: 'MAR 2026', kind: 'edu',   text: 'Accepted to the MPhil in Machine Learning and Machine Intelligence at the University of Cambridge' },
   { date: 'MAR 2026', kind: 'paper', text: 'Three papers accepted to workshops at IEEE ICSA 2026: SAML, KDA-AI, SAGAI', href: '/#publications' },
   { date: 'MAR 2026', kind: 'misc',  text: 'Completed the Venture Capital Explorer Programme at Accelerace, Aarhus' },
