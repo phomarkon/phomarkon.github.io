@@ -18,7 +18,7 @@ function fmtDate(d: string) {
   <section>
     <div class="container">
       <a href="/#publications" style="font-size:.85rem;color:var(--ink-mute);border:none">← All publications</a>
-      <span class={`pub-venue ${pub.status === 'Under Review' ? 'submitted' : pub.status === 'Accepted' ? 'accepted' : pub.status === 'Published' ? 'published' : pub.status === 'Under Revision' ? 'revision' : pub.status === 'Preprint' ? 'preprint' : ''}`} style="margin-top:1.2rem; display:inline-block">{pub.status === 'Under Review' ? pub.status : `${pub.venue} · ${pub.status}`}</span>
+      <span class={`pub-venue ${pub.status === 'Under Review' ? 'submitted' : pub.status === 'Accepted' ? 'accepted' : pub.status === 'Published' ? 'published' : pub.status === 'Under Revision' ? 'revision' : pub.status === 'Preprint' ? 'preprint' : ''}`} style="margin-top:1.2rem; display:inline-block">{(pub.status === 'Under Review' || pub.status === 'Preprint') ? pub.status : `${pub.venue} · ${pub.status}`}</span>
       <h1 style="margin-top:.7rem">{pub.title}</h1>
       <p style="color:var(--ink-mute); margin-top:.5rem">{pub.authors} · {fmtDate(pub.date)}</p>
 
