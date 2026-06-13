@@ -110,8 +110,7 @@ export const nodes: NodeSpec[] = [
 
   // === Medical Imaging ===
   { id: 'segmentation', topic: 'Segmentation', cluster: 'medical', x: 220, y: 720 },
-  { id: 'small-organ-segmentation', pubSlug: 'small-organ-segmentation', cluster: 'medical', x: 160, y: 785, featured: true },
-  { id: 'gi-tract-review',          pubSlug: 'gi-tract-review',          cluster: 'medical', x: 285, y: 810, featured: true },
+  { id: 'small-organ-segmentation', pubSlug: 'small-organ-segmentation', cluster: 'medical', x: 220, y: 790, featured: true },
 
   // === Remote Sensing & Agriculture ===
   { id: 'remote-sensing', topic: 'Remote Sensing', cluster: 'applied', x: 580, y: 720 },
@@ -153,10 +152,9 @@ export const edges: EdgeSpec[] = [
   ['cake', 'grounded-auditing'],
 
   // CV
-  ['segmentation', 'small-organ-segmentation'], ['segmentation', 'gi-tract-review'],
+  ['segmentation', 'small-organ-segmentation'],
   ['segmentation', 'flood-detection'],
   ['remote-sensing', 'flood-detection'], ['remote-sensing', 'fruit-hyperspectral'],
-  ['small-organ-segmentation', 'gi-tract-review'],
   ['flood-detection', 'fruit-hyperspectral'],
 
   // Human-AI bridges

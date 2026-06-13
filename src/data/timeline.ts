@@ -17,5 +17,5 @@ export const timeline: TimelineItem[] = [
   { org: 'HKUST DataVISards',  role: 'Research Collaborator',               when: 'Dec 2025 – now',      position: 'up' },
   { org: 'SDU',                role: 'Research Collaborator & TA',           when: 'Jan 2026 – now',      position: 'down' },
   { org: 'SaturoLabs',         role: 'Founder',                             when: 'Jan 2026 – now',      position: 'up' },
-  { org: 'Cambridge',          role: 'MPhil ML & Machine Intelligence',      when: 'Oct 2026',            position: 'down', future: true, note: 'Committed' },
+  { org: 'Cambridge',          role: 'MPhil ML & Machine Intelligence',      when: 'Oct 2026',            position: 'down', future: true, note: 'Admitted' },
 ];

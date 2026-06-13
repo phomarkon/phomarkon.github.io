@@ -1,379 +1,139 @@
-\documentclass[a4paper,11pt]{article}
+%====================================================================
+% Phongsakon Mark Konrad — Curriculum Vitae
+% moderncv, classic style, black. Academic-first ordering.
+%====================================================================
+\documentclass[11pt,a4paper,sans]{moderncv}
 
-% ===============================================================
-% Packages
-% ===============================================================
-\usepackage[margin=1.8cm]{geometry}
+\moderncvstyle{classic}
+\moderncvcolor{black}
+
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+\usepackage[scale=0.9,vscale=0.92]{geometry}
 \usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{fontawesome5}
-\usepackage{parskip}
+\setlength{\hintscolumnwidth}{2.4cm}
+\setlength{\footskip}{4.5pt}
+% tighten vertical rhythm to keep the CV compact
+\setlength{\parskip}{0pt}
 
-\hypersetup{
-    colorlinks=true,
-    urlcolor=black,
-    linkcolor=black
-}
+% black, non-boxed links (hyperref is loaded by moderncv at begin-document)
+\AtBeginDocument{\hypersetup{colorlinks=true, urlcolor=black, linkcolor=black, citecolor=black}}
 
-\setlength{\parskip}{4pt}
-\setlength{\parindent}{0pt}
-\setlist[itemize]{leftmargin=*}
-\setlist[itemize,1]{nosep}
-\setlist[enumerate]{leftmargin=*}
-\setlist[enumerate,1]{nosep}
+% compact lists for the publication groups
+\setlist[enumerate]{leftmargin=1.4em, itemsep=2pt, topsep=2pt, parsep=0pt}
+
+%-------------------- Personal data --------------------
+\name{Phongsakon Mark}{Konrad}
+\title{Curriculum Vitae}
+\address{S\o nderborg, Denmark}{}{}
+\phone[mobile]{+45~55~24~01~58}
+\email{phongsakon@outlook.dk}
+\homepage{phomarkon.github.io}
+\social[linkedin]{phongsakonmarkkonrad}
+\social[github]{phomarkon}
+\extrainfo{\protect\href{https://scholar.google.com/citations?user=zPHjLREAAAAJ}{Google Scholar}}
 
 \begin{document}
+\makecvtitle
+\vspace{-6mm}
 
-% ===============================================================
-% Header
-% ===============================================================
-\begin{center}
-    {\LARGE \textbf{Phongsakon Mark Konrad}}\\[4pt]
-    \faPhone\ \href{tel:+4555240158}{+45 55 24 01 58} \quad
-    \faEnvelope\ \href{mailto:phongsakon@outlook.dk}{phongsakon@outlook.dk} \quad
-    \faGlobe\ \href{https://phomarkon.github.io}{phomarkon.github.io}\\
-    \faLinkedin\ \href{https://linkedin.com/in/phongsakonmarkkonrad}{linkedin.com/in/phongsakonmarkkonrad} \quad
-    \faGithub\ \href{https://github.com/phomarkon}{github.com/phomarkon} \quad
-    \href{https://scholar.google.com/citations?user=zPHjLREAAAAJ&hl=en}{Google Scholar \faIcon{external-link-alt}}\\[2pt]
-    S\o nderborg, Denmark
-\end{center}
+%==================== Summary ====================
+\section{Summary}
+\cvitem{}{I want to help reach genuine machine intelligence: systems that understand the world and derive its mechanisms the way science let us, not systems that imitate the surface of understanding. I think the dominant paradigm is on the wrong track, and I find scaling laws ugly. My work asks one question, whether the learning process that scaling relies on actually installs internal representations capable of genuine counterfactual reasoning, or only representations that imitate it. I study this through counterfactual reasoning and the geometry and identifiability of learned representations; causal representation learning is home territory. I work phenomenon-first and run the full research lifecycle myself: problem formulation, experimental design, pipeline engineering, manuscript writing, and venue selection. I am a final-year BSc Software Engineering student at SDU, admitted to the MPhil in Machine Learning and Machine Intelligence at the University of Cambridge for 2026, and I bring an unconventional background (four years of military service, three startups, a semester at HKUST) that shapes how I pick problems worth solving.}
 
-\vspace{4pt}
+%==================== Education ====================
+\section{Education}
+\cventry{2026--}{MPhil, Machine Learning and Machine Intelligence}{University of Cambridge}{Cambridge, UK}{\textit{admitted; begins Oct 2026}}{}
+\cventry{2025}{Exchange Semester, Computer Science \& Engineering}{HKUST}{Hong Kong SAR}{}{Specialisation: COMP4211 Machine Learning, COMP4471 Deep Learning in Computer Vision, COMP4901B Large Language Models, COMP4901Z Reinforcement Learning; COMP6411D Data Visualisation (postgraduate).}
+\cventry{2023--2026}{BSc, Software Engineering}{University of Southern Denmark}{S\o nderborg, DK}{GPA $\approx$ 10.6/12 ($\approx$ 3.7/4.0)}{Expected June 2026. BSc thesis (with T.~L.~Adam): \textit{The Trader's Trinity: Forecasting Models, RL Agents, and LLM Judges for Day-Ahead Markets}.}
 
-% ===============================================================
-% Summary
-% ===============================================================
-\section*{Summary}
-I study how and why models learn, how what they learn is stored and represented, and how we get to models we can actually trust, with mechanistic interpretability as one lens among several. I run the full research lifecycle myself: problem formulation, experimental design, pipeline engineering, manuscript writing, and venue selection. Current work spans circuit-level audits of routing behaviour installed by fine-tuning (under review), evidential standards for safety claims, causal tracing of moral reasoning, and a cross-family study of chain-of-thought safety, alongside work on vision, medical-imaging, and remote-sensing models. The questions, not any one model family, are what I am after.
+%==================== Selected Publications ====================
+\section{Selected Publications}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports}. Accepted (\textbf{oral}), \textit{PhilML Workshop, ICML 2026}. \href{https://phomarkon.github.io/papers/ICML_2026_Workshop_Counterfactual_Self_Reports_Not_Well_Posed.pdf}{[PDF]}\newline {\small\textsf{TL;DR.} Self-reports are evidence about behaviour in a prompt, not proof of a self-model. Wrong-source demonstrations pull affect-state reports toward the source family unless mechanism binding holds.}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout}. Accepted (poster), \textit{ICML 2026 Workshop on Mechanistic Interpretability}. \href{https://phomarkon.github.io/papers/ICML_2026_Decoded_but_Unused.pdf}{[PDF]}\newline {\small\textsf{TL;DR.} Moral framing is linearly decodable in pretrained models but only causally routed to judgment after instruction tuning.}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{A Path Already Walked: On Inheriting Network-Neuroscience Tools for Mechanistic Interpretability}. Accepted (virtual poster), \textit{ICML 2026 Workshop on Mechanistic Interpretability}. \href{https://phomarkon.github.io/papers/ICML_2026_Workshop_A_Path_Already_Walked_Network_Neuroscience.pdf}{[PDF]}\newline {\small\textsf{TL;DR.} Mech-interp should import the graph vocabulary of network neuroscience (modularity, rich clubs, motifs) under explicit contracts.}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models}. Under review. \href{https://phomarkon.github.io/papers/NeurIPS_2026_Routing_Subspaces.pdf}{[PDF]}\newline {\small\textsf{TL;DR.} Path-patching localises an eval-vs-deployment signal to a narrow mid-depth attention window. Clamping a low-dimensional subspace closes the gap in 11 of 12 cells.}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Acceptance Cards: A Four-Diagnostic Standard for Safe Fine-Tuning Defense Claims}. Under review. \href{https://arxiv.org/abs/2605.10575}{arXiv:2605.10575}\newline {\small\textsf{TL;DR.} A four-gate evidential standard for safe-fine-tuning defense claims. SafeLoRA fails the full-card pass under matched-action audit.}}
 
-My conviction is simple: we do not need smarter models, we need more aligned ones. My goal from here is a PhD. I do not yet know which of my questions is the one I will spend years on, and I am comfortable with that for now, because I am following the curiosity and the questions keep getting sharper. I am a final-year BSc Software Engineering student at the University of Southern Denmark, heading to the MPhil in Machine Learning and Machine Intelligence at the University of Cambridge in 2026, and I bring an unconventional background (four years of military service, three startups, and a semester at HKUST) that shapes how I identify problems worth solving.
+%==================== Research Experience ====================
+\section{Research Experience}
+\cventry{Jan 2026--}{Research Collaborator}{HKUST DataVISards group}{Hong Kong SAR}{}{Machine learning and data-visualisation research.}
+\cventry{Jan 2026--}{Research Collaborator}{SDU Data \& Intelligence Lab}{S\o nderborg, DK}{}{Independently initiate and drive ML research end-to-end: problem formulation, experimental design, pipeline development, manuscript writing, and venue selection. Co-author with Assoc.\ Prof.\ Serkan Ayvaz across interpretability, NLP, medical imaging, and remote sensing.}
+\cventry{Sep 2024--Dec 2025}{Research Assistant}{SDU Data \& Intelligence Lab}{S\o nderborg, DK}{}{Built end-to-end ML pipelines; contributed to study design, literature reviews, model development, and manuscript preparation; supported grant proposals and multimodal dataset management.}
 
-% ===============================================================
-% Education
-% ===============================================================
-\section*{Education}
+%==================== Full Publication List ====================
+\section{Full Publication List}
+\cvitem{}{\small \textbf{P.~M.~Konrad} is first author except where noted. Workshop, conference, and under-review work are listed separately; nothing is double-counted.}
 
-\textbf{University of Cambridge} \hfill Starting Oct 2026\\
-MPhil in Machine Learning and Machine Intelligence \hfill Cambridge, United Kingdom
-
-\textbf{The Hong Kong University of Science and Technology (HKUST)} \hfill Aug 2025 -- Dec 2025\\
-Exchange Semester, Dept.\ of Computer Science and Engineering \hfill Hong Kong SAR, China
-\begin{itemize}
-    \item Specialisation courses: COMP4211 Machine Learning, COMP4471 Deep Learning in Computer Vision, COMP4901B Large Language Models, COMP4901Z Reinforcement Learning.
-    \item Postgraduate course: COMP6411D Data Visualisation.
-\end{itemize}
-
-\textbf{University of Southern Denmark (SDU)} \hfill Sep 2023 -- Jun 2026\\
-Bachelor of Science (BSc), Software Engineering \hfill S\o nderborg, Denmark
-\begin{itemize}
-    \item Expected graduation: June 2026. Current GPA: $\approx$ 10.6/12 ($\approx$ 3.7/4.0 US GPA).
-    \item Practical, project-centric curriculum with mandatory semester-long team projects on complex, data-intensive software systems in domains such as IoT and AI, often in collaboration with industry partners.
-    \item BSc thesis (in progress, with T.~L.~Adam): \emph{The Trader's Trinity: Forecasting Models, RL Agents, and LLM Judges for Day-Ahead Markets}.
-\end{itemize}
-
-% ===============================================================
-% Selected Publications
-% ===============================================================
-\section*{Selected Publications}
-
-2026 \quad \textbf{P.~M.~Konrad}, T.~Tanyel, and S.~Ayvaz. Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports. Accepted (oral), \textit{PhilML Workshop, ICML 2026}. \href{https://phomarkon.github.io/papers/ICML_2026_Workshop_Counterfactual_Self_Reports_Not_Well_Posed.pdf}{[PDF]}\\
-\textsf{TL;DR.} Self-reports are evidence about behavior in a prompt, not proof of a self-model. Wrong-source demonstrations pull affect-state reports toward the source family unless mechanism binding holds.
-
-2026 \quad \textbf{P.~M.~Konrad}, T.~Tanyel, and S.~Ayvaz. Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout. Accepted (poster), \textit{ICML 2026 Workshop on Mechanistic Interpretability}. \href{https://phomarkon.github.io/papers/ICML_2026_Decoded_but_Unused.pdf}{[PDF]}\\
-\textsf{TL;DR.} Moral framing is linearly decodable in pretrained models but only causally routed to judgment after instruction tuning.
-
-2026 \quad \textbf{P.~M.~Konrad}, T.~Tanyel, and S.~Ayvaz. A Path Already Walked: On Inheriting Network-Neuroscience Tools for Mechanistic Interpretability. Accepted (virtual poster), \textit{ICML 2026 Workshop on Mechanistic Interpretability}. \href{https://phomarkon.github.io/papers/ICML_2026_Workshop_A_Path_Already_Walked_Network_Neuroscience.pdf}{[PDF]}\\
-\textsf{TL;DR.} Position: mech-interp should import the graph vocabulary of network neuroscience (modularity, rich clubs, motifs) under explicit contracts.
-
-2026 \quad \textbf{P.~M.~Konrad}, T.~Tanyel, and S.~Ayvaz. Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models. Under review. \href{https://phomarkon.github.io/papers/NeurIPS_2026_Routing_Subspaces.pdf}{[PDF]}\\
-\textsf{TL;DR.} Path-patching localises an eval-vs-deployment signal to a narrow mid-depth attention window. Clamping a low-dimensional subspace closes the gap in 11 of 12 cells.
-
-2026 \quad \textbf{P.~M.~Konrad}, T.~Tanyel, and S.~Ayvaz. Acceptance Cards: A Four-Diagnostic Standard for Safe Fine-Tuning Defense Claims. Under review. \href{https://arxiv.org/abs/2605.10575}{arXiv:2605.10575}\\
-\textsf{TL;DR.} A four-gate evidential standard for safe-fine-tuning defense claims. SafeLoRA fails the full-card pass under matched-action audit.
-
-% ===============================================================
-% Full Publication List
-% ===============================================================
-\section*{Full Publication List}
-
-\textbf{P.~M.~Konrad} is the corresponding first author except where noted. Workshop papers are listed separately from work under review; nothing below is double-counted.
-
-\subsection*{Peer-Reviewed and Accepted}
-
-\textit{Interpretability and safety (workshop)}
+\subsection{Peer-reviewed and accepted}
+\nopagebreak
+{\itshape Interpretability and safety (workshop)}
 \begin{enumerate}
-\item \textbf{P.~M.~Konrad}, T.~Tanyel, and S.~Ayvaz (2026).
-  \emph{Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports}.
-  Accepted (oral), \textit{PhilML Workshop, ICML 2026}.
-  \href{https://phomarkon.github.io/papers/ICML_2026_Workshop_Counterfactual_Self_Reports_Not_Well_Posed.pdf}{[PDF]}
-
-\item \textbf{P.~M.~Konrad}, T.~Tanyel, and S.~Ayvaz (2026).
-  \emph{Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout}.
-  Accepted (poster), \textit{ICML 2026 Workshop on Mechanistic Interpretability}.
-  \href{https://phomarkon.github.io/papers/ICML_2026_Decoded_but_Unused.pdf}{[PDF]}
-
-\item \textbf{P.~M.~Konrad}, T.~Tanyel, and S.~Ayvaz (2026).
-  \emph{A Path Already Walked: On Inheriting Network-Neuroscience Tools for Mechanistic Interpretability}.
-  Accepted (virtual poster), \textit{ICML 2026 Workshop on Mechanistic Interpretability}.
-  \href{https://phomarkon.github.io/papers/ICML_2026_Workshop_A_Path_Already_Walked_Network_Neuroscience.pdf}{[PDF]}
+\item \textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz (2026). \emph{Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports}. Accepted (\textbf{oral}), \textit{PhilML Workshop, ICML 2026}. \href{https://phomarkon.github.io/papers/ICML_2026_Workshop_Counterfactual_Self_Reports_Not_Well_Posed.pdf}{[PDF]}
+\item \textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz (2026). \emph{Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout}. Accepted (poster), \textit{ICML 2026 Workshop on Mechanistic Interpretability}. \href{https://phomarkon.github.io/papers/ICML_2026_Decoded_but_Unused.pdf}{[PDF]}
+\item \textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz (2026). \emph{A Path Already Walked: On Inheriting Network-Neuroscience Tools for Mechanistic Interpretability}. Accepted (virtual poster), \textit{ICML 2026 Workshop on Mechanistic Interpretability}. \href{https://phomarkon.github.io/papers/ICML_2026_Workshop_A_Path_Already_Walked_Network_Neuroscience.pdf}{[PDF]}
+\end{enumerate}
+{\itshape AI for software engineering (workshop)}
+\begin{enumerate}[start=4]
+\item \textbf{P.~M.~Konrad}, T.~L.~Adam, R.~Terrenzi, S.~Ayvaz (2026). \emph{Architecture Without Architects: How AI Coding Agents Shape Software Architecture}. Accepted, SAGAI Workshop, IEEE ICSA 2026. \href{https://arxiv.org/abs/2604.04990}{arXiv:2604.04990}
+\item T.~L.~Adam, \textbf{P.~M.~Konrad}, R.~Terrenzi, F.~G.~Lukas, R.~Yilmaz, K.~Sierszecki, S.~Ayvaz (2026). \emph{CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models}. Accepted, KDA-AI Workshop, IEEE ICSA 2026. \href{https://arxiv.org/abs/2604.05755}{arXiv:2604.05755}
+\item R.~Terrenzi, \textbf{P.~M.~Konrad}, T.~L.~Adam, S.~Ayvaz (2026). \emph{A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search}. Accepted, SAML Workshop, IEEE ICSA 2026. \href{https://arxiv.org/abs/2604.16394}{arXiv:2604.16394}
+\end{enumerate}
+{\itshape Conference proceedings}
+\begin{enumerate}[start=7]
+\item N.-T.~Thinh, Y.~Du, \textbf{P.~M.~Konrad}, A.~Narechania (2026). \emph{Fact-check Your Information (FYI): A Design Probe to Understand How People Actually Fact-check Data-Driven Articles}. Accepted, \textit{IEEE VIS 2026}. \href{https://phomarkon.github.io/papers/VIS_2026_Fact_check_Your_Information_FYI.pdf}{[PDF]}
+\item \textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz (2025). \emph{Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas}. \textit{KES 2025}, Procedia Computer Science, 270, 301--310. \href{https://www.sciencedirect.com/science/article/pii/S1877050925028194}{[open access]}
 \end{enumerate}
 
-\textit{AI for software engineering (workshop)}
-\begin{enumerate}[resume]
-\item \textbf{P.~M.~Konrad}, T.~L.~Adam, R.~Terrenzi, and S.~Ayvaz (2026).
-  \emph{Architecture Without Architects: How AI Coding Agents Shape Software Architecture}.
-  Accepted, SAGAI Workshop, IEEE ICSA 2026.
-  \href{https://arxiv.org/abs/2604.04990}{arXiv:2604.04990}
-
-\item T.~L.~Adam, \textbf{P.~M.~Konrad}, R.~Terrenzi, F.~G.~Lukas, R.~Yilmaz, K.~Sierszecki, and S.~Ayvaz (2026).
-  \emph{CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models}.
-  Accepted, KDA-AI Workshop, IEEE ICSA 2026.
-  \href{https://arxiv.org/abs/2604.05755}{arXiv:2604.05755}
-
-\item R.~Terrenzi, \textbf{P.~M.~Konrad}, T.~L.~Adam, and S.~Ayvaz (2026).
-  \emph{A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search}.
-  Accepted, SAML Workshop, IEEE ICSA 2026.
-  \href{https://arxiv.org/abs/2604.16394}{arXiv:2604.16394}
+\subsection{Preprints and under review}
+\nopagebreak
+{\itshape Interpretability and safety}
+\begin{enumerate}[start=9]
+\item \textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz (2026). \emph{Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models}. Under review. \href{https://phomarkon.github.io/papers/NeurIPS_2026_Routing_Subspaces.pdf}{[PDF]}
+\item \textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz (2026). \emph{Acceptance Cards: A Four-Diagnostic Standard for Safe Fine-Tuning Defense Claims}. Under review. \href{https://arxiv.org/abs/2605.10575}{arXiv:2605.10575}
+\item \textbf{P.~M.~Konrad}, T.~L.~Adam, A.~C.~H.~Merrild, R.~de~Rosa, R.~Terrenzi, T.~Tanyel, S.~Ayvaz (2026). \emph{The Open-Box Fallacy: Why AI Deployment Needs a Calibrated Verification Regime}. Under review. \href{https://arxiv.org/abs/2605.10601}{arXiv:2605.10601}
+\item \textbf{P.~M.~Konrad}, Y.~Du, S.~Ayvaz (2026). \emph{Grounded Auditing as an Evaluation Policy: A Matched-Action Protocol and Stress Test}. Under review. \href{https://phomarkon.github.io/papers/NeurIPS_2026_Grounded_Auditing_Matched_Action_Protocol.pdf}{[PDF]}
+\item \textbf{P.~M.~Konrad}, S.~Ayvaz (2026). \emph{When Does Chain-of-Thought Improve Safety? Evidence from 18 Models across 5 Families}. Under review. \href{https://phomarkon.github.io/papers/COLM_2026_When_Does_Chain_of_Thought_Improve_Safety.pdf}{[PDF]}
+\item \textbf{P.~M.~Konrad}, Y.~Du, T.~Tanyel, S.~Ayvaz (2026). \emph{How Much of a Probe Direction Lives in the Input Embedding? An Audit of Four Published Claims}. Under review. \href{https://phomarkon.github.io/papers/EMNLP_2026_Probe_Direction_Input_Embedding_Audit.pdf}{[PDF]}
+\item \textbf{P.~M.~Konrad}, Y.~Du, T.~Tanyel, S.~Ayvaz (2026). \emph{Abstention and Refusal Are Separable Directions in the Residual Stream}. Under review. \href{https://phomarkon.github.io/papers/EMNLP_2026_Abstention_Refusal_Separable_Directions.pdf}{[PDF]}
+\end{enumerate}
+{\itshape Applied ML and other}
+\begin{enumerate}[start=15]
+\item \textbf{P.~M.~Konrad}, A.-A.~Popa, Y.~Sabzehmeidani, L.~Zhong, M.~Tripathy, A.~Constantinescu, E.~A.~Liehn, S.~Ayvaz (2025). \emph{Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets}. Under revision, \textit{Biomedical Signal Processing and Control}. \href{https://arxiv.org/abs/2509.05892}{arXiv:2509.05892}
+\item \textbf{P.~M.~Konrad}, C.~H.~Kunstmann-Olsen, J.~Fiutowski, S.~Ayvaz (2025). \emph{Non-Destructive Prediction of Fruit Ripeness and Firmness Using Hyperspectral Imaging and Lightweight Machine Learning Models}. Under review. \href{https://arxiv.org/abs/2604.22788}{arXiv:2604.22788}
 \end{enumerate}
 
-\textit{Conference proceedings}
-\begin{enumerate}[resume]
-\item N.-T.~Thinh, Y.~Du, \textbf{P.~M.~Konrad}, and A.~Narechania (2026).
-  \emph{Fact-check Your Information (FYI): A Design Probe to Understand How People Actually Fact-check Data-Driven Articles}.
-  Accepted, \textit{IEEE VIS 2026}.
-  \href{https://phomarkon.github.io/papers/VIS_2026_Fact_check_Your_Information_FYI.pdf}{[PDF]}
+%==================== Teaching ====================
+\section{Teaching}
+\cventry{2026}{Teaching Assistant, Artificial Intelligence (BSc)}{University of Southern Denmark}{}{}{Exercise sessions and student supervision; designed hands-on lab assignments; built an \href{https://phomarkon.github.io/ai101/}{interactive AI course} (step-by-step animations) used as supplementary material.}
 
-\item \textbf{P.~M.~Konrad}, T.~Tanyel, and S.~Ayvaz (2025).
-  \emph{Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas}.
-  In \textit{KES 2025}, Procedia Computer Science, 270, 301--310.
-  \href{https://www.sciencedirect.com/science/article/pii/S1877050925028194}{[open access]}
-\end{enumerate}
+%==================== Academic Service ====================
+\section{Academic Service}
+\cvitem{2025--}{\textbf{Student Member}, Educational Committee, Software Engineering Programme, SDU. Represent students in curriculum and quality-assurance discussions on course content, assessment, and study environment.}
 
-\subsection*{Preprints and Under Review}
+%==================== Honors and Awards ====================
+\section{Honors and Awards}
+\cvitem{2026}{\textbf{William Demant Fonden Grant} supporting graduate study.}
+\cvitem{2024, 2025}{\textbf{Top-10}, Danish National Championship in AI (DM i AI), competing solo against 50+ teams.}
+\cvitem{2023}{\textbf{1st place}, SDU Case Competition (48-hour sustainability challenge, Danfoss and Linak cases).}
+\cvitem{2021}{\textbf{Commendation and performance bonus}, Bundeswehr, for exemplary and independent service.}
 
-\textit{Interpretability and safety}
-\begin{enumerate}[resume]
-\item \textbf{P.~M.~Konrad}, T.~Tanyel, and S.~Ayvaz (2026).
-  \emph{Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models}.
-  Under review.
-  \href{https://phomarkon.github.io/papers/NeurIPS_2026_Routing_Subspaces.pdf}{[PDF]}
+%==================== Professional Experience ====================
+\section{Professional Experience}
+\cventry{2026--}{Founder}{SaturoLabs}{Denmark}{}{Products at the intersection of AI and software engineering. Live: \href{https://claudeboyz.com}{claudeboyz.com}, \href{https://getproofz.com}{getproofz.com}, \href{https://dreambear.app}{dreambear.app}.}
+\cventry{2024}{CTO \& Co-Founder}{Tutora ApS}{S\o nderborg, DK}{}{Led end-to-end development of the company's web application.}
+\cventry{2022--2024}{Co-CEO \& Co-Founder}{Yeager GmbH}{Remote}{}{Built \emph{stabil.ai}, an AI powerlifting-training app; personalised plans via MRV/MEV with real-time feedback.}
+\cventry{2017--2021}{Staff Duty Soldier}{Bundeswehr (German Armed Forces)}{Gl\"ucksburg, DE}{}{Led a small HR team administering 600+ soldiers; twice decorated.}
 
-\item \textbf{P.~M.~Konrad}, T.~Tanyel, and S.~Ayvaz (2026).
-  \emph{Acceptance Cards: A Four-Diagnostic Standard for Safe Fine-Tuning Defense Claims}.
-  Under review.
-  \href{https://arxiv.org/abs/2605.10575}{arXiv:2605.10575}
+%==================== Skills ====================
+\section{Technical Skills}
+\cvitem{Languages}{Python, JavaScript, SQL}
+\cvitem{ML}{PyTorch, Hugging Face, TransformerLens, scikit-learn, pandas, NumPy; Optuna, Weights \& Biases}
+\cvitem{Tooling}{Git, Docker, Google Cloud Platform; React, React Native, Node.js}
 
-\item \textbf{P.~M.~Konrad}, T.~L.~Adam, A.~C.~H.~Merrild, R.~de~Rosa, R.~Terrenzi, T.~Tanyel, and S.~Ayvaz (2026).
-  \emph{The Open-Box Fallacy: Why AI Deployment Needs a Calibrated Verification Regime}.
-  Under review.
-  \href{https://arxiv.org/abs/2605.10601}{arXiv:2605.10601}
-
-\item \textbf{P.~M.~Konrad}, Y.~Du, and S.~Ayvaz (2026).
-  \emph{Grounded Auditing as an Evaluation Policy: A Matched-Action Protocol and Stress Test}.
-  Under review.
-  \href{https://phomarkon.github.io/papers/NeurIPS_2026_Grounded_Auditing_Matched_Action_Protocol.pdf}{[PDF]}
-
-\item \textbf{P.~M.~Konrad} and S.~Ayvaz (2026).
-  \emph{When does chain-of-thought improve safety? Evidence from 18 models across 5 families}.
-  Under review.
-  \href{https://phomarkon.github.io/papers/COLM_2026_When_Does_Chain_of_Thought_Improve_Safety.pdf}{[PDF]}
-
-\item \textbf{P.~M.~Konrad}, Y.~Du, T.~Tanyel, and S.~Ayvaz (2026).
-  \emph{How Much of a Probe Direction Lives in the Input Embedding? An Audit of Four Published Claims}.
-  Under review.
-  \href{https://phomarkon.github.io/papers/EMNLP_2026_Probe_Direction_Input_Embedding_Audit.pdf}{[PDF]}
-
-\item \textbf{P.~M.~Konrad}, Y.~Du, T.~Tanyel, and S.~Ayvaz (2026).
-  \emph{Abstention and Refusal Are Separable Directions in the Residual Stream}.
-  Under review.
-  \href{https://phomarkon.github.io/papers/EMNLP_2026_Abstention_Refusal_Separable_Directions.pdf}{[PDF]}
-\end{enumerate}
-
-\textit{Applied ML and other}
-\begin{enumerate}[resume]
-\item \textbf{P.~M.~Konrad}, A.-A.~Popa, Y.~Sabzehmeidani, L.~Zhong, M.~Tripathy, A.~Constantinescu, E.~A.~Liehn, and S.~Ayvaz (2025).
-  \emph{Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets}.
-  Under revision, \textit{Biomedical Signal Processing and Control}; \href{https://arxiv.org/abs/2509.05892}{arXiv:2509.05892}.
-
-\item \textbf{P.~M.~Konrad}, Y.~Sabzehmeidani, A.~Popa, and S.~Ayvaz (2026).
-  \emph{Machine Learning in Gastrointestinal Tract Imaging: A Comprehensive Review of Techniques and Applications}.
-  Preprint.
-  \href{https://doi.org/10.5281/zenodo.19426162}{Zenodo: 10.5281/zenodo.19426162}
-
-\item \textbf{P.~M.~Konrad}, C.~H.~Kunstmann-Olsen, J.~Fiutowski, and S.~Ayvaz (2025).
-  \emph{Non-Destructive Prediction of Fruit Ripeness and Firmness Using Hyperspectral Imaging and Lightweight Machine Learning Models}.
-  Under review.
-  \href{https://arxiv.org/abs/2604.22788}{arXiv:2604.22788}
-\end{enumerate}
-
-% ===============================================================
-% Research Experience
-% ===============================================================
-\section*{Research Experience}
-
-\textbf{DataVISards, Hong Kong University of Science and Technology (HKUST)} \hfill Jan 2026 -- Present\\
-\textit{Research Collaborator} \hfill Hong Kong SAR, China
-\begin{itemize}
-    \item Collaborating with the DataVISards research group on machine learning and data visualisation projects.
-\end{itemize}
-
-\textbf{Data and Intelligence Lab, SDU} \href{https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab}{\faGlobe} \hfill Sep 2024 -- Present\\
-\textit{Research Collaborator} \hfill Jan 2026 -- Present
-\begin{itemize}
-    \item Independently initiate and drive machine learning research projects: problem formulation, experimental design, pipeline development, manuscript writing, and venue selection.
-    \item Co-author papers with Assoc.\ Prof.\ Serkan Ayvaz and lab members across remote sensing, medical imaging, NLP, and software systems.
-    \item Lead the full research lifecycle end-to-end without external task assignment.
-\end{itemize}
-
-\textit{Research Assistant} \hfill Sep 2024 -- Dec 2025
-\begin{itemize}
-    \item Built end-to-end ML pipelines and contributed to study design, literature reviews, model development, and manuscript preparation.
-    \item Contributed to grant proposal preparation and multimodal dataset management (remote sensing, hyperspectral, medical imaging).
-    \item Co-authored the KES-2025 paper on deep learning for shallow water inundation detection.
-\end{itemize}
-
-% ===============================================================
-% Academic Service
-% ===============================================================
-\section*{Academic Service}
-
-\textbf{Teaching Assistant, Artificial Intelligence (SDU)} \href{https://odin.sdu.dk/sitecore/index.php?a=fagbesk&id=198312&lang=en}{\faGlobe} \hfill Jan 2026 -- Jun 2026
-\begin{itemize}
-    \item Teaching Assistant for the BSc-level course ``Artificial Intelligence,'' supporting exercise sessions and student supervision.
-    \item Built an \href{https://phomarkon.github.io/ai101/\#/welcome}{interactive AI course} covering AI fundamentals with step-by-step animations, used as supplementary material for the course.
-    \item Responsibilities include designing hands-on lab assignments, providing student support, and contributing to curriculum development.
-\end{itemize}
-
-\textbf{Educational Committee, Software Engineering Programme, SDU} \hfill Jun 2025 -- Present\\
-Student Member \hfill S\o nderborg, Denmark
-\begin{itemize}
-    \item Represent BSc Software Engineering students in curriculum and quality-assurance discussions, providing feedback on course content, assessment, and study environment.
-\end{itemize}
-
-% ===============================================================
-% Professional Experience
-% ===============================================================
-\section*{Professional Experience}
-
-\textbf{SaturoLabs} \href{https://saturolabs.net}{\faGlobe} \hfill Jan 2026 -- Present\\
-Founder \hfill Denmark
-\begin{itemize}
-    \item Founded and currently leading SaturoLabs, building products at the intersection of AI and software engineering.
-    \item Live products: \href{https://claudeboyz.com}{claudeboyz.com}, \href{https://getproofz.com}{getproofz.com}, \href{https://dreambear.app}{dreambear.app}.
-\end{itemize}
-
-\textbf{Tutora ApS} \href{https://tutora.dk}{\faGlobe} \hfill Jun 2024 -- Nov 2024\\
-CTO and Co-Founder \hfill S\o nderborg, Denmark
-\begin{itemize}
-    \item Led the end-to-end development of the company's websites and core web application.
-    \item Implemented the Shape Up product development framework to streamline technical execution.
-\end{itemize}
-
-\textbf{Yeager GmbH} \hfill Nov 2022 -- Jun 2024\\
-Co-CEO and Co-Founder \hfill Remote
-\begin{itemize}
-    \item Co-founded the company and led development of \emph{stabil.ai}, an AI-powered mobile app for personalized powerlifting training.
-    \item Engineered algorithms to personalize training plans using MRV/MEV and dynamic real-time feedback.
-    \item Oversaw the full product lifecycle, from UX/UI concept and design to full-stack implementation.
-\end{itemize}
-
-\textbf{Transition Year: Independent Study \& Prototyping} \hfill Oct 2021 -- Oct 2022\\
-Independent \hfill Germany/Denmark
-\begin{itemize}
-    \item Completed intensive coding bootcamps and self-directed study in software engineering to transition from military service into the technology field.
-    \item Began prototyping early concepts for a training-app product, which later evolved into the product developed at Yeager GmbH.
-\end{itemize}
-
-\textbf{Bundeswehr (German Armed Forces)} \hfill Oct 2017 -- Sep 2021\\
-Staff Duty Soldier \hfill Gl\"ucksburg, Germany
-\begin{itemize}
-    \item Led a small HR team responsible for the administration of over 600 soldiers.
-    \item Streamlined administrative processes and document workflows in a high-stakes naval command environment.
-\end{itemize}
-
-\textbf{Telecommunications Company} \hfill Jul 2016 -- Sep 2017\\
-Customer Service Consultant \hfill Germany
-\begin{itemize}
-    \item Provided front-line customer support for mobile and broadband services.
-\end{itemize}
-
-% ===============================================================
-% Skills
-% ===============================================================
-\section*{Skills}
-
-\textbf{Programming Languages:} Python, JavaScript, SQL\\
-\textbf{ML Libraries:} PyTorch, Hugging Face, TransformerLens, Scikit-learn, Pandas, NumPy\\
-\textbf{Data Visualization:} Matplotlib, Seaborn\\
-\textbf{ML Engineering:} Data \& Feature Engineering, Hyperparameter Tuning (Optuna, Weights \& Biases Sweeps), Experiment Tracking (Weights \& Biases)\\
-\textbf{Web Development:} React, React Native, Node.js, Express, HTML/CSS, Streamlit\\
-\textbf{Tools \& Platforms:} Git, Docker, Google Cloud Platform, Vercel\\
-\textbf{Methodologies:} Scrum, Shape Up
-
-% ===============================================================
-% Languages
-% ===============================================================
-\section*{Languages}
-
-\textbf{English} (Professional working)\\
-\textbf{German} (Native or bilingual)\\
-\textbf{Thai} (Native or bilingual)\\
-\textbf{Danish} (Elementary)
-
-% ===============================================================
-% Honors and Awards
-% ===============================================================
-\section*{Honors and Awards}
-
-\textbf{William Demant Fonden Grant} \hfill May 2026\\
-Received a grant from the William Demant Foundation supporting graduate studies.
-
-\textbf{Top-10 Placement, Danish National Championship in AI (DM i AI)} \href{https://dmiai.dk/}{\faGlobe} \hfill 2025\\
-National AI competition, individual competitor
-\begin{itemize}
-    \item Secured a top-10 placement while competing solo against more than 50 teams in Denmark's largest AI competition, organized by the Danish Society for Artificial Intelligence.
-\end{itemize}
-
-\textbf{Top-10 Placement, Danish National Championship in AI (DM i AI)} \href{https://dmiai.dk/}{\faGlobe} \hfill 2024\\
-National AI competition, individual competitor
-\begin{itemize}
-    \item Achieved top-tier placement in a national AI competition for students, organized by the Danish Society for Artificial Intelligence.
-\end{itemize}
-
-\textbf{1st Place, SDU Case Competition, SDU S\o nderborg} \href{https://event.sdu.dk/sducasecompetition2023}{\faGlobe}\ \href{https://www.sonderborgnyt.dk/virksomheden-we-use-fik-god-hjaelp-gennem-sdu-konkurrence/}{\faGlobe} \hfill 2023\\
-University case competition on sustainability
-\begin{itemize}
-    \item Awarded 1st place in a 48-hour competition focused on sustainability with real-world cases from companies such as Danfoss and Linak.
-\end{itemize}
-
-\textbf{Formal Recognition for Exemplary Service, Bundeswehr (German Armed Forces)} \hfill 2021\\
-Military commendation
-\begin{itemize}
-    \item Formally commended for setting a benchmark in dedication and professionalism for enlisted personnel.
-\end{itemize}
-
-\textbf{Performance Bonus for Outstanding Achievement, Bundeswehr (German Armed Forces)} \hfill 2021\\
-Military achievement bonus
-\begin{itemize}
-    \item Awarded a financial bonus for sustained, excellent performance and independent handling of complex tasks.
-\end{itemize}
-
-% ===============================================================
-% Certifications
-% ===============================================================
-\section*{Certifications}
-
-\textbf{Venture Capital Explorer Programme}, Accelerace \& BII \hfill 2026\\
-Intensive 4-day program covering VC investment process, founder sourcing, startup assessment, venture risk evaluation, investment committee operations, exits, and case-study simulations.
-
-\textbf{Machine Learning}, Stanford Online \hfill 2024\\
-\textbf{Foundational C\# with Microsoft} \hfill 2024\\
-\textbf{Google UX Design Professional}, Google \hfill 2023\\
-\textbf{React Native Course} \hfill 2023\\
-\textbf{Full-Stack Engineer Career Path}, Codecademy \hfill 2023\\
-\textbf{Certified Specialist for Real Estate Loan Brokerage (IHK)} \hfill 2022
+%==================== Languages ====================
+\section{Languages}
+\cvitem{Fluent}{English (professional), German (native), Thai (native)}
+\cvitem{Basic}{Danish}
 
 \end{document}
