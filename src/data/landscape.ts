@@ -20,6 +20,9 @@ export interface NodeSpec {
   x: number;
   y: number;
   featured?: boolean;
+  href?: string;                // clickable node that is not a publication (e.g. thesis)
+  label?: string;               // display label for non-publication nodes
+  tip?: string;                 // native tooltip text for href nodes
 }
 
 export type EdgeSpec = [string, string];
@@ -101,6 +104,7 @@ export const nodes: NodeSpec[] = [
   { id: 'acceptance-cards',  pubSlug: 'acceptance-cards',  cluster: 'safety', x: 1030, y: 195, featured: true },
   { id: 'grounded-auditing', pubSlug: 'grounded-auditing', cluster: 'safety', x: 905, y: 250, featured: true },
   { id: 'cot-safety',        pubSlug: 'cot-safety',        cluster: 'safety', x: 905, y: 325, featured: true },
+  { id: 'heimdall', label: 'Heimdall', href: '/#thesis', tip: 'BSc thesis. A conformal verifier that gates LLM bidding agents against the grid, with code and weights released.', cluster: 'safety', x: 1035, y: 300, featured: true },
 
   // === AI Agents & Software Systems sub-area ===
   { id: 'ai-agents', topic: 'AI Agents', cluster: 'arch', x: 600, y: 425 },
@@ -137,6 +141,7 @@ export const edges: EdgeSpec[] = [
   ['audit', 'open-box-fallacy'], ['audit', 'cot-safety'],
   ['acceptance-cards', 'grounded-auditing'],
   ['open-box-fallacy', 'cot-safety'],
+  ['audit', 'heimdall'], ['heimdall', 'acceptance-cards'], ['heimdall', 'grounded-auditing'], ['heimdall', 'cot-safety'],
 
   // interp ↔ safety
   ['routing-subspaces', 'acceptance-cards'],

@@ -10,7 +10,7 @@ export interface TimelineItem {
 export const timeline: TimelineItem[] = [
   { org: 'Bundeswehr',        role: 'Staff Duty Soldier · Twice decorated', when: 'Oct 2017 – Sep 2021', position: 'up' },
   { org: 'Yeager GmbH',       role: 'Co-Founder & Co-CEO',                 when: 'Nov 2022 – Jun 2024', position: 'down' },
-  { org: 'SDU',                role: 'BSc Software Engineering',            when: '2023 – 2026',         position: 'up' },
+  { org: 'SDU',                role: 'BSc in Engineering (Software)',       when: '2023 – 2026',         position: 'up' },
   { org: 'Tutora',             role: 'CTO & Co-Founder',                    when: 'Jun – Nov 2024',      position: 'down' },
   { org: 'SDU D&I Lab',        role: 'Research Assistant',                  when: 'Sep 2024 – Dec 2025', position: 'up' },
   { org: 'HKUST',              role: 'Exchange · CS & AI',                  when: 'Sep – Dec 2025',      position: 'down' },

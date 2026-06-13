@@ -60,11 +60,13 @@ const resolvedEdges = edges.map(([a, b]) => ({ a: nodeById[a], b: nodeById[b] })
 
   <div class="ls-nodes">
     {nodes.map((n) => {
-      const label = n.pubSlug ? (pubBySlug[n.pubSlug]?.short ?? n.pubSlug) : (n.topic ?? '');
+      const label = n.pubSlug ? (pubBySlug[n.pubSlug]?.short ?? n.pubSlug) : (n.label ?? n.topic ?? '');
       const style = `left:${(n.x / SVG_W) * 100}%; top:${(n.y / SVG_H) * 100}%; --node-clr:var(--c-${n.cluster}); --node-bg:var(--c-${n.cluster}-bg);`;
-      const cls = `ls-pill ${n.pubSlug ? '' : 'topic'}`;
+      const cls = `ls-pill ${(n.pubSlug || n.href) ? '' : 'topic'}`;
       return n.pubSlug ? (
         <a class={cls} style={style} href={`/publications/${n.pubSlug}`} data-id={n.id} data-slug={n.pubSlug} aria-label={pubBySlug[n.pubSlug]?.title}>{label}</a>
+      ) : n.href ? (
+        <a class={cls} style={style} href={n.href} data-id={n.id} title={n.tip} aria-label={n.tip}>{label}</a>
       ) : (
         <span class={cls} style={style} data-id={n.id}>{label}</span>
       );
