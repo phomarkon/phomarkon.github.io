@@ -7,7 +7,6 @@ import Publications from '../components/Publications.astro';
 
 const selectedSlugs = ['counterfactual-self-reports', 'decoded-but-unused', 'path-already-walked', 'fyi-factcheck'];
 import { publications } from '../data/publications';
-import { building } from '../data/building';
 const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)!);
 ---
 <Base>
@@ -89,28 +88,6 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
       <h2>Research Landscape</h2>
       <p class="section-sub">Three modalities, one through line. Hover a paper to see its neighbours light up. Click to open its page.</p>
       <ResearchLandscape />
-    </div>
-  </section>
-
-  <!-- Building -->
-  <section id="building">
-    <div class="container">
-      <h2>Building</h2>
-      <p class="section-sub">Tools, a course, and products I have shipped. Code where it is open.</p>
-      <div class="build-grid">
-        {building.map((b) => (
-          <article class="build-card">
-            <h3 class="build-title">{b.title}</h3>
-            <p class="build-blurb">{b.blurb}</p>
-            <div class="build-meta">{b.meta}</div>
-            <div class="build-links">
-              {b.links.map((l) => (
-                <a href={l.href} target={l.href.startsWith('/') ? undefined : '_blank'} rel="noopener">{l.label}</a>
-              ))}
-            </div>
-          </article>
-        ))}
-      </div>
     </div>
   </section>
 

@@ -116,18 +116,6 @@ section + section { border-top: 1px solid var(--rule-soft); }
 .rq-list li a { color: var(--accent); }
 .rq-topics { font-family: var(--font-mono); font-size: .78rem; color: var(--ink-mute); letter-spacing: .02em; margin-top: .5rem; }
 
-/* Building Section */
-.build-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; }
-.build-card { padding: 1.1rem 1.2rem; background: var(--bg-card); border: 1px solid var(--rule); border-radius: 10px; transition: border-color .15s; }
-.build-card:hover { border-color: var(--accent-soft); }
-.build-title { font-weight: 700; font-size: 1rem; color: var(--ink); margin: 0 0 .35rem; }
-.build-blurb { color: var(--ink-soft); font-size: .88rem; line-height: 1.5; margin: 0 0 .5rem; }
-.build-meta { font-family: var(--font-mono); font-size: .68rem; color: var(--ink-mute); letter-spacing: .03em; margin-bottom: .5rem; }
-.build-links { display: flex; flex-wrap: wrap; gap: .8rem; }
-.build-links a { font-size: .8rem; color: var(--accent); }
-.build-links a:hover { text-decoration: underline; }
-@media (max-width: 640px) { .build-grid { grid-template-columns: 1fr; } }
-
 /* Selected Works Section */
 .sw-section { display: flex; flex-direction: column; gap: .6rem; }
 .sw-card { display: grid; grid-template-columns: 24px 1fr; gap: .7rem; padding: 1rem 1.2rem; background: var(--bg-card); border: 1px solid var(--rule); border-radius: 10px; transition: border-color .15s; align-items: start; }
