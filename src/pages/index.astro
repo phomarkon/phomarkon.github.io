@@ -64,6 +64,15 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
     </div>
   </section>
 
+  <!-- Highlights -->
+  <section id="highlights">
+    <div class="container">
+      <h2>Highlights</h2>
+      <p class="section-sub">News, talks, and achievements, most recent first.</p>
+      <Highlights />
+    </div>
+  </section>
+
   <!-- Career Timeline -->
   <section id="timeline">
     <div class="container-wide">
@@ -101,15 +110,6 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
           </article>
         ))}
       </div>
-    </div>
-  </section>
-
-  <!-- Highlights -->
-  <section id="highlights">
-    <div class="container">
-      <h2>Highlights</h2>
-      <p class="section-sub">News, talks, and achievements, most recent first.</p>
-      <Highlights />
     </div>
   </section>
 
