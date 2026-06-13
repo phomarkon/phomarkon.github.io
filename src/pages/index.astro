@@ -5,7 +5,7 @@ import ResearchLandscape from '../components/ResearchLandscape.astro';
 import Highlights from '../components/Highlights.astro';
 import Publications from '../components/Publications.astro';
 
-const selectedSlugs = ['counterfactual-self-reports', 'decoded-but-unused', 'path-already-walked', 'routing-subspaces', 'acceptance-cards'];
+const selectedSlugs = ['counterfactual-self-reports', 'decoded-but-unused', 'path-already-walked', 'fyi-factcheck'];
 import { publications } from '../data/publications';
 const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)!);
 ---
@@ -21,11 +21,11 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
           <div class="about">
             <p>A sushi chef learning his cuts, except the fish is a model. I take them apart by hand to see what is really happening inside, and whether we should believe what people claim about them.</p>
             <p>I am currently a Research Collaborator at <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">SDU's Data and Intelligence Lab</a> and at the <a href="https://hkust.edu.hk/">HKUST</a> DataVISards group, TA for AI at SDU (where I built an <a href="https://phomarkon.github.io/ai101/#/welcome" target="_blank" rel="noopener">interactive AI course</a>), and Founder of SaturoLabs. I have been admitted to the <a href="https://www.mlmi.eng.cam.ac.uk/">MPhil in Machine Learning and Machine Intelligence at the University of Cambridge</a>, which I begin this October.</p>
-            <p class="rq-heading">My research organises around one question:</p>
+            <p class="rq-heading">It all comes down to one question.</p>
             <blockquote class="rq-quote">Does the learning process that scaling relies on actually install internal representations capable of genuine counterfactual reasoning, or only representations that imitate it? And if it is imitation, what would a learning process have to do differently to install the real thing?</blockquote>
-            <p>The north star is genuine machine intelligence: systems that understand the world and derive its mechanisms the way science let us, not systems that imitate the surface of understanding. I think the dominant paradigm is on the wrong track. Prediction-at-scale buys ever-better imitation without ever building real understanding, benchmarks are poor instruments, and I find scaling laws ugly. I look for first principles in the physics of learning instead.</p>
-            <p>So I study the two things that give understanding away. <strong>Counterfactual reasoning</strong>, the cleanest line between understanding and pattern-matching, through <a href="/publications/counterfactual-self-reports">identifiability tests on counterfactual reports</a>. And the <strong>structure of learned representations</strong>, their geometry and identifiability, through <a href="/publications/routing-subspaces">subspace audits</a>, <a href="/publications/decoded-but-unused">causal tracing</a>, and <a href="/publications/embedding-confound">probe-direction audits</a>. Causal representation learning is home territory.</p>
-            <p>I work phenomenon-first: I would rather exhibit one clean, surprising regularity than derive it from axioms, and I would take a small shot at something field-shifting over a safe incremental result. From here my goal is a PhD. I do not yet know which fork I will spend years on, whether scale simply cannot buy understanding or whether the thing that matters has to come from structure elsewhere, and I am fine with that for now. I am following the curiosity, and the questions keep getting sharper.</p>
+            <p>The north star is genuine machine intelligence. I mean systems that understand the world and derive its mechanisms the way science let us, not systems that imitate the surface of understanding. I think the dominant paradigm is on the wrong track. Prediction at scale buys ever better imitation without ever building real understanding, benchmarks are poor instruments, and I find scaling laws ugly. I look for first principles in the physics of learning instead.</p>
+            <p>So I study the two things that give understanding away. <strong>Counterfactual reasoning</strong>, the cleanest line between understanding and pattern matching, through <a href="/publications/counterfactual-self-reports">identifiability tests on counterfactual reports</a>. And the <strong>structure of learned representations</strong>, their geometry and identifiability, through <a href="/publications/routing-subspaces">subspace audits</a>, <a href="/publications/decoded-but-unused">causal tracing</a>, and <a href="/publications/embedding-confound">probe direction audits</a>. Causal representation learning is home territory.</p>
+            <p>I work phenomenon first. I would rather exhibit one clean, surprising regularity than derive it from axioms, and I would take a small shot at something field shifting over a safe incremental result. From here my goal is a PhD. I do not yet know which fork I will spend years on, whether scale simply cannot buy understanding or whether the thing that matters has to come from structure elsewhere, and I am fine with that for now. I am following the curiosity, and the questions keep getting sharper.</p>
           </div>
           <div class="hero-social">
             <a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a>
@@ -42,7 +42,7 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
   <section id="selected-work">
     <div class="container">
       <h2>Selected Work</h2>
-      <p class="section-sub">Five papers that best represent my current research direction.</p>
+      <p class="section-sub">A few peer reviewed papers that best represent my current research direction.</p>
       <div class="sw-section">
         {selectedPubs.map((p, i) => (
           <a class="sw-card" href={`/publications/${p.slug}`}>
@@ -76,7 +76,7 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
   <section id="research">
     <div class="container-wide">
       <h2>Research Landscape</h2>
-      <p class="section-sub">Three modalities, one through-line. Hover a paper to see its neighbours light up. Click to open its page.</p>
+      <p class="section-sub">Three modalities, one through line. Hover a paper to see its neighbours light up. Click to open its page.</p>
       <ResearchLandscape />
     </div>
   </section>
@@ -94,7 +94,7 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
   <section id="publications">
     <div class="container">
       <h2>Publications</h2>
-      <p class="section-sub">Peer-reviewed and accepted work first, then preprints and work under review.</p>
+      <p class="section-sub">Peer reviewed and accepted work first, then preprints and work under review.</p>
       <Publications />
     </div>
   </section>
