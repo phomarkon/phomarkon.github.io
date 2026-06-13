@@ -1,7 +1,17 @@
 ---
 import { publications, clusters } from '../data/publications';
 
-const sorted = [...publications].sort((a, b) => b.date.localeCompare(a.date));
+const statusRank: Record<string, number> = {
+  'Published': 0,
+  'Accepted': 1,
+  'Under Revision': 2,
+  'Preprint': 3,
+  'Under Review': 4,
+};
+const sorted = [...publications].sort((a, b) => {
+  const r = (statusRank[a.status] ?? 9) - (statusRank[b.status] ?? 9);
+  return r !== 0 ? r : b.date.localeCompare(a.date);
+});
 
 function fmtDate(d: string) {
   const [y, m] = d.split('-');

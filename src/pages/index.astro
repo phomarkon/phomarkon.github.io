@@ -5,7 +5,7 @@ import ResearchLandscape from '../components/ResearchLandscape.astro';
 import Highlights from '../components/Highlights.astro';
 import Publications from '../components/Publications.astro';
 
-const selectedSlugs = ['routing-subspaces', 'decoded-but-unused', 'acceptance-cards', 'counterfactual-self-reports', 'path-already-walked'];
+const selectedSlugs = ['counterfactual-self-reports', 'decoded-but-unused', 'path-already-walked', 'routing-subspaces', 'acceptance-cards'];
 import { publications } from '../data/publications';
 const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)!);
 ---
@@ -95,7 +95,7 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
   <section id="publications">
     <div class="container">
       <h2>Publications</h2>
-      <p class="section-sub">Selected papers and preprints, most recent first.</p>
+      <p class="section-sub">Peer-reviewed and accepted work first, then preprints and work under review.</p>
       <Publications />
     </div>
   </section>
