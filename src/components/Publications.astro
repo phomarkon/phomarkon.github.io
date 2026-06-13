@@ -38,7 +38,7 @@ const clusterKeys = Array.from(new Set(publications.map((p) => p.cluster)));
 <div class="pubs-list" id="pubs-list">
   {sorted.map((p) => (
     <article class="pub-card" id={p.slug} data-status={p.status} data-cluster={p.cluster}>
-      <span class={`pub-venue ${p.status === 'Under Review' ? 'submitted' : p.status === 'Accepted' ? 'accepted' : p.status === 'Published' ? 'published' : p.status === 'Under Revision' ? 'revision' : p.status === 'Preprint' ? 'preprint' : ''}`}>{p.venue} · {p.status}</span>
+      <span class={`pub-venue ${p.status === 'Under Review' ? 'submitted' : p.status === 'Accepted' ? 'accepted' : p.status === 'Published' ? 'published' : p.status === 'Under Revision' ? 'revision' : p.status === 'Preprint' ? 'preprint' : ''}`}>{p.status === 'Under Review' ? p.status : `${p.venue} · ${p.status}`}</span>
       <h3 class="pub-title"><a href={`/publications/${p.slug}`}>{p.title}</a></h3>
       <div class="pub-authors" set:html={p.authors.replace(/(P\.\s*M\.\s*Konrad)/, '<span class="me">$1</span>')} />
       <div class="pub-date">{fmtDate(p.date)}</div>

@@ -54,7 +54,7 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
               </div>
               <div class="sw-authors">{p.authors}</div>
               <div class="sw-meta">
-                <span class={`sw-venue-badge ${p.status === 'Under Review' ? 'submitted' : p.status === 'Accepted' ? 'accepted' : ''}`}>{p.venue} · {p.status}</span>
+                <span class={`sw-venue-badge ${p.status === 'Under Review' ? 'submitted' : p.status === 'Accepted' ? 'accepted' : ''}`}>{p.status === 'Under Review' ? p.status : `${p.venue} · ${p.status}`}</span>
               </div>
               <p class="sw-tldr">{p.oneLine}</p>
             </div>
