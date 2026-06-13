@@ -116,6 +116,16 @@ section + section { border-top: 1px solid var(--rule-soft); }
 .rq-list li a { color: var(--accent); }
 .rq-topics { font-family: var(--font-mono); font-size: .78rem; color: var(--ink-mute); letter-spacing: .02em; margin-top: .5rem; }
 
+/* BSc Thesis Card */
+.thesis-card { padding: 1.2rem 1.4rem; background: var(--bg-card); border: 1px solid var(--rule); border-radius: 10px; }
+.thesis-title { font-weight: 700; font-size: 1.05rem; color: var(--ink); margin: 0 0 .15rem; }
+.thesis-sub { font-size: .9rem; color: var(--ink-soft); font-style: italic; margin: 0 0 .55rem; }
+.thesis-blurb { color: var(--ink-soft); font-size: .9rem; line-height: 1.55; margin: 0 0 .6rem; }
+.thesis-meta { font-family: var(--font-mono); font-size: .68rem; color: var(--ink-mute); letter-spacing: .03em; margin-bottom: .6rem; }
+.thesis-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+.thesis-links a { font-size: .82rem; color: var(--accent); }
+.thesis-links a:hover { text-decoration: underline; }
+
 /* Selected Works Section */
 .sw-section { display: flex; flex-direction: column; gap: .6rem; }
 .sw-card { display: grid; grid-template-columns: 24px 1fr; gap: .7rem; padding: 1rem 1.2rem; background: var(--bg-card); border: 1px solid var(--rule); border-radius: 10px; transition: border-color .15s; align-items: start; }
