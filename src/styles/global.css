@@ -110,6 +110,9 @@ section + section { border-top: 1px solid var(--rule-soft); }
 .about a { color: var(--accent); }
 .about a:hover { text-decoration: underline; }
 .rq-heading { margin-bottom: .3rem; }
+.rq-questions { margin: .7rem 0 1rem; display: flex; flex-direction: column; gap: .55rem; border-left: 2px solid var(--accent); padding-left: 1rem; }
+.rq-q { margin: 0; font-size: .96rem; line-height: 1.5; color: var(--ink); font-weight: 500; }
+.rq-q .rq-qn { font-family: var(--font-mono); font-size: .78rem; color: var(--accent); font-weight: 600; margin-right: .5rem; }
 .rq-list { list-style: decimal; padding-left: 1.3rem; margin-bottom: 1rem; }
 .rq-list li { font-size: .9rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: .45rem; }
 .rq-list li a { color: var(--accent); }
