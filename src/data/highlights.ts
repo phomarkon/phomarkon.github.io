@@ -13,7 +13,7 @@ export const highlights: Highlight[] = [
   { date: 'JUN 2026', kind: 'paper', text: 'Two papers accepted to the Mechanistic Interpretability workshop, ICML 2026', href: '/#publications' },
   { date: 'JUN 2026', kind: 'award', text: 'Nominated for the Best Thesis Award, Faculty of Engineering, SDU' },
   { date: 'MAY 2026', kind: 'award', text: 'Received grant from William Demant Fonden' },
-  { date: '2026',     kind: 'award', text: 'Nominated for a Best Startup Award with SaturoLabs' },
+  { date: '2026',     kind: 'award', text: 'Nominated for a Best Startup Award with DreamBear (SaturoLabs)' },
   { date: 'MAR 2026', kind: 'edu',   text: 'Accepted to the MPhil in Machine Learning and Machine Intelligence at the University of Cambridge' },
   { date: 'MAR 2026', kind: 'paper', text: 'Three papers accepted to workshops at IEEE ICSA 2026, the SAML, KDA-AI, and SAGAI workshops', href: '/#publications' },
   { date: 'MAR 2026', kind: 'misc',  text: 'Completed the Venture Capital Explorer Programme at Accelerace, Aarhus' },
