@@ -91,19 +91,14 @@ export const blobs: BlobSpec[] = [
 export const nodes: NodeSpec[] = [
   // === Mechanistic Interpretability sub-area ===
   { id: 'mech-interp', topic: 'Mechanism', cluster: 'interp', x: 285, y: 142 },
-  { id: 'routing-subspaces',           pubSlug: 'routing-subspaces',           cluster: 'interp', x: 155, y: 195, featured: true },
   { id: 'path-already-walked',         pubSlug: 'path-already-walked',         cluster: 'interp', x: 425, y: 195, featured: true },
   { id: 'decoded-but-unused',          pubSlug: 'decoded-but-unused',          cluster: 'interp', x: 285, y: 235, featured: true },
-  { id: 'idk-abstention',              pubSlug: 'idk-abstention',              cluster: 'interp', x: 155, y: 285, featured: true },
-  { id: 'embedding-confound',          pubSlug: 'embedding-confound',          cluster: 'interp', x: 440, y: 285, featured: true },
   { id: 'counterfactual-self-reports', pubSlug: 'counterfactual-self-reports', cluster: 'interp', x: 290, y: 330, featured: true },
 
   // === Safety, Audit & Evaluation sub-area ===
   { id: 'audit', topic: 'Auditing', cluster: 'safety', x: 905, y: 142 },
   { id: 'open-box-fallacy',  pubSlug: 'open-box-fallacy',  cluster: 'safety', x: 775, y: 195, featured: true },
   { id: 'acceptance-cards',  pubSlug: 'acceptance-cards',  cluster: 'safety', x: 1030, y: 195, featured: true },
-  { id: 'grounded-auditing', pubSlug: 'grounded-auditing', cluster: 'safety', x: 905, y: 250, featured: true },
-  { id: 'cot-safety',        pubSlug: 'cot-safety',        cluster: 'safety', x: 905, y: 325, featured: true },
   { id: 'heimdall', label: 'Heimdall', href: '/#thesis', tip: 'BSc thesis. A conformal verifier that gates LLM bidding agents against the grid, with code and weights released.', cluster: 'safety', x: 1035, y: 300, featured: true },
 
   // === AI Agents & Software Systems sub-area ===
@@ -129,24 +124,17 @@ export const nodes: NodeSpec[] = [
 // Semantic edges (paper-to-paper and paper-to-topic).
 export const edges: EdgeSpec[] = [
   // inside Mech Interp
-  ['mech-interp', 'routing-subspaces'], ['mech-interp', 'decoded-but-unused'],
-  ['mech-interp', 'idk-abstention'], ['mech-interp', 'embedding-confound'],
+  ['mech-interp', 'decoded-but-unused'],
   ['mech-interp', 'counterfactual-self-reports'], ['mech-interp', 'path-already-walked'],
   ['decoded-but-unused', 'counterfactual-self-reports'],
-  ['idk-abstention', 'embedding-confound'],
-  ['routing-subspaces', 'decoded-but-unused'],
 
   // inside Safety
-  ['audit', 'acceptance-cards'], ['audit', 'grounded-auditing'],
-  ['audit', 'open-box-fallacy'], ['audit', 'cot-safety'],
-  ['acceptance-cards', 'grounded-auditing'],
-  ['open-box-fallacy', 'cot-safety'],
-  ['audit', 'heimdall'], ['heimdall', 'acceptance-cards'], ['heimdall', 'grounded-auditing'], ['heimdall', 'cot-safety'],
+  ['audit', 'acceptance-cards'],
+  ['audit', 'open-box-fallacy'],
+  ['audit', 'heimdall'], ['heimdall', 'acceptance-cards'],
 
   // interp ↔ safety
-  ['routing-subspaces', 'acceptance-cards'],
   ['path-already-walked', 'open-box-fallacy'],
-  ['decoded-but-unused', 'cot-safety'],
 
   // inside AI Agents
   ['ai-agents', 'vibe-architecting'], ['ai-agents', 'cake'], ['ai-agents', 'agentic-hybrid-retrieval'],
@@ -154,7 +142,6 @@ export const edges: EdgeSpec[] = [
 
   // arch ↔ safety / audit
   ['vibe-architecting', 'open-box-fallacy'],
-  ['cake', 'grounded-auditing'],
 
   // CV
   ['segmentation', 'small-organ-segmentation'],
@@ -164,8 +151,6 @@ export const edges: EdgeSpec[] = [
 
   // Human-AI bridges
   ['human-ai', 'fyi-factcheck'],
-  ['fyi-factcheck', 'grounded-auditing'],
-  ['fyi-factcheck', 'cot-safety'],
 ];
 
 export const SVG_W = 1200;

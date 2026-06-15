@@ -48,6 +48,7 @@ const clusterKeys = Array.from(new Set(publications.map((p) => p.cluster)));
         {p.pdf && <a href={p.pdf} target="_blank" rel="noopener">PDF ↗</a>}
         {p.code && <a href={p.code} target="_blank" rel="noopener">Code ↗</a>}
         {p.arxiv && <a href={p.arxiv} target="_blank" rel="noopener">arXiv ↗</a>}
+        {p.openreview && <a href={p.openreview} target="_blank" rel="noopener">OpenReview ↗</a>}
         <a href={`/publications/${p.slug}`}>Details →</a>
       </div>
     </article>

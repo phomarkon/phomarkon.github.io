@@ -16,24 +16,11 @@ export interface Publication {
   pdf?: string;
   code?: string;
   arxiv?: string;
+  openreview?: string;
   doi?: string;
 }
 
 export const publications: Publication[] = [
-  {
-    slug: 'routing-subspaces',
-    title: 'Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models',
-    short: 'Routing Subspaces',
-    authors: 'P. M. Konrad, T. Tanyel, S. Ayvaz',
-    venue: 'NeurIPS 2026',
-    status: 'Preprint',
-    date: '2026-01',
-    cluster: 'interp',
-    tags: ['Mechanistic Interpretability', 'Auditing', 'Fine-tuning'],
-    oneLine: 'Path-patching localises an eval-vs-deployment signal to a narrow mid-depth attention window. Clamping a low-dimensional subspace closes the gap in 11 of 12 cells.',
-    abstract: 'Safety evaluations often assume that behavior observed during testing reflects behavior in ordinary use, but fine-tuning can break this assumption. A checkpoint can appear fixed under evaluation-style prompts while the same behavior persists under ordinary-use prompts. Output scores reveal this mismatch but do not locate it. We investigate whether the distinction is encoded in a stable internal site and introduce an approach that fits a paired activation contrast at a path-patching-informed mid-depth window, then modifies the resulting coordinate on held-out prompts. The intervention closes the evaluation-to-deployment gap in ten of twelve model–behavior settings (six of the eight settings with n≥120 paired questions) across four full-matrix instruction-tuned model instances; a fifth model supports localization and edit-provenance checks, and deployment-framed rates change by at most 6.1pp. The two flat cells, both sycophancy, indicate that a single-coordinate audit is not sufficient when the installed distinction is higher-rank or missed by the depth heuristic. The audit is a diagnostic for fine-tuned checkpoints, not a training-time defense or a guarantee of deployment safety.',
-    pdf: '/papers/NeurIPS_2026_Routing_Subspaces.pdf',
-  },
   {
     slug: 'acceptance-cards',
     title: 'Acceptance Cards: A Four-Diagnostic Standard for Safe Fine-Tuning Defense Claims',
@@ -63,20 +50,6 @@ export const publications: Publication[] = [
     pdf: '/papers/NeurIPS_2026_The_Open_Box_Fallacy.pdf',
   },
   {
-    slug: 'grounded-auditing',
-    title: 'Grounded Auditing as an Evaluation Policy: A Matched-Action Protocol and Stress Test',
-    short: 'Grounded Auditing',
-    authors: 'P. M. Konrad, Y. Du, S. Ayvaz',
-    venue: 'NeurIPS 2026',
-    status: 'Preprint',
-    date: '2026-01',
-    cluster: 'safety',
-    tags: ['Auditing', 'Evaluation', 'Retrieval'],
-    oneLine: 'Grounded auditing decomposed into a matched-action interface policy (O, R, A, G). Citation gates induce abstention, not correction.',
-    abstract: 'Grounding LLM auditors with retrieved evidence and citation requirements is increasingly common in evaluation and oversight workflows. Yet grounding bundles several distinct policy choices: which information the auditor observes, what sources it may rely on, which decisions it can make, and how unsupported outputs are handled. To address this ambiguity, we introduce a matched-action evaluation protocol that formalizes grounded auditing as an interface policy I = (O, R, A, G), separating the observation channel, reliance rule, action space, and post-hoc gate, while modeling evidence quality Qe independently. We instantiate the framework on NQ-Open and TriviaQA, testing five interfaces that isolate evidence access, evidence-only reliance, and hard citation gating. Further stress tests manipulate Qe across valid, empty, distractor-only, and misleading evidence pools. The results show that evidence access improves correction, while citation gates reduce over-trust primarily by inducing abstention rather than by improving correction. Under misleading evidence, gated evidence-only policies increase over-trust by accepting planted support. Our work suggests that grounded auditors should be specified as explicit evaluation policies instead of as a binary grounded/ungrounded condition. We release the protocol, prompts, evidence-pool construction, and scoring pipeline to support reproducible evaluation.',
-    pdf: '/papers/NeurIPS_2026_Grounded_Auditing_Matched_Action_Protocol.pdf',
-  },
-  {
     slug: 'decoded-but-unused',
     title: 'Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout',
     short: 'Decoded but Unused',
@@ -89,6 +62,7 @@ export const publications: Publication[] = [
     oneLine: 'Moral framing is linearly decodable in pretrained models, but only causally routed to judgment after instruction tuning.',
     abstract: 'Large language models change their moral verdicts when the same event is reframed, but the literature treats this as a behavioural fact about chat models without locating where in the network the change happens. We show that moral framing is already linearly decodable in the pretrained network yet has no causal effect on its judgment, while in the instruction-tuned checkpoint that same representation becomes aligned with and causally usable by the evaluative readout, with the within-model framing-judgment alignment 8.4× larger than in the matched pretrained checkpoint at the same layer. Instruction tuning changes how the representation is read out, not whether it exists.',
     pdf: '/papers/ICML_2026_Decoded_but_Unused.pdf',
+    openreview: 'https://openreview.net/forum?id=da9ylT2doy',
   },
   {
     slug: 'counterfactual-self-reports',
@@ -117,48 +91,7 @@ export const publications: Publication[] = [
     oneLine: 'Position: mech-interp should import the graph vocabulary of network neuroscience (modularity, rich clubs, motifs) under explicit contracts.',
     abstract: 'Mechanistic interpretability is moving from neurons and heads toward circuits, dictionary features, and attribution graphs. That transition is productive, but it also raises a familiar issue. Many important phenomena are relational rather than component-local. Network neuroscience has spent two decades building graph vocabulary, null models, and failure modes for related problems. We argue for a disciplined import rather than a loose brain analogy. We specify the transformer graph contract required before the import is meaningful, give a compact mapping from network-neuroscience primitives to transformer analyses, work through a local effective-connectivity proxy for gated MLPs, and state eight testable translations with failure criteria. We do not report transformer experiments, and we do not claim neuroscience results transfer automatically.',
     pdf: '/papers/ICML_2026_Workshop_A_Path_Already_Walked_Network_Neuroscience.pdf',
-  },
-  {
-    slug: 'cot-safety',
-    title: 'When does chain-of-thought improve safety? Evidence from 18 models across 5 families',
-    short: 'CoT Safety',
-    authors: 'P. M. Konrad, S. Ayvaz',
-    venue: 'COLM 2026',
-    status: 'Preprint',
-    date: '2026-01',
-    cluster: 'safety',
-    tags: ['Safety', 'Chain-of-Thought', 'Evaluation'],
-    oneLine: 'CoT does not automatically improve safety calibration. Training objective (GRPO) matters more than deliberation itself.',
-    abstract: 'Reasoning models deliberate visibly about whether to refuse or comply with a request in their chain-of-thought traces. Whether this deliberation improves safety calibration (refusing harmful prompts without over-refusing benign ones) is an open question. We evaluate 18 models across 5 matched reasoning/instruct families and find the effect is heterogeneous: in 4 of 5 families, reasoning does not improve calibration, with DeepSeek R1 as the sole exception. A validated trace taxonomy reveals why: genuinely deliberative traces achieve balanced accuracy across harmful and benign prompts, while assessment-only traces create a dangerous asymmetry, performing well on benign prompts but failing on the harmful ones that matter most. The training objective, not deliberation frequency, determines which pattern emerges. A distillation experiment shows that R1\'s advantage requires GRPO reinforcement learning, not supervised imitation of reasoning traces. In a suppression experiment, 5 of 7 reasoning models cannot suppress their chain-of-thought; among the two that comply, one degrades and one preserves calibration, suggesting that runtime reasoning\'s contribution varies across models. On adversarial benchmarks, adding chain-of-thought does not automatically improve safety; the training objective matters more than the reasoning itself. On naturalistic queries, the reasoning/instruct gap is small, suggesting the distinction matters most where it counts: under adversarial pressure.',
-    pdf: '/papers/COLM_2026_When_Does_Chain_of_Thought_Improve_Safety.pdf',
-  },
-  {
-    slug: 'embedding-confound',
-    title: 'How Much of a Probe Direction Lives in the Input Embedding? An Audit of Four Published Claims',
-    short: 'Embedding Audit',
-    authors: 'P. M. Konrad, Y. Du, T. Tanyel, S. Ayvaz',
-    venue: 'EMNLP 2026',
-    status: 'Preprint',
-    date: '2026-05',
-    cluster: 'interp',
-    tags: ['Mechanistic Interpretability', 'Probing', 'Auditing'],
-    oneLine: 'A matched embedding-projection control re-tests four published single-direction claims across open-weight chat models; a published refusal direction loses 63–66% of its predictive correlation.',
-    abstract: 'Interpretability research in language models often identifies latent directions in the hidden state that track specific behaviors, such as truthfulness, refusal, sentiment, or sycophancy. The usual evidence is a high correlation between projecting onto that direction and the behavior. The probing literature already provides a matched control by isolating out a baseline representation, and the single-direction line of work has not adopted this approach. We apply that control to four published direction claims across a panel of open-weight chat models, using the input-embedding projection as the baseline. On a harmful-prompt benchmark in two specific checkpoints, a published refusal direction loses 63–66% of its predictive correlation under the control, even though projecting the direction out of the network still suppresses refusals, a dissociation that does not appear on four held-out chat families.',
-    pdf: '/papers/EMNLP_2026_Probe_Direction_Input_Embedding_Audit.pdf',
-  },
-  {
-    slug: 'idk-abstention',
-    title: 'Abstention and Refusal Are Separable Directions in the Residual Stream',
-    short: 'Abstention vs Refusal',
-    authors: 'P. M. Konrad, Y. Du, T. Tanyel, S. Ayvaz',
-    venue: 'EMNLP 2026',
-    status: 'Preprint',
-    date: '2026-05',
-    cluster: 'interp',
-    tags: ['Mechanistic Interpretability', 'Abstention', 'Steering'],
-    oneLine: 'A matched-cost cross-intervention shows abstention and refusal are separable residual-stream directions: steering one moves it, steering the other moves it by zero.',
-    abstract: 'Instruction-tuned language models refuse harmful requests and can abstain when the context is unreliable or unrelated to the factual question. The two responses look alike on the surface, and prior work has not tested whether they share the residual-stream direction that mediates refusal. We test this with a cross-intervention at matched benign-refusal cost across three instruction-tuned model families. In one family, steering the abstention direction moves abstention while steering the refusal direction moves it by zero. The recipe is not deployable because it fails its accuracy budget and does not transfer outside its training distribution, but the dissociation means that tools built for refusal should not be repurposed for conflict abstention without an explicit cross-intervention check.',
-    pdf: '/papers/EMNLP_2026_Abstention_Refusal_Separable_Directions.pdf',
+    openreview: 'https://openreview.net/forum?id=dSfjkJB3bQ',
   },
   {
     slug: 'vibe-architecting',
@@ -208,7 +141,7 @@ export const publications: Publication[] = [
     short: 'Small-Organ Segmentation',
     authors: 'P. M. Konrad, A.-A. Popa, Y. Sabzehmeidani, L. Zhong, M. Tripathy, A. Constantinescu, E. A. Liehn, S. Ayvaz',
     venue: 'Biomedical Signal Processing and Control',
-    status: 'Under Revision',
+    status: 'Preprint',
     date: '2025-07',
     cluster: 'medical',
     tags: ['Medical Imaging', 'Segmentation', 'Benchmarking'],
