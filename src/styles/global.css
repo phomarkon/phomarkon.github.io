@@ -85,6 +85,10 @@ section + section { border-top: 1px solid var(--rule-soft); }
 .nav-links a:hover { color: var(--accent); }
 .nav-cv { padding: .35rem .85rem; border: 1px solid var(--ink); border-radius: 6px; font-size: .82rem; font-weight: 500; }
 .nav-cv:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+@media (max-width: 720px) {
+  .nav-inner { flex-wrap: wrap; gap: .5rem .9rem; padding: .7rem 1.1rem; }
+  .nav-links { flex-basis: 100%; flex-wrap: wrap; gap: .8rem 1.1rem; font-size: .85rem; }
+}
 
 /* Theme toggle */
 .theme-toggle { background: none; border: 1px solid var(--rule); border-radius: 6px; padding: .3rem; cursor: pointer; color: var(--ink-mute); display: flex; align-items: center; justify-content: center; transition: color .15s, border-color .15s; }
