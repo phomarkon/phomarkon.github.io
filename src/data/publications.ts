@@ -1,5 +1,5 @@
 export type PubStatus = 'Accepted' | 'Under Review' | 'Under Revision' | 'Preprint' | 'Published' | 'Working paper';
-export type ClusterKey = 'interp' | 'safety' | 'arch' | 'medical' | 'applied' | 'viz';
+export type ClusterKey = 'interp' | 'safety' | 'arch' | 'medical' | 'applied';
 
 export interface Publication {
   slug: string;
@@ -177,20 +177,6 @@ export const publications: Publication[] = [
     abstract: 'Post-harvest fruit quality assessment is essential for reducing food waste, yet reliable non-destructive methods typically depend on expensive hyperspectral cameras and computationally intensive deep learning models. These systems typically require GPU resources, large-scale training data, and domain expertise, limiting their feasibility for many real-world agricultural settings. This study systematically evaluates 20 classical machine learning algorithms on hyperspectral imaging data for simultaneous ripeness classification and firmness prediction across five fruit species, using cross-validated experimental design with Bayesian hyperparameter optimization. Data preprocessing strategy, particularly class balancing and spectral transformations, contributes as much to prediction accuracy as algorithm choice. Our results show that tree-based machine learning models can outperform state-of-the-art deep learning models reported in Fruit-HSNet. Moreover, the findings indicate that only three visible-range wavelengths are needed to recover over 94% of full-spectrum accuracy, demonstrating that low-cost multispectral sensors combined with lightweight machine learning models can serve as practical alternatives to expensive hyperspectral cameras and complex deep learning approaches for practical fruit quality sorting.',
     pdf: '/papers/COMPAG_Hyperspectral_Fruit_Ripeness_Prediction.pdf',
   },
-  {
-    slug: 'fyi-factcheck',
-    title: 'Fact-check Your Information (FYI): A Design Probe to Understand How People Actually Fact-check Data-Driven Articles',
-    short: 'FYI Fact-check',
-    authors: 'N.-T. Thinh, Y. Du, P. M. Konrad, A. Narechania',
-    venue: 'IEEE VIS 2026',
-    status: 'Accepted',
-    date: '2026-01',
-    cluster: 'viz',
-    tags: ['Visualization', 'Human-AI', 'Fact-checking'],
-    oneLine: 'A browser-extension design probe (N=22) reveals three human-AI workflow archetypes for fact-checking data-driven journalism.',
-    abstract: 'Data claims—statements grounded in numbers and statistics—are common in journalism and policy reports, yet verifying them requires significant analytical effort that most readers cannot undertake alone. Existing tools either fully automate verification, risking blind trust in AI, or relying entirely on manual data exploration with a high cognitive burden. We present FYI, a browser extension that bridges this gap through four complementary tools within a unified side panel, spanning the spectrum from automation to user-driven exploration. Using FYI as a design probe, we conducted an exploratory study (N = 22) in which participants verified claims in a data-driven article while thinking aloud. We find that participants adopted three distinct workflow archetypes—AI-first with manual confirmation, manual-first with AI supplement, and parallel co-review—with visualization serving as the primary mechanism for auditing AI conclusions. Trust in AI was not static but shifted dynamically. Specifically, it grew when multiple tools converged on the same answer and eroded when AI outputs were inconsistent. These findings suggest that fact-checking systems should treat AI as a starting point rather than a definitive authority, elevate visualization as a core verification capability, and support flexible, user-driven workflows. We contribute FYI as open-source at https://github.com/DataVisards/FYI.',
-    pdf: '/papers/VIS_2026_Fact_check_Your_Information_FYI.pdf',
-  },
 ];
 
 export const clusters: Record<ClusterKey, { label: string; color: string; bg: string; description: string }> = {
@@ -199,5 +185,4 @@ export const clusters: Record<ClusterKey, { label: string; color: string; bg: st
   arch:   { label: 'Software Architecture × AI', color: 'var(--c-arch)', bg: 'var(--c-arch-bg)', description: 'How LLM agents reshape and are evaluated on architectural decisions.' },
   medical:{ label: 'Medical Imaging', color: 'var(--c-medical)', bg: 'var(--c-medical-bg)', description: 'Benchmarks and surveys for clinical computer vision under data scarcity.' },
   applied:{ label: 'Remote Sensing & Agriculture', color: 'var(--c-applied)', bg: 'var(--c-applied-bg)', description: 'Lightweight models on SAR and hyperspectral imagery.' },
-  viz:    { label: 'Visualization & Human-AI', color: 'var(--c-viz)', bg: 'var(--c-viz-bg)', description: 'Design probes for mixed-initiative verification workflows.' },
 };

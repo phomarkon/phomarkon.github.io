@@ -5,7 +5,7 @@ import ResearchLandscape from '../components/ResearchLandscape.astro';
 import Highlights from '../components/Highlights.astro';
 import Publications from '../components/Publications.astro';
 
-const selectedSlugs = ['counterfactual-self-reports', 'decoded-but-unused', 'path-already-walked', 'fyi-factcheck'];
+const selectedSlugs = ['counterfactual-self-reports', 'decoded-but-unused', 'path-already-walked'];
 import { publications } from '../data/publications';
 const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)!);
 ---
@@ -20,7 +20,7 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
           <p class="hero-tag">anti big data big data guy · do models understand the world, or only imitate it</p>
           <div class="about">
             <p>A sushi chef learning his cuts, except the fish is a model. I take models apart by hand to see what is really happening inside.</p>
-            <p>I am currently a Research Collaborator at <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">SDU's Data and Intelligence Lab</a> and at the <a href="https://hkust.edu.hk/">HKUST</a> DataVISards group, TA for AI at SDU (where I built an <a href="https://phomarkon.github.io/ai101/#/welcome" target="_blank" rel="noopener">interactive AI course</a>), and Founder of SaturoLabs. I have been admitted to the <a href="https://www.mlmi.eng.cam.ac.uk/">MPhil in Machine Learning and Machine Intelligence at the University of Cambridge</a>, which I begin this October. My research has been accepted at venues including ICML workshops and IEEE VIS, one as an oral, and I release code and model weights wherever I can.</p>
+            <p>I am currently a Research Collaborator at <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">SDU's Data and Intelligence Lab</a> and at the <a href="https://hkust.edu.hk/">HKUST</a> DataVISards group, TA for AI at SDU (where I built an <a href="https://phomarkon.github.io/ai101/#/welcome" target="_blank" rel="noopener">interactive AI course</a>), and Founder of SaturoLabs. I have been admitted to the <a href="https://www.mlmi.eng.cam.ac.uk/">MPhil in Machine Learning and Machine Intelligence at the University of Cambridge</a>, which I begin this October. My research has been accepted at venues including ICML workshops, one as an oral, and I release code and model weights wherever I can.</p>
             <p class="rq-heading">What I work on</p>
             <p>I work on the foundations of how models learn. The thing I keep circling is how the learning process shapes the representations a model ends up with, and whether those representations capture the world's real causal structure or only imitate it. That puts me at the intersection of representation learning, causal representation learning, and the theory of learning, with <a href="/publications/counterfactual-self-reports">counterfactual reasoning</a> as my favourite test of whether a model understands or only pattern matches. I like to work phenomenon first, building small settings where I know the causal ground truth so I can watch <a href="/publications/decoded-but-unused">what learning actually recovers</a>. These questions sit under generalization, safety, and any real science of deep learning, because a model that only imitates causal structure breaks exactly where we most need it to hold.</p>
             <div class="rq-questions">

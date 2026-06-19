@@ -27,10 +27,9 @@ export interface NodeSpec {
 
 export type EdgeSpec = [string, string];
 
-// We add three new colour tokens for the macro contours via existing cluster vars:
+// We add colour tokens for the macro contours via existing cluster vars:
 //   Language Models  -> reuse var(--c-interp)  (deep blue-grey)
 //   Computer Vision  -> reuse var(--c-medical) (rose)
-//   Human-AI         -> reuse var(--c-viz)     (lavender)
 // Sub-area inner outlines use their sub-cluster colour.
 //
 // Layout sketch:
@@ -39,9 +38,9 @@ export type EdgeSpec = [string, string];
 //   │             │                               │
 //   │  AI Agents & Software Systems  (bottom band)│
 //   └─────────────────────────────────────────────┘
-//   ┌── Computer Vision ──┐  ┌── Human-AI ──┐
-//   │ Medical │ Remote Sensing │  │ Viz/FYI  │
-//   └─────────────────────┘  └──────────────┘
+//   ┌── Computer Vision ──┐
+//   │ Medical │ Remote Sensing │
+//   └─────────────────────┘
 
 export const blobs: BlobSpec[] = [
   // Macro 1: Language Models — widened bottom to fully contain the AI Agents sub-area
@@ -81,11 +80,6 @@ export const blobs: BlobSpec[] = [
     path: 'M 420,748 C 420,705 480,685 580,685 C 680,685 740,705 740,748 C 740,798 665,830 580,830 C 490,830 420,798 420,748 Z',
   },
 
-  // Macro 3: Human-AI Interaction — bumped down to align with Computer Vision macro
-  {
-    key: 'viz', kind: 'macro', label: 'Human-AI Interaction', labelXY: [975, 622],
-    path: 'M 820,740 C 820,660 890,640 975,640 C 1075,640 1160,660 1160,740 C 1160,820 1075,855 975,855 C 880,855 820,820 820,740 Z',
-  },
 ];
 
 export const nodes: NodeSpec[] = [
@@ -116,9 +110,6 @@ export const nodes: NodeSpec[] = [
   { id: 'flood-detection',     pubSlug: 'flood-detection',     cluster: 'applied', x: 490, y: 785, featured: true },
   { id: 'fruit-hyperspectral', pubSlug: 'fruit-hyperspectral', cluster: 'applied', x: 670, y: 805, featured: true },
 
-  // === Human-AI Interaction ===
-  { id: 'human-ai', topic: 'Fact-checking', cluster: 'viz', x: 975, y: 690 },
-  { id: 'fyi-factcheck', pubSlug: 'fyi-factcheck', cluster: 'viz', x: 975, y: 775, featured: true },
 ];
 
 // Semantic edges (paper-to-paper and paper-to-topic).
@@ -148,9 +139,6 @@ export const edges: EdgeSpec[] = [
   ['segmentation', 'flood-detection'],
   ['remote-sensing', 'flood-detection'], ['remote-sensing', 'fruit-hyperspectral'],
   ['flood-detection', 'fruit-hyperspectral'],
-
-  // Human-AI bridges
-  ['human-ai', 'fyi-factcheck'],
 ];
 
 export const SVG_W = 1200;

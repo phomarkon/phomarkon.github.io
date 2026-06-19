@@ -9,7 +9,6 @@ export interface Highlight {
 
 export const highlights: Highlight[] = [
   { date: 'JUN 2026', kind: 'misc',  text: 'Released <strong>Heimdall</strong>, a conformal prediction safety verifier, with open code and model weights', href: '/#thesis' },
-  { date: 'JUN 2026', kind: 'paper', text: 'Paper accepted to <strong>IEEE VIS 2026</strong>', href: '/publications/fyi-factcheck' },
   { date: 'JUN 2026', kind: 'paper', text: 'Paper accepted as an <strong>oral</strong> at the PhilML workshop, ICML 2026', href: '/publications/counterfactual-self-reports' },
   { date: 'JUN 2026', kind: 'paper', text: 'Two papers accepted to the Mechanistic Interpretability workshop, ICML 2026', href: '/#publications' },
   { date: 'JUN 2026', kind: 'award', text: 'Nominated for the Best Thesis Award, Faculty of Engineering, SDU' },
