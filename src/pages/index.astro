@@ -4,8 +4,9 @@ import Timeline from '../components/Timeline.astro';
 import ResearchLandscape from '../components/ResearchLandscape.astro';
 import Highlights from '../components/Highlights.astro';
 import Publications from '../components/Publications.astro';
+import WorkFit from '../components/WorkFit.astro';
 
-const selectedSlugs = ['counterfactual-self-reports', 'decoded-but-unused', 'path-already-walked'];
+const selectedSlugs = ['counterfactual-self-reports', 'decoded-but-unused', 'conformal-market-redesign'];
 import { publications } from '../data/publications';
 const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)!);
 ---
@@ -22,12 +23,13 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
             <p>A sushi chef learning his cuts, except the fish is a model. I take models apart by hand to see what is really happening inside.</p>
             <p>I am currently a Research Collaborator at <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">SDU's Data and Intelligence Lab</a> and at the <a href="https://hkust.edu.hk/">HKUST</a> DataVISards group, TA for AI at SDU (where I built an <a href="https://phomarkon.github.io/ai101/#/welcome" target="_blank" rel="noopener">interactive AI course</a>), and Founder of SaturoLabs. I have been admitted to the <a href="https://www.mlmi.eng.cam.ac.uk/">MPhil in Machine Learning and Machine Intelligence at the University of Cambridge</a>, which I begin this October. My research has been accepted at venues including ICML workshops, one as an oral, and I release code and model weights wherever I can.</p>
             <p class="rq-heading">What I work on</p>
-            <p>I work on the foundations of how models learn. The thing I keep circling is how the learning process shapes the representations a model ends up with, and whether those representations capture the world's real causal structure or only imitate it. That puts me at the intersection of representation learning, causal representation learning, and the theory of learning, with <a href="/publications/counterfactual-self-reports">counterfactual reasoning</a> as my favourite test of whether a model understands or only pattern matches. I like to work phenomenon first, building small settings where I know the causal ground truth so I can watch <a href="/publications/decoded-but-unused">what learning actually recovers</a>. These questions sit under generalization, safety, and any real science of deep learning, because a model that only imitates causal structure breaks exactly where we most need it to hold.</p>
+            <p>For two years I followed my curiosity wherever it led: flood maps from radar, ripeness from a fruit's spectrum, tumours in histology, agents that write software, circuits inside language models. Tasting every fish on the counter was the point. But the same fault line ran through all of it. The models that failed, failed the moment they were only imitating the structure of the problem instead of recovering it.</p>
+            <p>So I have chosen my cut. I now work on one question: the foundations of how learning installs representations, and whether those representations capture the world's real causal structure or only imitate it. That puts me at the intersection of representation learning, causal representation learning, and the theory of learning, with <a href="/publications/counterfactual-self-reports">counterfactual reasoning</a> as the test I trust most for telling understanding from pattern matching. I work phenomenon first, building small settings where I know the causal ground truth so I can watch <a href="/publications/decoded-but-unused">what learning actually recovers</a>.</p>
             <div class="rq-questions">
-              <p class="rq-q"><span class="rq-qn">Q1</span>Does the learning process actually install representations capable of genuine counterfactual reasoning, or only ones that imitate it?</p>
-              <p class="rq-q"><span class="rq-qn">Q2</span>And if it is only imitation, what would a learning process have to do differently to install the real thing?</p>
+              <p class="rq-q"><span class="rq-qn">Q1</span>When does learning actually identify the causal structure behind the data, and when does it settle for a surface that predicts well but only imitates that structure?</p>
+              <p class="rq-q"><span class="rq-qn">Q2</span>When two mechanisms look identical on the training distribution, what inductive bias or intervention makes the difference recoverable, rather than merely assumed?</p>
             </div>
-            <p class="rq-fit">I am most drawn to groups working on the theory and mechanisms of representation learning, and I am always glad to talk through these questions.</p>
+            <p class="rq-fit">I am most drawn to the empirical-inference tradition, the groups that treat identifiability and causal structure as the real problem rather than a footnote. The formal machinery — kernel methods, identifiability theory, statistical learning theory — is what I am going to Cambridge to build; today I bring the phenomena, the experiments, and a guarantee I can actually check. I am always glad to talk these through.</p>
           </div>
           <div class="hero-social">
             <a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a>
@@ -63,6 +65,15 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- Where My Work Fits -->
+  <section id="fit">
+    <div class="container">
+      <h2>Questions I'm Chasing</h2>
+      <p class="section-sub">The questions I keep circling belong to one tradition I'm still learning my way into — <em>empirical inference</em>: telling apart a model that recovers the world's causal structure from one that only fits correlations. I come at it phenomenon-first, from inside real models, and I lean on the work below to know which questions are worth asking and how to ask them well.</p>
+      <WorkFit />
     </div>
   </section>
 

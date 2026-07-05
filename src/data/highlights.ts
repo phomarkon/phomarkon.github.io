@@ -11,7 +11,7 @@ export const highlights: Highlight[] = [
   { date: 'JUN 2026', kind: 'misc',  text: 'Released <strong>Heimdall</strong>, a conformal prediction safety verifier, with open code and model weights', href: '/#thesis' },
   { date: 'JUN 2026', kind: 'paper', text: 'Paper accepted as an <strong>oral</strong> at the PhilML workshop, ICML 2026', href: '/publications/counterfactual-self-reports' },
   { date: 'JUN 2026', kind: 'paper', text: 'Two papers accepted to the Mechanistic Interpretability workshop, ICML 2026', href: '/#publications' },
-  { date: 'JUN 2026', kind: 'award', text: 'Nominated for the Best Thesis Award, Faculty of Engineering, SDU' },
+  { date: 'JUN 2026', kind: 'award', text: 'Selected as the best thesis in the Software Engineering programme (~100 students) at SDU, and nominated for the faculty-wide <strong>Faculty of Engineering (TEK) Best Thesis Award</strong>' },
   { date: 'MAY 2026', kind: 'award', text: 'Received grant from William Demant Fonden' },
   { date: '2026',     kind: 'award', text: 'Nominated for a Best Startup Award with DreamBear (SaturoLabs)' },
   { date: 'MAR 2026', kind: 'edu',   text: 'Accepted to the MPhil in Machine Learning and Machine Intelligence at the University of Cambridge' },

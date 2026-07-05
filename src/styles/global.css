@@ -149,6 +149,27 @@ section + section { border-top: 1px solid var(--rule-soft); }
 [data-theme="dark"] .sw-venue-badge.accepted, [data-theme="dark"] .sw-venue-badge.published { color: #4ade80; border-color: #166534; }
 [data-theme="dark"] .sw-venue-badge.revision { color: #fbbf24; border-color: #78350f; }
 
+/* ---- Where My Work Fits ---- */
+.fit-wrap { display: flex; flex-direction: column; gap: .8rem; }
+.fit-card { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 10px; padding: 1.15rem 1.3rem; transition: border-color .15s; }
+.fit-card:hover { border-color: var(--accent-soft); }
+.fit-axis { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: .5rem; }
+.fit-q { font-size: .93rem; color: var(--ink-soft); line-height: 1.55; margin: 0 0 .9rem; max-width: 62ch; }
+.fit-bridge { display: grid; grid-template-columns: 1fr auto 1fr; gap: .9rem; align-items: center; }
+.fit-side { display: flex; flex-direction: column; gap: .35rem; min-width: 0; }
+.fit-tag { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute); }
+.fit-refs { display: flex; flex-direction: column; gap: .28rem; }
+.fit-ref { font-size: .86rem; line-height: 1.35; border-left: 2px solid var(--rule); padding-left: .6rem; }
+.fit-ref.mine { color: var(--ink); font-weight: 600; border-left-color: var(--accent); }
+.fit-ref.mine:hover { color: var(--accent); }
+.fit-ref.theirs { color: var(--ink-soft); }
+.fit-ref.theirs:hover { color: var(--accent); border-left-color: var(--accent-soft); }
+.fit-join { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute); border: 1px solid var(--rule); border-radius: 999px; padding: .18rem .6rem; white-space: nowrap; }
+@media (max-width: 620px) {
+  .fit-bridge { grid-template-columns: 1fr; gap: .7rem; }
+  .fit-join { justify-self: start; }
+}
+
 /* ---- Timeline (dot-based) ---- */
 .timeline-wrap { overflow-x: auto; overflow-y: visible; padding: 1rem 0; }
 .timeline { display: flex; position: relative; min-width: 920px; height: 290px; padding: 0 1.5rem; align-items: center; }

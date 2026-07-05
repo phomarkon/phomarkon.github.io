@@ -94,6 +94,7 @@ export const nodes: NodeSpec[] = [
   { id: 'open-box-fallacy',  pubSlug: 'open-box-fallacy',  cluster: 'safety', x: 775, y: 195, featured: true },
   { id: 'acceptance-cards',  pubSlug: 'acceptance-cards',  cluster: 'safety', x: 1030, y: 195, featured: true },
   { id: 'heimdall', label: 'Heimdall', href: '/#thesis', tip: 'BSc thesis. A conformal verifier that gates LLM bidding agents against the grid, with code and weights released.', cluster: 'safety', x: 1035, y: 300, featured: true },
+  { id: 'conformal-market-redesign', pubSlug: 'conformal-market-redesign', cluster: 'safety', x: 775, y: 300, featured: true },
 
   // === AI Agents & Software Systems sub-area ===
   { id: 'ai-agents', topic: 'AI Agents', cluster: 'arch', x: 600, y: 425 },
@@ -123,6 +124,7 @@ export const edges: EdgeSpec[] = [
   ['audit', 'acceptance-cards'],
   ['audit', 'open-box-fallacy'],
   ['audit', 'heimdall'], ['heimdall', 'acceptance-cards'],
+  ['audit', 'conformal-market-redesign'], ['heimdall', 'conformal-market-redesign'],
 
   // interp ↔ safety
   ['path-already-walked', 'open-box-fallacy'],
