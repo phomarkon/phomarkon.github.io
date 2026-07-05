@@ -1,15 +1,9 @@
 ---
-// "Where My Work Fits" — positions my work inside the empirical-inference tradition:
-// telling apart a model that recovers the world's causal structure from one that only
-// fits correlations. Three axes, each mapping one of my papers to the line of work it joins.
+// "Questions I'm Chasing" — the three questions I keep circling, each shown with my own work on it.
+// One theme underneath: does a model recover the world's causal structure, or only fit correlations?
 
-interface Ref { label: string; href: string; ext?: boolean; }
-interface Axis {
-  axis: string;
-  question: string;
-  mine: Ref[];
-  theirs: Ref[];
-}
+interface Ref { label: string; href: string; }
+interface Axis { axis: string; question: string; mine: Ref[]; }
 
 const axes: Axis[] = [
   {
@@ -18,20 +12,12 @@ const axes: Axis[] = [
     mine: [
       { label: 'Self-reports do not identify self-models', href: '/publications/counterfactual-self-reports' },
     ],
-    theirs: [
-      { label: "Guo, Causal de Finetti", href: 'https://arxiv.org/abs/2203.15756', ext: true },
-      { label: "Muandet, measure-theoretic causality", href: 'https://arxiv.org/abs/2305.17139', ext: true },
-    ],
   },
   {
     axis: 'Causal vs. associational',
     question: 'Which representations recover the world’s causal structure, and which are merely decodable? Learning can install a feature that is readable yet never causally used.',
     mine: [
       { label: 'Decoded but unused', href: '/publications/decoded-but-unused' },
-    ],
-    theirs: [
-      { label: 'Schölkopf, Toward Causal Representation Learning', href: 'https://arxiv.org/abs/2102.11107', ext: true },
-      { label: 'On Causal and Anticausal Learning', href: 'https://arxiv.org/abs/1206.6471', ext: true },
     ],
   },
   {
@@ -41,10 +27,6 @@ const axes: Axis[] = [
       { label: 'Heimdall conformal verifier', href: '/#thesis' },
       { label: 'Acceptance Cards', href: '/publications/acceptance-cards' },
     ],
-    theirs: [
-      { label: 'Yang, robustness under partial identification', href: 'https://arxiv.org/abs/2502.02710', ext: true },
-      { label: 'Park, causal inference with kernel embeddings', href: 'https://arxiv.org/abs/2410.22754', ext: true },
-    ],
   },
 ];
 ---
@@ -53,23 +35,12 @@ const axes: Axis[] = [
     <article class="fit-card">
       <div class="fit-axis">{a.axis}</div>
       <p class="fit-q">{a.question}</p>
-      <div class="fit-bridge">
-        <div class="fit-side">
-          <span class="fit-tag">My work</span>
-          <div class="fit-refs">
-            {a.mine.map((r) => (
-              <a class="fit-ref mine" href={r.href}>{r.label}</a>
-            ))}
-          </div>
-        </div>
-        <span class="fit-join" aria-hidden="true">learns from</span>
-        <div class="fit-side">
-          <span class="fit-tag">foundations I build on</span>
-          <div class="fit-refs">
-            {a.theirs.map((r) => (
-              <a class="fit-ref theirs" href={r.href} target={r.ext ? '_blank' : undefined} rel={r.ext ? 'noopener' : undefined}>{r.label}{r.ext ? ' ↗' : ''}</a>
-            ))}
-          </div>
+      <div class="fit-mine">
+        <span class="fit-tag">My work</span>
+        <div class="fit-refs">
+          {a.mine.map((r) => (
+            <a class="fit-ref mine" href={r.href}>{r.label}</a>
+          ))}
         </div>
       </div>
     </article>
