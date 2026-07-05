@@ -18,10 +18,10 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
         <img src="/profile.png" alt="Phongsakon Mark Konrad" class="hero-photo" />
         <div>
           <h1 class="hero-name">Phongsakon <span class="brand-mark">Mark</span> Konrad</h1>
-          <p class="hero-tag">anti big data big data guy · do models understand the world, or only imitate it</p>
+          <p class="hero-tag">do models understand the world, or only imitate it</p>
           <div class="about">
             <p>A sushi chef learning his cuts, except the fish is a model. I take models apart by hand to see what is really happening inside.</p>
-            <p>I am currently a Research Collaborator at <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">SDU's Data and Intelligence Lab</a> and at the <a href="https://hkust.edu.hk/">HKUST</a> DataVISards group, TA for AI at SDU (where I built an <a href="https://phomarkon.github.io/ai101/#/welcome" target="_blank" rel="noopener">interactive AI course</a>), and Founder of SaturoLabs. I have been admitted to the <a href="https://www.mlmi.eng.cam.ac.uk/">MPhil in Machine Learning and Machine Intelligence at the University of Cambridge</a>, which I begin this October. My research has been accepted at venues including ICML workshops, one as an oral, and I release code and model weights wherever I can.</p>
+            <p>I just graduated with a BSc in Software Engineering from <a href="https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab">SDU</a>, where I am a Research Collaborator at the Data and Intelligence Lab and at the <a href="https://hkust.edu.hk/">HKUST</a> DataVISards group, TA for AI (where I built an <a href="https://phomarkon.github.io/ai101/#/welcome" target="_blank" rel="noopener">interactive AI course</a>), and Founder of SaturoLabs. This October I begin the <a href="https://www.mlmi.eng.cam.ac.uk/">MPhil in Machine Learning and Machine Intelligence at the University of Cambridge</a>, to build the theoretical foundation for a PhD in this direction. My research has been accepted at venues including ICML workshops, one as an oral, and I release code and model weights wherever I can.</p>
             <p class="rq-heading">What I work on</p>
             <p>For two years I followed my curiosity wherever it led: flood maps from radar, ripeness from a fruit's spectrum, tumours in histology, agents that write software, circuits inside language models. Tasting every fish on the counter was the point. But the same fault line ran through all of it. The models that failed, failed the moment they were only imitating the structure of the problem instead of recovering it.</p>
             <p>So I have chosen my cut. I now work on one question: the foundations of how learning installs representations, and whether those representations capture the world's real causal structure or only imitate it. That puts me at the intersection of representation learning, causal representation learning, and the theory of learning, with <a href="/publications/counterfactual-self-reports">counterfactual reasoning</a> as the test I trust most for telling understanding from pattern matching. I work phenomenon first, building small settings where I know the causal ground truth so I can watch <a href="/publications/decoded-but-unused">what learning actually recovers</a>.</p>
@@ -29,7 +29,7 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
               <p class="rq-q"><span class="rq-qn">Q1</span>When does learning actually identify the causal structure behind the data, and when does it settle for a surface that predicts well but only imitates that structure?</p>
               <p class="rq-q"><span class="rq-qn">Q2</span>When two mechanisms look identical on the training distribution, what inductive bias or intervention makes the difference recoverable, rather than merely assumed?</p>
             </div>
-            <p class="rq-fit">I am most drawn to the empirical-inference tradition, the groups that treat identifiability and causal structure as the real problem rather than a footnote. The formal machinery — kernel methods, identifiability theory, statistical learning theory — is what I am going to Cambridge to build; today I bring the phenomena, the experiments, and a guarantee I can actually check. I am always glad to talk these through.</p>
+            <p class="rq-fit">I am drawn to the empirical-inference tradition, where identifiability and causal structure are the central questions. The formal machinery, from kernel methods to statistical learning theory, is what I am going to Cambridge to learn. For now I bring the phenomena, the experiments, and a guarantee I can check. I am always glad to talk these through.</p>
           </div>
           <div class="hero-social">
             <a href="mailto:phongsakon@outlook.dk">phongsakon@outlook.dk</a>
@@ -72,7 +72,7 @@ const selectedPubs = selectedSlugs.map(s => publications.find(p => p.slug === s)
   <section id="fit">
     <div class="container">
       <h2>Questions I'm Chasing</h2>
-      <p class="section-sub">The questions I keep circling belong to one tradition I'm still learning my way into — <em>empirical inference</em>: telling apart a model that recovers the world's causal structure from one that only fits correlations. I come at it phenomenon-first, from inside real models, and I lean on the work below to know which questions are worth asking and how to ask them well.</p>
+      <p class="section-sub">The questions I keep circling belong to one tradition I am still learning my way into, <em>empirical inference</em>: telling apart a model that recovers the world's causal structure from one that only fits correlations. I come at it phenomenon first, from inside real models, and I lean on the work below to learn which questions are worth asking.</p>
       <WorkFit />
     </div>
   </section>
