@@ -1,31 +1,15 @@
 # phomarkon.github.io
 
-Personal academic portfolio for Phongsakon Mark Konrad. Built with Astro.
+Academic website for Phongsakon Mark Konrad, built with [Academic Pages](https://github.com/academicpages/academicpages.github.io) v0.8.4 and Jekyll.
 
-## Stack
-
-- [Astro](https://astro.build) static site generator
-- Vanilla CSS, no frameworks
-- LaTeX CV compiled with pdfLaTeX
-
-## Development
+## Local development
 
 ```bash
-bun install
-bun run dev        # http://localhost:4321
-bun run build      # static output in dist/
+bundle config set --local path vendor/bundle
+bundle install
+bundle exec jekyll serve
 ```
 
-## CV
+The site is deployed to GitHub Pages by `.github/workflows/deploy.yml` after pushes to `main`.
 
-The CV source lives in `public/cv/cv.tex`. After editing, compile with:
-
-```bash
-cd public/cv
-pdflatex cv.tex && pdflatex cv.tex
-cp cv.pdf ../cv.pdf
-```
-
-## Deployment
-
-Deployed to GitHub Pages via the workflow in `.github/workflows/deploy.yml`.
+The academic CV source is `cv/cv.tex`. Compile it twice with `pdflatex`, then copy `cv/cv.pdf` to `/cv.pdf`.

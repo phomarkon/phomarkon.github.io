@@ -1,0 +1,149 @@
+---
+---
+
+/*
+ * This file controls what is imported from /_sass
+ *
+ * Note that the files are processed in the order they are imported, so they are partly
+   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
+ */
+
+@import
+    "vendor/breakpoint/breakpoint",
+
+    "themes",
+    "theme/default",
+    "theme/dark",
+
+    "include/mixins",
+    "vendor/susy/susy",
+
+    "layout/reset",
+    "layout/base",
+
+    "include/utilities",
+    "layout/tables",
+    "layout/buttons",
+    "layout/notices",
+    "layout/masthead",
+    "layout/navigation",
+    "layout/footer",
+    "syntax",
+
+    "layout/forms",
+
+    "layout/page",
+    "layout/archive",
+    "layout/sidebar",
+
+    "vendor/font-awesome/fontawesome",
+    "vendor/font-awesome/solid",
+    "vendor/font-awesome/brands",
+    "vendor/magnific-popup/magnific-popup"
+;
+
+/* Site-specific restraint on top of Academic Pages v0.8.4. */
+$academic-accent: #245b78;
+
+html { scroll-behavior: auto; }
+
+body {
+  background: #fff;
+  color: #2b2b2b;
+}
+
+a,
+.page__content a,
+.author__urls a {
+  color: $academic-accent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #e3a21a;
+  outline-offset: 3px;
+}
+
+.masthead,
+.greedy-nav {
+  background: #fff;
+}
+
+.masthead__menu-item--lg a {
+  font-weight: 600;
+}
+
+.page__inner-wrap {
+  max-width: 48rem;
+}
+
+.page__content {
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.page__content h2 {
+  border-bottom: 1px solid #e7e7e7;
+  margin-top: 2.5rem;
+  padding-bottom: 0.35rem;
+}
+
+.page__content h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+
+.identity-block {
+  border-bottom: 1px solid #e7e7e7;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.identity-block h1 {
+  font-size: 1.85rem;
+  margin: 0 0 0.2rem;
+}
+
+.identity-role {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  margin: 0.25rem 0 0.6rem;
+}
+
+.identity-links,
+.pub-links {
+  font-size: 0.9rem;
+}
+
+.selected-work,
+.publication-entry {
+  border-bottom: 1px solid #e7e7e7;
+  margin: 0 0 1.4rem;
+  padding: 0 0 1.1rem;
+}
+
+.selected-work:last-of-type,
+.publication-entry:last-of-type {
+  border-bottom: 0;
+}
+
+.selected-work p,
+.publication-entry p {
+  margin: 0.35rem 0;
+}
+
+.pub-meta,
+.contribution {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.author__avatar img {
+  border-radius: 4px;
+}
+
+@media (max-width: 767px) {
+  .identity-block h1 { font-size: 1.55rem; }
+  .page__content { font-size: 0.94rem; }
+}

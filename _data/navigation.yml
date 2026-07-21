@@ -1,0 +1,11 @@
+main:
+  - title: "Home"
+    url: /
+  - title: "Publications"
+    url: /publications/
+  - title: "CV"
+    url: /cv.pdf
+  - title: "Google Scholar"
+    url: "https://scholar.google.com/citations?user=zPHjLREAAAAJ&hl=en"
+  - title: "GitHub"
+    url: "https://github.com/phomarkon"

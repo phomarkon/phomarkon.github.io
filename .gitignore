@@ -3,6 +3,13 @@ dist
 .astro
 .DS_Store
 .env*
-public/cv/*.aux
-public/cv/*.log
-public/cv/*.out
+_site
+.jekyll-cache
+.sass-cache
+.bundle
+vendor
+cv/*.aux
+cv/*.fdb_latexmk
+cv/*.fls
+cv/*.log
+cv/*.out

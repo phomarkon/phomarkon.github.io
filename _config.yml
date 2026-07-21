@@ -1,0 +1,112 @@
+locale: "en-US"
+site_theme: "default"
+title: "Phongsakon Mark Konrad"
+title_separator: "|"
+name: &name "Phongsakon Mark Konrad"
+description: &description "Incoming MSc Machine Learning student at the University of Tübingen working on learned representations, mechanistic evidence, and empirical machine-learning research."
+url: "https://phomarkon.github.io"
+baseurl: ""
+repository: "phomarkon/phomarkon.github.io"
+
+author:
+  avatar: "profile.png"
+  name: "Phongsakon Mark Konrad"
+  bio: "Incoming MSc Student in Machine Learning at the University of Tübingen."
+  email: "phongsakon@outlook.dk"
+  googlescholar: "https://scholar.google.com/citations?user=zPHjLREAAAAJ&hl=en"
+  orcid: "https://orcid.org/0009-0004-2521-7879"
+  github: "phomarkon"
+  linkedin: "phongsakonmarkkonrad"
+
+breadcrumbs: false
+read_more: "disabled"
+comments:
+  provider: false
+atom_feed:
+  hide: true
+
+google_site_verification:
+bing_site_verification:
+
+og_image: "profile.png"
+og_description: *description
+social:
+  type: "Person"
+  name: *name
+  links:
+    - "https://scholar.google.com/citations?user=zPHjLREAAAAJ&hl=en"
+    - "https://github.com/phomarkon"
+    - "https://orcid.org/0009-0004-2521-7879"
+    - "https://www.linkedin.com/in/phongsakonmarkkonrad"
+
+analytics:
+  provider: false
+
+include:
+  - _pages
+exclude:
+  - .bundle
+  - .claude
+  - .github
+  - .jekyll-cache
+  - .sass-cache
+  - .astro
+  - dist
+  - node_modules
+  - vendor
+  - cv/cv.aux
+  - cv/cv.log
+  - cv/cv.out
+  - cv/cv.tex
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - WEBSITE_AUDIT.md
+  - PUBLICATION_AUDIT.md
+  - POSITIONING_AUDIT.md
+  - RESEARCH_RESUME_BRIEF.md
+  - assets/js/_main.js
+  - assets/js/plugins
+  - assets/js/vendor
+
+keep_files:
+  - .git
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+markdown: kramdown
+highlighter: rouge
+lsi: false
+incremental: false
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+
+collections: {}
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+      share: false
+      comments: false
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+permalink: /:categories/:title/
+timezone: Europe/Copenhagen
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
