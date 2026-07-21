@@ -7,7 +7,7 @@ _site
 .jekyll-cache
 .sass-cache
 .bundle
-vendor
+/vendor/
 cv/*.aux
 cv/*.fdb_latexmk
 cv/*.fls
