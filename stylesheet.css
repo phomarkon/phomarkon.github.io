@@ -68,6 +68,24 @@ h3 {
 }
 
 /* ---------- Hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 24px;
+  align-items: start;
+  margin: 0 auto 8px;
+  max-width: 800px;
+}
+
+.hero-text {
+  min-width: 0; /* allow grid item to shrink below content */
+}
+
+.hero-photo-wrap {
+  display: flex;
+  justify-content: center;
+}
+
 .name {
   margin: 0;
   padding: 0;
@@ -258,6 +276,19 @@ body {
   padding: 0 16px;
   max-width: 800px;
   background: #ffffff;
+  overflow-x: hidden; /* belt-and-braces against any rogue overflow */
+}
+
+/* Long URLs and author lists should wrap, not push the page sideways.
+   Applied selectively — only to rows/lists that carry long links and names.
+   Regular prose uses normal wrapping. */
+.ol-pubs li,
+.news-row td,
+.award-row td,
+.links,
+.section-note {
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
 }
 
 .section-note {
@@ -270,8 +301,54 @@ body {
   body {
     margin: 16px auto;
   }
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    text-align: left;
+  }
+  .hero-photo-wrap {
+    order: -1;
+    margin-bottom: 4px;
+  }
+  .hero-photo {
+    max-width: 160px;
+  }
+
+  /* Stack date above content for news/awards so narrow screens aren't crowded. */
+  .news-row td,
+  .award-row td {
+    display: block;
+    width: 100% !important;
+    padding: 4px 0;
+    white-space: normal;
+  }
+  .news-row td:first-child,
   .award-row td:first-child {
-    width: auto;
+    font-size: 12px;
+    color: #888;
+    padding-bottom: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .name {
+    font-size: 24px;
+  }
+  .hero-photo {
+    max-width: 130px;
+  }
+  .contacts {
+    gap: 14px;
+  }
+  /* On narrow phones, icon labels are redundant (aria-label remains). */
+  .contacts .label {
+    display: none;
+  }
+  h2 {
+    font-size: 17px;
+  }
+  .quote-block .quote-jp {
+    font-size: 19px;
   }
 }
 
@@ -431,6 +508,11 @@ body {
 }
 
 @media (max-width: 900px) {
+  /* The fixed bottom-nav needs room — keep page content from hiding under it. */
+  body {
+    padding-bottom: 72px;
+  }
+
   .side-nav {
     top: auto;
     bottom: 14px;
