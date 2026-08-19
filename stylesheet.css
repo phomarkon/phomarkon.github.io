@@ -324,8 +324,18 @@ body {
 .meme-block {
   margin: 56px auto 0;
   padding: 0;
-  max-width: 720px;
+  max-width: 800px;
   text-align: center;
+}
+
+.meme-caption {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: #555;
+  font-weight: 400;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 0.01em;
 }
 
 .meme-block img {
@@ -617,6 +627,9 @@ body {
   .section-note,
   .contactemail,
   .contactemail a {
+    color: #b8b8b8;
+  }
+  .meme-caption {
     color: #b8b8b8;
   }
   .contactemail .at {
