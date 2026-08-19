@@ -15,16 +15,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: pages
+        uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          # No build step: index.html and stylesheet.css are static.
+          # Upload the working tree at the root.
+          path: .
+
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
       - id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: site
-          # No build step: index.html and stylesheet.css are static.
-          # actions/deploy-pages uploads the working tree at the root.
