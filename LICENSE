@@ -1,6 +1,6 @@
-The MIT License (MIT)
+MIT License
 
-Copyright (c) 2016 Michael Rose
+Copyright (c) 2026 Phongsakon Mark Konrad
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+This site adapts the layout pattern from Jon Barron's personal site template
+(https://github.com/jonbarron/jonbarron.github.io), which is shared without a
+formal license for personal reuse. Content, prose, and styling choices in
+this repository are original; layout attribution is preserved in the page
+footer and in this file.

@@ -1,4 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="geometricPrecision">
-  <rect width="64" height="64" rx="14" fill="#111"/>
-  <path fill-rule="evenodd" d="M19 12h17c8 0 14 5.5 14 13s-6 13-14 13h-8v14h-9V12zm9 7v12h8c3.5 0 6-2.5 6-6s-2.5-6-6-6h-8z" fill="#fafafa"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f09228"/><stop offset="1" stop-color="#1c1c1c"/></linearGradient></defs><circle cx="32" cy="32" r="30" fill="url(#g)"/><text x="32" y="42" text-anchor="middle" font-family="Verdana,Helvetica,sans-serif" font-size="32" font-weight="700" fill="#fff">P</text></svg>
