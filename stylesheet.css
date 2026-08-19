@@ -320,6 +320,21 @@ body {
   white-space: nowrap;
 }
 
+/* ---------- Meme ---------- */
+.meme-block {
+  margin: 56px auto 0;
+  padding: 0;
+  max-width: 720px;
+  text-align: center;
+}
+
+.meme-block img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
 /* ---------- Footer / quote ---------- */
 .quote-block {
   text-align: center;
