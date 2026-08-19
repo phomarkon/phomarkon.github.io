@@ -204,36 +204,6 @@ em.me {
   font-weight: 700;
 }
 
-/* ---------- Selected publication row: text only ---------- */
-.selected-pub {
-  margin: 18px 0 20px;
-  padding: 0;
-}
-
-.selected-pub .body .papertitle {
-  margin: 0 0 4px;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.3;
-}
-
-.selected-pub .body .authors {
-  margin: 0 0 4px;
-  font-size: 14px;
-  line-height: 1.45;
-}
-
-.selected-pub .body .venue {
-  margin: 0 0 4px;
-  font-size: 14px;
-  line-height: 1.45;
-}
-
-.selected-pub .body .links {
-  margin: 0;
-  font-size: 13px;
-}
-
 /* ---------- Numbered publications list ---------- */
 .ol-pubs {
   margin: 8px 0 0 0;
@@ -318,31 +288,6 @@ body {
 .news-row td:first-child {
   width: 100px;
   white-space: nowrap;
-}
-
-/* ---------- Meme ---------- */
-.meme-block {
-  margin: 56px auto 0;
-  padding: 0;
-  max-width: 800px;
-  text-align: center;
-}
-
-.meme-caption {
-  margin: 0 0 14px;
-  font-size: 13px;
-  color: #555;
-  font-weight: 400;
-  font-style: italic;
-  text-align: center;
-  letter-spacing: 0.01em;
-}
-
-.meme-block img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
 }
 
 /* ---------- Footer / quote ---------- */
@@ -552,9 +497,8 @@ body {
     width: 22px;
   }
 
-  /* Truncate long labels on mobile */
-  .side-nav a[data-target="publications"] .label,
-  .side-nav a[data-target="publications-full"] .label {
+  /* On narrow mobile, hide long labels — dot alone signals the section. */
+  .side-nav .label {
     display: none;
   }
 }
@@ -627,9 +571,6 @@ body {
   .section-note,
   .contactemail,
   .contactemail a {
-    color: #b8b8b8;
-  }
-  .meme-caption {
     color: #b8b8b8;
   }
   .contactemail .at {
