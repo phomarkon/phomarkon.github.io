@@ -38,7 +38,7 @@ Pushes to `main` trigger `.github/workflows/deploy.yml`, which uploads the worki
 
 ## Editing publications
 
-`index.html` is hand-authored. Publications live inline under the **Research** section (the four highlighted entries) and the full list under **Publications**, grouped into Preprints / Published / Workshops / Thesis. Every entry links to its arXiv abstract, journal page, or OpenReview discussion — no local PDFs.
+`index.html` is hand-authored. Publications live inline under the **Research** section (the four highlighted entries) and the full list under **Publications**, grouped into Preprints, Under submission & Work in progress / Publications (Conference/Journal - Accepted or Published) / Workshops / Thesis. Every entry links to its arXiv abstract, journal page, or OpenReview discussion — no local PDFs.
 
 ## Rebuilding the CV PDF
 
