@@ -14,7 +14,6 @@ The page layout adapts the pattern from Jon Barron's personal site ([jonbarron.i
 ├── images/
 │   ├── profile.png     # hero photo
 │   ├── favicon.ico
-│   ├── favicon.svg
 │   └── apple-touch-icon.png
 ├── robots.txt
 ├── LICENSE             # MIT for original content; attribution for layout
