@@ -347,9 +347,6 @@ body {
   h2 {
     font-size: 17px;
   }
-  .quote-block .quote-jp {
-    font-size: 19px;
-  }
 }
 
 /* ---------- News ---------- */
@@ -367,60 +364,29 @@ body {
   white-space: nowrap;
 }
 
-/* ---------- Footer / quote ---------- */
-.quote-block {
+/* ---------- Footer ---------- */
+.site-footer {
   text-align: center;
   margin: 56px auto 0;
-  padding: 32px 0 16px;
+  padding: 18px 0 16px;
   max-width: 800px;
   border-top: 1px solid #e8e8e8;
 }
 
-.quote-block .quote-jp {
-  color: #1c1c1c;
-  font-size: 22px;
-  line-height: 1.5;
-  margin: 0;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.quote-block .quote-en {
-  color: #444;
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 6px 0 0;
-  font-weight: 400;
-}
-
-.quote-block .quote-attr {
-  color: #555;
-  font-size: 12px;
-  margin: 8px 0 0;
-  letter-spacing: 0.06em;
-  font-weight: 700;
-}
-
-.quote-block .quote-interpret {
-  color: #555;
-  font-size: 13px;
-  margin: 22px auto 0;
-  max-width: 520px;
-  line-height: 1.65;
-}
-
-.quote-block .quote-credit {
+.site-footer .credit {
   color: #999;
   font-size: 11px;
-  margin: 32px 0 0;
-  padding-top: 14px;
-  border-top: 1px solid #eee;
+  margin: 0;
 }
 
-.quote-block .page-updated {
+.site-footer .credit a {
+  font-size: inherit;
+}
+
+.site-footer .page-updated {
   color: #aaa;
   font-size: 11px;
-  margin: 12px 0 0;
+  margin: 8px 0 0;
   letter-spacing: 0.04em;
 }
 
@@ -591,92 +557,159 @@ body {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .side-nav .dot {
-    background: #555;
-  }
-  .side-nav a:hover .dot {
-    background: #e8e8e8;
-  }
-  .side-nav a.is-active .dot {
-    background: #6aa9f0;
-  }
-  /* Inverted tooltip, mirroring the dark-on-light pill in light mode. */
-  .side-nav .label {
-    background: #e8e8e8;
-    color: #1c1c1c;
-  }
+/* ---------- Theme toggle ---------- */
+.theme-toggle {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  background: #fff;
+  color: #1c1c1c;
+  cursor: pointer;
+  transition: color 140ms ease, border-color 140ms ease;
 }
 
-@media (prefers-color-scheme: dark) and (max-width: 900px) {
-  .side-nav {
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: #1772d0;
+  border-color: #1772d0;
+}
+
+.theme-toggle svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* Show the moon in light mode (switch to dark) and the sun in dark mode. */
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+/* ---------- Dark mode ----------
+   Applied via <html data-theme="dark">, set by the inline script in
+   index.html from the saved choice or the system preference. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root[data-theme="dark"] body {
+  background: #1c1c1c;
+}
+
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] td,
+:root[data-theme="dark"] th,
+:root[data-theme="dark"] tr,
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] a,
+:root[data-theme="dark"] strong,
+:root[data-theme="dark"] li,
+:root[data-theme="dark"] ol,
+:root[data-theme="dark"] ul,
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4,
+:root[data-theme="dark"] .name,
+:root[data-theme="dark"] .contacts a,
+:root[data-theme="dark"] .contacts .label {
+  color: #e8e8e8;
+}
+
+:root[data-theme="dark"] a {
+  color: #6aa9f0;
+}
+
+:root[data-theme="dark"] a:focus,
+:root[data-theme="dark"] a:hover {
+  color: #a8cdf7;
+}
+
+:root[data-theme="dark"] .contacts a:focus,
+:root[data-theme="dark"] .contacts a:hover,
+:root[data-theme="dark"] .contactemail a:focus,
+:root[data-theme="dark"] .contactemail a:hover {
+  color: #6aa9f0;
+}
+
+:root[data-theme="dark"] .born,
+:root[data-theme="dark"] .summary .seealso,
+:root[data-theme="dark"] .section-note,
+:root[data-theme="dark"] .contactemail,
+:root[data-theme="dark"] .contactemail a {
+  color: #b8b8b8;
+}
+
+:root[data-theme="dark"] .contactemail .at {
+  color: #888;
+}
+
+:root[data-theme="dark"] .nickname {
+  color: #999;
+}
+
+:root[data-theme="dark"] .site-footer {
+  border-top-color: #444;
+}
+
+:root[data-theme="dark"] .site-footer .credit {
+  color: #888;
+}
+
+:root[data-theme="dark"] .site-footer .page-updated {
+  color: #777;
+}
+
+:root[data-theme="dark"] .theme-toggle {
+  background: #262626;
+  border-color: #444;
+  color: #e8e8e8;
+}
+
+:root[data-theme="dark"] .theme-toggle:hover,
+:root[data-theme="dark"] .theme-toggle:focus-visible {
+  color: #6aa9f0;
+  border-color: #6aa9f0;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+:root[data-theme="dark"] .side-nav .dot {
+  background: #555;
+}
+
+:root[data-theme="dark"] .side-nav a:hover .dot {
+  background: #e8e8e8;
+}
+
+:root[data-theme="dark"] .side-nav a.is-active .dot {
+  background: #6aa9f0;
+}
+
+/* Inverted tooltip, mirroring the dark-on-light pill in light mode. */
+:root[data-theme="dark"] .side-nav .label {
+  background: #e8e8e8;
+  color: #1c1c1c;
+}
+
+@media (max-width: 900px) {
+  :root[data-theme="dark"] .side-nav {
     background: rgba(40, 40, 40, 0.92);
     border-color: rgba(255, 255, 255, 0.08);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  }
-}
-
-/* ---------- Dark mode ---------- */
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #1c1c1c;
-  }
-  body,
-  td,
-  th,
-  tr,
-  p,
-  a,
-  strong,
-  li,
-  ol,
-  ul,
-  h1,
-  h2,
-  h3,
-  h4,
-  .name {
-    color: #e8e8e8;
-  }
-  .contacts a {
-    color: #e8e8e8;
-  }
-  .contacts .label {
-    color: #e8e8e8;
-  }
-  a {
-    color: #6aa9f0;
-  }
-  a:focus,
-  a:hover {
-    color: #a8cdf7;
-  }
-  .contacts a:focus,
-  .contacts a:hover,
-  .contactemail a:focus,
-  .contactemail a:hover {
-    color: #6aa9f0;
-  }
-  .born,
-  .summary .seealso,
-  .section-note,
-  .contactemail,
-  .contactemail a {
-    color: #b8b8b8;
-  }
-  .contactemail .at {
-    color: #888;
-  }
-  .nickname {
-    color: #999;
-  }
-  .quote-block {
-    border-top: 1px solid #444;
-  }
-  .quote-block .quote-credit {
-    border-top: 1px solid #333;
-  }
-  .quote-block .page-updated {
-    color: #777;
   }
 }
