@@ -592,24 +592,27 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  .side-nav {
-    background: rgba(28, 28, 28, 0.92);
-    border-color: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  }
   .side-nav .dot {
     background: #555;
   }
-  .side-nav a:hover .dot,
+  .side-nav a:hover .dot {
+    background: #e8e8e8;
+  }
   .side-nav a.is-active .dot {
     background: #f09228;
   }
+  /* Inverted tooltip, mirroring the dark-on-light pill in light mode. */
   .side-nav .label {
-    color: #b8b8b8;
+    background: #e8e8e8;
+    color: #1c1c1c;
   }
-  .side-nav a:hover .label,
-  .side-nav a.is-active .label {
-    color: #f09228;
+}
+
+@media (prefers-color-scheme: dark) and (max-width: 900px) {
+  .side-nav {
+    background: rgba(40, 40, 40, 0.92);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   }
 }
 
