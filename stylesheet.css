@@ -45,7 +45,7 @@ a {
 
 a:focus,
 a:hover {
-  color: #f09228;
+  color: #0b4f9c;
   text-decoration: none;
 }
 
@@ -124,7 +124,7 @@ h3 {
 
 .contactemail a:hover,
 .contactemail a:focus {
-  color: #f09228;
+  color: #1772d0;
 }
 
 .contactemail .at {
@@ -185,7 +185,7 @@ h3 {
 
 .contacts a:focus,
 .contacts a:hover {
-  color: #f09228;
+  color: #1772d0;
 }
 
 .contacts svg {
@@ -477,7 +477,7 @@ body {
 }
 
 .side-nav a.is-active .dot {
-  background: #f09228;
+  background: #1772d0;
 }
 
 .side-nav .label {
@@ -565,7 +565,7 @@ body {
 
   .side-nav a:hover .label,
   .side-nav a.is-active .label {
-    color: #f09228;
+    color: #1772d0;
     transform: none;
   }
 
@@ -599,7 +599,7 @@ body {
     background: #e8e8e8;
   }
   .side-nav a.is-active .dot {
-    background: #f09228;
+    background: #6aa9f0;
   }
   /* Inverted tooltip, mirroring the dark-on-light pill in light mode. */
   .side-nav .label {
@@ -649,7 +649,13 @@ body {
   }
   a:focus,
   a:hover {
-    color: #f09228;
+    color: #a8cdf7;
+  }
+  .contacts a:focus,
+  .contacts a:hover,
+  .contactemail a:focus,
+  .contactemail a:hover {
+    color: #6aa9f0;
   }
   .born,
   .summary .seealso,
