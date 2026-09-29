@@ -219,7 +219,7 @@ em.me {
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 /* ---------- Numbered publications list ---------- */
@@ -229,8 +229,19 @@ em.me {
 }
 
 .ol-pubs li {
-  margin-bottom: 14px;
+  margin-bottom: 0;
+  padding: 10px 0 11px;
   line-height: 1.45;
+  border-bottom: 1px solid #ececec;
+}
+
+.ol-pubs li:last-child {
+  border-bottom: 0;
+}
+
+.ol-pubs li::marker {
+  color: #8a8a8a;
+  font-size: 13px;
 }
 
 .ol-pubs li .papertitle {
@@ -243,11 +254,30 @@ em.me {
 .ol-pubs li .authors {
   margin: 0 0 2px;
   font-size: 14px;
+  color: #444;
 }
 
 .ol-pubs li .links {
-  margin: 4px 0 0;
-  font-size: 13px;
+  margin: 5px 0 0;
+  font-size: 12.5px;
+  color: #999;
+}
+
+.ol-pubs li .links a {
+  display: inline-block;
+  padding: 0 7px;
+  border: 1px solid #cfd8e3;
+  border-radius: 3px;
+  line-height: 1.6;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.ol-pubs li .links a:hover {
+  background: #eef4fb;
+  border-color: #1772d0;
 }
 
 /* ---------- Awards table ---------- */
@@ -713,3 +743,9 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   }
 }
+
+/* Publications: dark-theme overrides */
+:root[data-theme="dark"] .ol-pubs li { border-bottom-color: #2c2f36; }
+:root[data-theme="dark"] .ol-pubs li .authors { color: #b8bcc4; }
+:root[data-theme="dark"] .ol-pubs li .links a { border-color: #3a4556; }
+:root[data-theme="dark"] .ol-pubs li .links a:hover { background: #1c2636; border-color: #6cb0ff; }
