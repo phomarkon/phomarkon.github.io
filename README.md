@@ -8,13 +8,15 @@ The page layout adapts the pattern from Jon Barron's personal site ([jonbarron.i
 
 ```
 .
-├── index.html          # the entire page (header, research, news, CV, footer)
+├── index.html          # the entire page (bio, news, publications, talks, service, awards, footer)
 ├── stylesheet.css      # Lato via Google Fonts; table-based layout à la jonbarron
-├── cv.pdf              # CV mirror
+├── cv.pdf              # CV linked from the page (copy of cv/cv.pdf)
+├── cv/
+│   ├── cv.tex          # moderncv source
+│   └── cv.pdf          # compiled output
 ├── images/
 │   ├── profile.png     # hero photo
-│   ├── favicon.ico
-│   └── apple-touch-icon.png
+│   └── favicon*.png, favicon.ico, apple-touch-icon.png
 ├── robots.txt
 ├── LICENSE             # MIT for original content; attribution for layout
 └── .github/workflows/deploy.yml
@@ -37,15 +39,14 @@ Pushes to `main` trigger `.github/workflows/deploy.yml`, which uploads the worki
 
 ## Editing publications
 
-`index.html` is hand-authored. Publications live inline under the **Research** section (the four highlighted entries) and the full list under **Publications**, grouped into Preprints, Under submission & Work in progress / Publications (Conference/Journal - Accepted or Published) / Workshops / Thesis. Every entry links to its arXiv abstract, journal page, or OpenReview discussion — no local PDFs.
+`index.html` is hand-authored. Publications live under **Publications**, grouped into Preprints / Conference & Journal / Workshops / Thesis. Every entry links to its arXiv abstract, journal page, or OpenReview discussion — no local PDFs.
 
 ## Rebuilding the CV PDF
 
-The CV PDF lives at `cv.pdf` (root) and is the file linked from the page. To rebuild from LaTeX, compile the moderncv source separately and overwrite `cv.pdf` at the repo root:
+The source is `cv/cv.tex` (moderncv). The page links to `cv.pdf` at the repo root, so copy the compiled PDF there after building. Run pdflatex twice so references settle, and check the CV still fits on two pages:
 
 ```bash
-# (not part of the repo; done externally)
-pdflatex cv.tex
-cp cv.pdf /path/to/phomarkon.github.io/cv.pdf
-git commit -am "Update CV" cv.pdf
+cd cv
+pdflatex cv.tex && pdflatex cv.tex
+cp cv.pdf ../cv.pdf
 ```
