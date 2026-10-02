@@ -235,6 +235,12 @@ em.me {
   border-bottom: 1px solid #ececec;
 }
 
+.ol-pubs li.highlight {
+  background: #fffbe6;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 .ol-pubs li:last-child {
   border-bottom: 0;
 }
@@ -746,6 +752,7 @@ body {
 
 /* Publications: dark-theme overrides */
 :root[data-theme="dark"] .ol-pubs li { border-bottom-color: #2c2f36; }
+:root[data-theme="dark"] .ol-pubs li.highlight { background: #2a2718; }
 :root[data-theme="dark"] .ol-pubs li .authors { color: #b8bcc4; }
 :root[data-theme="dark"] .ol-pubs li .links a { border-color: #3a4556; }
 :root[data-theme="dark"] .ol-pubs li .links a:hover { background: #1c2636; border-color: #6cb0ff; }
