@@ -333,6 +333,22 @@ body {
   margin: -4px 0 18px;
 }
 
+/* ---------- Research questions ---------- */
+.research-questions {
+  padding-left: 20px;
+  margin: 8px 0 18px;
+}
+
+.research-questions li {
+  font-size: 14px;
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.research-questions .rq {
+  font-weight: 700;
+}
+
 @media (max-width: 720px) {
   body {
     margin: 16px auto;

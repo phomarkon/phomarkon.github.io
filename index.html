@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Phongsakon Mark Konrad</title>
-  <meta name="description" content="Phongsakon Mark Konrad — MSc Machine Learning student, University of Tübingen, supported by the Zuse School ELIZA Research-Oriented Master's Scholarship. Research interests: causality and the foundations of causal learning, deep learning theory, learning mechanics, representation learning, generalization.">
+  <meta name="description" content="Phongsakon Mark Konrad — MSc Machine Learning student, University of Tübingen, supported by the Zuse School ELIZA Research-Oriented Master's Scholarship. Works on interpretability: understanding what AI models do, why they do it, and whether what they tell us reflects their internal computation, for AI safety and scientific discovery.">
   <meta name="author" content="Phongsakon Mark Konrad">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <meta property="og:title" content="Phongsakon Mark Konrad">
-  <meta property="og:description" content="MSc Machine Learning student, University of Tübingen, supported by the Zuse School ELIZA Research-Oriented Master's Scholarship. Research interests: causality and the foundations of causal learning, deep learning theory, learning mechanics, representation learning, generalization.">
+  <meta property="og:description" content="MSc Machine Learning student, University of Tübingen, supported by the Zuse School ELIZA Research-Oriented Master's Scholarship. Works on interpretability: understanding what AI models do, why they do it, and whether what they tell us reflects their internal computation, for AI safety and scientific discovery.">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://phomarkon.github.io/">
   <meta property="og:image" content="https://phomarkon.github.io/images/profile.png">
@@ -52,7 +52,6 @@
       <p class="summary">
         I like exploring different domains of machine learning and playing in different backyards.
         So far that has meant medical imaging, flood detection from satellite data, visualisation, software architecture, and the internals of language models.
-        Now I am exploring the more fundamental ones.
       </p>
 
       <p class="summary">
@@ -75,14 +74,10 @@
       </p>
 
       <p class="summary">
-        My research interests are in <strong>causality</strong>, and in particular the foundations of causal learning:
-        what allows a learning system to move from statistical prediction toward causal understanding.
-        I want to understand when causal structure can be learned or identified from data,
-        and I use <strong>deep learning theory</strong> and the <strong>mechanics of learning</strong>,
-        how optimization shapes learning dynamics and the representations neural networks learn,
-        to study how such structure emerges in modern networks, or fails to.
-        So far I have approached these questions empirically, testing with interventions whether what a model represents is also what it uses.
-        During my MSc I want to build the theory.
+        Currently, I work on <strong>interpretability</strong>, which means opening up AI models to understand what they do,
+        what they truly think, why they do it, and whether what they tell us truly reflects their internal computation.
+        My goal is AI that is safe and that can help us make scientific discoveries.
+        (I also still play in other backyards for fun, e.g. causality, applied medical AI and AI governance.)
       </p>
 
       <p class="seealso">
@@ -133,11 +128,45 @@
 </div>
 
 <!-- =================================================================
+     Research questions
+     ================================================================= -->
+<a id="research"></a>
+<h2>Research</h2>
+<ol class="research-questions">
+  <li>
+    <span class="rq">Does what a model tells us truly reflect its internal computation?</span>
+    A model's own account is not enough, because
+    <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">self-reports alone cannot identify the mechanism behind them</a>,
+    and fine-tuning can make a behaviour
+    <a href="https://arxiv.org/abs/2607.20436" rel="external noopener">look fixed under evaluation while it persists in ordinary use</a>,
+    with the difference carried by an internal coordinate we can locate and intervene on.
+    Looking inside has limits as a safety guarantee too, which is why
+    <a href="https://arxiv.org/abs/2605.10601" rel="external noopener">deployment also needs verification outside the model</a>.
+  </li>
+  <li>
+    <span class="rq">Is what a model represents also what it uses?</span>
+    Probes can decode far more than a model acts on.
+    <a href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">Instruction tuning changes whether a representation reaches the model's judgment, not whether it is there</a>.
+    To study this kind of relational structure, I draw on
+    <a href="https://openreview.net/forum?id=dSfjkJB3bQ" rel="external noopener">tools that network neuroscience has already built</a>.
+  </li>
+  <li>
+    <span class="rq">What would it take for a model to wonder, test and understand on its own?</span>
+    Today's AI scientists are given their questions from outside.
+    I study why models register surprise without acting on it, and what this means for using AI in scientific discovery (ongoing work).
+  </li>
+</ol>
+
+<!-- =================================================================
      News
      ================================================================= -->
 <a id="news"></a>
 <h2>News</h2>
 <table width="100%" cellspacing="0" cellpadding="0" border="0" class="news-table">
+  <tr class="news-row">
+    <td><b>Oct 2026</b></td>
+    <td>Featured by SDU, <a href="https://www.sdu.dk/en/om-sdu/fakulteterne/teknik/nyt_fra_det_tekniske_fakultet/han-kom-for-at-bygge-en-app-og-blev-forsker" rel="external noopener">He came to build an app and became a researcher</a>, and by SønderborgNYT, <a href="https://www.sonderborgnyt.dk/fra-ivaerksaetterdroem-til-international-forskning-i-kunstig-intelligens/" rel="external noopener">Fra iværksætterdrøm til international forskning i kunstig intelligens</a> (in Danish).</td>
+  </tr>
   <tr class="news-row">
     <td><b>Oct 2026</b></td>
     <td>Began the two-year MSc in Machine Learning at the <strong>University of Tübingen</strong> as a Master's Scholar of the <a href="https://eliza.school/" rel="external noopener">Zuse School ELIZA</a>.</td>
@@ -396,6 +425,7 @@
 
 <nav class="side-nav" aria-label="Section navigation">
   <ul>
+    <li><a href="#research" data-target="research"><span class="dot" aria-hidden="true"></span><span class="label">Research</span></a></li>
     <li><a href="#news" data-target="news"><span class="dot" aria-hidden="true"></span><span class="label">News</span></a></li>
     <li><a href="#selected" data-target="selected"><span class="dot" aria-hidden="true"></span><span class="label">Selected Publications</span></a></li>
     <li><a href="#publications" data-target="publications"><span class="dot" aria-hidden="true"></span><span class="label">All Publications</span></a></li>
