@@ -6,3 +6,5 @@
 *.log
 *.out
 *.texput.log
+*.fls
+*.fdb_latexmk

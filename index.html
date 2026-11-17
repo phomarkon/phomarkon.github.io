@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Phongsakon Mark Konrad</title>
-  <meta name="description" content="Phongsakon Mark Konrad — MSc Machine Learning student, University of Tübingen, supported by the Zuse School ELIZA Research-Oriented Master's Scholarship. Works on interpretability: understanding what AI models do, why they do it, and whether what they tell us reflects their internal computation, for AI safety and scientific discovery.">
+  <meta name="description" content="Phongsakon Mark Konrad — MSc Machine Learning student, University of Tübingen, supported by the Zuse School ELIZA Research-Oriented Master's Scholarship. Works on interpretability: using causal interventions to test which internal representations drive language-model behaviour, with an eye to AI safety and AI for science.">
   <meta name="author" content="Phongsakon Mark Konrad">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <meta property="og:title" content="Phongsakon Mark Konrad">
-  <meta property="og:description" content="MSc Machine Learning student, University of Tübingen, supported by the Zuse School ELIZA Research-Oriented Master's Scholarship. Works on interpretability: understanding what AI models do, why they do it, and whether what they tell us reflects their internal computation, for AI safety and scientific discovery.">
+  <meta property="og:description" content="MSc Machine Learning student, University of Tübingen, supported by the Zuse School ELIZA Research-Oriented Master's Scholarship. Works on interpretability: using causal interventions to test which internal representations drive language-model behaviour, with an eye to AI safety and AI for science.">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://phomarkon.github.io/">
   <meta property="og:image" content="https://phomarkon.github.io/images/profile.png">
@@ -50,18 +50,19 @@
       <p class="born">Born in <span lang="th">อุทัยธานี</span> (Uthai Thani), Thailand, on 21 July 1997. Moved to Germany in 2009, then to Denmark in 2022.</p>
 
       <p class="summary">
-        I like exploring different domains of machine learning and playing in different backyards.
-        So far that has meant medical imaging, flood detection from satellite data, visualisation, software architecture, and the internals of language models.
-      </p>
-
-      <p class="summary">
         I am an MSc Machine Learning student at the
         <a href="https://uni-tuebingen.de/" rel="external noopener">University of Tübingen</a>,
         supported by the
         <a href="https://eliza.school/opportunities/research-oriented-masters-scholarships/" rel="external noopener">Research-Oriented Master's Scholarship</a> of the
         <a href="https://eliza.school/" rel="external noopener">Zuse School ELIZA</a>.
+        I work on <strong>interpretability</strong>: I intervene on the internals of language models to test which representations actually drive their behaviour,
+        and whether what a model says about itself, or how it behaves under evaluation, reflects what it does otherwise.
+        I care about this because both AI safety and AI for science depend on knowing what a model is actually doing.
+        Longer term, I want to understand what it would take for AI systems to ask their own questions and test them.
+      </p>
+
+      <p class="summary">
         I chose Tübingen for its research-focused, two-year programme and its strong machine-learning community.
-        I have a background in empirical machine-learning research and research engineering.
         I am a Research Collaborator with the
         <a href="https://aiml-sdu.github.io/" rel="external noopener">Applied and Interpretable Machine Learning</a> group at the
         <a href="https://www.sdu.dk/" rel="external noopener">University of Southern Denmark</a>,
@@ -74,10 +75,9 @@
       </p>
 
       <p class="summary">
-        Currently, I work on <strong>interpretability</strong>, which means opening up AI models to understand what they do,
-        what they truly think, why they do it, and whether what they tell us truly reflects their internal computation.
-        My goal is AI that is safe and that can help us make scientific discoveries.
-        (I also still play in other backyards for fun, e.g. causality, applied medical AI and AI governance.)
+        I like exploring different domains of machine learning and playing in different backyards.
+        So far that has meant medical imaging, flood detection from satellite data, visualisation, software architecture, and the internals of language models.
+        (I still play in other backyards for fun, e.g. causality, applied medical AI and AI governance.)
       </p>
 
       <p class="seealso">
@@ -134,24 +134,26 @@
 <h2>Research</h2>
 <ol class="research-questions">
   <li>
-    <span class="rq">Does what a model tells us truly reflect its internal computation?</span>
-    A model's own account is not enough, because
-    <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">self-reports alone cannot identify the mechanism behind them</a>,
-    and fine-tuning can make a behaviour
-    <a href="https://arxiv.org/abs/2607.20436" rel="external noopener">look fixed under evaluation while it persists in ordinary use</a>,
-    with the difference carried by an internal coordinate we can locate and intervene on.
+    <span class="rq">Does what we observe of a model reflect its internal computation?</span>
+    A model's own account is not enough:
+    <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">accurate self-reports do not by themselves identify a self-model</a>,
+    because the reports also follow the demonstrations in the prompt.
+    Evaluation behaviour is not enough either. In controlled fine-tuned models, a behaviour can
+    <a href="https://arxiv.org/abs/2607.20436" rel="external noopener">look fixed under evaluation-style prompts while it persists in ordinary use</a>;
+    in most of the settings we tested, intervening on a single internal coordinate reduces that gap, and where it does not, the audit shows its own limits.
     Looking inside has limits as a safety guarantee too, which is why
-    <a href="https://arxiv.org/abs/2605.10601" rel="external noopener">deployment also needs verification outside the model</a>.
+    <a href="https://arxiv.org/abs/2605.10601" rel="external noopener">we argue that deployment also needs verification outside the model</a>.
   </li>
   <li>
     <span class="rq">Is what a model represents also what it uses?</span>
     Probes can decode far more than a model acts on.
-    <a href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">Instruction tuning changes whether a representation reaches the model's judgment, not whether it is there</a>.
+    In a matched pretrained/instruction-tuned pair,
+    <a href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">moral framing is decodable in both, but only after instruction tuning does it causally reach the model's judgment</a>.
   </li>
   <li>
     <span class="rq">What would it take for a model to wonder, test and understand on its own?</span>
     Today's AI scientists are given their questions from outside.
-    I study why models register surprise without acting on it, and what this means for using AI in scientific discovery (ongoing work).
+    I am starting to study whether language-model agents notice, without being asked, what they cannot explain, and whether they then go on to experiment (work in progress).
   </li>
 </ol>
 
@@ -200,30 +202,30 @@
      ================================================================= -->
 <a id="selected"></a>
 <h2>Selected Publications</h2>
-<p class="section-note">The first three share one question: when is what a model represents also what it uses, and what evidence would identify the difference? The fourth shows the empirical groundwork: careful evaluation under limited data and distribution shift.</p>
+<p class="section-note">The first three ask what evidence actually ties a model's behaviour, or its reports about itself, to its internal computation. The fourth is about evaluation itself: how much a benchmark ranking can be trusted when data are scarce.</p>
 <ol class="ol-pubs ol-selected">
   <li>
     <p class="papertitle">Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">NeurIPS 2026</span> (accepted).</p>
-    <p class="tldr">Fine-tuning can make a behavior look fixed under evaluation prompts while it persists in ordinary use. We locate the internal coordinate that carries this distinction and intervene on it, closing the gap in ten of twelve model&ndash;behavior settings.</p>
+    <p class="tldr">Fine-tuning can make a behavior look fixed under evaluation-style prompts while it persists in ordinary use. On checkpoints fine-tuned to have such a gap, we localize a mid-depth coordinate with path patching and intervene on it on held-out prompts. Across four models and three behaviors (sandbagging, sycophancy, refusal), this reduces the gap by more than 0.12 in ten of twelve settings and closes it in four, while random directions at the same dose do not reproduce the effect. The two failures, both sycophancy, mark where a single-coordinate audit is not enough. It is a white-box diagnostic for controlled checkpoints, not evidence about naturally arising failures.</p>
     <p class="links"><a href="https://arxiv.org/abs/2607.20436" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/routing-subspaces-page/" rel="external noopener">project page</a> / <a href="https://github.com/aiml-sdu/routing-subspaces" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">Philosophy of Machine Learning Workshop, ICML 2026</span> (oral).</p>
-    <p class="tldr">Treats language-model self-report as an identifiability problem: under a fixed activation intervention, reports drift with the demonstration environment, so report accuracy alone is not evidence of a self-model. We propose environment-shift invariance tests as the missing check.</p>
+    <p class="tldr">Treats language-model self-report as an identifiability problem. We intervene on activations and ask the model to report the affect-like state we induced. Across three open instruction models, demonstrations from the wrong source pull reports toward the source's answers under the same intervention, and explicitly binding the report to the intervention reduces this pull. Report accuracy alone is therefore not evidence of a self-model; we propose environment-shift invariance tests as the missing check.</p>
     <p class="links"><a href="https://openreview.net/forum?id=iBq4yYwYfd" rel="external noopener">OpenReview</a> / <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/self-reports-page/" rel="external noopener">project page</a></p>
   </li>
   <li>
     <p class="papertitle">Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">Workshop on Mechanistic Interpretability, ICML 2026</span> (poster).</p>
-    <p class="tldr">Decodability is not use: comparing matched pretrained and instruction-tuned models with probes, activation patching and ablations, we show that instruction tuning changes whether moral framing reaches the judgment readout, not merely whether it is represented.</p>
+    <p class="tldr">Decodability is not use. In a matched pretrained/instruction-tuned pair (Gemma-3-4B), moral framing is linearly decodable in both, but with probes, activation patching and ablations we find it has no causal effect on the pretrained model's judgment, while after instruction tuning the same representation aligns with and drives the judgment readout. Instruction tuning changes how the representation is read out, not whether it exists. The specificity profile replicates across ten instruction-tuned checkpoints in three families.</p>
     <p class="links"><a href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">OpenReview</a> / <a href="https://openreview.net/pdf?id=da9ylT2doy" rel="external noopener">PDF</a> / <a href="https://aiml-sdu.github.io/decoded-but-unused-page/" rel="external noopener">project page</a> / <a href="https://github.com/aiml-sdu/decoded-but-unused" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Andrei-Alexandru Popa, Yaser Sabzehmeidani, Liang Zhong, Madhulika Tripathy, Andrei Constantinescu, Elisa A. Liehn, Serkan Ayvaz. <span class="paper-venue">Biomedical Signal Processing and Control</span>, 2026.</p>
-    <p class="tldr">A ten-model benchmark for small cardiovascular histology datasets, with ablations, bootstrap uncertainty and an independent distribution-shift evaluation. It tests which conclusions about model choice still hold when data are scarce.</p>
+    <p class="tldr">Ten segmentation models, from classical CNNs to foundation models, trained on nine cardiovascular histology images and tested on an independent set of 153 under distribution shift. Model rankings change between in- and out-of-distribution data and between datasets, and bootstrap intervals of the top models overlap substantially, so standard benchmark rankings say little about which model to choose in this regime.</p>
     <p class="links"><a href="https://www.sciencedirect.com/science/article/pii/S1746809426017805" rel="external noopener">journal</a> / <a href="https://arxiv.org/abs/2509.05892" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/small-organ-segmentation-page/" rel="external noopener">project page</a></p>
   </li>
 </ol>
@@ -418,7 +420,7 @@
     <a href="https://github.com/jonbarron/jonbarron.github.io" rel="external noopener">jonbarron/jonbarron.github.io</a>),
     used with thanks.
   </p>
-  <p class="page-updated">Last updated 3 October 2026.</p>
+  <p class="page-updated">Last updated 17 November 2026.</p>
 </footer>
 
 <nav class="side-nav" aria-label="Section navigation">
@@ -462,7 +464,7 @@
 
   (function () {
     var navLinks = document.querySelectorAll('.side-nav a');
-    var sections = ['news', 'selected', 'publications', 'talks', 'service', 'awards'].map(function (id) {
+    var sections = ['research', 'news', 'selected', 'publications', 'talks', 'service', 'awards'].map(function (id) {
       return document.getElementById(id);
     });
 
