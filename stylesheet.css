@@ -606,3 +606,17 @@ h2 { font-weight: 600; letter-spacing: -0.005em; }
 .ico-doc { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M6 2h8l5 5v15H6z'/%3E%3Cpath d='M14 2v5h5M9 13h7M9 17h7'/%3E%3C/svg%3E"); }
 .ico-web { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18'/%3E%3C/svg%3E"); }
 .ico-code { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 7l-5 5 5 5M16 7l5 5-5 5'/%3E%3C/svg%3E"); }
+
+/* ---------- Key terms: underlined, definition on hover ---------- */
+a.term {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  text-decoration-color: #1772d0;
+  cursor: help;
+}
+a.term:hover, a.term:focus { color: #1772d0; text-decoration-style: solid; }
+:root[data-theme="dark"] a.term { text-decoration-color: #6cb0ff; }
+:root[data-theme="dark"] a.term:hover { color: #6cb0ff; }

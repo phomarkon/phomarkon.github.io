@@ -12,6 +12,8 @@
 \setlength{\footskip}{12pt}
 \setlength{\parskip}{0pt}
 \setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt,parsep=0pt}
+% Small icon links for publications
+\newcommand{\iconlink}[3]{\href{#2}{{\footnotesize #1}\,#3}}
 \AtBeginDocument{\hypersetup{colorlinks=true,urlcolor=black,linkcolor=black,citecolor=black}}
 
 \name{Phongsakon Mark}{Konrad}
@@ -33,9 +35,9 @@
 \cvitem{}{MSc Machine Learning student at the University of T\"ubingen and Master's Scholar of the \href{https://eliza.school/}{Zuse School ELIZA}. I am interested in what is going on inside current AI models, so most of my work is in interpretability and AI safety. I want to understand why models behave the way they do, and whether we can trust what they say about themselves. Recently I have been asking whether models can be curious and creative, which would help in areas like AI for science. I am also still exploring causality and more fundamental, theoretical work. My north star is to help build models that are safe, trustworthy, curious and creative.}
 
 \section{Education}
-\cventry{2026--}{Master of Science in Machine Learning}{University of T\"ubingen}{T\"ubingen, Germany}{}{Research-oriented, four-semester programme; \textbf{Master's Scholar, \href{https://eliza.school/}{Zuse School ELIZA}} (Research-Oriented Master's Scholarship). Focus on probability, statistics, optimisation and learning theory.}
-\cventry{2025}{Exchange, Computer Science \& Engineering}{Hong Kong University of Science and Technology}{Hong Kong SAR}{}{Courses in machine learning, computer vision, large language models, reinforcement learning and data visualisation.}
-\cventry{2023--2026}{Bachelor of Science in Engineering, Software Engineering}{University of Southern Denmark}{S\o nderborg, Denmark}{}{Graduated June 2026. Danish weighted average \textbf{10.71/12} over 140 numerically graded ECTS (approximately \textbf{3.71/4.0}, WES-style U.S. equivalent). Thesis with Tim Lukas Adam (equal contribution), chosen as the programme's best.}
+\cventry{2026--}{Master of Science in Machine Learning}{\href{https://uni-tuebingen.de/}{University of T\"ubingen}}{T\"ubingen, Germany}{}{Research-oriented, four-semester programme; \textbf{Master's Scholar, \href{https://eliza.school/}{Zuse School ELIZA}} (Research-Oriented Master's Scholarship). Focus on probability, statistics, optimisation and learning theory.}
+\cventry{2025}{Exchange, Computer Science \& Engineering}{\href{https://hkust.edu.hk/}{Hong Kong University of Science and Technology}}{Hong Kong SAR}{}{Courses in machine learning, computer vision, large language models, reinforcement learning and data visualisation.}
+\cventry{2023--2026}{Bachelor of Science in Engineering, Software Engineering}{\href{https://www.sdu.dk/}{University of Southern Denmark}}{S\o nderborg, Denmark}{}{Graduated June 2026. Danish weighted average \textbf{10.71/12} over 140 numerically graded ECTS (approximately \textbf{3.71/4.0}, WES-style U.S. equivalent). Thesis with Tim Lukas Adam (equal contribution), chosen as the programme's best.}
 
 \section{Research Experience}
 \cventry{Oct 2026--}{Research Collaborator}{\href{https://aiml-sdu.github.io}{Applied and Interpretable Machine Learning Research Group, University of Southern Denmark}}{Remote}{}{Still part of the group's research team after my BSc, working on my own projects.}
@@ -46,17 +48,17 @@
 \section{Publications}
 \cvitem{}{\small My name in bold. Summaries and code on \href{https://phomarkon.github.io/\#publications}{my website}.}
 \subsection{Conference and Journal}
-\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models}. \textit{Conference on Neural Information Processing Systems (NeurIPS)}, 2026. \href{https://arxiv.org/abs/2607.20436}{[arXiv]} \href{https://github.com/aiml-sdu/routing-subspaces}{[code]}}
-\cvitem{2026}{\textbf{P.~M.~Konrad}, A.-A.~Popa, Y.~Sabzehmeidani, L.~Zhong, M.~Tripathy, A.~Constantinescu, E.~A.~Liehn, S.~Ayvaz. \emph{Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets}. \textit{Biomedical Signal Processing and Control} 128, 111226, 2026. \href{https://doi.org/10.1016/j.bspc.2026.111226}{[DOI]} \href{https://arxiv.org/abs/2509.05892}{[arXiv]}}
-\cvitem{2026}{N.-T.~Thinh$^*$, Y.~Du$^*$, \textbf{P.~M.~Konrad}, A.~Narechania. \emph{Fact-Check Your Information (FYI): A Design Probe to Understand How People Actually Fact-Check Data-Driven Articles}. \textit{IEEE VIS 2026}; \textit{IEEE Transactions on Visualization and Computer Graphics}, 2027, in press. $^*$Equal contribution. \href{https://arxiv.org/abs/2608.06804}{[arXiv]} \href{https://datavisards.com/projects/2027-paper-fyi/}{[project]}}
-\cvitem{2025}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas}. \textit{KES 2025}, Procedia Computer Science 270, 301--310. \href{https://doi.org/10.1016/j.procs.2025.09.149}{[DOI]}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models}. \textit{Conference on Neural Information Processing Systems (NeurIPS)}, 2026. \iconlink{\faFile[regular]}{https://arxiv.org/abs/2607.20436}{arXiv} \enspace \iconlink{\faCode}{https://github.com/aiml-sdu/routing-subspaces}{code}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, A.-A.~Popa, Y.~Sabzehmeidani, L.~Zhong, M.~Tripathy, A.~Constantinescu, E.~A.~Liehn, S.~Ayvaz. \emph{Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets}. \textit{Biomedical Signal Processing and Control} 128, 111226, 2026. \iconlink{\faBook}{https://doi.org/10.1016/j.bspc.2026.111226}{DOI} \enspace \iconlink{\faFile[regular]}{https://arxiv.org/abs/2509.05892}{arXiv}}
+\cvitem{2026}{N.-T.~Thinh$^*$, Y.~Du$^*$, \textbf{P.~M.~Konrad}, A.~Narechania. \emph{Fact-Check Your Information (FYI): A Design Probe to Understand How People Actually Fact-Check Data-Driven Articles}. \textit{IEEE VIS 2026}; \textit{IEEE Transactions on Visualization and Computer Graphics}, 2027, in press. $^*$Equal contribution. \iconlink{\faFile[regular]}{https://arxiv.org/abs/2608.06804}{arXiv} \enspace \iconlink{\faGlobe}{https://datavisards.com/projects/2027-paper-fyi/}{project}}
+\cvitem{2025}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas}. \textit{KES 2025}, Procedia Computer Science 270, 301--310. \iconlink{\faBook}{https://doi.org/10.1016/j.procs.2025.09.149}{DOI}}
 \subsection{Workshop Papers}
-\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports}. \textit{Philosophy of Machine Learning Workshop at ICML 2026}, oral. \href{https://openreview.net/forum?id=iBq4yYwYfd}{[OpenReview]} \href{https://arxiv.org/abs/2609.32449}{[arXiv]}}
-\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout}. \textit{Workshop on Mechanistic Interpretability at ICML 2026}, poster. \href{https://openreview.net/forum?id=da9ylT2doy}{[OpenReview]} \href{https://github.com/aiml-sdu/decoded-but-unused}{[code]}}
-\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{A Path Already Walked: On Inheriting Network-Neuroscience Tools for Mechanistic Interpretability}. \textit{Workshop on Mechanistic Interpretability at ICML 2026}, virtual poster. \href{https://openreview.net/forum?id=dSfjkJB3bQ}{[OpenReview]}}
-\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~L.~Adam, R.~Terrenzi, S.~Ayvaz. \emph{Architecture Without Architects: How AI Coding Agents Shape Software Architecture}. \textit{SAGAI Workshop at IEEE ICSA 2026}. \href{https://arxiv.org/abs/2604.04990}{[arXiv]}}
-\cvitem{2026}{T.~L.~Adam, \textbf{P.~M.~Konrad}, R.~Terrenzi, F.~G.~Lukas, R.~Yilmaz, K.~Sierszecki, S.~Ayvaz. \emph{CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models}. \textit{KDA-AI Workshop at IEEE ICSA 2026}. \href{https://arxiv.org/abs/2604.05755}{[arXiv]}}
-\cvitem{2026}{R.~Terrenzi, \textbf{P.~M.~Konrad}, T.~L.~Adam, S.~Ayvaz. \emph{A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search}. \textit{SAML Workshop at IEEE ICSA 2026}. \href{https://arxiv.org/abs/2604.16394}{[arXiv]}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports}. \textit{Philosophy of Machine Learning Workshop at ICML 2026}, oral. \iconlink{\faComments[regular]}{https://openreview.net/forum?id=iBq4yYwYfd}{OpenReview} \enspace \iconlink{\faFile[regular]}{https://arxiv.org/abs/2609.32449}{arXiv}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout}. \textit{Workshop on Mechanistic Interpretability at ICML 2026}, poster. \iconlink{\faComments[regular]}{https://openreview.net/forum?id=da9ylT2doy}{OpenReview} \enspace \iconlink{\faCode}{https://github.com/aiml-sdu/decoded-but-unused}{code}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{A Path Already Walked: On Inheriting Network-Neuroscience Tools for Mechanistic Interpretability}. \textit{Workshop on Mechanistic Interpretability at ICML 2026}, virtual poster. \iconlink{\faComments[regular]}{https://openreview.net/forum?id=dSfjkJB3bQ}{OpenReview}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~L.~Adam, R.~Terrenzi, S.~Ayvaz. \emph{Architecture Without Architects: How AI Coding Agents Shape Software Architecture}. \textit{SAGAI Workshop at IEEE ICSA 2026}. \iconlink{\faFile[regular]}{https://arxiv.org/abs/2604.04990}{arXiv}}
+\cvitem{2026}{T.~L.~Adam, \textbf{P.~M.~Konrad}, R.~Terrenzi, F.~G.~Lukas, R.~Yilmaz, K.~Sierszecki, S.~Ayvaz. \emph{CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models}. \textit{KDA-AI Workshop at IEEE ICSA 2026}. \iconlink{\faFile[regular]}{https://arxiv.org/abs/2604.05755}{arXiv}}
+\cvitem{2026}{R.~Terrenzi, \textbf{P.~M.~Konrad}, T.~L.~Adam, S.~Ayvaz. \emph{A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search}. \textit{SAML Workshop at IEEE ICSA 2026}. \iconlink{\faFile[regular]}{https://arxiv.org/abs/2604.16394}{arXiv}}
 \needspace{3\baselineskip}\subsection{Preprints}
 \cvitem{2026}{\textbf{P.~M.~Konrad}, T.~L.~Adam, A.~C.~H.~Merrild, R.~Terrenzi, R.~De~Rosa, T.~Tanyel, S.~Ayvaz. \emph{The Open-Box Fallacy: Why AI Deployment Needs a Calibrated Verification Regime}. Position paper, arXiv:2605.10601.}
 
@@ -74,13 +76,13 @@
 \cventry{Jan--Aug 2026}{Teaching Assistant, Artificial Intelligence}{University of Southern Denmark}{}{}{Led exercise sessions, helped design lab assignments and built \href{https://aiml-sdu.github.io/ai101/}{interactive course material}.}
 
 \section{Invited Talks}
-\cvitem{Feb 2026}{\textbf{Agentic Engineering in Practice}, invited talk at the first House of Software S\o nderborg event, for 100+ attendees.}
+\cvitem{Feb 2026}{{\footnotesize\faMicrophone}\,\textbf{Agentic Engineering in Practice}, invited talk at the first House of Software S\o nderborg event, for 100+ attendees.}
 
 \section{Academic Service}
 \cvitem{2025--2026}{\textbf{Student Member}, Educational Committee, Software Engineering Programme, University of Southern Denmark. Represented students in discussions about courses, exams and the study environment.}
 
 \section{Media}
-\cvitem{Oct 2026}{Feature articles by the \href{https://www.sdu.dk/en/om-sdu/fakulteterne/teknik/nyt_fra_det_tekniske_fakultet/han-kom-for-at-bygge-en-app-og-blev-forsker}{SDU Faculty of Engineering} and \href{https://www.sonderborgnyt.dk/fra-ivaerksaetterdroem-til-international-forskning-i-kunstig-intelligens/}{S\o nderborgNYT} (in Danish).}
+\cvitem{Oct 2026}{{\footnotesize\faNewspaper[regular]}\,Feature articles by the \href{https://www.sdu.dk/en/om-sdu/fakulteterne/teknik/nyt_fra_det_tekniske_fakultet/han-kom-for-at-bygge-en-app-og-blev-forsker}{SDU Faculty of Engineering} and \href{https://www.sonderborgnyt.dk/fra-ivaerksaetterdroem-til-international-forskning-i-kunstig-intelligens/}{S\o nderborgNYT} (in Danish).}
 
 \section{Technical Skills}
 \cvitem{Research}{Controlled experimental design, activation and path patching, linear probing, ablations, steering, fine-tuning, bootstrap uncertainty, evaluation under distribution shift, conformal prediction.}
