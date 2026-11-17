@@ -68,8 +68,7 @@
       </p>
 
       <p class="summary">
-        I want to understand what goes on inside AI models.
-        Most of my work is in <strong>interpretability</strong> and <strong>AI safety</strong>.
+        I want to understand what goes on inside AI models, so most of my work is in <strong>interpretability</strong> and <strong>AI safety</strong>.
         I study what really drives a model's behaviour, and whether we can trust what it tells us about itself.
         Lately I have been wondering whether models can be curious, whether they notice something they can't explain and go and test it.
         I'd like to help build models that are safe, trustworthy, curious and creative.
@@ -136,15 +135,10 @@
 <ol class="research-questions">
   <li>
     <span class="rq">Does what we observe of a model reflect what happens inside it?</span>
-    A model's own account is not enough.
-    <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">Accurate self-reports do not by themselves show that a model has a self-model</a>,
-    because the reports also follow the examples in the prompt.
-    How a model behaves under evaluation is not enough either.
-    In models we fine-tuned on purpose, a behaviour can
-    <a href="https://arxiv.org/abs/2607.20436" rel="external noopener">look fixed under evaluation-style prompts while it persists in ordinary use</a>.
-    In most of the settings we tested, intervening on a single internal direction reduces that gap, and where it does not, the audit shows its own limits.
-    Looking inside has limits as a safety guarantee too, which is why
-    <a href="https://arxiv.org/abs/2605.10601" rel="external noopener">we argue that deployment also needs checks outside the model</a>.
+    Neither a model's account of itself nor its behaviour under evaluation is enough on its own.
+    <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">Accurate self-reports do not show that a model has a self-model</a>,
+    and a fine-tuned behaviour can <a href="https://arxiv.org/abs/2607.20436" rel="external noopener">look fixed under evaluation while it persists in ordinary use</a>.
+    Looking inside has limits too, which is why <a href="https://arxiv.org/abs/2605.10601" rel="external noopener">we argue that deployment also needs checks outside the model</a>.
   </li>
   <li>
     <span class="rq">Is what a model represents also what it uses?</span>
@@ -210,25 +204,25 @@
   <li>
     <p class="papertitle">Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">NeurIPS 2026</span> (accepted).</p>
-    <p class="tldr">Fine-tuning can make a behaviour look fixed when a model is evaluated while it persists in ordinary use. We fine-tune models to have such a gap on purpose, use path patching to find where the difference sits inside the model, and intervene there on held-out prompts. Across four models and three behaviours (sandbagging, sycophancy and refusal), this shrinks the gap by more than 0.12 in ten of twelve settings and closes it in four. Random directions do not. The two failures are both sycophancy, which shows where a single direction is not enough. It is a diagnostic for controlled models, not evidence about failures that arise naturally.</p>
+    <p class="tldr">Fine-tuning can make a behaviour look fixed under evaluation while it persists in ordinary use. In models fine-tuned to have this gap, editing one internal direction shrinks it in ten of twelve settings and closes it in four.</p>
     <p class="links"><a href="https://arxiv.org/abs/2607.20436" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/routing-subspaces-page/" rel="external noopener">project page</a> / <a href="https://github.com/aiml-sdu/routing-subspaces" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">Philosophy of Machine Learning Workshop, ICML 2026</span> (oral).</p>
-    <p class="tldr">Can a model's report about its own internal state show that it has a self-model? We steer a model's activations towards an affect-like state and ask it to report what we induced. Across three open models, when the examples in the prompt come from the wrong source, the reports drift towards that source's answers. Tying the question explicitly to the intervention reduces this pull. So an accurate report alone is not evidence of a self-model, and we propose environment-shift tests as the missing check.</p>
+    <p class="tldr">A model's report about its own state can be accurate without coming from a self-model. Under the same intervention, reports drift towards whatever examples the prompt shows, so we propose environment-shift tests as a check.</p>
     <p class="links"><a href="https://openreview.net/forum?id=iBq4yYwYfd" rel="external noopener">OpenReview</a> / <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/self-reports-page/" rel="external noopener">project page</a></p>
   </li>
   <li>
     <p class="papertitle">Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">Workshop on Mechanistic Interpretability, ICML 2026</span> (poster).</p>
-    <p class="tldr">A probe can read something out of a model that the model never uses. In a matched pair of Gemma-3-4B models before and after instruction tuning, moral framing can be read out of both. With activation patching and ablations we find that it only affects the model's judgement after instruction tuning. Instruction tuning changes how the representation is read out, not whether it is there. The pattern holds across ten instruction-tuned models from three families.</p>
+    <p class="tldr">Moral framing can be read out of a model before and after instruction tuning, but only after instruction tuning does it change the model's judgement.</p>
     <p class="links"><a href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">OpenReview</a> / <a href="https://openreview.net/pdf?id=da9ylT2doy" rel="external noopener">PDF</a> / <a href="https://aiml-sdu.github.io/decoded-but-unused-page/" rel="external noopener">project page</a> / <a href="https://github.com/aiml-sdu/decoded-but-unused" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Andrei-Alexandru Popa, Yaser Sabzehmeidani, Liang Zhong, Madhulika Tripathy, Andrei Constantinescu, Elisa A. Liehn, Serkan Ayvaz. <span class="paper-venue">Biomedical Signal Processing and Control</span>, 2026.</p>
-    <p class="tldr">How much can a benchmark tell you when you only have nine training images? We train ten segmentation models, from classical CNNs to foundation models, on nine cardiovascular histology images and test them on 153 new images from a shifted distribution. The rankings change between datasets and under the shift, and the confidence intervals of the best models overlap a lot. In this setting, a leaderboard says little about which model to pick.</p>
+    <p class="tldr">With nine training images, the rankings of ten segmentation models change across datasets and under distribution shift, so a leaderboard says little about which model to pick.</p>
     <p class="links"><a href="https://www.sciencedirect.com/science/article/pii/S1746809426017805" rel="external noopener">journal</a> / <a href="https://arxiv.org/abs/2509.05892" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/small-organ-segmentation-page/" rel="external noopener">project page</a></p>
   </li>
 </ol>
