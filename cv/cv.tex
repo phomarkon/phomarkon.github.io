@@ -1,14 +1,17 @@
 % Phongsakon Mark Konrad, academic research CV
-\documentclass[10pt,a4paper,sans]{moderncv}
+\documentclass[10pt,a4paper,roman]{moderncv}
 \moderncvstyle{classic}
 \moderncvcolor{black}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+% Same type as phomarkon.github.io: Source Serif for text, Inter for name and headings
+\usepackage{inter}
+\usepackage{sourceserifpro}
 \usepackage[hscale=0.9,vscale=0.98]{geometry}
 \usepackage{enumitem}
 \usepackage{lastpage}
 \usepackage{needspace}
-\setlength{\hintscolumnwidth}{2.15cm}
+\setlength{\hintscolumnwidth}{2.2cm}
 \setlength{\footskip}{12pt}
 \setlength{\parskip}{0pt}
 \setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt,parsep=0pt}
@@ -28,7 +31,14 @@
 \social[orcid]{0009-0004-2521-7879}
 \extrainfo{\protect\href{https://scholar.google.com/citations?user=zPHjLREAAAAJ}{Google Scholar}}
 
+\renewcommand*{\namefont}{\sffamily\fontsize{32}{36}\mdseries\upshape}
+\renewcommand*{\titlefont}{\sffamily\LARGE\mdseries\slshape}
+\renewcommand*{\sectionfont}{\sffamily\Large\mdseries\upshape}
+\renewcommand*{\subsectionfont}{\sffamily\large\mdseries\upshape}
+\renewcommand*{\addressfont}{\sffamily\small\slshape}
+\renewcommand*{\hintfont}{\sffamily\footnotesize}
 \begin{document}
+\renewcommand{\familydefault}{\rmdefault}\normalfont
 % moderncv fixes link colours at load time, so colour the link text itself
 \let\oldhref\href
 \renewcommand{\href}[2]{\oldhref{#1}{\textcolor{sitelink}{#2}}}
@@ -40,15 +50,15 @@
 \cvitem{}{MSc Machine Learning student at the University of T\"ubingen and Master's Scholar of the \href{https://eliza.school/}{Zuse School ELIZA}. I am interested in what is going on inside current AI models, so most of my work is in interpretability and AI safety. I want to understand why models behave the way they do, and whether we can trust what they say about themselves. Recently I have been asking whether models can be curious and creative, which would help in areas like AI for science. I am also still exploring causality and more fundamental, theoretical work. My north star is to help build models that are safe, trustworthy, curious and creative.}
 
 \section{Education}
-\cventry{2026--}{Master of Science in Machine Learning}{\href{https://uni-tuebingen.de/}{University of T\"ubingen}}{T\"ubingen, Germany}{}{Research-oriented, four-semester programme; \textbf{Master's Scholar, \href{https://eliza.school/}{Zuse School ELIZA}} (Research-Oriented Master's Scholarship). Focus on probability, statistics, optimisation and learning theory.}
-\cventry{2025}{Exchange, Computer Science \& Engineering}{\href{https://hkust.edu.hk/}{Hong Kong University of Science and Technology}}{Hong Kong SAR}{}{Courses in machine learning, computer vision, large language models, reinforcement learning and data visualisation.}
-\cventry{2023--2026}{Bachelor of Science in Engineering, Software Engineering}{\href{https://www.sdu.dk/}{University of Southern Denmark}}{S\o nderborg, Denmark}{}{Graduated June 2026. Danish weighted average \textbf{10.71/12} over 140 numerically graded ECTS (approximately \textbf{3.71/4.0}, WES-style U.S. equivalent). Thesis with Tim Lukas Adam (equal contribution), chosen as the programme's best.}
+\cventry{2026--}{Master of Science in Machine Learning}{University of T\"ubingen}{T\"ubingen, Germany}{}{Research-oriented, four-semester programme; \textbf{Master's Scholar, Zuse School ELIZA} (Research-Oriented Master's Scholarship). Focus on probability, statistics, optimisation and learning theory.}
+\cventry{2025}{Exchange, Computer Science \& Engineering}{Hong Kong University of Science and Technology}{Hong Kong SAR}{}{Courses in machine learning, computer vision, large language models, reinforcement learning and data visualisation.}
+\cventry{2023--2026}{Bachelor of Science in Engineering, Software Engineering}{University of Southern Denmark}{S\o nderborg, Denmark}{}{Graduated June 2026. Grade average \textbf{10.71/12} (Danish) $\cdot$ \textbf{3.71/4.0} (US) $\cdot$ \textbf{1.3} (German). Thesis with Tim Lukas Adam (equal contribution), chosen as the programme's best.}
 
 \section{Research Experience}
-\cventry{Oct 2026--}{Research Collaborator}{\href{https://aiml-sdu.github.io}{Applied and Interpretable Machine Learning Research Group, University of Southern Denmark}}{Remote}{}{Still part of the group's research team after my BSc, working on my own projects.}
-\cventry{Jan--Oct 2026}{Undergraduate Student Researcher}{\href{https://aiml-sdu.github.io}{Applied and Interpretable Machine Learning Research Group, University of Southern Denmark} (Supervisor: Serkan Ayvaz)}{S\o nderborg, Denmark}{}{Came up with and led my own research on what goes on inside language models, from the first question to the finished paper, designing the experiments and writing the papers with my co-authors.}
-\cventry{Dec 2025--Sep 2026}{Research Collaborator}{\href{https://datavisards.github.io/}{DataVISards, Hong Kong University of Science and Technology} (Supervisor: Arpit Narechania)}{Hong Kong SAR}{}{Helped with a study of how people fact-check data-driven news articles. It started during my exchange semester and became a paper at IEEE VIS 2026.}
-\cventry{Sep 2024--Dec 2025}{Student Research Assistant}{\href{https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab}{University of Southern Denmark Data \& Intelligence Lab}}{S\o nderborg, Denmark}{}{Built machine-learning pipelines and helped with study design, papers, grant proposals and datasets across the lab's projects.}
+\cventry{Oct 2026--}{Research Collaborator}{Applied and Interpretable Machine Learning Research Group, University of Southern Denmark}{Remote}{}{Still part of the group's research team after my BSc, working on my own projects.}
+\cventry{Jan--Oct 2026}{Undergraduate Student Researcher}{Applied and Interpretable Machine Learning Research Group, University of Southern Denmark (Supervisor: Serkan Ayvaz)}{S\o nderborg, Denmark}{}{Came up with and led my own research on what goes on inside language models, from the first question to the finished paper, designing the experiments and writing the papers with my co-authors.}
+\cventry{2025--2026}{Research Collaborator}{DataVISards, Hong Kong University of Science and Technology (Supervisor: Arpit Narechania)}{Hong Kong SAR}{}{Helped with a study of how people fact-check data-driven news articles. It started during my exchange semester and became a paper at IEEE VIS 2026.}
+\cventry{2024--2025}{Student Research Assistant}{University of Southern Denmark Data \& Intelligence Lab}{S\o nderborg, Denmark}{}{Built machine-learning pipelines and helped with study design, papers, grant proposals and datasets across the lab's projects.}
 
 \section{Publications}
 \cvitem{}{\small My name in bold. Summaries and code on \href{https://phomarkon.github.io/\#publications}{my website}.}
@@ -68,7 +78,7 @@
 \cvitem{2026}{\textbf{P.~M.~Konrad}, T.~L.~Adam, A.~C.~H.~Merrild, R.~Terrenzi, R.~De~Rosa, T.~Tanyel, S.~Ayvaz. \emph{The Open-Box Fallacy: Why AI Deployment Needs a Calibrated Verification Regime}. Position paper, arXiv:2605.10601.}
 
 \section{Scholarships and Awards}
-\cvitem{2026}{\textbf{Research-Oriented Master's Scholarship}, \href{https://eliza.school/}{Zuse School ELIZA}.}
+\cvitem{2026}{\textbf{Research-Oriented Master's Scholarship}, Zuse School ELIZA.}
 \cvitem{2026}{\textbf{Graduate Study Grant}, William Demant Foundation, for the MSc in T\"ubingen.}
 \cvitem{2026}{\textbf{Best bachelor thesis}, Software Engineering programme, University of Southern Denmark (with T.~L.~Adam).}
 \cvitem{2026}{\textbf{Best Startup Award finalist} (one of five), DreamBear, SDU Startup Night.}
