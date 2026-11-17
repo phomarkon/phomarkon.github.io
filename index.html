@@ -45,7 +45,7 @@
 <div class="hero">
   <div class="hero-text">
     <p class="name">Phongsakon (<span lang="th">พงสกร</span>) <span class="surname">Mark</span> Konrad</p>
-    <p class="nickname">Thai Nickname: <span lang="th">เฟิร์ส</span> (First)</p>
+    <p class="nickname">Thai nickname: <span lang="th">เฟิร์ส</span> (First)</p>
       <p class="contactemail"><a href="mailto:phongsakon@outlook.dk">phongsakon<span class="at"> at </span>outlook<span class="at"> dot </span>dk</a></p>
       <p class="born">Born in <span lang="th">อุทัยธานี</span> (Uthai Thani), Thailand, on 21 July 1997. Moved to Germany in 2009, then to Denmark in 2022.</p>
 
@@ -137,26 +137,28 @@
 <h2>Research</h2>
 <ol class="research-questions">
   <li>
-    <span class="rq">Does what we observe of a model reflect its internal computation?</span>
-    A model's own account is not enough:
-    <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">accurate self-reports do not by themselves identify a self-model</a>,
-    because the reports also follow the demonstrations in the prompt.
-    Evaluation behaviour is not enough either. In controlled fine-tuned models, a behaviour can
-    <a href="https://arxiv.org/abs/2607.20436" rel="external noopener">look fixed under evaluation-style prompts while it persists in ordinary use</a>;
-    in most of the settings we tested, intervening on a single internal coordinate reduces that gap, and where it does not, the audit shows its own limits.
+    <span class="rq">Does what we observe of a model reflect what happens inside it?</span>
+    A model's own account is not enough.
+    <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">Accurate self-reports do not by themselves show that a model has a self-model</a>,
+    because the reports also follow the examples in the prompt.
+    How a model behaves under evaluation is not enough either.
+    In models we fine-tuned on purpose, a behaviour can
+    <a href="https://arxiv.org/abs/2607.20436" rel="external noopener">look fixed under evaluation-style prompts while it persists in ordinary use</a>.
+    In most of the settings we tested, intervening on a single internal direction reduces that gap, and where it does not, the audit shows its own limits.
     Looking inside has limits as a safety guarantee too, which is why
-    <a href="https://arxiv.org/abs/2605.10601" rel="external noopener">we argue that deployment also needs verification outside the model</a>.
+    <a href="https://arxiv.org/abs/2605.10601" rel="external noopener">we argue that deployment also needs checks outside the model</a>.
   </li>
   <li>
     <span class="rq">Is what a model represents also what it uses?</span>
-    Probes can decode far more than a model acts on.
-    In a matched pretrained/instruction-tuned pair,
-    <a href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">moral framing is decodable in both, but only after instruction tuning does it causally reach the model's judgment</a>.
+    Probes can read out far more than a model acts on.
+    In a pair of models before and after instruction tuning,
+    <a href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">moral framing can be read out of both, but only after instruction tuning does it change the model's judgement</a>.
   </li>
   <li>
     <span class="rq">What would it take for a model to wonder, test and understand on its own?</span>
-    Today's AI scientists are given their questions from outside.
-    I am starting to study whether language-model agents notice, without being asked, what they cannot explain, and whether they then go on to experiment (work in progress).
+    Today's AI scientists get their questions from outside.
+    I am starting to study whether language-model agents notice, without being asked, what they cannot explain, and whether they then go on to experiment.
+    This is work in progress.
   </li>
 </ol>
 
@@ -168,35 +170,35 @@
 <table width="100%" cellspacing="0" cellpadding="0" border="0" class="news-table">
   <tr class="news-row">
     <td><b>Oct 2026</b></td>
-    <td>Featured by SDU, <a href="https://www.sdu.dk/en/om-sdu/fakulteterne/teknik/nyt_fra_det_tekniske_fakultet/han-kom-for-at-bygge-en-app-og-blev-forsker" rel="external noopener">He came to build an app and became a researcher</a>, and by SønderborgNYT, <a href="https://www.sonderborgnyt.dk/fra-ivaerksaetterdroem-til-international-forskning-i-kunstig-intelligens/" rel="external noopener">Fra iværksætterdrøm til international forskning i kunstig intelligens</a> (in Danish).</td>
+    <td>SDU and SønderborgNYT wrote about how I went from building startups to doing research (see <a href="#featured">Featured</a>).</td>
   </tr>
   <tr class="news-row">
     <td><b>Oct 2026</b></td>
-    <td>Began the two-year MSc in Machine Learning at the <strong>University of Tübingen</strong> as a Master's Scholar of the <a href="https://eliza.school/" rel="external noopener">Zuse School ELIZA</a>.</td>
+    <td>Started the MSc in Machine Learning at the <strong>University of Tübingen</strong> as a Master's Scholar of the <a href="https://eliza.school/" rel="external noopener">Zuse School ELIZA</a>.</td>
   </tr>
   <tr class="news-row">
     <td><b>Sep 2026</b></td>
-    <td><a href="https://arxiv.org/abs/2607.20436" rel="external noopener">Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models</a> accepted to NeurIPS 2026.</td>
+    <td><a href="https://arxiv.org/abs/2607.20436" rel="external noopener">Routing Subspaces</a> was accepted at NeurIPS 2026.</td>
   </tr>
   <tr class="news-row">
     <td><b>Aug 2026</b></td>
-    <td><a href="https://www.sciencedirect.com/science/article/pii/S1746809426017805" rel="external noopener">Challenges in Deep Learning-Based Small Organ Segmentation</a> accepted to Biomedical Signal Processing and Control.</td>
+    <td>Our <a href="https://www.sciencedirect.com/science/article/pii/S1746809426017805" rel="external noopener">small-organ segmentation benchmark</a> was accepted at Biomedical Signal Processing and Control.</td>
   </tr>
   <tr class="news-row">
     <td><b>Jul 2026</b></td>
-    <td>Three papers appeared at ICML 2026 workshops, including an oral at the Philosophy of Machine Learning Workshop and two posters at the Workshop on Mechanistic Interpretability.</td>
+    <td>Three papers at ICML 2026 workshops, one oral at the Philosophy of Machine Learning Workshop and two posters at the Workshop on Mechanistic Interpretability.</td>
   </tr>
   <tr class="news-row">
     <td><b>Jun 2026</b></td>
-    <td>Admitted to graduate study at the <strong>University of Cambridge</strong> (<a href="https://www.postgraduate.study.cam.ac.uk/courses/directory/egegmpmsl" rel="external noopener">MPhil Machine Learning and Machine Intelligence</a>), as well as <strong>Tübingen</strong> (<a href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/studium/studierende/lehre-studienorganisation/studiengaenge/machine-learning/" rel="external noopener">MSc Machine Learning</a>) and <strong>Copenhagen</strong> (<a href="https://studies.ku.dk/masters/it-and-cognition/" rel="external noopener">MSc IT and Cognition</a>); chose Tübingen's research-oriented, two-year MSc.</td>
+    <td>Admitted to the <a href="https://www.postgraduate.study.cam.ac.uk/courses/directory/egegmpmsl" rel="external noopener">MPhil in Machine Learning and Machine Intelligence</a> at <strong>Cambridge</strong>, the <a href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/studium/studierende/lehre-studienorganisation/studiengaenge/machine-learning/" rel="external noopener">MSc Machine Learning</a> at <strong>Tübingen</strong> and the <a href="https://studies.ku.dk/masters/it-and-cognition/" rel="external noopener">MSc IT and Cognition</a> at <strong>Copenhagen</strong>. I chose Tübingen for its two-year, research-oriented programme.</td>
   </tr>
   <tr class="news-row">
     <td><b>Jun 2026</b></td>
-    <td>Software Engineering programme thesis, Heimdall: Only the Safe Shall Pass, selected as best in the cohort of more than 100 students.</td>
+    <td>My BSc thesis with Tim Lukas Adam, Heimdall: Only the Safe Shall Pass, was chosen as the best in a cohort of more than 100 students.</td>
   </tr>
   <tr class="news-row">
     <td><b>Jan 2026</b></td>
-    <td>Continued collaboration with the DataVISards group at HKUST after an exchange semester in Hong Kong.</td>
+    <td>Kept working with the DataVISards group at HKUST after my exchange semester in Hong Kong.</td>
   </tr>
 </table>
 
@@ -205,30 +207,30 @@
      ================================================================= -->
 <a id="selected"></a>
 <h2>Selected Publications</h2>
-<p class="section-note">The first three ask what evidence actually ties a model's behaviour, or its reports about itself, to its internal computation. The fourth is about evaluation itself: how much a benchmark ranking can be trusted when data are scarce.</p>
+<p class="section-note">The first three ask what actually links a model's behaviour, or what it says about itself, to what happens inside it. The fourth asks how much a benchmark ranking can be trusted when there is very little data.</p>
 <ol class="ol-pubs ol-selected">
   <li>
     <p class="papertitle">Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">NeurIPS 2026</span> (accepted).</p>
-    <p class="tldr">Fine-tuning can make a behavior look fixed under evaluation-style prompts while it persists in ordinary use. On checkpoints fine-tuned to have such a gap, we localize a mid-depth coordinate with path patching and intervene on it on held-out prompts. Across four models and three behaviors (sandbagging, sycophancy, refusal), this reduces the gap by more than 0.12 in ten of twelve settings and closes it in four, while random directions at the same dose do not reproduce the effect. The two failures, both sycophancy, mark where a single-coordinate audit is not enough. It is a white-box diagnostic for controlled checkpoints, not evidence about naturally arising failures.</p>
+    <p class="tldr">Fine-tuning can make a behaviour look fixed when a model is evaluated while it persists in ordinary use. We fine-tune models to have such a gap on purpose, use path patching to find where the difference sits inside the model, and intervene there on held-out prompts. Across four models and three behaviours (sandbagging, sycophancy and refusal), this shrinks the gap by more than 0.12 in ten of twelve settings and closes it in four. Random directions do not. The two failures are both sycophancy, which shows where a single direction is not enough. It is a diagnostic for controlled models, not evidence about failures that arise naturally.</p>
     <p class="links"><a href="https://arxiv.org/abs/2607.20436" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/routing-subspaces-page/" rel="external noopener">project page</a> / <a href="https://github.com/aiml-sdu/routing-subspaces" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">Philosophy of Machine Learning Workshop, ICML 2026</span> (oral).</p>
-    <p class="tldr">Treats language-model self-report as an identifiability problem. We intervene on activations and ask the model to report the affect-like state we induced. Across three open instruction models, demonstrations from the wrong source pull reports toward the source's answers under the same intervention, and explicitly binding the report to the intervention reduces this pull. Report accuracy alone is therefore not evidence of a self-model; we propose environment-shift invariance tests as the missing check.</p>
+    <p class="tldr">Can a model's report about its own internal state show that it has a self-model? We steer a model's activations towards an affect-like state and ask it to report what we induced. Across three open models, when the examples in the prompt come from the wrong source, the reports drift towards that source's answers. Tying the question explicitly to the intervention reduces this pull. So an accurate report alone is not evidence of a self-model, and we propose environment-shift tests as the missing check.</p>
     <p class="links"><a href="https://openreview.net/forum?id=iBq4yYwYfd" rel="external noopener">OpenReview</a> / <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/self-reports-page/" rel="external noopener">project page</a></p>
   </li>
   <li>
     <p class="papertitle">Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">Workshop on Mechanistic Interpretability, ICML 2026</span> (poster).</p>
-    <p class="tldr">Decodability is not use. In a matched pretrained/instruction-tuned pair (Gemma-3-4B), moral framing is linearly decodable in both, but with probes, activation patching and ablations we find it has no causal effect on the pretrained model's judgment, while after instruction tuning the same representation aligns with and drives the judgment readout. Instruction tuning changes how the representation is read out, not whether it exists. The specificity profile replicates across ten instruction-tuned checkpoints in three families.</p>
+    <p class="tldr">A probe can read something out of a model that the model never uses. In a matched pair of Gemma-3-4B models before and after instruction tuning, moral framing can be read out of both. With activation patching and ablations we find that it only affects the model's judgement after instruction tuning. Instruction tuning changes how the representation is read out, not whether it is there. The pattern holds across ten instruction-tuned models from three families.</p>
     <p class="links"><a href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">OpenReview</a> / <a href="https://openreview.net/pdf?id=da9ylT2doy" rel="external noopener">PDF</a> / <a href="https://aiml-sdu.github.io/decoded-but-unused-page/" rel="external noopener">project page</a> / <a href="https://github.com/aiml-sdu/decoded-but-unused" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Andrei-Alexandru Popa, Yaser Sabzehmeidani, Liang Zhong, Madhulika Tripathy, Andrei Constantinescu, Elisa A. Liehn, Serkan Ayvaz. <span class="paper-venue">Biomedical Signal Processing and Control</span>, 2026.</p>
-    <p class="tldr">Ten segmentation models, from classical CNNs to foundation models, trained on nine cardiovascular histology images and tested on an independent set of 153 under distribution shift. Model rankings change between in- and out-of-distribution data and between datasets, and bootstrap intervals of the top models overlap substantially, so standard benchmark rankings say little about which model to choose in this regime.</p>
+    <p class="tldr">How much can a benchmark tell you when you only have nine training images? We train ten segmentation models, from classical CNNs to foundation models, on nine cardiovascular histology images and test them on 153 new images from a shifted distribution. The rankings change between datasets and under the shift, and the confidence intervals of the best models overlap a lot. In this setting, a leaderboard says little about which model to pick.</p>
     <p class="links"><a href="https://www.sciencedirect.com/science/article/pii/S1746809426017805" rel="external noopener">journal</a> / <a href="https://arxiv.org/abs/2509.05892" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/small-organ-segmentation-page/" rel="external noopener">project page</a></p>
   </li>
 </ol>
@@ -306,7 +308,7 @@
 <ol class="ol-pubs">
   <li>
     <p class="papertitle">Heimdall: Only the Safe Shall Pass</p>
-    <p class="authors"><em class="me">Phongsakon Mark Konrad</em><sup title="Equal contribution">*</sup>, Tim Lukas Adam<sup title="Equal contribution">*</sup>. <span class="paper-venue">BSc Thesis, University of Southern Denmark</span>, Software Engineering, 2026. <em><sup>*</sup> Equal contribution. (Selected as best in the cohort of more than 100 students.)</em></p>
+    <p class="authors"><em class="me">Phongsakon Mark Konrad</em><sup title="Equal contribution">*</sup>, Tim Lukas Adam<sup title="Equal contribution">*</sup>. <span class="paper-venue">BSc Thesis, University of Southern Denmark</span>, Software Engineering, 2026. <em><sup>*</sup> Equal contribution. Chosen as the best in a cohort of more than 100 students.</em></p>
     <p class="links"><a href="https://github.com/phomarkon/heimdall-src" rel="external noopener">code</a></p>
   </li>
 </ol>
@@ -321,7 +323,7 @@
     <td><b>Feb 2026</b></td>
     <td>
       <span class="award-name">Agentic Engineering in Practice</span> &mdash;
-      invited talk at the inaugural House of Software S&oslash;nderborg event, introducing agent skills, the Model Context Protocol, and plugin-based development to more than 100 software engineers, engineering leaders, and founders.
+      invited talk at the first House of Software S&oslash;nderborg event, on agent skills, the Model Context Protocol and plugin-based development, for more than 100 software engineers, engineering leaders and founders.
     </td>
   </tr>
 </table>
@@ -358,7 +360,7 @@
     <td><b>2025&ndash;2026</b></td>
     <td>
       <span class="award-name">Student Member, Educational Committee</span> &mdash;
-      Software Engineering programme, University of Southern Denmark; represented students in curriculum and quality-assurance discussions concerning course content, assessment, and the study environment.
+      Software Engineering programme, University of Southern Denmark. I represented students in discussions about courses, exams and the study environment.
     </td>
   </tr>
 </table>
@@ -373,70 +375,70 @@
     <td><b>2026</b></td>
     <td>
       <span class="award-name"><a href="https://eliza.school/opportunities/research-oriented-masters-scholarships/" rel="external noopener">Research-Oriented Master's Scholarship</a></span> &mdash;
-      awarded by the <span class="paper-venue">Zuse School ELIZA</span> to prepare master's students for fast-track PhD studies in machine learning, with research integration and thesis supervision in an ELIZA fellow's group.
+      from the <span class="paper-venue">Zuse School ELIZA</span>, which prepares master's students for a fast-track PhD in machine learning, with research and thesis supervision in an ELIZA fellow's group.
     </td>
   </tr>
   <tr class="award-row">
-    <td><b>May 2026</b></td>
+    <td><b>2026</b></td>
     <td>
       <span class="award-name">Graduate Study Grant</span> &mdash;
-      awarded by the <span class="paper-venue">William Demant Foundation</span> in support of the MSc Machine Learning at the University of Tübingen.
+      from the <span class="paper-venue">William Demant Foundation</span>, for my MSc in Machine Learning at the University of Tübingen.
     </td>
   </tr>
   <tr class="award-row">
-    <td><b>Jun 2026</b></td>
+    <td><b>2026</b></td>
     <td>
-      <span class="award-name">Best BSc Thesis in Cohort</span> &mdash;
-      awarded by the <span class="paper-venue">University of Southern Denmark</span> for the thesis <strong>Heimdall: Only the Safe Shall Pass</strong>, selected as best among more than 100 students in the Software Engineering programme.
+      <span class="award-name">Best BSc Thesis</span> &mdash;
+      for <strong>Heimdall: Only the Safe Shall Pass</strong> (with Tim Lukas Adam), chosen as the best among more than 100 students in Software Engineering at the <span class="paper-venue">University of Southern Denmark</span>.
     </td>
   </tr>
   <tr class="award-row">
     <td><b>2026</b></td>
     <td>
       <span class="award-name">Best Startup Award Finalist, DreamBear</span> &mdash;
-      finalist at <span class="paper-venue">SDU Startup Night</span>; one of five startups selected to pitch.
+      one of five startups chosen to pitch at <span class="paper-venue">SDU Startup Night</span>.
     </td>
   </tr>
   <tr class="award-row">
     <td><b>2025</b></td>
     <td>
       <span class="award-name">Top 10, Danish National Championship in AI</span> &mdash;
-      competing solo against 50+ teams from across Denmark (mostly master's students), organised by the <span class="paper-venue">Danish Society for Artificial Intelligence</span>.
+      competing alone against 50+ teams from across Denmark, mostly master's students. Organised by the <span class="paper-venue">Danish Society for Artificial Intelligence</span>.
     </td>
   </tr>
   <tr class="award-row">
     <td><b>2025</b></td>
     <td>
       <span class="award-name">DDSA Travel Grant</span> &mdash;
-      awarded by the <span class="paper-venue">Danish Data Science Academy</span> to present my first paper at <span class="paper-venue">KES 2025</span>.
+      from the <span class="paper-venue">Danish Data Science Academy</span>, to present my first paper at <span class="paper-venue">KES 2025</span>.
     </td>
   </tr>
   <tr class="award-row">
     <td><b>2024</b></td>
     <td>
       <span class="award-name">Top 10, Danish National Championship in AI</span> &mdash;
-      competing in a small team against 50+ teams from across Denmark (mostly master's students), organised by the <span class="paper-venue">Danish Society for Artificial Intelligence</span>.
+      competing in a small team against 50+ teams from across Denmark, mostly master's students. Organised by the <span class="paper-venue">Danish Society for Artificial Intelligence</span>.
     </td>
   </tr>
   <tr class="award-row">
     <td><b>2023</b></td>
     <td>
       <span class="award-name">1st Place, SDU Case Competition</span> &mdash;
-      International 48-hour case competition on sustainability with real-world cases from Danfoss, Linak, and partner companies, awarded 1st place at <span class="paper-venue">SDU Sønderborg</span> (<a href="https://www.sonderborgnyt.dk/virksomheden-we-use-fik-god-hjaelp-gennem-sdu-konkurrence/" rel="external noopener">press coverage</a>).
+      a 48-hour international case competition on sustainability, with real cases from Danfoss, Linak and other companies, at <span class="paper-venue">SDU Sønderborg</span> (<a href="https://www.sonderborgnyt.dk/virksomheden-we-use-fik-god-hjaelp-gennem-sdu-konkurrence/" rel="external noopener">press coverage</a>).
     </td>
   </tr>
   <tr class="award-row">
     <td><b>2021</b></td>
     <td>
       <span class="award-name">Formal Recognition for Exemplary Service</span> &mdash;
-      commended by the <span class="paper-venue">Bundeswehr (German Armed Forces)</span> for setting a benchmark in dedication and professionalism for enlisted personnel, during service as an HR team lead for more than 600 soldiers.
+      from the <span class="paper-venue">Bundeswehr (German Armed Forces)</span>, for my work as HR team lead for more than 600 soldiers.
     </td>
   </tr>
   <tr class="award-row">
     <td><b>2021</b></td>
     <td>
       <span class="award-name">Performance Bonus for Outstanding Achievement</span> &mdash;
-      awarded a financial bonus by the <span class="paper-venue">Bundeswehr (German Armed Forces)</span> for sustained excellence and independent handling of complex tasks, during service as an HR team lead for more than 600 soldiers.
+      from the <span class="paper-venue">Bundeswehr</span>, for the same role.
     </td>
   </tr>
 </table>
