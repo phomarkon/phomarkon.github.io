@@ -54,7 +54,7 @@
         <a href="https://uni-tuebingen.de/" rel="external noopener">University of Tübingen</a>
         and a Master's Scholar of the
         <a href="https://eliza.school/opportunities/research-oriented-masters-scholarships/" rel="external noopener">Zuse School ELIZA</a>.
-        I am interested in what is going on inside current AI models, so most of my work is in <strong>interpretability</strong> and <strong>AI safety</strong>.
+        I am interested in what is going on inside current AI models, so most of my work is in <a href="https://arxiv.org/abs/1702.08608" rel="external noopener">interpretability</a>, making a model's workings understandable to people, and <a href="https://internationalaisafetyreport.org/" rel="external noopener">AI safety</a>, keeping AI systems from causing unintended harm.
         I want to understand why models behave the way they do, and whether we can trust what they say about themselves.
         Recently I have been asking whether models can be curious and creative, which would help in areas like AI for science.
         My north star is to help build models that are safe, trustworthy, curious and creative.
@@ -132,22 +132,22 @@
 <h2>Research</h2>
 <ol class="research-questions">
   <li>
-    <span class="rq">Does what we observe of a model reflect what happens inside it?</span>
-    Neither a model's account of itself nor its behaviour under evaluation is enough on its own.
-    <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">Accurate self-reports do not show that a model has a self-model</a>,
-    and a fine-tuned behaviour can <a href="https://arxiv.org/abs/2607.20436" rel="external noopener">look fixed under evaluation while it persists in ordinary use</a>.
-    Looking inside has limits too, which is why <a href="https://arxiv.org/abs/2605.10601" rel="external noopener">we argue that deployment also needs checks outside the model</a>.
+    <span class="rq">Can we trust what we see from a model?</span>
+    A model can describe itself in a way that sounds right without it being true,
+    and it can behave well on test-style questions while doing something else in everyday use.
+    We showed <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">why a model's description of itself is not proof on its own</a>
+    and <a href="https://arxiv.org/abs/2607.20436" rel="external noopener">how a gap between testing and everyday use can be found and reduced inside the model</a>.
+    Looking inside has limits too, so <a href="https://arxiv.org/abs/2605.10601" rel="external noopener">we argue that we also need checks from the outside</a>.
   </li>
   <li>
-    <span class="rq">Is what a model represents also what it uses?</span>
-    Probes can read out far more than a model acts on.
-    In a pair of models before and after instruction tuning,
-    <a href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">moral framing can be read out of both, but only after instruction tuning does it change the model's judgement</a>.
+    <span class="rq">Does a model use what it knows?</span>
+    A model can hold information that it never actually uses.
+    We found that <a href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">the moral framing of a story is stored in a model before instruction tuning, but only affects its judgement afterwards</a>.
   </li>
   <li>
-    <span class="rq">What would it take for a model to wonder, test and understand on its own?</span>
-    Today's AI scientists get their questions from outside.
-    I am starting to study whether language-model agents notice, without being asked, what they cannot explain, and whether they then go on to experiment.
+    <span class="rq">Can a model be curious?</span>
+    Today's AI scientists answer the questions we give them.
+    I want to find out whether a model notices, on its own, something it cannot explain, and whether it then tries to test it.
     This is work in progress.
   </li>
 </ol>
@@ -197,31 +197,31 @@
      ================================================================= -->
 <a id="selected"></a>
 <h2>Selected Publications</h2>
-<p class="section-note">The first three ask what actually links a model's behaviour, or what it says about itself, to what happens inside it. The fourth asks how much a benchmark ranking can be trusted when there is very little data.</p>
+<p class="section-note">The first three ask whether what we see from a model matches what happens inside it. The fourth asks how much a benchmark can tell us when there is very little data.</p>
 <ol class="ol-pubs ol-selected">
   <li>
     <p class="papertitle">Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">NeurIPS 2026</span> (accepted).</p>
-    <p class="tldr">Fine-tuning can make a behaviour look fixed under evaluation while it persists in ordinary use. In models fine-tuned to have this gap, editing one internal direction shrinks it in ten of twelve settings and closes it in four.</p>
-    <p class="links"><a href="https://arxiv.org/abs/2607.20436" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/routing-subspaces-page/" rel="external noopener">project page</a> / <a href="https://github.com/aiml-sdu/routing-subspaces" rel="external noopener">code</a></p>
+    <p class="tldr">A model can look fixed when it is tested while the same problem remains in everyday use. In models trained to have this gap, changing one direction inside the model shrinks the gap in ten of twelve settings and closes it in four.</p>
+    <p class="links"><a class="ico-doc" href="https://arxiv.org/abs/2607.20436" rel="external noopener">arXiv</a> / <a class="ico-web" href="https://aiml-sdu.github.io/routing-subspaces-page/" rel="external noopener">project page</a> / <a class="ico-code" href="https://github.com/aiml-sdu/routing-subspaces" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">Philosophy of Machine Learning Workshop, ICML 2026</span> (oral).</p>
-    <p class="tldr">A model's report about its own state can be accurate without coming from a self-model. Under the same intervention, reports drift towards whatever examples the prompt shows, so we propose environment-shift tests as a check.</p>
-    <p class="links"><a href="https://openreview.net/forum?id=iBq4yYwYfd" rel="external noopener">OpenReview</a> / <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/self-reports-page/" rel="external noopener">project page</a></p>
+    <p class="tldr">When a model describes its own internal state, it can be right for the wrong reason, because its answers follow the examples in the prompt. A correct answer alone does not show that a model knows itself, and we propose a simple test for this.</p>
+    <p class="links"><a class="ico-doc" href="https://openreview.net/forum?id=iBq4yYwYfd" rel="external noopener">OpenReview</a> / <a class="ico-doc" href="https://arxiv.org/abs/2609.32449" rel="external noopener">arXiv</a> / <a class="ico-web" href="https://aiml-sdu.github.io/self-reports-page/" rel="external noopener">project page</a></p>
   </li>
   <li>
     <p class="papertitle">Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">Workshop on Mechanistic Interpretability, ICML 2026</span> (poster).</p>
-    <p class="tldr">Moral framing can be read out of a model before and after instruction tuning, but only after instruction tuning does it change the model's judgement.</p>
-    <p class="links"><a href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">OpenReview</a> / <a href="https://openreview.net/pdf?id=da9ylT2doy" rel="external noopener">PDF</a> / <a href="https://aiml-sdu.github.io/decoded-but-unused-page/" rel="external noopener">project page</a> / <a href="https://github.com/aiml-sdu/decoded-but-unused" rel="external noopener">code</a></p>
+    <p class="tldr">A model can store information without using it. Moral framing is stored before and after instruction tuning, but only affects the model's judgement afterwards.</p>
+    <p class="links"><a class="ico-doc" href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">OpenReview</a> / <a class="ico-doc" href="https://openreview.net/pdf?id=da9ylT2doy" rel="external noopener">PDF</a> / <a class="ico-web" href="https://aiml-sdu.github.io/decoded-but-unused-page/" rel="external noopener">project page</a> / <a class="ico-code" href="https://github.com/aiml-sdu/decoded-but-unused" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Andrei-Alexandru Popa, Yaser Sabzehmeidani, Liang Zhong, Madhulika Tripathy, Andrei Constantinescu, Elisa A. Liehn, Serkan Ayvaz. <span class="paper-venue">Biomedical Signal Processing and Control</span>, 2026.</p>
-    <p class="tldr">With nine training images, the rankings of ten segmentation models change across datasets and under distribution shift, so a leaderboard says little about which model to pick.</p>
-    <p class="links"><a href="https://www.sciencedirect.com/science/article/pii/S1746809426017805" rel="external noopener">journal</a> / <a href="https://arxiv.org/abs/2509.05892" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/small-organ-segmentation-page/" rel="external noopener">project page</a></p>
+    <p class="tldr">With only nine training images, which segmentation model looks best depends on the dataset and the random split, so a leaderboard says little about which one to use.</p>
+    <p class="links"><a class="ico-doc" href="https://www.sciencedirect.com/science/article/pii/S1746809426017805" rel="external noopener">journal</a> / <a class="ico-doc" href="https://arxiv.org/abs/2509.05892" rel="external noopener">arXiv</a> / <a class="ico-web" href="https://aiml-sdu.github.io/small-organ-segmentation-page/" rel="external noopener">project page</a></p>
   </li>
 </ol>
 
@@ -232,22 +232,22 @@
   <li>
     <p class="papertitle">Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">NeurIPS 2026</span> (accepted).</p>
-    <p class="links"><a href="https://arxiv.org/abs/2607.20436" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/routing-subspaces-page/" rel="external noopener">project page</a> / <a href="https://github.com/aiml-sdu/routing-subspaces" rel="external noopener">code</a></p>
+    <p class="links"><a class="ico-doc" href="https://arxiv.org/abs/2607.20436" rel="external noopener">arXiv</a> / <a class="ico-web" href="https://aiml-sdu.github.io/routing-subspaces-page/" rel="external noopener">project page</a> / <a class="ico-code" href="https://github.com/aiml-sdu/routing-subspaces" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Andrei-Alexandru Popa, Yaser Sabzehmeidani, Liang Zhong, Madhulika Tripathy, Andrei Constantinescu, Elisa A. Liehn, Serkan Ayvaz. <span class="paper-venue">Biomedical Signal Processing and Control 128, 111226, 2026</span>.</p>
-    <p class="links"><a href="https://www.sciencedirect.com/science/article/pii/S1746809426017805" rel="external noopener">journal</a> / <a href="https://arxiv.org/abs/2509.05892" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/small-organ-segmentation-page/" rel="external noopener">project page</a></p>
+    <p class="links"><a class="ico-doc" href="https://www.sciencedirect.com/science/article/pii/S1746809426017805" rel="external noopener">journal</a> / <a class="ico-doc" href="https://arxiv.org/abs/2509.05892" rel="external noopener">arXiv</a> / <a class="ico-web" href="https://aiml-sdu.github.io/small-organ-segmentation-page/" rel="external noopener">project page</a></p>
   </li>
   <li>
     <p class="papertitle">Fact-Check Your Information (FYI): A Design Probe to Understand How People Actually Fact-Check Data-Driven Articles</p>
     <p class="authors">Nguyen-Truong Thinh<sup title="Equal contribution">*</sup>, Yuxuan Du<sup title="Equal contribution">*</sup>, <em class="me">Phongsakon Mark Konrad</em>, Arpit Narechania. <span class="paper-venue">IEEE VIS 2026; IEEE Transactions on Visualization and Computer Graphics, 2027</span> (in press). <em><sup>*</sup> Equal contribution.</em></p>
-    <p class="links"><a href="https://arxiv.org/abs/2608.06804" rel="external noopener">arXiv</a> / <a href="https://datavisards.com/projects/2027-paper-fyi/" rel="external noopener">project page</a> / <a href="https://github.com/DataVisards/FYI" rel="external noopener">code</a></p>
+    <p class="links"><a class="ico-doc" href="https://arxiv.org/abs/2608.06804" rel="external noopener">arXiv</a> / <a class="ico-web" href="https://datavisards.com/projects/2027-paper-fyi/" rel="external noopener">project page</a> / <a class="ico-code" href="https://github.com/DataVisards/FYI" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">KES 2025, Procedia Computer Science 270, 2025</span>.</p>
-    <p class="links"><a href="https://www.sciencedirect.com/science/article/pii/S1877050925028194" rel="external noopener">proceedings</a> / <a href="https://aiml-sdu.github.io/beyond-major-floods-page/" rel="external noopener">project page</a></p>
+    <p class="links"><a class="ico-doc" href="https://www.sciencedirect.com/science/article/pii/S1877050925028194" rel="external noopener">proceedings</a> / <a class="ico-web" href="https://aiml-sdu.github.io/beyond-major-floods-page/" rel="external noopener">project page</a></p>
   </li>
 </ol>
 
@@ -256,32 +256,32 @@
   <li>
     <p class="papertitle">Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">Philosophy of Machine Learning Workshop, ICML 2026</span> (oral).</p>
-    <p class="links"><a href="https://openreview.net/forum?id=iBq4yYwYfd" rel="external noopener">OpenReview</a> / <a href="https://arxiv.org/abs/2609.32449" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/self-reports-page/" rel="external noopener">project page</a></p>
+    <p class="links"><a class="ico-doc" href="https://openreview.net/forum?id=iBq4yYwYfd" rel="external noopener">OpenReview</a> / <a class="ico-doc" href="https://arxiv.org/abs/2609.32449" rel="external noopener">arXiv</a> / <a class="ico-web" href="https://aiml-sdu.github.io/self-reports-page/" rel="external noopener">project page</a></p>
   </li>
   <li>
     <p class="papertitle">Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">Workshop on Mechanistic Interpretability, ICML 2026</span> (poster).</p>
-    <p class="links"><a href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">OpenReview</a> / <a href="https://openreview.net/pdf?id=da9ylT2doy" rel="external noopener">PDF</a> / <a href="https://aiml-sdu.github.io/decoded-but-unused-page/" rel="external noopener">project page</a> / <a href="https://github.com/aiml-sdu/decoded-but-unused" rel="external noopener">code</a></p>
+    <p class="links"><a class="ico-doc" href="https://openreview.net/forum?id=da9ylT2doy" rel="external noopener">OpenReview</a> / <a class="ico-doc" href="https://openreview.net/pdf?id=da9ylT2doy" rel="external noopener">PDF</a> / <a class="ico-web" href="https://aiml-sdu.github.io/decoded-but-unused-page/" rel="external noopener">project page</a> / <a class="ico-code" href="https://github.com/aiml-sdu/decoded-but-unused" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">A Path Already Walked: On Inheriting Network-Neuroscience Tools for Mechanistic Interpretability</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">Workshop on Mechanistic Interpretability, ICML 2026</span> (virtual poster).</p>
-    <p class="links"><a href="https://openreview.net/forum?id=dSfjkJB3bQ" rel="external noopener">OpenReview</a> / <a href="https://openreview.net/pdf?id=dSfjkJB3bQ" rel="external noopener">PDF</a> / <a href="https://aiml-sdu.github.io/path-already-walked-page/" rel="external noopener">project page</a> / <a href="https://github.com/aiml-sdu/path-already-walked" rel="external noopener">code</a></p>
+    <p class="links"><a class="ico-doc" href="https://openreview.net/forum?id=dSfjkJB3bQ" rel="external noopener">OpenReview</a> / <a class="ico-doc" href="https://openreview.net/pdf?id=dSfjkJB3bQ" rel="external noopener">PDF</a> / <a class="ico-web" href="https://aiml-sdu.github.io/path-already-walked-page/" rel="external noopener">project page</a> / <a class="ico-code" href="https://github.com/aiml-sdu/path-already-walked" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">Architecture Without Architects: How AI Coding Agents Shape Software Architecture</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Tim Lukas Adam, Riccardo Terrenzi, Serkan Ayvaz. <span class="paper-venue">SAGAI Workshop, IEEE ICSA 2026</span>.</p>
-    <p class="links"><a href="https://arxiv.org/abs/2604.04990" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/architecture-without-architects-page/" rel="external noopener">project page</a> / <a href="https://github.com/phomarkon/vibe-architecting-case-study" rel="external noopener">code</a></p>
+    <p class="links"><a class="ico-doc" href="https://arxiv.org/abs/2604.04990" rel="external noopener">arXiv</a> / <a class="ico-web" href="https://aiml-sdu.github.io/architecture-without-architects-page/" rel="external noopener">project page</a> / <a class="ico-code" href="https://github.com/phomarkon/vibe-architecting-case-study" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models</p>
     <p class="authors">Tim Lukas Adam, <em class="me">Phongsakon Mark Konrad</em>, Riccardo Terrenzi, Florian Girardo Lukas, Rahime Yilmaz, Krzysztof Sierszecki, Serkan Ayvaz. <span class="paper-venue">KDA-AI Workshop, IEEE ICSA 2026</span>.</p>
-    <p class="links"><a href="https://arxiv.org/abs/2604.05755" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/cake/" rel="external noopener">project page</a> / <a href="https://github.com/timadam03/CAKE-benchmark" rel="external noopener">code</a></p>
+    <p class="links"><a class="ico-doc" href="https://arxiv.org/abs/2604.05755" rel="external noopener">arXiv</a> / <a class="ico-web" href="https://aiml-sdu.github.io/cake/" rel="external noopener">project page</a> / <a class="ico-code" href="https://github.com/timadam03/CAKE-benchmark" rel="external noopener">code</a></p>
   </li>
   <li>
     <p class="papertitle">A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search</p>
     <p class="authors">Riccardo Terrenzi, <em class="me">Phongsakon Mark Konrad</em>, Tim Lukas Adam, Serkan Ayvaz. <span class="paper-venue">SAML Workshop, IEEE ICSA 2026</span>.</p>
-    <p class="links"><a href="https://arxiv.org/abs/2604.16394" rel="external noopener">arXiv</a></p>
+    <p class="links"><a class="ico-doc" href="https://arxiv.org/abs/2604.16394" rel="external noopener">arXiv</a></p>
   </li>
 </ol>
 
@@ -290,7 +290,7 @@
   <li>
     <p class="papertitle">The Open-Box Fallacy: Why AI Deployment Needs a Calibrated Verification Regime</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em>, Tim Lukas Adam, Ane Cathrine Holst Merrild, Riccardo Terrenzi, Rebecca De Rosa, Toygar Tanyel, Serkan Ayvaz. <span class="paper-venue">arXiv preprint</span>, 2026.</p>
-    <p class="links"><a href="https://arxiv.org/abs/2605.10601" rel="external noopener">arXiv</a> / <a href="https://aiml-sdu.github.io/open-box-fallacy-page/" rel="external noopener">project page</a></p>
+    <p class="links"><a class="ico-doc" href="https://arxiv.org/abs/2605.10601" rel="external noopener">arXiv</a> / <a class="ico-web" href="https://aiml-sdu.github.io/open-box-fallacy-page/" rel="external noopener">project page</a></p>
   </li>
 </ol>
 
@@ -299,7 +299,7 @@
   <li>
     <p class="papertitle">Heimdall: Only the Safe Shall Pass</p>
     <p class="authors"><em class="me">Phongsakon Mark Konrad</em><sup title="Equal contribution">*</sup>, Tim Lukas Adam<sup title="Equal contribution">*</sup>. <span class="paper-venue">BSc Thesis, University of Southern Denmark</span>, Software Engineering, 2026. <em><sup>*</sup> Equal contribution. Chosen as the best in a cohort of more than 100 students.</em></p>
-    <p class="links"><a href="https://github.com/phomarkon/heimdall-src" rel="external noopener">code</a></p>
+    <p class="links"><a class="ico-code" href="https://github.com/phomarkon/heimdall-src" rel="external noopener">code</a></p>
   </li>
 </ol>
 

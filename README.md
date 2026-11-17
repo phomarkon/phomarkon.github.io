@@ -9,7 +9,7 @@ The page layout adapts the pattern from Jon Barron's personal site ([jonbarron.i
 ```
 .
 ├── index.html          # the entire page (bio, news, publications, talks, service, awards, footer)
-├── stylesheet.css      # Lato via Google Fonts; table-based layout à la jonbarron
+├── stylesheet.css      # Source Serif 4 + Inter via Google Fonts; table-based layout à la jonbarron
 ├── cv.pdf              # CV linked from the page (copy of cv/cv.pdf)
 ├── cv/
 │   ├── cv.tex          # moderncv source
