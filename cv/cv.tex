@@ -7,6 +7,7 @@
 \usepackage[hscale=0.9,vscale=0.98]{geometry}
 \usepackage{enumitem}
 \usepackage{lastpage}
+\usepackage{needspace}
 \setlength{\hintscolumnwidth}{2.15cm}
 \setlength{\footskip}{12pt}
 \setlength{\parskip}{0pt}
@@ -29,62 +30,66 @@
 \vspace{-7mm}
 
 \section{Summary}
-\cvitem{}{Master of Science in Machine Learning student at the University of T\"ubingen supported by the \href{https://eliza.school/opportunities/research-oriented-masters-scholarships/}{Research-Oriented Master's Scholarship} of the \href{https://eliza.school/}{Zuse School ELIZA}, with a background in empirical machine-learning research and research engineering. Currently, I work on interpretability, which means opening up AI models to understand what they do, what they truly think, why they do it, and whether what they tell us truly reflects their internal computation. My goal is AI that is safe and that can help us make scientific discoveries. I also still work on projects in causality, applied medical AI and AI governance.}
+\cvitem{}{MSc Machine Learning student at the University of T\"ubingen, supported by the \href{https://eliza.school/opportunities/research-oriented-masters-scholarships/}{Research-Oriented Master's Scholarship} of the \href{https://eliza.school/}{Zuse School ELIZA}. I work on interpretability: I use causal interventions (activation patching, ablations, steering along fitted directions) to test which internal representations of language models drive their behaviour, and whether self-reports or evaluation behaviour reflect what a model does otherwise. I am interested in AI safety and, longer term, in AI systems that ask their own scientific questions and test them.}
 
 \section{Education}
 \cventry{2026--}{Master of Science in Machine Learning}{University of T\"ubingen}{T\"ubingen, Germany}{}{Research-oriented, four-semester programme; \textbf{Master's Scholar, \href{https://eliza.school/}{Zuse School ELIZA}} (Research-Oriented Master's Scholarship). Focus on probability, statistics, optimization, and learning theory.}
-\cventry{2025}{Exchange, Computer Science \& Engineering}{Hong Kong University of Science and Technology}{Hong Kong SAR}{}{Courses in machine learning, deep learning in computer vision, large language models, reinforcement learning, and postgraduate data visualisation.}
-\cventry{2023--2026}{Bachelor of Science in Engineering, Software Engineering}{University of Southern Denmark}{S\o nderborg, Denmark}{}{Graduated June 2026. Danish weighted average: \textbf{10.71/12} over 140 numerically graded ECTS (approximately \textbf{3.71/4.0}, WES-style U.S. equivalent). Co-authored the bachelor thesis with Tim Lukas Adam (equal contribution); \textbf{selected as the programme's best in a graduating cohort of more than 100 students.}}
+\cventry{2025}{Exchange, Computer Science \& Engineering}{Hong Kong University of Science and Technology}{Hong Kong SAR}{}{Courses in machine learning, computer vision, large language models, reinforcement learning, and data visualisation.}
+\cventry{2023--2026}{Bachelor of Science in Engineering, Software Engineering}{University of Southern Denmark}{S\o nderborg, Denmark}{}{Graduated June 2026. Danish weighted average: \textbf{10.71/12} over 140 numerically graded ECTS (approximately \textbf{3.71/4.0}, WES-style U.S. equivalent). Thesis co-authored with Tim Lukas Adam (equal contribution), selected as the programme's best.}
 
 \section{Research Experience}
 \cventry{Oct 2026--}{Research Collaborator}{\href{https://aiml-sdu.github.io}{Applied and Interpretable Machine Learning Research Group, University of Southern Denmark}}{Remote}{}{Continue to conduct research with the group after completing the BSc, as a member of its research team with access to its compute resources.}
-\cventry{Jan--Oct 2026}{Undergraduate Student Researcher}{\href{https://aiml-sdu.github.io}{Applied and Interpretable Machine Learning Research Group, University of Southern Denmark} (Supervisor: Serkan Ayvaz)}{S\o nderborg, Denmark}{}{Independently initiated and led research projects, owning problem formulation, experimental design, implementation, analysis, and manuscript preparation; first author on multiple resulting publications.}
+\cventry{Jan--Oct 2026}{Undergraduate Student Researcher}{\href{https://aiml-sdu.github.io}{Applied and Interpretable Machine Learning Research Group, University of Southern Denmark} (Supervisor: Serkan Ayvaz)}{S\o nderborg, Denmark}{}{Initiated and led interpretability projects on instruction-tuned language models, from problem formulation to manuscript: designed paired-prompt and activation-patching experiments, fitted and intervened on internal directions under random-direction and wrong-layer controls, and tested self-reports under activation interventions.}
 \cventry{Dec 2025--Sep 2026}{Research Collaborator}{Hong Kong University of Science and Technology DataVISards (Supervisor: Arpit Narechania)}{Hong Kong SAR}{}{Contributed to a collaborative visualisation research project established during a 2025 exchange semester, resulting in a paper accepted at IEEE VIS 2026.}
-\cventry{Sep 2024--Dec 2025}{Student Research Assistant}{\href{https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab}{University of Southern Denmark Data \& Intelligence Lab}}{S\o nderborg, Denmark}{}{Built machine-learning pipelines and contributed to study design, literature review, manuscript preparation, grant proposals, and multimodal dataset management across lab projects, alongside my own first-author research.}
+\cventry{Sep 2024--Dec 2025}{Student Research Assistant}{\href{https://www.sdu.dk/en/forskning/cis/laboratories/data-and-intelligence-lab}{University of Southern Denmark Data \& Intelligence Lab}}{S\o nderborg, Denmark}{}{Built machine-learning pipelines and contributed to study design, manuscripts, grant proposals, and dataset management across lab projects.}
 
-\section{Selected Publications}
-\cvitem{}{\small Chosen for fit with my research question: when what a model represents is also what it uses, and what evidence identifies the difference. Full list on \href{https://phomarkon.github.io/\#publications}{my website} and \href{https://scholar.google.com/citations?user=zPHjLREAAAAJ}{Google Scholar}.}
-\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models}. \textit{Conference on Neural Information Processing Systems (NeurIPS 2026)}, accepted. \href{https://arxiv.org/abs/2607.20436}{[arXiv]}\newline {\small Localizes the internal coordinate separating evaluation from ordinary use after fine-tuning; intervening on it closes the gap in ten of twelve model--behavior settings.}}
-\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports}. Oral presentation, \textit{Philosophy of Machine Learning Workshop at the International Conference on Machine Learning (ICML 2026)}. \href{https://openreview.net/forum?id=iBq4yYwYfd}{[OpenReview]} \href{https://arxiv.org/abs/2609.32449}{[arXiv]}\newline {\small Environment-shift invariance tests across three open models separate report accuracy from mechanism binding.}}
-\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout}. Poster, \textit{Workshop on Mechanistic Interpretability at the International Conference on Machine Learning (ICML 2026)}. \href{https://openreview.net/forum?id=da9ylT2doy}{[OpenReview]}\newline {\small Matched pretrained/instruction-tuned models with probes, activation patching, head ablations, subspace controls, and cross-model replication.}}
-\cvitem{2026}{\textbf{P.~M.~Konrad}, A.-A.~Popa, Y.~Sabzehmeidani, L.~Zhong, M.~Tripathy, A.~Constantinescu, E.~A.~Liehn, S.~Ayvaz. \emph{Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets}. \textit{Biomedical Signal Processing and Control} 128, 111226 (Q1, SJR). \href{https://www.sciencedirect.com/science/article/pii/S1746809426017805}{[Published version]} \href{https://arxiv.org/abs/2509.05892}{[arXiv]}\newline {\small Ten-model benchmark with ablations, bootstrap uncertainty, and independent distribution-shift evaluation for small cardiovascular histology datasets.}}
+\section{Publications}
+\cvitem{}{\small Authors listed as on the paper; my name in bold. Full list with abstracts and code on \href{https://phomarkon.github.io/\#publications}{my website}.}
+\subsection{Conference and Journal}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models}. \textit{Conference on Neural Information Processing Systems (NeurIPS)}, 2026. \href{https://arxiv.org/abs/2607.20436}{[arXiv]} \href{https://github.com/aiml-sdu/routing-subspaces}{[code]}\newline {\small On checkpoints fine-tuned to behave differently under evaluation-style and ordinary-use prompts, an intervention on a path-patching-localized coordinate reduces the gap by more than 0.12 in ten of twelve model--behavior settings and closes it in four.}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, A.-A.~Popa, Y.~Sabzehmeidani, L.~Zhong, M.~Tripathy, A.~Constantinescu, E.~A.~Liehn, S.~Ayvaz. \emph{Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets}. \textit{Biomedical Signal Processing and Control} 128, 111226, 2026. \href{https://doi.org/10.1016/j.bspc.2026.111226}{[DOI]} \href{https://arxiv.org/abs/2509.05892}{[arXiv]}\newline {\small Ten models trained on nine histology images and tested under distribution shift; rankings are unstable and bootstrap intervals of top models overlap.}}
+\cvitem{2026}{N.-T.~Thinh, Y.~Du, \textbf{P.~M.~Konrad}, A.~Narechania. \emph{Fact-Check Your Information (FYI): A Design Probe to Understand How People Actually Fact-Check Data-Driven Articles}. \textit{IEEE VIS}, 2026, to appear. \href{https://arxiv.org/abs/2608.06804}{[arXiv]}}
+\cvitem{2025}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas}. \textit{KES 2025}, Procedia Computer Science 270, 301--310. \href{https://doi.org/10.1016/j.procs.2025.09.149}{[DOI]}}
+\needspace{3\baselineskip}\subsection{Workshop Papers}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports}. \textit{Philosophy of Machine Learning Workshop at ICML 2026}, oral. \href{https://openreview.net/forum?id=iBq4yYwYfd}{[OpenReview]} \href{https://arxiv.org/abs/2609.32449}{[arXiv]}\newline {\small Across three open models, wrong-source demonstrations pull counterfactual self-reports under a fixed activation intervention; binding the report to the intervention reduces the pull.}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout}. \textit{Workshop on Mechanistic Interpretability at ICML 2026}, poster. \href{https://openreview.net/forum?id=da9ylT2doy}{[OpenReview]} \href{https://github.com/aiml-sdu/decoded-but-unused}{[code]}\newline {\small In a matched Gemma-3-4B pretrained/instruction-tuned pair, moral framing is decodable in both but causally used by the judgment only after instruction tuning (probes, patching, head ablations; replication across ten instruction-tuned checkpoints).}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~Tanyel, S.~Ayvaz. \emph{A Path Already Walked: On Inheriting Network-Neuroscience Tools for Mechanistic Interpretability}. \textit{Workshop on Mechanistic Interpretability at ICML 2026}, virtual poster. \href{https://openreview.net/forum?id=dSfjkJB3bQ}{[OpenReview]}}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~L.~Adam, R.~Terrenzi, S.~Ayvaz. \emph{Architecture Without Architects: How AI Coding Agents Shape Software Architecture}. \textit{SAGAI Workshop at IEEE ICSA 2026}. \href{https://arxiv.org/abs/2604.04990}{[arXiv]}}
+\cvitem{2026}{T.~L.~Adam, \textbf{P.~M.~Konrad}, R.~Terrenzi, F.~G.~Lukas, R.~Yilmaz, K.~Sierszecki, S.~Ayvaz. \emph{CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models}. \textit{KDA-AI Workshop at IEEE ICSA 2026}. \href{https://arxiv.org/abs/2604.05755}{[arXiv]}}
+\cvitem{2026}{R.~Terrenzi, \textbf{P.~M.~Konrad}, T.~L.~Adam, S.~Ayvaz. \emph{A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search}. \textit{SAML Workshop at IEEE ICSA 2026}. \href{https://arxiv.org/abs/2604.16394}{[arXiv]}}
+\needspace{3\baselineskip}\subsection{Preprints}
+\cvitem{2026}{\textbf{P.~M.~Konrad}, T.~L.~Adam, A.~C.~H.~Merrild, R.~Terrenzi, R.~De~Rosa, T.~Tanyel, S.~Ayvaz. \emph{The Open-Box Fallacy: Why AI Deployment Needs a Calibrated Verification Regime}. Position paper, arXiv:2605.10601.}
 
 \section{Teaching}
-\cventry{Jan--Aug 2026}{Teaching Assistant, Artificial Intelligence}{University of Southern Denmark}{}{}{Led exercise sessions, supported students with Artificial Intelligence and Machine Learning concepts, helped design hands-on lab assignments, and developed \href{https://aiml-sdu.github.io/ai101/}{interactive supplementary course material}.}
+\cventry{Jan--Aug 2026}{Teaching Assistant, Artificial Intelligence}{University of Southern Denmark}{}{}{Led exercise sessions, helped design lab assignments, and built \href{https://aiml-sdu.github.io/ai101/}{interactive course material}.}
 
 \section{Invited Talks}
 \cvitem{Feb 2026}{\textbf{Agentic Engineering in Practice}, House of Software S\o nderborg inaugural event; invited talk to 100+ attendees.}
 
 \section{Media}
-\cvitem{Oct 2026}{\emph{He came to build an app and became a researcher}, feature article, Faculty of Engineering, University of Southern Denmark. \href{https://www.sdu.dk/en/om-sdu/fakulteterne/teknik/nyt_fra_det_tekniske_fakultet/han-kom-for-at-bygge-en-app-og-blev-forsker}{[link]}}
-\cvitem{Oct 2026}{\emph{Fra iv\ae rks\ae tterdr\o m til international forskning i kunstig intelligens} (From startup dream to international research in artificial intelligence), S\o nderborgNYT. \href{https://www.sonderborgnyt.dk/fra-ivaerksaetterdroem-til-international-forskning-i-kunstig-intelligens/}{[link]}}
+\cvitem{Oct 2026}{Feature articles by the \href{https://www.sdu.dk/en/om-sdu/fakulteterne/teknik/nyt_fra_det_tekniske_fakultet/han-kom-for-at-bygge-en-app-og-blev-forsker}{SDU Faculty of Engineering} and \href{https://www.sonderborgnyt.dk/fra-ivaerksaetterdroem-til-international-forskning-i-kunstig-intelligens/}{S\o nderborgNYT} (in Danish).}
 
 \section{Academic Service}
-\cvitem{2025--2026}{\textbf{Student Member}, Educational Committee, Software Engineering Programme, University of Southern Denmark. Represented students in curriculum and quality-assurance discussions concerning course content, assessment, and the study environment.}
+\cvitem{2025--2026}{\textbf{Student Member}, Educational Committee, Software Engineering Programme, University of Southern Denmark. Represented students in curriculum and quality-assurance discussions.}
 
 \section{Selected Recognition}
-\cvitem{2026}{\textbf{Best bachelor thesis}, Software Engineering programme, University of Southern Denmark; co-authored with Tim Lukas Adam (equal contribution).}
+\cvitem{2026}{\textbf{Best bachelor thesis}, Software Engineering programme, University of Southern Denmark (with T.~L.~Adam).}
 \cvitem{2026}{\textbf{Best Startup Award finalist} (one of five), DreamBear, SDU Startup Night.}
-\cvitem{2025}{\textbf{Top 10}, Danish National Championship in Artificial Intelligence; individual competitor, organised by the Danish Society for Artificial Intelligence.}
+\cvitem{2025}{\textbf{Top 10}, Danish National Championship in AI (individual), Danish Society for Artificial Intelligence.}
 \cvitem{2025}{\textbf{Travel grant}, Danish Data Science Academy (DDSA), to present my first paper at KES 2025.}
-\cvitem{2024}{\textbf{Top 10}, Danish National Championship in Artificial Intelligence; team competitor, organised by the Danish Society for Artificial Intelligence.}
-
-\section{Military Service}
-\cventry{2017--2021}{Staff Duty Soldier}{Bundeswehr, German Armed Forces}{Gl\"ucksburg, Germany}{}{Led a small HR team administering more than 600 soldiers. Received a \textbf{Formal Recognition for Exemplary Service} and a \textbf{Performance Bonus for Outstanding Achievement} in 2021.}
-
-\section{Additional Experience}
-\cventry{Jan--Jun 2026}{Founder}{SaturoLabs}{Denmark}{}{Built and shipped \href{https://dreambear.app}{DreamBear}, an iOS app creating personalised narrated bedtime stories that frame neurodivergent traits as strengths.}
-\cventry{Jun--Nov 2024}{CTO \& Co-Founder}{Tutora ApS}{S\o nderborg, Denmark}{}{Led end-to-end development of the company's web application.}
-\cventry{2022--2024}{Co-CEO \& Co-Founder}{Yeager GmbH}{Remote}{}{Built an AI-assisted powerlifting training application.}
+\cvitem{2024}{\textbf{Top 10}, Danish National Championship in AI (team), Danish Society for Artificial Intelligence.}
+\cvitem{2023}{\textbf{Winner}, SDU Case Competition; international, 30+ teams of six from Germany and Scandinavia.}
 
 \section{Technical Skills}
-\cvitem{Research}{Experimental design, controlled interventions, activation patching, representation probing, ablations, bootstrap uncertainty, model training and evaluation, segmentation, conformal prediction, reproducibility.}
-\cvitem{Machine Learning}{Python, PyTorch, Hugging Face Transformers, TransformerLens, scikit-learn, pandas, NumPy, Optuna, Weights \& Biases.}
+\cvitem{Research}{Controlled experimental design, activation and path patching, linear probing, ablations, steering, fine-tuning, bootstrap uncertainty, evaluation under distribution shift, conformal prediction.}
+\cvitem{ML tools}{Python, PyTorch, Hugging Face Transformers, TransformerLens, scikit-learn, pandas, NumPy, Optuna, Weights \& Biases.}
 \cvitem{Engineering}{Git, Docker, Linux, SQL, Google Cloud Platform, JavaScript.}
+\cvitem{Languages}{English and German (fluent); Danish and Thai (basic).}
 
-\section{Languages}
-\cvitem{Fluent}{English, German}
-\cvitem{Basic}{Danish, Thai}
+\section{Other Experience}
+\cvitem{2026}{\textbf{Founder}, SaturoLabs: built and shipped \href{https://dreambear.app}{DreamBear}, an iOS app for personalised narrated bedtime stories.}
+\cvitem{2022--2024}{\textbf{Co-founder}, Tutora ApS (CTO, web application) and Yeager GmbH (AI-assisted training application).}
+\cvitem{2017--2021}{\textbf{Staff Duty Soldier}, Bundeswehr (German Armed Forces), Gl\"ucksburg. Led a small HR team serving 600+ soldiers; recognised for exemplary service (2021).}
 
-\begin{center}\small Last updated 3 October 2026.\end{center}
+\begin{center}\small Last updated 17 November 2026.\end{center}
 \end{document}
