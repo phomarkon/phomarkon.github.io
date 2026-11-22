@@ -8,7 +8,7 @@ The page layout adapts the pattern from Jon Barron's personal site ([jonbarron.i
 
 ```
 .
-├── index.html          # the entire page (bio, news, publications, talks, service, awards, footer)
+├── index.html          # the entire page (bio, research, news, publications, talks, featured, service, awards, footer)
 ├── stylesheet.css      # Source Serif 4 + Inter via Google Fonts; table-based layout à la jonbarron
 ├── cv.pdf              # CV linked from the page (copy of cv/cv.pdf)
 ├── cv/
@@ -39,7 +39,7 @@ Pushes to `main` trigger `.github/workflows/deploy.yml`, which uploads the worki
 
 ## Editing publications
 
-`index.html` is hand-authored. Publications live under **Publications**, grouped into Preprints / Conference & Journal / Workshops / Thesis. Every entry links to its arXiv abstract, journal page, or OpenReview discussion — no local PDFs.
+`index.html` is hand-authored. **Selected Publications** holds the three papers behind the research question. **All Publications** lists every paper, grouped into Conference & Journal / Workshop Papers (non-archival) / Workshop Papers (archival) / Preprints / Thesis. The CV uses the same tiers, with archival workshop papers first. Every entry links to its arXiv abstract, journal page, or OpenReview discussion — no local PDFs.
 
 ## Rebuilding the CV PDF
 

@@ -349,6 +349,12 @@ body {
   font-weight: 700;
 }
 
+.research-lead {
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 8px 0 10px;
+}
+
 @media (max-width: 720px) {
   body {
     margin: 16px auto;
