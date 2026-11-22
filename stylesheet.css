@@ -10,7 +10,9 @@
    ============================================================ */
 
 /* ---------- Font ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+/* Body text uses the system font (SF Pro on Apple devices), Inter elsewhere.
+   Name and section headings use Newsreader, an editorial serif. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap');
 
 body,
 td,
@@ -26,9 +28,9 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   font-size: 15.5px;
-  color: #1c1c1c;
+  color: #141413;
   font-style: normal;
 }
 
@@ -52,8 +54,8 @@ a:hover {
 /* ---------- Headings (bold only, no italics, no underlines) ---------- */
 h2 {
   margin: 36px 0 10px;
-  font-weight: 700;
-  font-size: 19px;
+  font-weight: 500;
+  font-size: 24px;
   padding: 0;
   border: 0;
   letter-spacing: 0.01em;
@@ -61,8 +63,8 @@ h2 {
 
 h3 {
   margin: 22px 0 6px;
-  font-weight: 700;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 18px;
   padding: 0;
   letter-spacing: 0.01em;
 }
@@ -89,8 +91,8 @@ h3 {
 .name {
   margin: 0;
   padding: 0;
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 34px;
+  font-weight: 500;
   line-height: 1.1;
 }
 
@@ -311,7 +313,8 @@ body {
   margin: 32px auto;
   padding: 0 16px;
   max-width: 800px;
-  background: #ffffff;
+  background: #faf9f5;
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden; /* belt-and-braces against any rogue overflow */
 }
 
@@ -390,7 +393,7 @@ body {
 
 @media (max-width: 480px) {
   .name {
-    font-size: 24px;
+    font-size: 28px;
   }
   .hero-photo {
     max-width: 130px;
@@ -403,7 +406,7 @@ body {
     display: none;
   }
   h2 {
-    font-size: 17px;
+    font-size: 20px;
   }
 }
 
@@ -462,7 +465,7 @@ body {
   padding: 0;
   border: 1px solid #e0e0e0;
   border-radius: 50%;
-  background: #fff;
+  background: #faf9f5;
   color: #1c1c1c;
   cursor: pointer;
   transition: color 140ms ease, border-color 140ms ease;
@@ -586,15 +589,11 @@ body {
 :root[data-theme="dark"] .ol-pubs li .links a { border-color: #3a4556; }
 :root[data-theme="dark"] .ol-pubs li .links a:hover { background: #1c2636; border-color: #6cb0ff; }
 
-/* ---------- Typography: serif text, sans for names, headings and labels ---------- */
-.name, h2, h3, .papertitle, .ol-pubs li .papertitle, .research-questions .rq,
-.nickname, .contactemail, .contactemail a, .born, .award-name,
-.news-table td b, .awards-table td b, .ol-pubs li .links a, .contacts, .contacts a,
-.theme-toggle, .site-footer, .site-footer a {
-  font-family: 'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+/* ---------- Typography: sans text, editorial serif for name and section headings ---------- */
+.name, h2, h3 {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.01em;
 }
-.name { letter-spacing: -0.01em; }
-h2 { font-weight: 600; letter-spacing: -0.005em; }
 .ol-pubs li .papertitle { font-weight: 600; }
 
 /* ---------- Link icons ---------- */
