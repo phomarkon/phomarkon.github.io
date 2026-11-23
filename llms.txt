@@ -1,0 +1,56 @@
+# Phongsakon Mark Konrad
+
+> Master's student in Machine Learning at the University of Tübingen and Master's Scholar of the Zuse School ELIZA. I work on interpretability, because I want to understand what is going on inside AI models. My main question is simple. Can we trust what we see from a model?
+
+Also known as Mark Konrad, Phongsakon Konrad and Phongsakon M. Konrad. Thai name พงสกร, Thai nickname เฟิร์ส (First). Based in Tübingen, Germany. Contact via phongsakon at outlook dot dk.
+
+This file is a plain summary of my homepage for search engines and AI agents. The homepage and the CV are the full record, and they win if anything here is out of date.
+
+## Research
+
+A model can describe itself in a way that sounds right without it being true, behave well when it is tested and differently in everyday use, or hold information it never uses. I want to find out when what we see matches what really happens inside, and to test this by changing things inside the model rather than by looking at correlations. If what we see can mislead us, so can the safety checks we build on it.
+
+So far I have come at this from three sides.
+
+- What a model says about itself. A correct answer alone is not proof, and we proposed a test that helps tell the difference.
+- How a model behaves when it is tested. In models fine-tuned to have this gap, changing one direction inside the model shrank it in most of the settings we tested.
+- What we can read out of a model. Looking closely at one model, we found that moral framing is stored before instruction tuning, but only used afterwards.
+
+Next, I want to ask the same question about the tools we use to look inside. When do interpretability methods show how a model really works, and when do they only find something that goes along with it?
+
+## Selected publications
+
+- [Routing Subspaces: Auditing Evaluation-to-Deployment Mismatch in Fine-Tuned Language Models](https://arxiv.org/abs/2607.20436). P. M. Konrad, T. Tanyel, S. Ayvaz. NeurIPS 2026, main track, poster. [Project page](https://aiml-sdu.github.io/routing-subspaces-page/), [code](https://github.com/aiml-sdu/routing-subspaces).
+- [Self-Reports Do Not Identify Self-Models: An Identifiability Test for Counterfactual Reports](https://arxiv.org/abs/2609.32449). P. M. Konrad, T. Tanyel, S. Ayvaz. Philosophy of Machine Learning Workshop, ICML 2026, oral. We prove that the reports alone cannot show whether the model read its own state or only the prompt. [Project page](https://aiml-sdu.github.io/self-reports-page/).
+- [Decoded but Unused: Instruction Tuning Routes Moral Framing into the Judgment Readout](https://openreview.net/forum?id=da9ylT2doy). P. M. Konrad, T. Tanyel, S. Ayvaz. Workshop on Mechanistic Interpretability, ICML 2026, poster. [Project page](https://aiml-sdu.github.io/decoded-but-unused-page/), [code](https://github.com/aiml-sdu/decoded-but-unused).
+
+## Other publications
+
+- [Challenges in Deep Learning-Based Small Organ Segmentation: A Benchmarking Perspective for Medical Research with Limited Datasets](https://www.sciencedirect.com/science/article/pii/S1746809426017805). First author. Biomedical Signal Processing and Control, 2026.
+- [Fact-Check Your Information (FYI): A Design Probe to Understand How People Actually Fact-Check Data-Driven Articles](https://arxiv.org/abs/2608.06804). Third author. IEEE VIS 2026, IEEE TVCG 2027 (in press).
+- [Beyond Major Floods: Deep Learning for Detecting Shallow Water Inundation in Agricultural Areas](https://www.sciencedirect.com/science/article/pii/S1877050925028194). First author. KES 2025.
+- [A Path Already Walked: On Inheriting Network-Neuroscience Tools for Mechanistic Interpretability](https://openreview.net/forum?id=dSfjkJB3bQ). First author. Workshop on Mechanistic Interpretability, ICML 2026, virtual poster.
+- [Architecture Without Architects: How AI Coding Agents Shape Software Architecture](https://arxiv.org/abs/2604.04990). First author. SAGAI Workshop, IEEE ICSA 2026.
+- [CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models](https://arxiv.org/abs/2604.05755). Second author. KDA-AI Workshop, IEEE ICSA 2026.
+- [A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search](https://arxiv.org/abs/2604.16394). Second author. SAML Workshop, IEEE ICSA 2026.
+- [The Open-Box Fallacy: Why AI Deployment Needs a Calibrated Verification Regime](https://arxiv.org/abs/2605.10601). First author. Position paper, arXiv 2026.
+- [Heimdall: Only the Safe Shall Pass](https://phomarkon.github.io/heimdall-page/). BSc thesis with Tim Lukas Adam (equal contribution), University of Southern Denmark, 2026.
+
+## Background
+
+- MSc Machine Learning, University of Tübingen, since October 2026. Master's Scholar of the Zuse School ELIZA, which prepares master's students for a fast-track PhD in machine learning.
+- BSc Software Engineering, University of Southern Denmark (SDU), 2023 to 2026. GPA 10.7/12, thesis 12/12. The thesis was chosen by the head of the programme as the best in a cohort of more than 100 students.
+- Exchange semester at HKUST, 2025.
+- At SDU I still work with Serkan Ayvaz in the [Applied and Interpretable Machine Learning](https://aiml-sdu.github.io/) group, where I lead my own projects.
+- At HKUST I worked with Arpit Narechania in the [DataVISards](https://datavisards.com/) lab on how people fact-check data-driven news articles.
+- Teaching Assistant for Artificial Intelligence at SDU, January to August 2026. I led the exercise sessions, helped design the lab assignments and built [an interactive website](https://aiml-sdu.github.io/ai101/) where students can study the course material.
+- Languages. German (native), English (fluent), Danish and Thai (basic).
+
+## Links
+
+- [Homepage](https://phomarkon.github.io/)
+- [CV (PDF)](https://phomarkon.github.io/cv.pdf)
+- [Google Scholar](https://scholar.google.com/citations?user=zPHjLREAAAAJ)
+- [GitHub](https://github.com/phomarkon)
+- [ORCID](https://orcid.org/0009-0004-2521-7879)
+- [LinkedIn](https://linkedin.com/in/phongsakonmarkkonrad)
