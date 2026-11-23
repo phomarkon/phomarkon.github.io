@@ -8,12 +8,16 @@ The page layout adapts the pattern from Jon Barron's personal site ([jonbarron.i
 
 ```
 .
-├── index.html          # the entire page (bio, research, news, publications, talks, featured, service, awards, footer)
-├── stylesheet.css      # Source Serif 4 + Inter via Google Fonts; table-based layout à la jonbarron
+├── index.html          # the entire page (bio, research, selected publications, news, all publications, talks, teaching, featured, service, awards, footer)
+├── stylesheet.css      # system sans for text, Newsreader serif for name and headings; table-based layout à la jonbarron
 ├── cv.pdf              # CV linked from the page (copy of cv/cv.pdf)
+├── cv-europass.pdf     # Europass CV linked from the page (copy of cv/cv-europass.pdf)
+├── llms.txt            # plain Markdown summary for AI agents (linked from <head>)
 ├── cv/
-│   ├── cv.tex          # moderncv source
-│   └── cv.pdf          # compiled output
+│   ├── cv.tex          # moderncv source (two pages)
+│   ├── cv.pdf          # compiled output
+│   ├── cv-europass.tex # europasscv source, same facts as cv.tex (for ETH and other Europass forms)
+│   └── cv-europass.pdf # compiled output
 ├── images/
 │   ├── profile.png     # hero photo
 │   └── favicon*.png, favicon.ico, apple-touch-icon.png
@@ -39,7 +43,7 @@ Pushes to `main` trigger `.github/workflows/deploy.yml`, which uploads the worki
 
 ## Editing publications
 
-`index.html` is hand-authored. **Selected Publications** holds the three papers behind the research question. **All Publications** lists every paper, grouped into Conference & Journal / Workshop Papers (non-archival) / Workshop Papers (archival) / Preprints / Thesis. The CV uses the same tiers, with archival workshop papers first. Every entry links to its arXiv abstract, journal page, or OpenReview discussion — no local PDFs.
+`index.html` is hand-authored. **Selected Publications** holds the three papers behind the research question. **All Publications** lists every paper, grouped into Conference & Journal / Workshop Papers (non-archival) / Workshop Papers (archival) / Preprints / Thesis. The CV and the Europass CV use the same tiers and the same order. Every entry links to its arXiv abstract, journal page, or OpenReview discussion — no local PDFs.
 
 ## Rebuilding the CV PDF
 
@@ -47,6 +51,10 @@ The source is `cv/cv.tex` (moderncv). The page links to `cv.pdf` at the repo roo
 
 ```bash
 cd cv
-pdflatex cv.tex && pdflatex cv.tex
-cp cv.pdf ../cv.pdf
+latexmk -pdf cv.tex cv-europass.tex
+cp cv.pdf ../cv.pdf && cp cv-europass.pdf ../cv-europass.pdf
 ```
+
+## Keeping things consistent
+
+The same facts live in four places: `index.html`, `cv/cv.tex`, `cv/cv-europass.tex` and `llms.txt`. When a paper, award, date or role changes, update all four, bump the "Last updated" date in both CVs, and rebuild both PDFs.

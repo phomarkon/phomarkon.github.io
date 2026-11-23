@@ -50,6 +50,7 @@ Next, I want to ask the same question about the tools we use to look inside. Whe
 
 - [Homepage](https://phomarkon.github.io/)
 - [CV (PDF)](https://phomarkon.github.io/cv.pdf)
+- [CV in Europass format (PDF)](https://phomarkon.github.io/cv-europass.pdf)
 - [Google Scholar](https://scholar.google.com/citations?user=zPHjLREAAAAJ)
 - [GitHub](https://github.com/phomarkon)
 - [ORCID](https://orcid.org/0009-0004-2521-7879)
