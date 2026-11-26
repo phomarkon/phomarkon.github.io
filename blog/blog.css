@@ -1,0 +1,613 @@
+/* Blog pages. Loaded after ../stylesheet.css, so links, dark mode and the theme toggle come from there.
+   Posts are set like an academic book: serif text, numbered sections, terms in the left margin, side notes in the
+   right one, bold for defined terms and key claims, italics for emphasis and mathematics. */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap');
+
+:root {
+  --ink: #141413;
+  --muted: #5f5f5b;
+  --faint: #9a9a94;
+  --line: #e3e1da;
+  --panel: #f6f5f0;
+  --accent: #1772d0;
+  --warm: #c2571a;
+  --warm-soft: rgba(194, 87, 26, 0.14);
+}
+
+:root[data-theme="dark"] {
+  --ink: #e8e8e8;
+  --muted: #b3b3ad;
+  --faint: #7d7d78;
+  --line: #3a3a38;
+  --panel: #242423;
+  --accent: #6aa9f0;
+  --warm: #f0a36a;
+  --warm-soft: rgba(240, 163, 106, 0.16);
+}
+
+body { margin: 0 auto; padding: 0; max-width: none; }
+
+.blog-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 56px 22px 64px;
+}
+
+.blog-nav {
+  font-size: 13.5px;
+  margin: 0 0 40px;
+  color: var(--muted);
+}
+.blog-nav a { font-size: 13.5px; }
+.blog-nav .sep { color: var(--faint); padding: 0 6px; }
+
+.post-title {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0 0 14px;
+}
+
+.post .post-dek {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  font-size: 21px;
+  line-height: 1.4;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+.post .post-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 40px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.post-meta a { font-size: 13px; }
+
+.post p, .post li {
+  font-size: 17px;
+  line-height: 1.68;
+}
+.post p { margin: 0 0 1.05em; }
+
+.post h2 {
+  font-size: 27px;
+  margin: 52px 0 14px;
+}
+.post h3 {
+  font-size: 20px;
+  margin: 34px 0 8px;
+}
+
+.post a.cite {
+  font-size: 13px;
+  vertical-align: super;
+  line-height: 0;
+  padding: 0 1px;
+}
+
+.post blockquote {
+  margin: 1.2em 0;
+  padding: 2px 0 2px 18px;
+  border-left: 3px solid var(--line);
+}
+.post blockquote p { color: var(--muted); }
+
+.lede::first-letter {
+  font-family: 'Newsreader', Georgia, serif;
+  float: left;
+  font-size: 58px;
+  line-height: 0.9;
+  padding: 6px 8px 0 0;
+}
+
+/* ---------- Interactive figures ---------- */
+.fig {
+  margin: 34px -40px 36px;
+  padding: 22px 24px 18px;
+  background: var(--panel);
+  border-radius: 10px;
+}
+@media (max-width: 760px) {
+  .fig { margin-left: -10px; margin-right: -10px; padding: 18px 14px 14px; }
+}
+.fig svg { display: block; width: 100%; height: auto; overflow: visible; }
+.fig svg text { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif; fill: var(--ink); }
+.fig .caption {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 14px 2px 0;
+}
+.fig .caption strong { color: var(--ink); font-size: 13.5px; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  align-items: center;
+  margin: 0 0 14px;
+  font-size: 14px;
+}
+.controls label { font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.controls output { font-variant-numeric: tabular-nums; color: var(--ink); min-width: 3.2em; font-size: 14px; }
+.controls input[type="range"] { accent-color: var(--accent); width: 150px; }
+
+.seg {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.seg button, .btn {
+  font: inherit;
+  font-size: 13.5px;
+  padding: 6px 12px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+:root[data-theme="dark"] .seg button[aria-pressed="true"] { color: #111; }
+.btn {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+}
+.btn:hover, .btn:focus-visible { border-color: var(--accent); color: var(--accent); }
+
+/* Cycle */
+.node { cursor: pointer; }
+.node circle { fill: var(--panel); stroke: var(--ink); stroke-width: 1.6; transition: fill 160ms, stroke 160ms, opacity 160ms; }
+.node text { font-size: 14.5px; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.node:hover circle, .node:focus-visible circle { stroke: var(--accent); stroke-width: 2.4; }
+.node:focus { outline: none; }
+.node.active circle { fill: var(--accent); stroke: var(--accent); }
+.node.active text { fill: #fff; font-weight: 600; }
+:root[data-theme="dark"] .node.active text { fill: #111; }
+.node.missing circle { stroke-dasharray: 4 4; opacity: 0.5; }
+.node.missing text { opacity: 0.5; }
+.arc-label { font-family: 'Newsreader', Georgia, serif !important; font-size: 17px; fill: var(--muted) !important; text-anchor: middle; }
+.edge { stroke: var(--faint); stroke-width: 1.5; fill: none; }
+.edge.hidden { opacity: 0; }
+.person { transition: opacity 220ms; }
+.person text { font-size: 13px; text-anchor: middle; }
+.person .q { fill: var(--warm) !important; }
+.person-edge { stroke: var(--warm); stroke-width: 1.8; fill: none; }
+
+.stage-info {
+  border-top: 1px solid var(--line);
+  margin-top: 10px;
+  padding-top: 12px;
+  min-height: 150px;
+}
+.stage-info h4 { margin: 0 0 6px; font-size: 16px; font-weight: 600; }
+.stage-info dl { margin: 0; display: grid; grid-template-columns: 9.5em 1fr; gap: 6px 14px; }
+.stage-info dt { font-size: 13.5px; color: var(--muted); }
+.stage-info dd { margin: 0; font-size: 14.5px; line-height: 1.5; }
+@media (max-width: 560px) { .stage-info dl { grid-template-columns: 1fr; } .stage-info dd { margin-bottom: 6px; } }
+
+/* Race */
+.lane-label { font-size: 13px; fill: var(--muted) !important; }
+.track { stroke: var(--line); stroke-width: 6; stroke-linecap: round; }
+.goal { stroke: var(--ink); stroke-width: 2; }
+.walker-a { fill: var(--faint); }
+.walker-b { fill: var(--accent); }
+.trail-a { fill: var(--faint); opacity: 0.18; }
+.trail-b { fill: var(--accent); opacity: 0.18; }
+.readout { font-variant-numeric: tabular-nums; font-size: 13px; }
+
+/* Doubt chart */
+.axis line, .axis path { stroke: var(--faint); }
+.axis text { font-size: 12px; fill: var(--muted) !important; }
+.curve-exact { stroke: var(--accent); stroke-width: 2.4; fill: none; }
+.curve-bound { stroke: var(--muted); stroke-width: 1.4; stroke-dasharray: 5 4; fill: none; }
+.band { fill: var(--warm-soft); }
+.band-label { font-size: 12px; fill: var(--warm) !important; }
+.marker { fill: var(--accent); stroke: var(--panel); stroke-width: 2; }
+.marker-line { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 2 3; }
+.verdict { font-size: 15px; margin: 8px 2px 0; min-height: 2.6em; }
+.verdict strong { font-size: 15px; }
+
+table.results { border-collapse: collapse; width: 100%; margin: 18px 0 4px; font-variant-numeric: tabular-nums; }
+table.results th, table.results td { font-size: 13.5px; padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--line); }
+table.results th:first-child, table.results td:first-child { text-align: left; }
+table.results th { color: var(--muted); font-weight: 500; }
+table.results td.zero { color: var(--warm); font-weight: 600; }
+
+/* Notes and references */
+.post-notes { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); }
+.post-notes p, .post-notes li { font-size: 14px; line-height: 1.6; color: var(--muted); }
+.post-notes h3 { font-size: 17px; }
+.refs { padding-left: 1.6em; }
+.refs li { margin-bottom: 4px; }
+.refs li:target { background: var(--warm-soft); }
+
+/* Blog index */
+.post-list { list-style: none; padding: 0; margin: 0; }
+.post-list li { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.post-list .date { font-size: 13px; color: var(--muted); }
+.post-list .t { font-family: 'Newsreader', Georgia, serif; font-size: 24px; font-weight: 500; display: block; margin: 2px 0 4px; }
+.post-list p { font-size: 15.5px; margin: 0; color: var(--muted); }
+
+/* The homepage colours every p for dark mode with a stronger selector, so muted text needs one too. */
+:root[data-theme] .post .post-dek,
+:root[data-theme] .post .post-meta,
+:root[data-theme] .post blockquote p,
+:root[data-theme] .post-notes p,
+:root[data-theme] .post-notes li,
+:root[data-theme] .fig .caption,
+:root[data-theme] .post-list p,
+:root[data-theme] .stage-info dt,
+:root[data-theme] .controls label { color: var(--muted); }
+:root[data-theme] .post p, :root[data-theme] .post li, :root[data-theme] .stage-info dd { color: var(--ink); }
+
+/* ---------- Side notes (in the margin on wide screens, opened by a tap on small ones) ---------- */
+.sn-ref {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--accent);
+  vertical-align: super;
+  padding: 0 2px;
+  cursor: pointer;
+  user-select: none;
+}
+.sn-toggle { display: none; }
+.sidenote {
+  display: none;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+  background: var(--panel);
+  border-left: 2px solid var(--accent);
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin: 10px 0 14px;
+}
+.sn-toggle:checked + .sidenote { display: block; }
+.sn-letter { font-weight: 600; color: var(--accent); margin-right: 6px; }
+.sidenote a.cite { font-size: 11px; }
+:root[data-theme] .post .sidenote { color: var(--muted); }
+
+@media (min-width: 1180px) {
+  .blog-wrap { margin-left: calc(50% - 500px); margin-right: 0; }
+  .sidenote {
+    display: block;
+    float: right;
+    clear: right;
+    width: 250px;
+    margin: 4px -300px 18px 0;
+    padding: 0 0 0 12px;
+    background: none;
+    border-radius: 0;
+    font-size: 13.5px;
+    position: relative;
+  }
+  .sn-ref { cursor: default; }
+  .sn-ref.hot + .sn-toggle + .sidenote, .sidenote.hot { color: var(--ink); }
+}
+
+/* ---------- "?" buttons for terms ---------- */
+button.q, .q-demo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  margin: 0 1px 0 3px;
+  padding: 0;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--accent);
+  font: 600 10px/1 -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  vertical-align: 2px;
+  cursor: pointer;
+}
+button.q:hover, button.q:focus-visible, button.q[aria-expanded="true"] { background: var(--accent); color: var(--panel); }
+.q-pop {
+  position: absolute;
+  z-index: 50;
+  max-width: 300px;
+  padding: 10px 12px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14);
+}
+.hint { font-size: 13.5px; color: var(--muted); }
+
+/* ---------- Search space ---------- */
+#space-canvas { display: block; width: 100%; aspect-ratio: 16 / 10; border-radius: 6px; background: var(--bg-canvas, transparent); cursor: grab; touch-action: none; }
+.space-legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 16px; margin-top: 12px; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.space-legend .who { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 13.5px; }
+.space-legend .sw { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.space-legend .stat { color: var(--muted); font-size: 13px; margin-left: 20px; }
+.space-legend .total { grid-column: 1 / -1; color: var(--muted); font-size: 13px; }
+@media (max-width: 560px) { .space-legend { grid-template-columns: 1fr; } }
+.fig-table { padding-top: 12px; }
+
+/* ---------- My own thoughts, from my notes ---------- */
+.thought {
+  margin: 28px 0;
+  padding: 14px 18px 16px;
+  border-left: 3px solid var(--warm);
+  background: var(--warm-soft);
+  border-radius: 0 8px 8px 0;
+}
+.thought .tl {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--warm);
+}
+:root[data-theme] .post .thought p {
+  margin: 0;
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  font-size: 18.5px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+:root[data-theme] .post .how-to-read {
+  font-size: 14px;
+  color: var(--muted);
+  border: 1px dashed var(--warm);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 30px;
+}
+.thought-log { list-style: none; padding: 0; margin: 8px 0 0; border-left: 2px solid var(--warm); }
+.thought-log li { position: relative; padding: 0 0 18px 20px; display: grid; grid-template-columns: 7.2em 1fr; gap: 12px; }
+.thought-log li::before { content: ""; position: absolute; left: -6px; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: var(--warm); }
+.thought-log .d { font-size: 13.5px; font-weight: 600; color: var(--warm); font-variant-numeric: tabular-nums; }
+:root[data-theme] .post .thought-log .t { font-size: 15.5px; line-height: 1.6; color: var(--ink); }
+@media (max-width: 560px) { .thought-log li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Collapsible notes */
+details.thought { padding: 0; }
+details.thought > summary, .thought-log-wrap > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 18px 12px 40px;
+  position: relative;
+}
+details.thought > summary::-webkit-details-marker, .thought-log-wrap > summary::-webkit-details-marker { display: none; }
+details.thought > summary::before, .thought-log-wrap > summary::before {
+  content: "+";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--warm);
+  color: var(--warm);
+  font: 600 14px/15px -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  text-align: center;
+}
+details[open].thought > summary::before, .thought-log-wrap[open] > summary::before { content: "\2212"; }
+details.thought .tl { margin-bottom: 2px; }
+details.thought .tt { display: block; font-family: 'Newsreader', Georgia, serif; font-size: 18px; color: var(--ink); }
+:root[data-theme] .post details.thought p { padding: 0 18px 16px 40px; }
+details.thought > summary:hover .tt, details.thought > summary:focus-visible .tt { color: var(--warm); }
+.thought-log-wrap { margin: 8px 0 0; }
+.thought-log-wrap > summary {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--warm);
+  background: var(--warm-soft);
+  border-left: 3px solid var(--warm);
+  border-radius: 0 8px 8px 0;
+}
+.thought-log-wrap[open] .thought-log { margin-top: 18px; }
+
+/* Warning box at the top of a post */
+.warn {
+  margin: 4px 0 26px;
+  padding: 14px 18px 16px 18px;
+  border: 1.5px solid #c98a00;
+  border-left-width: 5px;
+  border-radius: 8px;
+  background: rgba(224, 161, 0, 0.10);
+}
+.warn-h {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #a06e00;
+}
+.warn-h::before { content: "\26A0\FE0E"; margin-right: 7px; font-size: 14px; }
+:root[data-theme] .post .warn p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--ink); }
+:root[data-theme="dark"] .warn { border-color: #d9a530; background: rgba(217, 165, 48, 0.10); }
+:root[data-theme="dark"] .warn-h { color: #e8b84a; }
+
+
+/* ---------- Academic book ---------- */
+:root { --page: #faf9f5; }
+:root[data-theme="dark"] { --page: #1c1c1c; }
+.post > p, .post > ol > li {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  font-size: 19.5px;
+  line-height: 1.62;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.post > p.how-to-read { font-family: inherit; text-align: left; }
+.post strong { font-weight: 600; }
+.post em, .post i { font-style: italic; }
+.post > p i { font-size: 1.04em; }
+.post { counter-reset: sec; }
+.post > h2:not(.unnum) { counter-increment: sec; }
+.post > h2:not(.unnum)::before {
+  content: counter(sec);
+  display: inline-block;
+  min-width: 1.3em;
+  color: var(--faint);
+  font-weight: 400;
+}
+.post > p.lede::first-letter { font-size: 64px; margin: 8px 8px 0 0; line-height: 0.9; }
+.post .sidenote { font-family: 'Newsreader', Georgia, serif; font-size: 15px; line-height: 1.45; }
+:root[data-theme] .post details.thought p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
+}
+@media (min-width: 1180px) {
+  .post .sidenote { font-size: 14.5px; }
+}
+@media (min-width: 1360px) {
+  .blog-wrap { margin-left: calc(50% - 470px); }
+  .post > p[data-term] { position: relative; }
+  .post > p[data-term]::before {
+    content: attr(data-term);
+    position: absolute;
+    left: -192px;
+    top: 0.3em;
+    width: 162px;
+    text-align: right;
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 15.5px;
+    line-height: 1.3;
+    color: var(--muted);
+    -webkit-hyphens: none;
+    hyphens: none;
+    padding-right: 12px;
+    border-right: 1px solid var(--line);
+  }
+}
+
+/* The log: a dashed stretch for the break, a ring for today */
+.thought-log li.gap::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, var(--warm) 0 4px, var(--page) 4px 10px);
+}
+.thought-log li.gap::before { background: var(--page); border: 2px solid var(--warm); box-sizing: border-box; z-index: 1; }
+.thought-log li.gap { padding-top: 6px; padding-bottom: 26px; }
+.thought-log li.now::before { box-shadow: 0 0 0 4px var(--warm-soft); }
+.post > p strong, .post > p em { font-family: inherit; }
+.post .sidenote { text-align: left; -webkit-hyphens: manual; hyphens: manual; }
+
+/* Three stories */
+.stories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.story svg { width: 100%; height: auto; display: block; background: var(--page); border-radius: 8px; }
+:root[data-theme] .post .story .st-t { font-size: 13.5px; line-height: 1.45; margin: 8px 2px 0; color: var(--muted); text-align: left; font-family: inherit; }
+.st-lbl { font: 11px -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; fill: var(--muted); }
+.st-warm { fill: var(--warm); font-weight: 600; }
+.st-big { font-size: 13px; }
+@media (max-width: 600px) {
+  .stories { grid-template-columns: 1fr; }
+  .story svg { max-width: 320px; margin: 0 auto; }
+}
+
+/* Cite this post */
+.cite-box { margin: 52px 0 0; padding: 18px 20px 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+.cite-box h2 { margin: 0 0 6px !important; font-size: 22px; }
+:root[data-theme] .post .cite-box .cite-note { font-size: 14.5px; color: var(--muted); margin: 0 0 12px; }
+.cite-row { display: flex; gap: 10px; align-items: flex-start; margin: 0 0 12px; }
+.cite-row pre {
+  flex: 1; margin: 0; padding: 10px 12px; overflow-x: auto;
+  font: 12.5px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: pre-wrap; word-break: break-word;
+  background: var(--page); border: 1px solid var(--line); border-radius: 6px; color: var(--ink);
+}
+#cite-bib { white-space: pre; word-break: normal; }
+@media (max-width: 600px) {
+  .cite-row { flex-direction: column-reverse; align-items: stretch; gap: 6px; }
+  .cite-row .btn { align-self: flex-end; }
+}
+#cite-bib { white-space: pre; word-break: normal; }
+@media (max-width: 600px) {
+  .cite-row { flex-direction: column-reverse; align-items: stretch; gap: 6px; }
+  .cite-row .btn { align-self: flex-end; }
+}
+
+/* Concept animations */
+#fig-inquiry svg, #fig-dots svg, #fig-wonder svg, #fig-chain svg { width: 100%; height: auto; display: block; }
+.an-lbl { font: 13px -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; fill: var(--muted); }
+.an-h { font: 600 14px -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; fill: var(--ink); }
+.an-q { font: 700 18px -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; }
+.an-h.st-warm, .an-lbl.st-warm { fill: var(--warm); }
+.anim-play { font-size: 12.5px; padding: 3px 10px; }
+
+/* A philosophy essay rather than a technical post */
+.post > h2:not(.unnum)::before { content: counter(sec, upper-roman); min-width: 1.6em; }
+details.tech { margin: 6px 0 30px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+details.tech > summary {
+  list-style: none; cursor: pointer; padding: 12px 4px 12px 30px; position: relative;
+  font-size: 14.5px; color: var(--muted);
+}
+details.tech > summary::-webkit-details-marker { display: none; }
+details.tech > summary::before {
+  content: "+"; position: absolute; left: 4px; top: 50%; transform: translateY(-50%);
+  width: 17px; height: 17px; border-radius: 50%; border: 1.5px solid var(--faint); color: var(--muted);
+  font: 600 13px/14px -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; text-align: center;
+}
+details.tech[open] > summary::before { content: "\2212"; }
+details.tech > summary:hover { color: var(--ink); }
+details.tech[open] { padding-bottom: 10px; }
+details.tech > p { font-family: 'Newsreader', Georgia, serif; font-size: 17.5px; line-height: 1.6; }
+
+/* My notes: my face is the toggle, no dates. In the right margin on wide screens, inline on small ones. */
+details.thought > summary { padding: 8px 12px 8px 52px; min-height: 36px; display: flex; align-items: center; }
+details.thought > summary::before {
+  content: ""; position: absolute; top: 50%; transform: translateY(-50%);
+  width: 34px; height: 34px; left: 8px;
+  border: 1.5px solid var(--warm); border-radius: 50%;
+  background: #fff url(../images/mark-icon-round.png) center / cover no-repeat;
+}
+details[open].thought > summary::before { content: ""; box-shadow: 0 0 0 3px var(--warm-soft); transform: translateY(-50%); }
+details.thought > summary::after {
+  content: "+"; position: absolute; left: 32px; top: calc(50% + 6px);
+  width: 14px; height: 14px; border-radius: 50%; background: var(--warm); color: #fff;
+  font: 700 11px/14px -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; text-align: center;
+}
+details[open].thought > summary::after { content: "\2212"; }
+details.thought .tt { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 15px; color: var(--muted); font-weight: 400; }
+:root[data-theme] .post details.thought p { padding: 0 18px 14px 52px; }
+.thought-log li { grid-template-columns: 1fr; }
+@media (min-width: 1180px) {
+  details.thought {
+    float: right; clear: right;
+    width: 250px;
+    margin: 4px -300px 16px 0;
+    border-left-width: 2px;
+  }
+  :root[data-theme] .post details.thought p { padding: 0 12px 12px 12px; font-size: 13.5px; line-height: 1.55; }
+}
+.fig.meme img { display: block; width: 100%; max-width: 560px; height: auto; margin: 0 auto; border-radius: 8px; }
+.fig.meme .caption { text-align: center; }
+/* The toggle is only my face. */
+details.thought { width: max-content; max-width: 100%; border-left: none; background: none; }
+details.thought > summary { padding: 0; width: 46px; height: 46px; min-height: 0; }
+details.thought > summary::before { left: 4px; }
+details.thought > summary::after { left: 28px; }
+details[open].thought { width: auto; border-left: 2px solid var(--warm); background: var(--warm-soft); }
+@media (min-width: 1180px) {
+  details.thought { width: 46px; margin: 0 -96px 8px 0; }
+  details[open].thought { width: 250px; margin: 0 -300px 16px 0; }
+}

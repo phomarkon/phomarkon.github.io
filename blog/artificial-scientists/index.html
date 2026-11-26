@@ -1,0 +1,384 @@
+<!DOCTYPE HTML>
+<!-- Generated from ~/Projects/Research/2027-3Cs/blog/post.src.html by build_post.py. Edit the source, not this file. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Curiositas, or the six Cs of an artificial scientist · Phongsakon Mark Konrad</title>
+  <meta name="description" content="What must a machine be able to do, and keep doing, to count as a scientist? Six capacities in three pairs, wonder, discover and understand.">
+  <meta name="author" content="Phongsakon Mark Konrad">
+  <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+  <meta property="og:title" content="Curiositas, or the six Cs of an artificial scientist">
+  <meta property="og:description" content="What must a machine be able to do, and keep doing, to count as a scientist?">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://phomarkon.github.io/blog/artificial-scientists/">
+  <link rel="canonical" href="https://phomarkon.github.io/blog/artificial-scientists/">
+  <link rel="stylesheet" href="../../stylesheet.css">
+  <link rel="stylesheet" href="../blog.css?v=1c4373354f">
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
+      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    })();
+  </script>
+</head>
+<body>
+
+<button type="button" class="theme-toggle" aria-label="Switch to dark mode">
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+</button>
+
+<main class="blog-wrap">
+<nav class="blog-nav"><a href="../../">Phongsakon Mark Konrad</a><span class="sep">/</span><a href="../">Blog</a></nav>
+
+<article class="post">
+<h1 class="post-title">Curiositas, or the six Cs of an artificial scientist</h1>
+<p class="post-dek">What must a machine be able to do, and keep doing, to count as a scientist?</p>
+<p class="post-meta">26 November 2026 · <a href="../../">Phongsakon Mark Konrad</a> · about 15 minutes to read · tap <span class="q-demo">?</span> for a term, letters for side notes</p>
+
+<aside class="warn" role="note"><span class="warn-h">Read this first</span>
+<p>I am not an expert, and I do not think my opinions are right. This post is a dump of my thoughts at one point in time, not a finished argument. I also believe that we are either underestimating or overestimating current models, and that we cannot yet judge their true abilities. There are many open questions, such as evaluation awareness<button type="button" class="q" data-def="A model noticing that it is being tested and possibly behaving differently than it would outside the test, so that the test may not show what the model does in practice." title="A model noticing that it is being tested and possibly behaving differently than it would outside the test, so that the test may not show what the model does in practice." aria-label="Explain this term">?</button> and misalignment<button type="button" class="q" data-def="A model pursuing goals or showing behaviour other than what its developers intended." title="A model pursuing goals or showing behaviour other than what its developers intended." aria-label="Explain this term">?</button>, that make it hard to know what a model can really do. So when I write that today's systems lack something, read it as how they look to me from the outside, not as a measured fact.</p></aside>
+
+<p class="how-to-read">The notes with my face are my own thoughts, taken from the notes I kept while working this out. Tap my face to open one. I fixed grammar and typos, and “…” marks a cut. At the end there is a short log of how the idea grew.</p>
+
+<p class="lede">According to the story, Newton asked why an apple falls, a question most people took for granted, and went on to show in 1687 that the pull on the apple also holds the Moon in its orbit. Einstein, as a teenager, wondered what it would be like to ride alongside a beam of light, and a decade later gave up the assumption that time is absolute.<a class="cite" href="#ref-1">1,2</a> In the late 1940s Feynman, with no goal in mind, watched a plate wobble in a cafeteria and played with the equations of its motion, play that he later credited as the start of the work that won him a Nobel Prize.<a class="cite" href="#ref-3">3</a></p>
+
+<p>These are three very different stories. Newton questioned what everyone took for granted, Einstein dropped an assumption on which physics was built, and Feynman followed a curiosity with no purpose at all. But in each case the discovery began in the same way, with <em>wondering</em> at something unexplained or at something taken for granted, and only then came the idea, the prediction, the test and the understanding.</p>
+
+<figure class="fig" id="fig-stories">
+  <div class="stories">
+    <div class="story"><svg id="st-newton" viewBox="0 0 220 200" role="img" aria-label="An apple falls to the Earth while the Moon orbits it, pulled by the same force"></svg><p class="st-t"><strong>Newton.</strong> The pull that brings down the apple also holds the Moon in its orbit.</p></div>
+    <div class="story"><svg id="st-einstein" viewBox="0 0 220 200" role="img" aria-label="A rider speeds up alongside a light wave until the wave seems to stand still"></svg><p class="st-t"><strong>Einstein.</strong> Riding alongside a beam of light, would you see the wave stand still?</p></div>
+    <div class="story"><svg id="st-feynman" viewBox="0 0 220 200" role="img" aria-label="A plate thrown in the air wobbles as it spins"></svg><p class="st-t"><strong>Feynman.</strong> A plate thrown in the air wobbles as it spins.</p></div>
+  </div>
+  <div class="controls"><button type="button" class="btn" id="st-play">Pause</button></div>
+  <figcaption class="caption"><strong>Three stories, animated.</strong> Each began with wondering, at what everyone took for granted, at an assumption physics was built on, or at a plate for no purpose at all. Illustrations, not to scale.<a class="cite" href="#ref-1">1,3</a></figcaption>
+</figure>
+
+<p>A word on where this comes from. I am a master's student in Machine Learning at the <a href="https://uni-tuebingen.de/">University of Tübingen</a>, in my first semester, and this semester I am also taking a course in philosophy. It made me think about a lot of things, and one of them is the question of this post. The point of this blog is to dump my ideas and make a time stamp for my future self, human and maybe artificial, so that I can come back later and see what I got wrong.</p>
+
+<p data-term="AI as collaborator">So back to the post. Machines now take part in this work, and AI systems are collaborators in scientific discovery.<a class="cite" href="#ref-4">4</a> AlphaFold predicts protein structures with high accuracy,<a class="cite" href="#ref-5">5</a> and in mathematics AI systems find new constructions and solve olympiad problems.<a class="cite" href="#ref-6">6,7</a> These systems hold many of the dots and connect them well.</p>
+
+<p>But if you look at how these systems start, a person still tells the machine what to look for and where to look. The AI Scientist starts from a human-written code template and a research direction,<a class="cite" href="#ref-8">8</a> and the AI co-scientist takes a research goal that a scientist states in natural language.<a class="cite" href="#ref-9">9</a> Even AutoDiscovery, which proposes hypotheses without any research question, works on datasets that people collected.<a class="cite" href="#ref-10">10</a></p>
+
+<p data-term="Exogenous and endogenous inquiry">I call such inquiry <strong>exogenous</strong><button type="button" class="q" data-def="Coming from outside. Inquiry is exogenous when its frame, the question and the data, comes from outside the inquirer, as when a person gives the machine its question." title="Coming from outside. Inquiry is exogenous when its frame, the question and the data, comes from outside the inquirer, as when a person gives the machine its question." aria-label="Explain this term">?</button>, since its frame, the question and the data, comes from outside. It is not <strong>endogenous</strong><button type="button" class="q" data-def="Arising from the inquirer&#x27;s own observation, so that the inquirer sets its own frame." title="Arising from the inquirer&#x27;s own observation, so that the inquirer sets its own frame." aria-label="Explain this term">?</button>, arising from the machine's own observation. I believe that machines lack the intrinsic curiosity of Newton, Einstein and Feynman, the curiosity of wondering at an anomaly in what one observes and of wondering at what is taken for granted. Without it, machines must be told what to observe and evaluate, and so they cannot become autonomous artificial scientists.</p>
+
+<figure class="fig" id="fig-inquiry">
+  <svg viewBox="0 0 600 206" role="img" aria-label="Left, a person hands a machine a question. Right, a machine watches observations stream past and a question arises when one does not fit."></svg>
+  <div class="controls"><button type="button" class="btn anim-play">Pause</button></div>
+  <figcaption class="caption"><strong>Handed or noticed.</strong> On the left a person gives the machine its question, and the machine works on it. On the right the machine watches the world itself, and a question arises when an observation does not fit what it expects. Today's AI scientists mostly work like the left side.</figcaption>
+</figure>
+
+<p data-term="Wonder and doubt">So what must a machine be able to do, and keep doing, to count as a scientist? To answer this, I think it helps to go back to philosophy, which has an old answer to where inquiry begins. Plato and Aristotle name wonder as the beginning of philosophy,<a class="cite" href="#ref-11">11,12</a> and Descartes turned doubt into a method, a way of questioning what one took for granted.<a class="cite" href="#ref-13">13</a> These are the two forms of curiosity this post is about, <em>wondering at what falls outside what one expects</em> and <em>doubting what one took for granted</em>.</p>
+
+<details class="thought"><summary aria-label="Open my note" title="My note"></summary><p>I think philosophy is the beginning of all science. It's about asking questions, wondering about things, and developing a system for wondering about things. That's just my opinion. It could be wrong, and if it is, it should definitely be updated.</p></details>
+
+<p data-term="The six Cs">An artificial scientist, I think, needs <strong>six Cs</strong>. I started with three, curiosity, creativity and causality, but to be more precise it had to become six. Curiosity and creativity let it <em>wonder</em>, causality and criticism let it <em>discover</em>, and comprehension and communication let it <em>understand</em>. Today's systems join at creativity, after a person gives them the question. <strong>Curiosity is the one they lack.</strong><label for="sn-a" class="sn-ref" aria-label="Side note a">a</label><input type="checkbox" id="sn-a" class="sn-toggle"><span class="sidenote"><span class="sn-letter">a</span>This is about open-ended<button type="button" class="q" data-def="Inquiry in which the inquirer sets its own frame, the question and where to look, as opposed to answering a question that someone has already posed well." title="Inquiry in which the inquirer sets its own frame, the question and where to look, as opposed to answering a question that someone has already posed well." aria-label="Explain this term">?</button> inquiry, in which the machine sets its own frame, and not about tools such as AlphaFold that answer a well-posed question. I also do not claim that current tools are useless, that these six capacities are the only ones, that machines must copy humans, or that the cycle is proven.</span></p>
+
+<p data-term="Why curiosity">There are probably more than six of these capacities, and I do not claim that these are the only ones. So why do I focus so much on curiosity? First of all, you have to start somewhere. And secondly, curiosity is the initiator, the beginning of the cycle, so if I want to solve this problem, I have to tackle it from the root.</p>
+
+<details class="thought"><summary aria-label="Open my note" title="My note"></summary><p>It seems to me that today's AI scientists are capable of specific tasks, especially mundane ones, like reviewing and synthesizing the literature, then running experiments and reporting back. … But if we actually want AI to become a true artificial scientist, I think it starts with machines observing reality and wondering about things without being instructed to, because I think machines develop intuition from large amounts of data, just as humans do. And if something falls outside their data, or outside the average of the data, they should start to wonder. … But true curiosity is also wondering about the things one took for granted, as in Descartes' method of doubt. So I think that's what they are lacking. Because they lack curiosity, they have to be told what to observe and evaluate, and so they cannot become autonomous artificial scientists.</p></details>
+
+<h2>The discovery cycle</h2>
+
+<p data-term="Three pairs">Let's look at the whole cycle first. Scientific work begins with the process of wondering, and it then runs through six stages that I group into three pairs. In the first pair, <em>wonder</em>, curiosity notices what is puzzling and creativity proposes what might explain it. In the second, <em>discover</em>, causality states what must follow if the proposal is true, and criticism lets a test decide whether it survives. In the third, <em>understand</em>, comprehension explains why the result holds and how it fits with what is already known, and communication passes it on so that others can examine and use it.</p>
+
+<details class="thought"><summary aria-label="Open my note" title="My note"></summary><p>Discover is testing these assumptions and collecting the results, and understanding basically means that if you cannot explain a concept, you haven't understood it. That's also the Feynman way of thinking about things, right?</p></details>
+
+<p>You can click through the stages below, which follow a real story, the search for the planets Neptune and Vulcan, and then switch to today's systems to see what changes.</p>
+
+<figure class="fig" id="fig-cycle">
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Who runs the cycle">
+      <button type="button" data-mode="scientist" aria-pressed="true">A scientist</button>
+      <button type="button" data-mode="today" aria-pressed="false">Today's systems</button>
+    </div>
+    <span class="hint">Click a stage.</span>
+  </div>
+  <svg viewBox="0 0 600 470" role="img" aria-label="The discovery cycle of six stages in three pairs"></svg>
+  <div class="stage-info" aria-live="polite"></div>
+  <figcaption class="caption"><strong>The discovery cycle.</strong> Six stages in three pairs, followed through the search for the planets Neptune and Vulcan. Switch to today's systems to see where they join, at creativity, with the question given by a person. The marks for today's systems are my reading of the studies I found and not measurements, and for the last two stages the evidence is thin.<a class="cite" href="#ref-14">14,15,16</a></figcaption>
+</figure>
+
+<p data-term="A chain of cycles">The cycle closes where it began, and it connects researchers. When one researcher completes a cycle and communicates the result, another can begin a new cycle from that result, with the knowledge of the first as the starting point. An accepted result raises new questions, and a result that explains too little, like the anomalous orbit of Mercury, leaves a puzzle for later work. Science is therefore <strong>a chain of interconnected cycles</strong> run by different people over time. In today's systems the link between one cycle and the next runs through a person, who gives the machine the next question, so that the machine re-enters the cycle at creativity.</p>
+
+<figure class="fig" id="fig-chain">
+  <svg viewBox="0 0 600 186" role="img" aria-label="A chain of four cycles: Tycho Brahe measures the planets, Johannes Kepler uses his measurements to find that orbits are ellipses, Isaac Newton explains Kepler's laws with one law of gravity, and Albert Einstein's theory explains the orbit of Mercury that Newton's did not."></svg>
+  <div class="controls"><button type="button" class="btn anim-play">Pause</button></div>
+  <figcaption class="caption"><strong>A chain of cycles.</strong> When one researcher completes a cycle and communicates the result, the next one begins from it. Kepler found that the orbits of the planets are ellipses from Tycho Brahe's measurements of Mars, Newton explained Kepler's laws with one law of gravity, and Einstein's theory explained the orbit of Mercury, which Newton's could not fully explain.</figcaption>
+</figure>
+
+<h2>What curiosity is</h2>
+
+<p>There is a lot of discussion about what makes a good researcher. In my opinion the fundamental trait is <em>curiosity</em>, the wondering about things, since research begins with asking questions and with the taste<button type="button" class="q" data-def="The judgement of which question is worth asking, since one notices many puzzles and only some of them are worth the effort, often years, of following them." title="The judgement of which question is worth asking, since one notices many puzzles and only some of them are worth the effort, often years, of following them." aria-label="Explain this term">?</button> to ask the right one.</p>
+
+<p data-term="Knowledge base">Curiosity has a prerequisite, which is an existing knowledge base<button type="button" class="q" data-def="What a researcher has built up, which I picture as a graph of concepts and the relations between them that changes as time passes." title="What a researcher has built up, which I picture as a graph of concepts and the relations between them that changes as time passes." aria-label="Explain this term">?</button>. <em>You need the dots before you can connect them</em>, and without them the space of possible questions is too large to search, because no direction is more interesting than another.<label for="sn-b" class="sn-ref" aria-label="Side note b">b</label><input type="checkbox" id="sn-b" class="sn-toggle"><span class="sidenote"><span class="sn-letter">b</span>Plato put this difficulty as a paradox. One cannot inquire into what one knows, having no need to, nor into what one does not know, not knowing what to look for.<a class="cite" href="#ref-17">17</a> The way out that I follow is that one can know a question without knowing its answer, so that it is in the gap between a question and its answer that curiosity arises.</span> Surprise has the same prerequisite, since you can be surprised only by what departs from an expectation, and expectations come from what you already know, just as curiosity is said to arise where one becomes aware of a gap in one's knowledge.<a class="cite" href="#ref-18">18</a></p>
+
+<figure class="fig" id="fig-dots">
+  <svg viewBox="0 0 600 212" role="img" aria-label="Dots appear, connections form between them, and then a question appears at the edge of what is known."></svg>
+  <div class="controls"><button type="button" class="btn anim-play">Pause</button></div>
+  <figcaption class="caption"><strong>You need the dots before you can connect them.</strong> What one knows grows dot by dot, connections form between the dots, and only then can a question be asked at the edge of what one knows, in the gap between a question and its answer.</figcaption>
+</figure>
+
+<details class="thought"><summary aria-label="Open my note" title="My note"></summary><p>It begins with asking questions, and then having the so-called taste to ask the right question. But you can only ask the right question if you are interested in asking questions, and you have to know things before you can ask them. … So you also need proper training, or the ability to connect dots. But before connecting dots, you need to have the dots. That's my way of thinking.</p></details>
+
+<p data-term="Curiosity, defined">Surprise<button type="button" class="q" data-def="The mismatch between what one predicts from one&#x27;s knowledge base and what one observes oneself." title="The mismatch between what one predicts from one&#x27;s knowledge base and what one observes oneself." aria-label="Explain this term">?</button> arises when one's own observation does not match one's own prediction, and curiosity is the trait that turns this mismatch into wondering, together with an intrinsic need to know why. Most people accept a mismatch without wondering, because questioning costs energy and the brain tends to save it. I believe the brain is lazy in this sense, and we know that machine learning algorithms are lazy too, since they tend to learn whatever shortcut solves the task instead of the reason behind it.<a class="cite" href="#ref-19">19</a> A machine whose computation is limited is in the same position as we are. So I take curiosity to be <strong>a combination of surprise, one's own observation and an intrinsic need to know</strong>. And I regard it as a trait that varies in degree with the knowledge, the experience and the environment of the one who has it.</p>
+
+<p data-term="Anomaly and doubt">I think curiosity works at two levels. At the <em>first</em>, a prediction fails and the mismatch itself points to something worth explaining, as when Uranus strayed from its predicted orbit, and this is what we call an <strong>anomaly</strong><button type="button" class="q" data-def="A surprise that is large enough to call for an answer, as when Uranus strayed from its predicted orbit." title="A surprise that is large enough to call for an answer, as when Uranus strayed from its predicted orbit." aria-label="Explain this term">?</button>. At the <em>second</em>, nothing fails, and one questions what matches one's intuition and has therefore been <strong>taken for granted</strong>, as Newton did with the falling apple and Einstein with absolute time. The second level is harder, because no mismatch calls for it and the researcher must start it unprompted, at a cost in energy. In my opinion it is also where the largest leaps in science come from, since the impact of a question grows with how much of a field rests on what it doubts.<label for="sn-c" class="sn-ref" aria-label="Side note c">c</label><input type="checkbox" id="sn-c" class="sn-toggle"><span class="sidenote"><span class="sn-letter">c</span>An anomaly hands the researcher its question, whereas doubt must first turn something that one takes as known into a question. Such a doubt is aimed at one thing. It is not the questioning of everything at once, which Peirce called idle.<a class="cite" href="#ref-20">20</a></span></p>
+
+<figure class="fig" id="fig-wonder">
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Which level of curiosity">
+      <button type="button" data-wmode="anomaly" aria-pressed="true">Anomaly</button>
+      <button type="button" data-wmode="doubt" aria-pressed="false">Doubt</button>
+    </div>
+    <button type="button" class="btn anim-play">Pause</button>
+  </div>
+  <svg viewBox="0 0 600 206" role="img" aria-label="Anomaly, Uranus strays from its predicted orbit. Doubt, an apple falls as always and is questioned anyway."></svg>
+  <figcaption class="caption"><strong>Two levels of wondering.</strong> In the first, Uranus strays from the orbit it was predicted to follow, and the mismatch itself asks for an explanation. In the second, nothing fails, the apple falls as it always has, and one asks why anyway, as Newton did. Switch between them. Not to scale.</figcaption>
+</figure>
+
+<details class="thought"><summary aria-label="Open my note" title="My note"></summary><p>A lot of people don't wonder about things that go against their intuition, because they just accept the facts, right? It's the default state of the human mind not to question things, because questioning costs energy, and the brain, as an organ, always wants to save energy. I think it's much the same for AI, because computing power is limited. … And most of the leaps in science come from asking about things that are taken for granted.</p></details>
+
+<h3>A need, not a rule</h3>
+
+<p data-term="Need or rule">But there is a catch here, because an intrinsic need to know has to be told apart from a rule that produces the same behaviour. A programmer can write that an odd result should be checked, and the machine will then check it, but this is a <em>rule</em> and not a <em>need</em>, and behaviour alone cannot separate the two.<label for="sn-d" class="sn-ref" aria-label="Side note d">d</label><input type="checkbox" id="sn-d" class="sn-toggle"><span class="sidenote"><span class="sn-letter">d</span>Reinforcement learning already has exploration bonuses that turn curiosity into one more reward.<a class="cite" href="#ref-21">21</a> I agree that the two outward tests below cannot separate a need from a well-tuned bonus, which is why the third test looks inside the model. And on the old worry that a curious agent will sit before a television that shows noise, my definition asks for a mismatch with one's own prediction together with a need to know why, and noise that one's model already predicts to be noise presents no such mismatch.</span></p>
+
+<details class="thought"><summary aria-label="Open my note" title="My note"></summary><p>For a model to be curious, it has to abandon the goal of maximising reward and follow its curiosity instead. … I think curiosity is about abandoning the reward-maximisation function and exploring. It's the typical trade-off between exploitation and exploration.</p></details>
+
+<p data-term="Three tests">So how could we tell them apart? I see three ways. A need shows itself in <em>new situations</em> for which nobody wrote a rule. It is also <em>paid for</em>, since the machine gives up reward or effort that it could have spent on its task, in the way that questioning costs a person energy. And it can be found <em>inside the model</em>, where probes<button type="button" class="q" data-def="A small model that reads a quantity off the internal state of a network." title="A small model that reads a quantity off the internal state of a network." aria-label="Explain this term">?</button> and steering<button type="button" class="q" data-def="Adding a direction to a model&#x27;s internal activations while it runs, to raise or lower whatever that direction stands for, and then watching what the model does." title="Adding a direction to a model&#x27;s internal activations while it runs, to raise or lower whatever that direction stands for, and then watching what the model does." aria-label="Explain this term">?</button> can show whether a state that stands for wanting to know actually drives what the machine does. This last one is where my work on looking inside models comes in, for example <a href="https://aiml-sdu.github.io/decoded-but-unused-page/">Decoded but Unused</a>, where a probe can read a state that only drives the model's decision after instruction tuning, and <a href="https://aiml-sdu.github.io/routing-subspaces-page/">Routing Subspaces</a>, where changing one direction inside a model shrinks a gap in its behaviour.</p>
+
+<p>The nice thing is that each of these can be turned into a measurement. For new situations, the machine is placed in a world whose regularities were invented for the test, so that neither its training data nor its instructions can hold a rule for what it will meet. For cost, it is given a task with a reward and a limited budget of actions, something odd is placed in what it observes, and you record how much of its budget it spends on the oddity and how much reward it gives up to look into it. For the inside, a probe is trained to find a state that stands for surprise or for wanting to know, and that state is then raised and lowered by steering, to see whether the behaviour follows in both directions.</p>
+
+<h2>Direction before speed</h2>
+
+<p data-term="Search space">Now let's talk about the space in which researchers search, which is very large. In my view it may even be infinite, since every accepted result raises new questions and I know of no reason why their number should come to an end. I cannot say this for sure, but even a finite space of this kind would be far too large to be explored in full, so what matters is which parts of it are reached and how soon.</p>
+
+<details class="thought"><summary aria-label="Open my note" title="My note"></summary><p>The idea of an infinite search space is just my own observation, because we cannot say for sure that the search space is finite. Even if it is finite, it's so large that we could never fully explore it, right? … So with artificial scientists and with our taste, we might be able to move faster and discover more useful or interesting knowledge.</p></details>
+
+<p>Scale helps, of course, since a machine can hold more of what is known than a person can. But <strong>speed does not decide how soon the right sub search space<button type="button" class="q" data-def="The part of the search space that a set of assumptions and variables opens. One moves to another by breaking an assumption or adding a variable." title="The part of the search space that a set of assumptions and variables opens. One moves to another by breaking an assumption or adding a variable." aria-label="Explain this term">?</button> is reached</strong>, and you can try this yourself below.</p>
+
+<figure class="fig" id="fig-space">
+  <div class="controls">
+    <label>machine speed <input type="range" id="space-k" min="1" max="30" step="1" value="5"><output id="space-k-out">5×</output></label>
+    <label>taste <input type="range" id="space-t" min="0" max="1" step="0.05" value="0.6"><output id="space-t-out">0.60</output></label>
+    <button type="button" class="btn" id="space-run">Run</button>
+    <button type="button" class="btn" id="space-reset">Reset</button>
+    <button type="button" class="btn" id="space-zoom" title="Show more of the space">Zoom out</button>
+  </div>
+  <canvas id="space-canvas" aria-label="Three searchers moving through a large space of questions"></canvas>
+  <div class="space-legend" id="space-legend" aria-live="polite"></div>
+  <figcaption class="caption"><strong>The search space, animated.</strong> The big star is where we want to go, an important open question far from what is known. Each circle is a sub search space, and a searcher can only step to a neighbouring one, since new knowledge builds on what is known, and what it explores joins what is known. Smaller stars are useful or interesting finds on the way. Nobody sees the big star from the start, and taste is a sense of which way it lies that is right only some of the time. A person is slow but has taste, a machine without direction is fast but wanders, and together they are fast and have taste. The space is generated as you zoom out, so it has no edge. This is an illustration with settings I made up, not a result.</figcaption>
+</figure>
+
+<figure class="fig meme">
+  <img src="img/handshake.jpg" alt="The epic handshake meme: two muscular arms clasp hands, one labelled HUMAN and the other AI, and the clasp in the middle is labelled SCIENTIFIC DISCOVERY." loading="lazy" width="900" height="506">
+  <figcaption class="caption">What the simulation says, as a meme.</figcaption>
+</figure>
+
+<p data-term="The bitter lesson">One answer from the history of AI is <em>the bitter lesson</em><button type="button" class="q" data-def="Rich Sutton&#x27;s 2019 essay, which argues that over the history of AI, general methods that use more computation, search and learning, have beaten methods built on human knowledge." title="Rich Sutton&#x27;s 2019 essay, which argues that over the history of AI, general methods that use more computation, search and learning, have beaten methods built on human knowledge." aria-label="Explain this term">?</button> of Sutton, that “general methods that leverage computation are ultimately the most effective, and by a large margin”, since search and learning keep improving as computation grows, while methods built on what people know tend to plateau.<a class="cite" href="#ref-22">22</a> I take this lesson seriously, but I actually read it as being on the side of curiosity. Sutton asks us to build in “only the meta-methods that can find and capture this arbitrary complexity” and wants “AI agents that can discover like we can, not which contain what we have discovered”. Curiosity is such a <em>meta-method</em>, since it fixes no content and says only where to look next, whereas a question that a person hands to a machine is, in this sense, human knowledge built in. What the lesson does not tell us is that <em>speed alone</em> is enough in a space without end.<label for="sn-e" class="sn-ref" aria-label="Side note e">e</label><input type="checkbox" id="sn-e" class="sn-toggle"><span class="sidenote"><span class="sn-letter">e</span>The lesson was also drawn from tasks with a fixed goal, such as chess, Go and the recognition of speech, in which more search always moves toward the same target. In open-ended inquiry the target itself has to be chosen, and more computation does not say which one.</span></p>
+
+<details class="thought"><summary aria-label="Open my note" title="My note"></summary><p>It's not always about moving fast. Especially nowadays, with AI, we can move fast, but that alone doesn't matter. We have to move in the right direction, right?</p></details>
+
+<p data-term="Direction and speed">A simple model makes the point. On a long road with the goal at the far end, someone who wanders at random needs a very long time to arrive, while someone who leans only slightly toward the goal arrives far sooner. On a road of a hundred steps, the wanderer would have to be about ten times faster to keep up, and the longer the road, the more the lean is worth.</p>
+
+<details class="tech"><summary>For those who want the details: the maths of direction and speed</summary>
+<p>To see why, take a simple model, a line of <i>N</i> places with the target at the far end. A searcher that steps toward or away from the target with equal probability needs on the order of <i>N</i>² steps to arrive. One that steps toward it with probability <i>p</i> above one half needs only on the order of <i>N</i>/(2<i>p</i> − 1). So a searcher <i>k</i> times faster gains a factor <i>k</i>, while a modest bias gains a factor of order <i>N</i>(2<i>p</i> − 1).<label for="sn-f" class="sn-ref" aria-label="Side note f">f</label><input type="checkbox" id="sn-f" class="sn-toggle"><span class="sidenote"><span class="sn-letter">f</span>For the curious. Let <i>e</i><sub>x</sub> be the expected number of steps to get from place <i>x</i> to <i>x</i> + 1. Without direction <i>e</i><sub>x</sub> = 2(<i>x</i> + 1), so the expected time is <i>N</i>(<i>N</i> + 1). With a lean <i>p</i> it is about <i>N</i>/(2<i>p</i> − 1). For <i>N</i> = 100 that gives 10,100 steps without direction, 955 at <i>p</i> = 0.55 and 490 at <i>p</i> = 0.6. The fast searcher without direction wins only if <i>k</i> exceeds about (<i>N</i> + 1)(2<i>p</i> − 1), which is about 10 for <i>N</i> = 100 and about 1,000 for <i>N</i> = 10,000.</span></p>
+
+<figure class="fig" id="fig-race">
+  <div class="controls">
+    <label>direction p <input type="range" id="race-p" min="0.52" max="0.7" step="0.01" value="0.55"><output id="race-p-out">0.55</output></label>
+    <label>speed k <input type="range" id="race-k" min="1" max="20" step="1" value="5"><output id="race-k-out">5×</output></label>
+    <button type="button" class="btn" id="race-run">Run</button>
+  </div>
+  <svg viewBox="0 0 600 150" role="img" aria-label="Two searchers on a line racing to a target"></svg>
+  <p class="readout" id="race-readout" aria-live="polite"></p>
+  <figcaption class="caption"><strong>Direction against speed.</strong> Two searchers on a line of 100 places, with a wall at the start and the target at the far end. The grey one steps toward or away from the target with equal probability but takes k steps for every step of the blue one, which steps toward the target with probability p. Time is counted in steps of the blue searcher. Every run is random, so the numbers change from run to run.</figcaption>
+</figure>
+
+<p>In a simulation with 400 runs for each case, the unbiased searcher needed 10,253 steps on average, the one with <i>p</i> = 0.55 needed 953 and the one with <i>p</i> = 0.6 needed 483. To keep up with <i>p</i> = 0.55, the unbiased searcher would have to be about ten times faster. And the larger the space, the less a constant gain in speed is worth against even a small lean.</p>
+</details>
+
+<p data-term="Person and machine">Curiosity and creativity <strong>supply the direction</strong>, the first by pointing to what is worth explaining and the second by moving outside the norm. So a machine that digests the literature faster without them speeds up the search without steering it. In my opinion, scientists with good curiosity and creativity, together with artificial scientists that accelerate the exploration of the space, are therefore <strong>the best combination</strong> for accelerating scientific discovery. And artificial scientists that are curious themselves would add directions in which no person is looking.</p>
+
+<details class="thought"><summary aria-label="Open my note" title="My note"></summary><p>If you see all of that as data too, then we can think of a human as a pre-trained model that gets fine-tuned during education and so on, right? Then having two scientists, one human and one artificial, is a kind of model merging, or a collaborative way of working, and I think it would increase the chance of finding the right subspace in a shorter time.</p></details>
+
+<h2>Doubting what you take for granted</h2>
+
+<p data-term="Expected information gain">Now let's talk about the harder form of curiosity, doubting what one takes for granted. A common way to make an agent curious is to reward it for its <strong>expected information gain</strong><button type="button" class="q" data-def="How much an agent expects an observation to reduce its uncertainty, computed under its own model before it looks." title="How much an agent expects an observation to reduce its uncertainty, computed under its own model before it looks." aria-label="Explain this term">?</button>, so that it goes where it expects to learn the most. But expected information gain is computed under the agent's own model, and <strong>what that model takes for granted is held with near certainty and so promises almost no gain</strong>. A maximiser of expected gain is therefore drawn to the first form of curiosity and has, as far as I can see, no reason to turn to the second.</p>
+
+<p>I built a small model to check this. When the agent was 90 or 99 percent sure of its assumptions, it tested them and found the false one in every run with up to sixteen assumptions. When it was 99.9 percent sure, it did not test the false one in a single run out of 200, whatever the number of assumptions. The firmer an assumption is held, the less a test of it promises, and what is taken for granted is held most firmly of all.</p>
+
+<details class="tech"><summary>For those who want the details: the small model</summary>
+<p>We can see this in a small Bayesian<button type="button" class="q" data-def="A model that keeps probabilities over what it does not know and updates them with Bayes&#x27; rule as observations come in." title="A model that keeps probabilities over what it does not know and updates them with Bayes&#x27; rule as observations come in." aria-label="Explain this term">?</button> model. Imagine an agent that holds an assumption, that a quantity it takes to be zero is zero, with probability <i>p</i>. Testing the assumption costs it a little effort, and it could instead keep working on its main question. The expected information gain of the test is at most <i>h</i>(<i>p</i>) + (1 − <i>p</i>) · ½ log(1 + <i>s</i>²/σ²), where <i>h</i> is the binary entropy<button type="button" class="q" data-def="h(p) = −p log p − (1 − p) log(1 − p), the uncertainty of a yes or no question that is answered yes with probability p. It is zero when p is 0 or 1." title="h(p) = −p log p − (1 − p) log(1 − p), the uncertainty of a yes or no question that is answered yes with probability p. It is zero when p is 0 or 1." aria-label="Explain this term">?</button>, <i>s</i>² how much the quantity could vary if the assumption were false, and <i>σ</i>² the noise of the test. As <i>p</i> goes to one, this bound goes to zero.<label for="sn-g" class="sn-ref" aria-label="Side note g">g</label><input type="checkbox" id="sn-g" class="sn-toggle"><span class="sidenote"><span class="sn-letter">g</span>Why the bound holds. Let <i>A</i> indicate that the assumption holds. Then <i>I</i>(<i>b</i>; <i>y</i>) = <i>I</i>(<i>A</i>; <i>y</i>) + <i>I</i>(<i>b</i>; <i>y</i> | <i>A</i>). The first term is at most the entropy <i>h</i>(<i>p</i>) of A, and the second is zero when the assumption holds and the gain of a Gaussian channel otherwise. If the assumption is not in the agent's model at all, the gain is exactly zero. The bound is standard, and only the reading is mine.</span> You can slide it below and see for yourself.</p>
+
+<figure class="fig" id="fig-doubt">
+  <div class="controls">
+    <label>how firmly the assumption is held <input type="range" id="doubt-i" min="0" max="60" step="1" value="30" style="width:220px"><output id="doubt-out"></output></label>
+  </div>
+  <svg viewBox="0 0 600 290" role="img" aria-label="Expected information gain of testing an assumption against how firmly it is held"></svg>
+  <p class="verdict" id="doubt-verdict" aria-live="polite"></p>
+  <figcaption class="caption"><strong>The more firmly an assumption is held, the less a test of it promises.</strong> The blue curve is the exact expected information gain of testing the assumption, in nats<button type="button" class="q" data-def="A unit of information, like bits but with the natural logarithm. One nat is about 1.44 bits." title="A unit of information, like bits but with the natural logarithm. One nat is about 1.44 bits." aria-label="Explain this term">?</button>, and the dashed curve the bound above. The band is the cost of the test plus what the agent's best other action would gain, which depends on its past observations and shrinks as it works, so the band runs from the smallest value over its 50 steps to the largest at the start. Above the band the agent tests the assumption, and below it the agent keeps working. Computed with the model's own code.</figcaption>
+</figure>
+
+<p>In the model, a researcher has made 200 past observations in which <i>K</i> background conditions stayed at their defaults, so the history says nothing about them and no prediction has failed. Each condition carries an assumption that it has no effect, and all are true except one. In each of 50 steps the agent either works on its main question or tests one condition, and every setting was run 200 times. The table gives the share of runs in which the false assumption was tested.</p>
+
+<div class="fig fig-table">
+  <table class="results" id="doubt-table" aria-label="Share of runs in which the false assumption was tested"></table>
+  <p class="caption">Each share is over 200 runs. The schedule is a control that tests one condition in every five steps in a fixed order, which shows that the world permits the finding.</p>
+</div>
+
+<p>The agent that maximises expected information gain behaved as the bound says. With <i>p</i> = 0.9 or 0.99 it tested every assumption in turn and found the false one in all runs for <i>K</i> up to 16 and in 74 percent of runs for <i>K</i> = 64. With <i>p</i> = 0.999 it tested the false assumption in <strong>none of the 200 runs</strong> for any <i>K</i> from 1 to 64.</p>
+</details>
+
+<p data-term="Novelty">An agent with a novelty bonus<button type="button" class="q" data-def="An extra reward for trying what has been tried least, used in reinforcement learning to make agents explore." title="An extra reward for trying what has been tried least, used in reinforcement learning to make agents explore." aria-label="Explain this term">?</button>, which prefers what it has tried least, does reach what is taken for granted, since it ignores how firmly an assumption is held. But it tests the conditions one by one without direction, and with a fixed budget the share that it can test falls as the number of assumptions grows, just like the searcher without direction above.</p>
+
+<p>Neither aims a doubt at <em>one</em> thing, which is what I called taste. The model does not show that curiosity in my sense would do better, only where the gap lies. It is a small Bayesian model, and it says nothing about agents built on language models.</p>
+
+<h2>Discover and understand</h2>
+
+<p data-term="Testing">So far I have talked about the first pair. But a hypothesis is not yet knowledge, and to discover anything one has to <em>test</em> it. In the search for Neptune, the hypothesis of an unseen planet implied the place in the sky where it had to be, and it was this implication that made the hypothesis testable, by a targeted observation<button type="button" class="q" data-def="Looking exactly where a hypothesis says something must be, when one cannot act on the system." title="Looking exactly where a hypothesis says something must be, when one cannot act on the system." aria-label="Explain this term">?</button>, since nobody can intervene<button type="button" class="q" data-def="To act on a system, setting something oneself instead of only watching it, and to see what changes." title="To act on a system, setting something oneself instead of only watching it, and to see what changes." aria-label="Explain this term">?</button> on a planet. Neptune survived because it was found where it had been predicted, whereas Vulcan, proposed for Mercury, was never found.<a class="cite" href="#ref-23">23,24</a> The same move, an unseen planet, was put to the same test twice, with opposite outcomes.</p>
+
+<p>And here, too, today's systems are weak at both. Agents placed in controlled games and laboratories predict well but identify the mechanism poorly and often miss confounders<button type="button" class="q" data-def="A hidden factor that influences both the supposed cause and its effect, so that the two move together without one causing the other." title="A hidden factor that influences both the supposed cause and its effect, so that the two move together without one causing the other." aria-label="Explain this term">?</button>,<a class="cite" href="#ref-25">25</a> and language models tend to confirm a rule and to look for too few counter-examples.<a class="cite" href="#ref-26">26</a></p>
+
+<p data-term="Understanding">A result that has survived its test is <em>known</em>, and it is not yet <em>understood</em>. For more than half a century the orbit of Mercury was such a result, since its perihelion<button type="button" class="q" data-def="The point of a planet&#x27;s orbit nearest the Sun." title="The point of a planet&#x27;s orbit nearest the Sun." aria-label="Explain this term">?</button> advanced by 43 arcseconds<button type="button" class="q" data-def="One 3,600th of a degree." title="One 3,600th of a degree." aria-label="Explain this term">?</button> per century more than Newton's theory could account for, the planet Vulcan that was proposed to explain the excess was never found, and the excess remained a fact without a reason.<a class="cite" href="#ref-27">27</a> In November 1915 Einstein showed that general relativity gives the 43 arcseconds with no new planet,<a class="cite" href="#ref-28">28</a> and the same theory returns Newton's law as a limit, which explains why the old theory had worked so well elsewhere.<label for="sn-h" class="sn-ref" aria-label="Side note h">h</label><input type="checkbox" id="sn-h" class="sn-toggle"><span class="sidenote"><span class="sn-letter">h</span>How can one tell that something has been understood? In the account of de Regt, as Krenn and colleagues state it, a phenomenon is understood when there is an intelligible theory of it, and a theory is intelligible to scientists when they can recognise its characteristic consequences qualitatively, without performing the exact calculation.<a class="cite" href="#ref-29">29,30</a> A physicist who understands general relativity can say before computing anything that the excess should be largest for the planet nearest the Sun.</span></p>
+
+<p>Here today's systems leave us in an odd position, since a machine can now find a solution or a proof whose reasoning we cannot follow. When Krenn and colleagues surveyed the literature and dozens of scientists, they found computers that served understanding as instruments and as sources of inspiration, and none that had acquired new scientific understanding on its own.<a class="cite" href="#ref-30">30</a><label for="sn-i" class="sn-ref" aria-label="Side note i">i</label><input type="checkbox" id="sn-i" class="sn-toggle"><span class="sidenote"><span class="sn-letter">i</span>They also proposed a test in the spirit of Turing's imitation game.<a class="cite" href="#ref-31">31</a> A teacher, human or machine, explains a theory to a student, a referee questions both, and if the referee cannot tell the quality of their explanations apart, the teacher is said to understand.</span> To learn from AlphaZero, a program that plays chess, researchers first had to extract concepts from inside the network and then teach them to four grandmasters, in a small study presented as a proof of concept.<a class="cite" href="#ref-32">32</a> I read this as a sign that what a machine has found is not yet something it can pass on.</p>
+
+<p data-term="Communication">An explanation that stays with the one who found it ends there, so the last stage is <strong>communication</strong>. Kuhn observed that scientists who work within an accepted theory tend to set an anomaly aside until anomalies of its kind can no longer be ignored,<a class="cite" href="#ref-33">33</a> and a researcher working alone who did the same would simply lose the puzzle. A community loses it less easily, because among many people someone stays interested when the others have moved on, and Mercury was kept in this way from 1859 to 1915. I therefore think that an artificial scientist needs both, <strong>curiosity in each machine and a community of machines and people</strong> in which an unexplained result can wait for the one who wonders at it.</p>
+
+<details class="thought"><summary aria-label="Open my note" title="My note"></summary><p>You need an outlier who can produce an idea outside the existing subspace. But on the other hand, the community has to accept the idea and continue from that node of knowledge. If they don't, the outlier idea cannot be validated, and it will not be continued by other researchers, human or machine. … And community is built on communication.</p></details>
+
+<h2>What is left for us</h2>
+
+<p data-term="What is novel">This brings me to a question I keep coming back to. What does it mean that something is novel, if the search space is this large and machines can move through it far faster than we can, even by raw power alone? In September 2026, OpenAI announced that about ten thousand AI agents working together had found a singularity in the Navier–Stokes equations, one of the Millennium Prize problems, and that the result had been checked in Lean<button type="button" class="q" data-def="A programming language in which a mathematical proof is written out so completely that a computer can check every step." title="A programming language in which a mathematical proof is written out so completely that a computer can check every step." aria-label="Explain this term">?</button>.<a class="cite" href="#ref-34">34</a> In November, a mathematician at Anthropic announced that he and Claude had found a proof of the Riemann hypothesis, and he released it only as a proof in Lean, since, in his words, “a full written argument would be extremely long”.<a class="cite" href="#ref-35">35</a> Mathematicians are still working out what both results mean, and as Quanta put it, this will take some time “even if they have already been formally verified”. But if they hold, a machine has reached two of the hardest open places in mathematics, and the challenge that is left is for us to understand what it found.</p>
+
+<p data-term="No more heroes">Terence Tao put it in a way that stayed with me. He says that we are moving from an era in which proofs were scarce to one in which they are abundant, and that “now we're drowning in proofs, but we're not getting all the understanding that we used to get”. He also says that “we are seeing the end of the romantic era of mathematics, the age of heroes”.<a class="cite" href="#ref-36">36</a> I think this holds beyond mathematics. Maybe there is no more long journey to a result and no more hero at its end. But the journey was also where we learned, from our mistakes and from the dead ends, and I am not sure yet what will replace it.</p>
+
+<p data-term="Our role">So maybe we have to reconsider our role, and what it means to be a researcher. Software engineering has been shaped by generative AI very aggressively, and I think many of us realised along the way that writing code was not the bottleneck from the beginning. The hard part was the abstraction and the architecture, the design, deciding what to build and how the pieces fit together. I wonder whether research is the same, and whether proving and computing were never the real bottleneck either, but choosing the question, seeing what a result means and fitting it into what we already understand. I do not know yet. But if that is right, it is exactly the part of the cycle that I have argued begins with curiosity and ends with understanding.</p>
+
+<p data-term="Alien beings">Geoffrey Hinton calls what is happening a revolution “as large as Copernicus or Darwin”, and he speaks of AI systems as “these alien beings we're making”.<a class="cite" href="#ref-37">37</a> If that is right, then we have created something that we do not yet understand. It can solve problems, and often we cannot say how it solved them. Tao makes a similar point, that we are putting these tools in charge of real systems while “we don't understand how they work really”.<a class="cite" href="#ref-36">36</a> For me, this is where comprehension and communication, the last pair of the cycle, become our task, and where looking inside models may become a part of doing science itself.</p>
+
+<h2>Where this leaves us</h2>
+
+<p>So where does this leave us? This is a position with arguments and a proposed test, and <em>nothing in it has been proven</em>. I have argued that open-ended inquiry begins where something is wondered at, either because it departs from what one expected or because one stops taking it for granted, and that today's systems join the inquiry one stage later. If that is right, then making such systems faster, or giving them more of the literature, lengthens the stretch of the cycle that they can run and leaves its entry with us.</p>
+
+<p>If machines became curious in a sense that can be tested, and if what they came to understand could be passed on to a community of people and machines, we could perhaps build artificial scientists that accelerate science.</p>
+
+<p>All of this is how I see it now, in my first semester, and I expect much of it to change. If you think I am wrong somewhere, I would be glad to hear it.</p>
+
+<h2 class="unnum">How the idea grew</h2>
+
+<p>A time stamp, mostly for my future self, human or artificial. These are the first notes in which each part of the idea showed up, in my own words.</p>
+
+<details class="thought-log-wrap">
+<summary>Open the log, still writing</summary>
+<ol class="thought-log">
+  <li><span class="t">The starting point. “I believe that AI will shape the way science is done. … For AI to be successful in science, we would need different Cs. It starts with curiosity, observing things, getting curious and asking questions, then creativity, creating hypotheses, and so on, and then causality, understanding the causal relationships between variables.”</span></li>
+  <li><span class="t">From three Cs to six. Criticism, comprehension and communication joined curiosity, creativity and causality, and the six became a cycle.</span></li>
+  <li><span class="t">What curiosity needs that a gap in the literature does not have. “A combination of surprise, one's own observation and an intrinsic feeling of needing to know.”</span></li>
+  <li><span class="t">Creativity as a ladder. “I still think it's a ladder. First you need to know the old ideas and see the relations between them. Then perhaps you find an outlier, and this outlier can be field-defining.”</span></li>
+  <li><span class="t">The feeling, not the word. “It's not about being bothered by something. It's about wonder, getting curious, being interested in things, right? I don't think there's one right word for it. Maybe we should describe the feeling.”</span></li>
+  <li><span class="t">The cycle connects people. “If person A has finished the last cycle, then another person can start the cycle again and continue with the knowledge from the first person's last cycle. So it's interconnected, you know.”</span></li>
+  <li><span class="t">Two levels of curiosity. “If you are curious about things that are normal to you, I think that's easier than being curious about things that are taken for granted, and it requires more energy to question things that are taken for granted.”</span></li>
+  <li class="gap"><span class="t"><strong>A big thinking break.</strong> My notes stop here for two weeks.</span></li>
+  <li><span class="t">The search space may have no end. “We cannot say for sure that the search space is finite. Even if it is finite, it's so large that we could never fully explore it.”</span></li>
+  <li><span class="t">What is left for us. “Software engineering has been shaped by AI aggressively, and we might have realised that coding was not the bottleneck from the beginning, but more the abstraction and architectural challenges, so design challenges. So what would change for us as researchers?”</span></li>
+  <li class="now"><span class="t"><strong>Still writing the paper.</strong> This post is where my thinking stands today, and the paper is not finished.</span></li>
+</ol>
+</details>
+
+<aside class="cite-box" id="cite">
+<h2 class="unnum">Cite this post</h2>
+<p class="cite-note">If something here was useful to you, or you want to show me later what I got wrong, you can cite it like this.</p>
+<div class="cite-row"><pre id="cite-plain">Phongsakon Mark Konrad. Curiositas, or the six Cs of an artificial scientist. Blog post, 26 November 2026. https://phomarkon.github.io/blog/artificial-scientists/</pre><button type="button" class="btn" data-copy="cite-plain">Copy</button></div>
+<div class="cite-row"><pre id="cite-bib">@misc{konrad2026curiositas,
+  author       = {Konrad, Phongsakon Mark},
+  title        = {Curiositas, or the six Cs of an artificial scientist},
+  howpublished = {Blog post, \url{https://phomarkon.github.io/blog/artificial-scientists/}},
+  year         = {2026},
+  month        = nov,
+  note         = {Posted 26 November 2026, work in progress}
+}</pre><button type="button" class="btn" data-copy="cite-bib">Copy</button></div>
+</aside>
+
+<section class="post-notes">
+  <p>This post is drawn from a paper I am writing on the same question. A language model (Claude, by Anthropic) was used to correct grammar and typos and to improve the clarity of the writing. It also helped to search the literature and to turn my notes into draft text, the interactive figures and the scripts of the toy models. All ideas here are my own, and I take full responsibility for the content. The animations and interactive figures were made by AI (Claude Opus 5.5), and they are way better than what I could have made myself. Thank you, Claude.</p>
+  <p>The portraits in the figures are from Wikimedia Commons and in the public domain: Isaac Newton painted by Godfrey Kneller in 1689, Albert Einstein photographed by Ferdinand Schmutzer in 1921, Richard Feynman's Los Alamos ID badge photograph from about 1943, Tycho Brahe engraved by Jacques de Gheyn II in 1586, and Johannes Kepler in a 1910 copy by August Köhler of a portrait from 1627.</p>
+  <h3>References</h3>
+  <ol class="refs">
+    <li id="ref-1">A. Einstein. Autobiographical Notes. Albert Einstein: Philosopher-Scientist. 1949.</li>
+    <li id="ref-2">A. Einstein. Zur Elektrodynamik bewegter Körper. Annalen der Physik. 1905. <a href="https://doi.org/10.1002/andp.19053221004">doi</a></li>
+    <li id="ref-3">R. P. Feynman and R. Leighton. “Surely You're Joking, Mr. Feynman!”: Adventures of a Curious Character. W. W. Norton. 1985.</li>
+    <li id="ref-4">H. Wang et al. Scientific discovery in the age of artificial intelligence. Nature. 2023. <a href="https://doi.org/10.1038/s41586-023-06221-2">doi</a></li>
+    <li id="ref-5">J. Jumper et al. Highly accurate protein structure prediction with AlphaFold. Nature. 2021. <a href="https://doi.org/10.1038/s41586-021-03819-2">doi</a></li>
+    <li id="ref-6">B. Romera-Paredes et al. Mathematical discoveries from program search with large language models. Nature. 2023. <a href="https://doi.org/10.1038/s41586-023-06924-6">doi</a></li>
+    <li id="ref-7">T. H. Trinh et al. Solving olympiad geometry without human demonstrations. Nature. 2024. <a href="https://doi.org/10.1038/s41586-023-06747-5">doi</a></li>
+    <li id="ref-8">C. Lu et al. The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery. 2024. <a href="https://arxiv.org/abs/2408.06292">arXiv</a></li>
+    <li id="ref-9">J. Gottweis et al. Accelerating scientific discovery with Co-Scientist. 2025. <a href="https://arxiv.org/abs/2502.18864">arXiv</a></li>
+    <li id="ref-10">D. Agarwal et al. AutoDiscovery: Open-ended Scientific Discovery via Bayesian Surprise. Advances in Neural Information Processing Systems 38 (NeurIPS 2025). 2025. <a href="https://neurips.cc/virtual/2025/poster/116398">web</a></li>
+    <li id="ref-11">Plato. Theaetetus. The Dialogues of Plato. 1892.</li>
+    <li id="ref-12">Aristotle. Metaphysics. Clarendon Press. 1908.</li>
+    <li id="ref-13">R. Descartes. Discourse on the Method of Rightly Conducting One's Reason and of Seeking Truth in the Sciences. 1637.</li>
+    <li id="ref-14">L. Engländer et al. Agents Explore but Agents Ignore: LLMs Lack Environmental Curiosity. 2026. <a href="https://arxiv.org/abs/2604.17609">arXiv</a></li>
+    <li id="ref-15">M. Ríos-García et al. AI Scientists Produce Results without Reasoning Scientifically. 2026. <a href="https://arxiv.org/abs/2604.18805">arXiv</a></li>
+    <li id="ref-16">C. Si et al. Can LLMs Generate Novel Research Ideas? A Large-Scale Human Study with 100+ NLP Researchers. 2024. <a href="https://arxiv.org/abs/2409.04109">arXiv</a></li>
+    <li id="ref-17">Plato. Meno. Plato in Twelve Volumes, Vol. 3. 1967.</li>
+    <li id="ref-18">G. Loewenstein. The psychology of curiosity: A review and reinterpretation. Psychological Bulletin. 1994. <a href="https://doi.org/10.1037/0033-2909.116.1.75">doi</a></li>
+    <li id="ref-19">R. Geirhos et al. Shortcut learning in deep neural networks. Nature Machine Intelligence. 2020. <a href="https://doi.org/10.1038/s42256-020-00257-z">doi</a></li>
+    <li id="ref-20">C. S. Peirce. The Fixation of Belief. Popular Science Monthly. 1877.</li>
+    <li id="ref-21">Y. Burda et al. Exploration by Random Network Distillation. International Conference on Learning Representations. 2019. <a href="https://arxiv.org/abs/1810.12894">arXiv</a></li>
+    <li id="ref-22">R. S. Sutton. The Bitter Lesson. Essay. 2019. <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">web</a></li>
+    <li id="ref-23">I. Lakatos. Falsification and the Methodology of Scientific Research Programmes. Criticism and the Growth of Knowledge. 1970. <a href="https://doi.org/10.1017/CBO9781139171434.009">doi</a></li>
+    <li id="ref-24">K. R. Popper. The Logic of Scientific Discovery. Routledge. 2002. <a href="https://doi.org/10.4324/9780203994627">doi</a></li>
+    <li id="ref-25">Z. Chen et al. CausalGame: Benchmarking Causal Thinking of LLM Agents in Games. 2026. <a href="https://arxiv.org/abs/2607.04293">arXiv</a></li>
+    <li id="ref-26">A. R. Jhaveri et al. Failing to Falsify: Evaluating and Mitigating Confirmation Bias in Language Models. 2026. <a href="https://arxiv.org/abs/2604.02485">arXiv</a></li>
+    <li id="ref-27">N. T. Roseveare. Mercury's Perihelion from Le Verrier to Einstein. Clarendon Press. 1982.</li>
+    <li id="ref-28">A. Einstein. Erklärung der Perihelbewegung des Merkur aus der allgemeinen Relativitätstheorie. Sitzungsberichte der Königlich Preussischen Akademie der Wissenschaften. 1915.</li>
+    <li id="ref-29">H. W. de Regt. Understanding Scientific Understanding. Oxford University Press. 2017. <a href="https://doi.org/10.1093/oso/9780190652913.001.0001">doi</a></li>
+    <li id="ref-30">M. Krenn et al. On scientific understanding with artificial intelligence. Nature Reviews Physics. 2022. <a href="https://doi.org/10.1038/s42254-022-00518-3">doi</a></li>
+    <li id="ref-31">A. M. Turing. Computing Machinery and Intelligence. Mind. 1950. <a href="https://doi.org/10.1093/mind/LIX.236.433">doi</a></li>
+    <li id="ref-32">L. Schut et al. Bridging the human–AI knowledge gap through concept discovery and transfer in AlphaZero. Proceedings of the National Academy of Sciences. 2025. <a href="https://doi.org/10.1073/pnas.2406675122">doi</a></li>
+    <li id="ref-33">T. S. Kuhn. The Structure of Scientific Revolutions. University of Chicago Press. 2012. <a href="https://doi.org/10.7208/chicago/9780226458144.001.0001">doi</a></li>
+    <li id="ref-34">Q. Magazine. AI Has Solved One of Math's \$1 Million Millennium Prize Problems. 2026. <a href="https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/">web</a></li>
+    <li id="ref-35">Phys.org. Anthropic researcher says he and Claude proved the Riemann hypothesis, first posed in 1859. 2026. <a href="https://phys.org/news/2026-11-anthropic-claude-math-greatest-riddle.html">web</a></li>
+    <li id="ref-36">T. Tao. No More Heroes: Terence Tao Talks to Numberphile About AI. 2026. <a href="https://www.youtube.com/watch?v=bAnwMdfcMVw">web</a></li>
+    <li id="ref-37">G. Hinton. Are we Creating Alien Beings?. 2026. <a href="https://www.youtube.com/watch?v=JVuSYB9iqwo">web</a></li>
+  </ol>
+</section>
+</article>
+</main>
+
+<div class="q-pop" id="q-pop" role="tooltip" hidden></div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var toggle = document.querySelector('.theme-toggle');
+    var media = window.matchMedia('(prefers-color-scheme: dark)');
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    applyTheme(root.getAttribute('data-theme'));
+    toggle.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+    media.addEventListener('change', function (e) {
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (err) {}
+      if (!saved) applyTheme(e.matches ? 'dark' : 'light');
+    });
+  })();
+</script>
+<script src="data.js?v=4ad9d2fe80"></script>
+<script src="post.js?v=000fe47fea"></script>
+</body>
+</html>
