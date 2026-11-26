@@ -159,7 +159,10 @@
     function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
     function expected() {
       var p = +pIn.value, k = +kIn.value;
-      return 'Expected order of time, about ' + fmt(N * N / k) + ' for the faster searcher and ' + fmt(N / (2 * p - 1)) + ' for the one with direction.';
+      // Exact expected times with the wall at the start: N(N + 1) steps without direction, and the sum of e_x with a lean p.
+      var e = 1 / p, tot = e;
+      for (var x = 1; x < N; x++) { e = 1 / p + (1 - p) / p * e; tot += e; }
+      return 'Expected time on average, ' + fmt(N * (N + 1) / k) + ' for the faster searcher and ' + fmt(tot) + ' for the one with direction.';
     }
     function labels() {
       pOut.textContent = (+pIn.value).toFixed(2);
@@ -169,6 +172,17 @@
     pIn.addEventListener('input', labels);
     kIn.addEventListener('input', labels);
 
+    // One run is luck. Many runs with the same settings show what to expect.
+    function tally(p, k) {
+      var RUNS = 500, wins = 0, ties = 0, sa = 0, sb = 0;
+      function hit(prob) { var x = 0, n = 0; while (x < N) { n++; if (Math.random() < prob) x++; else if (x > 0) x--; } return n; }
+      for (var r = 0; r < RUNS; r++) {
+        var ta = Math.ceil(hit(0.5) / k), tb = hit(p);
+        sa += ta; sb += tb;
+        if (tb < ta) wins++; else if (tb === ta) ties++;
+      }
+      return { share: Math.round(100 * (wins + ties / 2) / RUNS), a: sa / RUNS, b: sb / RUNS, runs: RUNS };
+    }
     function run() {
       if (raf) cancelAnimationFrame(raf);
       var p = +pIn.value, k = +kIn.value;
@@ -200,7 +214,10 @@
         readout.textContent = line;
         if ((a.done && b.done) || t > LIMIT) {
           raf = null;
-          if (t > LIMIT && !a.done) readout.textContent = line + ' Stopped at time ' + fmt(LIMIT) + ', since the faster searcher may need much longer.';
+          if (t > LIMIT && !a.done) line += ' Stopped at time ' + fmt(LIMIT) + ', since the faster searcher may need much longer.';
+          else if (a.time < b.time) line += ' This time the faster one got lucky.';
+          var m = tally(p, k);
+          readout.textContent = line + ' But one run is luck. Over ' + m.runs + ' runs with these settings, the one with direction arrived first in ' + m.share + '% of them, on average at time ' + fmt(m.b) + ' against ' + fmt(m.a) + '.';
           btn.textContent = 'Run again';
           return;
         }
