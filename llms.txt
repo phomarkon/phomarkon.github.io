@@ -33,6 +33,7 @@ Next, I want to ask the same question about the tools we use to look inside. Whe
 - [Architecture Without Architects: How AI Coding Agents Shape Software Architecture](https://arxiv.org/abs/2604.04990). First author. SAGAI Workshop, IEEE ICSA 2026.
 - [CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models](https://arxiv.org/abs/2604.05755). Second author. KDA-AI Workshop, IEEE ICSA 2026.
 - [A Reference Architecture for Agentic Hybrid Retrieval in Dataset Search](https://arxiv.org/abs/2604.16394). Second author. SAML Workshop, IEEE ICSA 2026.
+- [Toward Artificial Scientists That Wonder, Discover and Understand](https://www.alphaxiv.org/abs/2611.artificial-scientists-curiosity-discovery-understanding). Sole author. Preprint, alphaXiv 2026.
 - [The Open-Box Fallacy: Why AI Deployment Needs a Calibrated Verification Regime](https://arxiv.org/abs/2605.10601). First author. Position paper, arXiv 2026.
 - [Heimdall: Only the Safe Shall Pass](https://phomarkon.github.io/heimdall-page/). BSc thesis with Tim Lukas Adam (equal contribution), University of Southern Denmark, 2026.
 
